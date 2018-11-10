@@ -14,6 +14,7 @@ install:
   - npm install  #安装hexo及插件(库中没有node_modules，有package.json文件)
 
 script:
+  - chmod 777 ./node_modules/.bin/hexo      #修改权限
   - hexo clean      #清除
   # - hexo g && gulp  #生成(需要安装gulp插件)
   - hexo g          #生成
