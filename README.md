@@ -8,4 +8,5 @@
   * `themes/<SubModules>`  ：主题源，子模块，拉取主题库中的MyMaster分支。
 
 ----
-master  ：  内容发布分支。
+Hexo ： blog源程序分支
+
