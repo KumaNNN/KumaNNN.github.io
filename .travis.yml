@@ -1,0 +1,51 @@
+language: node_js  #设置语言
+
+node_js: stable  #设置相应的版本
+
+cache:
+    apt: true
+    directories:
+        - node_modules # 缓存不经常更改的内容
+
+before_install:
+    - export TZ='Asia/Shanghai' # 更改时区
+
+install:
+  - npm install  #安装hexo及插件(库中没有node_modules，有package.json文件)
+
+script:
+  - hexo clean      #清除
+  # - hexo g && gulp  #生成(需要安装gulp插件)
+  - hexo g          #生成
+
+after_script:
+  - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
+  - cd ./public
+  - git checkout .gitignore   # 个人需求
+  - git checkout README.md    # 个人需求
+  - git config user.name "kuma8866"  #修改name
+  - git config user.email "kuma8866@163.com"  #修改email
+  - git add .
+  - git commit -m "Travis CI 自动构建在 `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:master  #Travis_Token是在Travis中配置token的名称
+
+branches:
+  only:
+    - Hexo  #只监测指定分支   
+env:
+ global:  
+   - GH_REF: github.com/KumaNNN/KumaNNN.github.io.git  #设置GH_REF，注意更改yourname
+
+# configure notifications (email, IRC, campfire etc)
+# please update this section to your needs!
+# https://docs.travis-ci.com/user/notifications/
+# notifications:
+  # email:
+    # - 1147727180@qq.com
+    # - mtianyan@outlook.com
+  # on_success: change
+  # on_failure: always
