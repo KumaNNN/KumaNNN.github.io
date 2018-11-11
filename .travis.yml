@@ -67,7 +67,7 @@ after_script:
   ## 可配置多个远程仓库
   
   ## Github 
-  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:master  #Travis_Token是在Travis中配置token的名称
+  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:master  # GITHUB_TOKEN 是在Travis中配置token的名称
   
   ## gitee
   
