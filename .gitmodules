@@ -2,3 +2,7 @@
 	path = public
 	url = https://github.com/KumaNNN/KumaNNN.github.io.git
 	branch = master
+[submodule "themes/next"]
+	path = themes/next
+	url = https://github.com/BlogThemesHexo/KumaNNN_Hexo_Next.git
+	branch = mymaster
