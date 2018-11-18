@@ -31,8 +31,8 @@ install:
 script:
   - chmod 777 ./node_modules/.bin/hexo       #修改权限
   - hexo clean                               #清除
-  # - hexo g && gulp                         #生成(需要安装gulp插件)
-  - hexo g                                   #生成
+  - hexo g && gulp                         #生成(需要安装gulp插件)
+  #- hexo g                                   #生成
 
 
 ###### 脚本之后 ######
@@ -58,6 +58,7 @@ after_script:
   - git checkout README.md                    # 个人需求  
   - git config user.name "kuma8866"           # 配置name
   - git config user.email "kuma8866@163.com"  # 配置email
+  - git config http.postBuffer  524288000     # 配置提交缓存
   - git add .
   - git commit -m "Travis CI 自动构建在 `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间，跟上面更改时区配合
   #------------END 本地仓库配置 ------------#
