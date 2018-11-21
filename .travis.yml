@@ -57,6 +57,7 @@ after_script:
   - cd ./public
   - git checkout .gitignore                   # 个人需求
   - git checkout README.md                    # 个人需求  
+  - git checkout CNAME                        # 个人需求  
   - git config user.name "kuma8866"           # 配置name
   - git config user.email "kuma8866@163.com"  # 配置email
   - git config http.postBuffer  524288000     # 配置提交缓存

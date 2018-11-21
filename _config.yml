@@ -15,7 +15,7 @@ timezone: Asia/Shanghai
 
 ############## 网址(URL) ##############
 ##  如果你的站点要放入子目录, 请将url设置为'http://yoursite.com/child' 并将根目录设置为'/child/' 
-url: https://kumannn.github.io
+url: http://kuma8866.top/
 root: /
 
 #永久链接: https://hexo.io/zh-cn/docs/permalinks
