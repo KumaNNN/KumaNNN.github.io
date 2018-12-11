@@ -1,6 +1,6 @@
 ---
 title: 【转载】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析
-mathjax: true
+mathjax: false
 tags:
   - hexo
 typora-root-url: hexo-tutorial

@@ -1,6 +1,6 @@
 ---
 title: Node.js入门和企业级项目开发01
-mathjax: true
+mathjax: false
 typora-root-url: nodejs01
 typora-copy-images-to: nodejs01
 categories:
