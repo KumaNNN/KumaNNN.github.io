@@ -20,6 +20,10 @@ if exist init.bat (
 	REM 备份目录
 	xcopy !root!\*  !root!.bak\  /eiy
 
+	REM 删除文件
+	rd  /s/q !root!.bak\Script
+	del /f/s/q !root!.bak\start.bat
+	
 	REM 跳转到当前脚本路径
 	cd !thispath!
 
@@ -36,6 +40,10 @@ if exist init.bat (
 	REM 备份目录
 	xcopy !thispath!*  !root!.bak\  /eiy
 
+	REM 删除文件
+	rd  /s/q !root!.bak\Script
+	del /f/s/q !root!.bak\start.bat
+	
 	REM 跳转到当前脚本路径
 	cd !thispath!
 		

@@ -36,7 +36,7 @@ Script
 
 
 
-### 目录说明
+### 列表说明
 
 * `hook`   ： git钩子根目录。
   * `pre-commit`  ： 父仓库使用的 ==预提交钩子(pre-commit)==  。

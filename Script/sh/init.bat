@@ -18,6 +18,9 @@ setlocal enabledelayedexpansion
 :: 设置颜色
 color 0A
 
+:: 调试开关
+set debug=0
+
 :: 存储感叹号 ! 
 set "T=^!"
 
@@ -30,10 +33,48 @@ set root=%cd%
 :: 设置当前脚本路径
 set thispath=%~dp0
 
+if %debug%==1 echo ------------------------ 简易日期时间和时间戳  ----------------------
+
+:: 日期分隔符
+set delim=-
+
+:: 日期处理( 2018-12-10 )
+for /f "tokens=1-4  delims=/ " %%a in ("%date%") do (
+	set _de=%%a%delim%%%b%delim%%%c
+	set de=%%a%%b%%c
+	set week=%%d
+)
+:: 时间处理( 21:43:58 )
+for /f "tokens=1-4  delims=:." %%a in ("%time%") do (
+	set _ti=%%a:%%b:%%c
+	set ti=%%a%%b%%c
+)
+
+:: 当前日期时间( 2018-12-10 21:43:58 )
+set "datetime=%_de% %_ti%"
+if %debug%==1 echo "%datetime%"
+
+:: 日期时间 戳( 20181207180016 )
+set deti=%de%%ti%
+:::: 去除所有空格
+set timestamp=%deti: =%
+if %debug%==1 echo "%timestamp%"
+
+if %debug%==1 echo ------------------------ 简易日期时间和时间戳  ----------------------
+
+
+
+:: 获取目录名
+for %%i in ("%cd%\.") do (
+  set dirname=%%~ni
+)
+echo 目录名: %dirname% 
+
+
 :: 日志开关
 set log=1
 :: 日志文件名
-set logName=init.log
+set logName=%dirname%.init.log
 :: 换成 ANSI 代码页,中文字符可以正确识别 
 chcp 936  
 :: 记录日志
@@ -99,28 +140,6 @@ for /f "delims=" %%i in ('dir /ad /b /s') do (
 )
 :::::::::::::::::::::::::空目录处理:::::::::::::::::::::::::::::::::::
 
-echo ------------------------ 简易时间戳  ------------------------
-:: 日期处理( 20181207 )
-for /f "tokens=1-3  delims=/ " %%a in ("%date%") do (
-	set de=%%a%%b%%c
-)
-:: 时间处理( 180016 )
-for /f "tokens=1-3  delims=:." %%a in ("%time%") do (
-	set ti=%%a%%b%%c
-)
-:: 日期时间 戳( 20181207180016 )
-set deti=%de%%ti%
-:::: 去除所有空格
-set deti=%deti: =%
-echo "%deti%"
-echo ------------------------ 简易时间戳  ------------------------
-
-
-:: 获取目录名
-for %%i in ("%cd%\.") do (
-  set dirname=%%~ni
-)
-echo 目录名: %dirname% 
 
 
 :: ---------------------------------- 预处理  ---------------------------------- ::
@@ -226,7 +245,7 @@ echo ------------------------ 复制钩子  ------------------------
 set hookname=post-commit
 :: 存在则备份
 if exist ".git\hooks\%hookname%"  (
-	ren .git\hooks\%hookname%   %hookname%.%deti%  
+	ren .git\hooks\%hookname%   %hookname%.%timestamp%  
 )
 :: 复制钩子
 xcopy  Script\hook\SubRepo\%hookname%   .git\hooks\  /Y
@@ -237,11 +256,13 @@ echo ------------------------ 复制钩子  ------------------------
 
 echo ------------------------ 配置输出  ------------------------
 
-set "dn=%dirname%.%deti%.add"
+set "dn=%dirname%.%timestamp%.add"
 set git=https://github.com/KumaDocCenter/%dirname%.git
 set name=%dirname%
 set branch=md
-set sh=info.bat
+set branchs=master:md
+set "init_date=%datetime%"
+set "sh=Script\sh\info.bat"
 
 echo ###################################################### >%dn%
 echo #  子模块批处理配置文件 >>%dn%
@@ -251,14 +272,18 @@ echo # .init	      初始化子模块 >>%dn%
 echo # .update	  更新子模块 >>%dn%
 echo # .del		  删除子模块 >>%dn%
 echo #------------------------------------------------ >>%dn%
-echo #  git     :  git 地址 >>%dn%
-echo #  name    :  子模块名称 >>%dn%
-echo #  branch  :  子模块分支 >>%dn%
-echo #  sh  	   :  待执行的额外脚本 路径 >>%dn%
+echo #  git        :  git 地址 >>%dn%
+echo #  name       :  子模块名称 >>%dn%
+echo #  branch     :  子模块分支 >>%dn%
+echo #  branchs    :  子模块所有分支  >>%dn%
+echo #  init_date  :  子模块初始化时间 >>%dn%
+echo #  sh  	   	  :  待执行的额外脚本 路径 >>%dn%
 echo ###################################################### >>%dn%
 echo git=%git%>>%dn%
 echo name=%name%>>%dn%
 echo branch=%branch%>>%dn%
+echo branchs=%branchs%>>%dn%
+echo init_date=%init_date%>>%dn%
 echo sh=%sh%>>%dn%
 
 echo. 

@@ -11,6 +11,7 @@
 :: 存放目录： ./Script/sh 
 :: 运行目录： ./ 
 :: 
+:: 只处理特定目录(source_md)下的子模块
 :: =================================================================== ::
 
 :::::::::::::::: 变量预处理 ::::::::::::::::
@@ -33,6 +34,8 @@ cd..
 set root=%cd%
 :: 设置当前脚本路径
 set thispath=%~dp0
+:: 设置子模块根目录
+set SubModuleRoot=source_md
 :::::::::::::::: 变量预处理 ::::::::::::::::
 if %is_index%==1 (
 	:: EQU - 等于
@@ -238,7 +241,7 @@ for /f "usebackq tokens=* delims=" %%i in (`dir %cd%\%~1\*.*  /a-d/s/b`) do (
 		if %debug%==1 echo -------VarCount：!v! ---------
 		if %debug%==1 set /a v+=1
 	)
-		
+	REM !sh! 从变量中读取，非参数传递	
 	:: 删除子模块（调用函数并移动文件）    EQU - 等于
 	if "%%~xi"  EQU ".del" (
 		call :submodule_del  0  !name!  !sh!
@@ -322,15 +325,17 @@ if %debug%==1 echo Localtion: %this%: %~0 .................
 
 :: 强制 -f   NEQ - 不等于
 if  "%~3" NEQ ""  (
-	echo 添加子模块[ %~2 ]...
-	git submodule add -b %~3 -f  %~1  %~2
+	echo 添加子模块[ %SubModuleRoot%/%~2 ]...
+	git submodule add -b %~3 -f  %~1  %SubModuleRoot%/%~2
 ) else (
 	echo 添加子模块[ %~1 ]...
-	git submodule add  -f  %~1  %~2
+	git submodule add  -f  %~1  %SubModuleRoot%/%~2
 )
-
-:: 执行脚本
-start %~4   %~2  %~1  %~3
+:: NEQ - 不等于 
+if "%~4" NEQ "" (
+	echo 执行脚本...
+	start %~4   %~2  %~1  %~3
+)
 GOTO:EOF
 :: ==========[Function]================================================================== ::
 
@@ -381,14 +386,17 @@ if %debug%==1 echo Localtion: %this%: %~0 .................
 
 :: NEQ - 不等于
 if  "%~1" NEQ ""  (
-	echo 初始化子模块[ %~1 ]...
-	git submodule init  %~1
+	echo 初始化子模块[ %SubModuleRoot%/%~1 ]...
+	git submodule init  %SubModuleRoot%/%~1
 ) else (
 	echo 初始化所有子模块...
 	git submodule init
 )
-:: 执行脚本
-start %~2  %~1
+:: NEQ - 不等于 
+if "%~2" NEQ "" (
+	echo 执行脚本...
+	start %~2  %~1
+)
 GOTO:EOF
 :: ==========[Function]================================================================== ::
 
@@ -440,14 +448,17 @@ if %debug%==1 echo Localtion: %this%: %~0 .................
 
 :: NEQ - 不等于
 if  "%~1" NEQ ""  (
-	echo 更新子模块[ %~1 ]...
-	git submodule update  %~1
+	echo 更新子模块[ %SubModuleRoot%/%~1 ]...
+	git submodule update  %SubModuleRoot%/%~1
 ) else (
 	echo 更新所有子模块...
 	git submodule update
 )
-:: 执行脚本
-start %~2  %~1
+:: NEQ - 不等于 
+if "%~2" NEQ "" (
+	echo 执行脚本...
+	start %~2  %~1
+)
 GOTO:EOF
 :: ==========[Function]================================================================== ::
 
@@ -501,41 +512,44 @@ if  "%~1" EQU "1"  (
 	for /f "usebackq tokens=* delims=" %%a in (` git submodule status `) do (
 		if %debug%==1 echo a: %%a
 		for /f "usebackq tokens=1-3 delims= " %%i in ( '%%a' ) do (
-			echo -----[子模块：%%j ]--------------------------------------------------
+			echo -----[子模块：%SubModuleRoot%/%%j ]--------------------------------------------------
 			if %debug%==1 echo i: "%%i"
 			if %debug%==1 echo j: "%%j"
 			if %debug%==1 echo k: "%%k"
 			
 			echo 子模块记录从.git/config中删除并清除子模块目录下所有
-			git  submodule deinit -f %%j
+			git  submodule deinit -f %SubModuleRoot%/%%j
 			
 			echo 子模块记录从.gitmodules中删除并清除子模块目录
-			git rm -rf %%j
+			git rm -rf %SubModuleRoot%/%%j
 			
 			echo 删除子模块数据库
-			rd /s/q  .git\modules\%%j
-			echo -----[子模块：%%j ]--------------------------------------------------
+			rd /s/q  .git\modules\%SubModuleRoot%\%%j
+			echo -----[子模块：%SubModuleRoot%/%%j ]--------------------------------------------------
 		)
 	)
 ) else (
 	if  "%~2" NEQ ""  (		
-		echo -----[子模块：%~2 ]--------------------------------------------------
-		echo 删除子模块[ %~2 ]...
+		echo -----[子模块：%SubModuleRoot%/%~2 ]--------------------------------------------------
+		echo 删除子模块[ %SubModuleRoot%/%~2 ]...
 		echo 子模块记录从.git/config中删除并清除子模块目录下所有
-		git  submodule deinit -f %~2
+		git  submodule deinit -f %SubModuleRoot%/%~2
 		
 		echo 子模块记录从.gitmodules中删除并清除子模块目录
-		git rm -rf %~2
+		git rm -rf %SubModuleRoot%/%~2
 		
 		echo 删除子模块数据库
-		rd /s/q  .git\modules\%~2
-		echo -----[子模块：%~2 ]--------------------------------------------------
+		rd /s/q  .git\modules\%SubModuleRoot%\%~2
+		echo -----[子模块：%SubModuleRoot%/%~2 ]--------------------------------------------------
 	) else (
 		echo 缺少参数[ 子模块名 ]
 	)
 )
-:: 执行脚本
-start %~3   %~2
+:: NEQ - 不等于 
+if "%~3" NEQ "" (
+	echo 执行脚本...
+	start %~3   %~2
+)
 GOTO:EOF
 :: ==========[Function]================================================================== ::
 

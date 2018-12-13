@@ -28,13 +28,15 @@ top:
 
 ### 项目规划
 
-Blog仓库：`KumaNNN.github.io`
+#### Blog仓库
+
+Blog仓库名：`KumaNNN.github.io`
 
 * 此为用户站点，通过各分支进行管理。
 
 * **master**  ： 内容发布分支。
 
-* **\<blog>**  ： blog源程序分支（以 blog源程序的名称命名，如 `Hexo`）
+* **\<blog\>**  ： blog源程序分支（以 blog源程序的名称命名，如 `Hexo`）
 
   * `source_md/<SubModules>`  ：内容源，子模块，拉取文档库中可引用的分支(默认：`md`)
 
@@ -65,7 +67,8 @@ Blog仓库：`KumaNNN.github.io`
 
     
 
-    
+
+#### 文档(子仓库)和主题
 
 **注意**： 文档和主题 ，可用组织进行管理
 
@@ -125,8 +128,11 @@ Blog仓库：`KumaNNN.github.io`
 
 **产生的文件有：**
 
-* `init.log`  ： 仓库初始化日志，删除
+* `init.log`  ： 仓库初始化日志，转移
+  * 管理库： `data\SubRepo\init`
 * `*.add`  ： 子模块批处理配置文件，转移
+  * 父项目： `.git\myconf\submodule\staged`
+  * 管理库： `data\SubRepo\add`
 * `doc/md/*.YAML`  ：(`md` 分支) md 文件的YAML头，将其内容复制到相应的md文件头部，然后删除此`*.YAML`文件，最后git提交
 
 
@@ -146,7 +152,7 @@ Blog仓库：`KumaNNN.github.io`
 
 
 
-####写作在子仓库
+#### 写作在子仓库
 
 * 完全可当做为普通git仓库来管理。
 * 子仓库有`master`分支和`md` 分支。
@@ -160,7 +166,7 @@ Blog仓库：`KumaNNN.github.io`
 
 
 
-####写作在子模块
+#### 写作在子模块
 
 * 进入子模块，当做为普通git仓库来管理单分支。
 * 子模块只有`md` 分支，且==禁止==检出其它分支。
