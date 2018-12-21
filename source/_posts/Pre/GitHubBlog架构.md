@@ -67,15 +67,18 @@ Blog仓库名：`KumaNNN.github.io`
 
     
 
-
 #### 文档(子仓库)和主题
+
+==修正==：**文档(子仓库)** 已采用单分支(`master`) ，子模块化到`source_md/<SubModules>` ，再通过脚本复制`source_md/<SubModules>/doc/md/*` 到 `source/<SubModules>/` 
+
+
 
 **注意**： 文档和主题 ，可用组织进行管理
 
 * 文档<组织名>： `KumaDocCenter`
   * 管理库[^1]： `KumaDocCenter.github.io`
-  * 文档分库存储，特定目录（如，md）新建分支(`md`)，以便引用。
-  * 保持数据一致性：`md分支` 定期合并到master分支，或参考 [git从其他分支checkout文件到当前分支](#git从其他分支checkout文件到当前分支)。
+  * 文档分库存储，~~特定目录（如，md）新建分支(`md`)，以便引用。~~  已采用单分支
+  * ~~保持数据一致性：`md分支` 定期合并到master分支，或参考 [git从其他分支checkout文件到当前分支](#git从其他分支checkout文件到当前分支)。~~ 已采用单分支
 * 主题<组织名>：`BlogThemes<blog源程序名称>`    如，`BlogThemesHexo`
   * 管理库[^1]： `BlogThemes<blog源程序名称>.github.io`     如，`BlogThemesHexo.github.io`
   * blog源程序的主题，Fork成独立库，以便管理。
@@ -92,14 +95,22 @@ Blog仓库名：`KumaNNN.github.io`
 
 注： ==推荐每个分支一个目录，而不是在同一目录切换分支==。
 
+`staged`  :  暂存。在此脚本中通常用于待处理目录。
+
 
 
 ### 本地
 
 #### 子仓库初始化
 
-* 复制父项目下的`Script`文件夹到未初始化的子仓库，并运行`Script/sh/init.bat`
-* **脚本流程**：
+* 复制父项目下的`Start.bat`文件和`Script`文件夹到未初始化的子仓库，并运行`Start.bat`文件
+* ~~修改某些子仓库的名称和git地址。嵌套领域可用`.`连结，如 `Apache.httpd`~~  已通过脚本实现
+  * ~~需修改的文件：`*.add` `*.init` `*.del`  `*.updata`  `.git/config`~~ 已通过脚本实现
+  * git嵌套： 可以忽略整个子目录
+    * 因为文件夹已嵌套，且用`.`连结作为仓库名，已便于区分，才可以这样做。
+    * 适用于，想把上级目录也用git管理的情景。
+* 根据名称，建立远端仓库，并进行推送，以便子模块拉取。
+* **多分支脚本流程**：
   1. 检测`.git` 文件，存在则退出脚本。不存在则继续执行脚本。
   2. 特定目录处理。
      * 一些不存在的目录会自动创建，如 `doc/md`  `doc/Readme`
@@ -110,7 +121,7 @@ Blog仓库名：`KumaNNN.github.io`
      * 初始化仓库，配置用户名，邮箱，添加远程仓库等等。
   5. 首次提交
      * 提交空白仓库，只包含 .gitignore 文件
-     * 提交信息： `Commit_0 : 初始化`
+     * 提交信息： `Commit_0 : init`
   6. 第2次提交 + 新建分支
      * 增加 doc/md 和 Script目录，并依此新建md分支
      * 提交信息： `Commit_1 : + doc/md/* and Script`
@@ -118,11 +129,32 @@ Blog仓库名：`KumaNNN.github.io`
      * 添加所有文件
      * 提交信息：`Commit_2 : + All file`
   8. 复制钩子
-     * ==提交钩子(post-commit)==
-  9. 输出子模块批处理配置文件
+     * ~~==提交钩子(post-commit)==~~  子仓库暂无
+  9. YAML输出
+  10. 输出子模块批处理配置文件
      * 手动复制此配置文件到其它地方。
-  10. YAML输出
   11. 结果输出
+* **单分支脚本流程**：
+  1. 检测`.git` 文件，存在则退出脚本。不存在则继续执行脚本。
+  2. 特定目录处理。
+     * 一些不存在的目录会自动创建，如 `doc/md`  `doc/Readme`
+  3. 空目录处理。
+     * 因为git会自动忽略空目录。
+     * 对于空目录，添加 .gitkeep 文件
+  4. 仓库配置。
+     * 初始化仓库，配置用户名，邮箱，添加远程仓库等等。
+  5. 首次提交
+     * 提交空白仓库，只包含 .gitignore 文件
+     * 提交信息： `Commit_0 : init`
+  6. 第2次提交
+     * 添加所有文件
+     * 提交信息：`Commit_1 : + All file`
+  7. 复制钩子
+     * ~~==提交钩子(post-commit)==~~  子仓库暂无
+  8. YAML输出
+  9. 输出子模块批处理配置文件
+    * 手动复制此配置文件到其它地方。
+  10. 结果输出
 
 
 
@@ -130,10 +162,11 @@ Blog仓库名：`KumaNNN.github.io`
 
 * `init.log`  ： 仓库初始化日志，转移
   * 管理库： `data\SubRepo\init`
-* `*.add`  ： 子模块批处理配置文件，转移
+* `*.add` `*.init` `*.del`  `*.updata`  ： 子模块批处理配置文件，转移
   * 父项目： `.git\myconf\submodule\staged`
-  * 管理库： `data\SubRepo\add`
-* `doc/md/*.YAML`  ：(`md` 分支) md 文件的YAML头，将其内容复制到相应的md文件头部，然后删除此`*.YAML`文件，最后git提交
+  * 管理库： `data\SubRepo\conf`
+* `doc/md/*.YAML`  ：(`md` 分支或`doc/md`) md 文件的YAML头，处理后删除
+  * 将其内容复制到相应的md文件头部，然后删除此`*.YAML`文件，最后git提交。
 
 
 
@@ -141,12 +174,17 @@ Blog仓库名：`KumaNNN.github.io`
 
 #### 父项目添加子模块(子仓库)
 
-* 运行脚本 `Script\sh\submodule_batch.bat` ，脚本配置如下
-  * 读取目录  ： `.git\myconf\submodule\staged` 
+* 运行脚本 `Script\sh\submodule_batch.bat` ，添加子模块。
+* 子模块稀疏检出(`doc/md`)
+* 复制钩子
+  * ==提交钩子(post-commit)== ，在配置文件中已配置，脚本会自动复制此钩子。
+* 脚本配置如下
+  * 配置读取目录  ： `.git\myconf\submodule\staged` 
     * 从该目录下读取子模块批处理配置文件
   * 完成目录  ： `.git\myconf\submodule\ok`
     * 处理完毕后，将配置文件移动到此。
 * 配置文件格式参考  `Script\sh\git_submodule\Template` 
+* 注： 子模块git数据库在父项目下的.git目录下。
 
 
 
@@ -155,7 +193,8 @@ Blog仓库名：`KumaNNN.github.io`
 #### 写作在子仓库
 
 * 完全可当做为普通git仓库来管理。
-* 子仓库有`master`分支和`md` 分支。
+* (==单分支==)子仓库有`master`分支。
+* (==多分支==)子仓库有`master`分支和`md` 分支。
   * `md` 分支源自`master`分支的`doc/md` ，最终需要将最新的数据合并到`master`分支，以作存储。
   * 所以`doc/md`的更改推荐在`md`分支下进行，然后定期合并到`master`分支
   * `master`分支==不能==合并到`md` 分支，会造成结构不符合当初预期。
@@ -169,12 +208,15 @@ Blog仓库名：`KumaNNN.github.io`
 #### 写作在子模块
 
 * 进入子模块，当做为普通git仓库来管理单分支。
-* 子模块只有`md` 分支，且==禁止==检出其它分支。
+* (==单分支==)子模块只检出`master` 分支，且==禁止==检出其它分支。
+* (==多分支==)子模块只检出`md` 分支，且==禁止==检出其它分支。
   * `md` 分支源自`master`分支的`doc/md` ，最终需要将最新的数据合并到`master`分支，以作存储。
   * 所以`doc/md`的更改推荐在`md`分支下进行，然后定期合并到`master`分支
   * `master`分支==不能==合并到`md` 分支，会造成结构不符合当初预期。
   * 若需要从`master`分支检出`md` 分支所需的最新数据，可通过其它方法，如[git从其他分支checkout文件到当前分支](#git从其他分支checkout文件到当前分支)
-* git提交并推送。
+* git提交
+* 触发==提交钩子(post-commit)== ，写入`复制状态` 数据到子模块git数据库目录下。
+* git推送。
 
 
 
@@ -188,6 +230,7 @@ Blog仓库名：`KumaNNN.github.io`
   * 使用线上持续集成时： 提交当前分支(`Hexo`) ，忽略`public` 子模块。
     * 需要配置，参考 [忽略submodule中的修改或新增文件](#忽略submodule中的修改或新增文件)。
   * 不使用线上持续集成时： 先提交`public`子模块，再提交当前分支(`Hexo`) 。
+* git提交之前，触发==预提交钩子(pre-commit)==，调用脚本，读取配置(`copy.conf`) ，按需复制 `source_md/<SubModuleName>/doc/md/` 下的内容到 `source/_posts/Dev/<SubModuleName>` 
 
 
 

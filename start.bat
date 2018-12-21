@@ -1,56 +1,105 @@
 @echo off
-:: å¼€å¯å˜é‡å»¶è¿Ÿ
+:: ¿ªÆô±äÁ¿ÑÓ³Ù
 setlocal enabledelayedexpansion
+:: µ÷ÊÔ¿ª¹Ø
+set debug=0
 
 cd %~dp0
 
-:: åˆ¤æ–­è„šæœ¬æ‰€åœ¨è·¯å¾„ï¼ŒScript\sh\æˆ–ä»“åº“æ ¹ç›®å½•
+if %debug%==1 echo ------------------------ ¼òÒ×ÈÕÆÚÊ±¼äºÍÊ±¼ä´Á  ----------------------
+
+:: ÈÕÆÚ·Ö¸ô·û
+set delim=-
+
+:: ÈÕÆÚ´¦Àí( 2018-12-10 )
+for /f "tokens=1-4  delims=/ " %%a in ("%date%") do (
+	set _de=%%a%delim%%%b%delim%%%c
+	set de=%%a%%b%%c
+	set week=%%d
+)
+:: Ê±¼ä´¦Àí( 21:43:58 )
+for /f "tokens=1-4  delims=:." %%a in ("%time%") do (
+	set _ti=%%a:%%b:%%c
+	set ti=%%a%%b%%c
+)
+
+:: µ±Ç°ÈÕÆÚÊ±¼ä( 2018-12-10 21:43:58 )
+set "datetime=%_de% %_ti%"
+echo ÈÕÆÚÊ±¼ä£º"%datetime%"
+
+:: ÈÕÆÚÊ±¼ä ´Á( 20181207180016 )
+set deti=%de%%ti%
+:::: È¥³ýËùÓÐ¿Õ¸ñ
+set timestamp=%deti: =%
+echo Ê±¼ä´Á£º"%timestamp%"
+
+if %debug%==1 echo ------------------------ ¼òÒ×ÈÕÆÚÊ±¼äºÍÊ±¼ä´Á  ----------------------
+
+
+:: ÅÐ¶Ï½Å±¾ËùÔÚÂ·¾¶£¬Script\sh\»ò²Ö¿â¸ùÄ¿Â¼
 if exist init.bat (
-	REM è·³è½¬åˆ°ä»“åº“æ ¹ç›®å½•(å½“å‰è„šæœ¬è·¯å¾„ä¸º Script\sh\)
+	REM Ìø×ªµ½²Ö¿â¸ùÄ¿Â¼(µ±Ç°½Å±¾Â·¾¶Îª Script\sh\)
 	cd.. 
 	cd..  
 
-	REM è®¾ç½®æ ¹ç›®å½•è·¯å¾„
+	REM ÉèÖÃ¸ùÄ¿Â¼Â·¾¶
 	set root=!cd!
-	REM è®¾ç½®å½“å‰è„šæœ¬è·¯å¾„
+	REM ÉèÖÃµ±Ç°½Å±¾Â·¾¶
 	set thispath=%~dp0
 
-	REM è·³è½¬åˆ°ä¸Šçº§ç›®å½•
+	REM Ìø×ªµ½ÉÏ¼¶Ä¿Â¼
 	cd..
-	REM å¤‡ä»½ç›®å½•
+	REM ±¸·ÝÄ¿Â¼
 	xcopy !root!\*  !root!.bak\  /eiy
 
-	REM åˆ é™¤æ–‡ä»¶
+	REM É¾³ýÎÄ¼þ
 	rd  /s/q !root!.bak\Script
 	del /f/s/q !root!.bak\start.bat
 	
-	REM è·³è½¬åˆ°å½“å‰è„šæœ¬è·¯å¾„
+	REM Êä³ö±¸·ÝÐÅÏ¢
+	echo ±¸·ÝÄ¿Â¼£º!root! >!root!.bak\back.log
+	echo ±¸·ÝÊ±¼ä£º%datetime% >>!root!.bak\back.log
+	echo ------------------------------------------------------------ >>!root!.bak\back.log
+	echo.  >>!root!.bak\back.log
+	tree /f  !root!.bak  >>!root!.bak\back.log
+	
+	REM Ìø×ªµ½µ±Ç°½Å±¾Â·¾¶
 	cd !thispath!
 
-	REM è°ƒç”¨è„šæœ¬	
+	REM µ÷ÓÃ½Å±¾	
 	start init.bat
+	
+	REM ÍË³ö½Å±¾
+	exit
 ) else (
-	REM è®¾ç½®æ ¹ç›®å½•è·¯å¾„
+	REM ÉèÖÃ¸ùÄ¿Â¼Â·¾¶
 	set root=!cd!
-	REM è®¾ç½®å½“å‰è„šæœ¬è·¯å¾„
+	REM ÉèÖÃµ±Ç°½Å±¾Â·¾¶
 	set thispath=%~dp0
 
-	REM è·³è½¬åˆ°ä¸Šçº§ç›®å½•
+	REM Ìø×ªµ½ÉÏ¼¶Ä¿Â¼
 	cd..
-	REM å¤‡ä»½ç›®å½•
+	REM ±¸·ÝÄ¿Â¼
 	xcopy !thispath!*  !root!.bak\  /eiy
 
-	REM åˆ é™¤æ–‡ä»¶
+	REM É¾³ýÎÄ¼þ
 	rd  /s/q !root!.bak\Script
 	del /f/s/q !root!.bak\start.bat
 	
-	REM è·³è½¬åˆ°å½“å‰è„šæœ¬è·¯å¾„
+	REM Êä³ö±¸·ÝÐÅÏ¢
+	echo ±¸·ÝÄ¿Â¼£º!root! >!root!.bak\back.log
+	echo ±¸·ÝÊ±¼ä£º%datetime% >>!root!.bak\back.log
+	echo ------------------------------------------------------------ >>!root!.bak\back.log
+	echo.  >>!root!.bak\back.log
+	tree /f  !root!.bak  >>!root!.bak\back.log
+	
+	REM Ìø×ªµ½µ±Ç°½Å±¾Â·¾¶
 	cd !thispath!
 		
-	REM è°ƒç”¨è„šæœ¬
+	REM µ÷ÓÃ½Å±¾
 	start Script\sh\init.bat
 	
-	REM åˆ é™¤æœ¬è„šæœ¬å¹¶é€€å‡º
+	REM É¾³ý±¾½Å±¾²¢ÍË³ö
 	del %0
 	exit
 )

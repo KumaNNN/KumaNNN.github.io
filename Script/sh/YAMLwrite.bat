@@ -40,6 +40,18 @@ GOTO:EOF
 ::        								   			  ::
 :: ================================================== ::
 :YAML_write_in
+if %debug%==1 echo Localtion: %this%: %~0 .................
+if %debug%==1 echo ---arg0: %~0 
+if %debug%==1 echo ---arg1: %~1 
+if %debug%==1 echo ---arg2: %~2 
+if %debug%==1 echo ---arg3: %~3 
+if %debug%==1 echo ---arg4: %~4 
+if %debug%==1 echo ---arg5: %~5
+if %debug%==1 echo ---arg6: %~6 
+if %debug%==1 echo ---arg7: %~7 
+if %debug%==1 echo ---arg8: %~8
+if %debug%==1 echo ---arg9: %~9
+if %debug%==1 echo Localtion: %this%: %~0 .................
 
 :: 调用日期时间函数
 call :DateTime 
@@ -54,14 +66,9 @@ set yaml=%~dp0YAML
 if exist %yaml%.tmp  del %yaml%.tmp
 
 :: 遍历特定的文件
-for /f "tokens=*" %%a in ('dir /a/b/s %~1\*.md') do (
+for /f "usebackq tokens=*" %%a in (`dir /a/b/s %~1\*.md`) do (
 	if %debug%==1 echo [file: %%a ][filename: %%~na ]
 	
-	REM 根据第一行判断，如已有YAML格式，则直接退出
-	REM EQU - 等于
-	for /f "tokens=1" %%j in (%%a) do (
-		if "%%j" EQU "---" GOTO:EOF
-	)
 	
 	REM 解析YAML格式中的变量
 	REM 读取当前目录下的YAML文件的每行	
@@ -81,7 +88,7 @@ for /f "tokens=*" %%a in ('dir /a/b/s %~1\*.md') do (
 	:: 文件合并
 	REM copy /y YAML.tmp/a + "%%a"/a  "%%a.tmp"
 	:: 因编码格式问题无法解决，更改为只输出，请手动复制
-	copy /y %yaml%.tmp   "%%a.YAML"
+	copy /y %yaml%.tmp   %%a.YAML
 	
 	:: 文件重命名
 	REM set "bakname=%%~nxa.%timestamp%.bak"

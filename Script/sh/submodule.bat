@@ -241,28 +241,37 @@ for /f "usebackq tokens=* delims=" %%i in (`dir %cd%\%~1\*.*  /a-d/s/b`) do (
 		if %debug%==1 echo -------VarCount：!v! ---------
 		if %debug%==1 set /a v+=1
 	)
+	REM 变量空值处理
+	if "!git!"  EQU ""  set git=""
+	if "!name!"  EQU ""  set name=""
+	if "!branch!"  EQU ""  set branch=""
+	if "!branchs!"  EQU ""  set branchs=""
+	if "!init_date!"  EQU ""  set init_date=""
+	if "!sh!"  EQU ""  set sh=""
+	if "!sh2!"  EQU ""  set sh2=""
+	
 	REM !sh! 从变量中读取，非参数传递	
 	:: 删除子模块（调用函数并移动文件）    EQU - 等于
 	if "%%~xi"  EQU ".del" (
-		call :submodule_del  0  !name!  !sh!
+		call :submodule_del  0  !name!  !sh!  !sh2!
 		move /Y %%i  %cd%\%~2
 	)
 	
 	:: 添加子模块（调用函数并移动文件）    EQU - 等于
 	if "%%~xi"  EQU ".add" (
-		call :submodule_add  !git!  !name! !branch!  !sh!
+		call :submodule_add  !git!  !name! !branch!  !sh!  !sh2!
 		move /Y %%i  %cd%\%~2
 	)
 	
 	:: 初始化子模块（调用函数并移动文件）    EQU - 等于
 	if "%%~xi"  EQU ".init" (
-		call :submodule_init   !name!   !sh!
+		call :submodule_init   !name!   !sh!  !sh2!
 		move /Y %%i  %cd%\%~2
 	)
 	
 	:: 更新子模块（调用函数并移动文件）    EQU - 等于
 	if "%%~xi"  EQU ".update" (
-		call :submodule_update  !name!   !sh!
+		call :submodule_update  !name!   !sh!  !sh2!
 		move /Y %%i  %cd%\%~2
 	)
 	
@@ -302,6 +311,7 @@ GOTO:EOF
 ::                 子模块相对路径					  ::
 ::         [arg3]: 子模块分支 						  ::
 ::         [arg4]: 待执行脚本路径					  ::
+::         [arg5]: 待执行脚本路径					  ::
 :: 返回值： 									 	  ::
 :: 													  ::
 :: ================================================== ::
@@ -320,6 +330,12 @@ if %debug%==1 echo ---arg9: %~9
 if %debug%==1 echo Localtion: %this%: %~0 .................
 
 
+:: NEQ - 不等于 
+if "%~4" NEQ "" (
+	echo 执行脚本1...
+	start %~4   %~2  %~1  %~3
+)
+
 :: 非强制
 ::git submodule add -b %branch%  %gitref%  %destpath%
 
@@ -331,10 +347,11 @@ if  "%~3" NEQ ""  (
 	echo 添加子模块[ %~1 ]...
 	git submodule add  -f  %~1  %SubModuleRoot%/%~2
 )
+ 
 :: NEQ - 不等于 
-if "%~4" NEQ "" (
-	echo 执行脚本...
-	start %~4   %~2  %~1  %~3
+if "%~5" NEQ "" (
+	echo 执行脚本2...
+	start %~5   %~2  %~1  %~3
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::
@@ -358,6 +375,7 @@ GOTO:EOF
 :: 函数参数：[arg1]: 子模块名  						  ::
 ::                   子模块相对路径					  ::
 ::           [arg2]: 待执行脚本路径					  ::
+::           [arg3]: 待执行脚本路径					  ::
 :: 返回值： 									 	  ::
 :: 													  ::
 :: ================================================== ::
@@ -376,6 +394,11 @@ if %debug%==1 echo ---arg8: %~8
 if %debug%==1 echo ---arg9: %~9
 if %debug%==1 echo Localtion: %this%: %~0 .................
 
+:: NEQ - 不等于 
+if "%~2" NEQ "" (
+	echo 执行脚本1...
+	start %~2  %~1
+)
 
 :: --初始化单个子模块
 ::git submodule init  %destpath%
@@ -392,10 +415,11 @@ if  "%~1" NEQ ""  (
 	echo 初始化所有子模块...
 	git submodule init
 )
+
 :: NEQ - 不等于 
-if "%~2" NEQ "" (
-	echo 执行脚本...
-	start %~2  %~1
+if "%~3" NEQ "" (
+	echo 执行脚本2...
+	start %~3  %~1
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::
@@ -420,6 +444,7 @@ GOTO:EOF
 :: 函数参数：[arg1]: 子模块名  						  ::
 ::                   子模块相对路径					  ::
 ::           [arg2]: 待执行脚本路径					  ::
+::           [arg3]: 待执行脚本路径					  ::
 :: 返回值： 									 	  ::
 :: 													  ::
 :: ================================================== ::
@@ -438,6 +463,11 @@ if %debug%==1 echo ---arg8: %~8
 if %debug%==1 echo ---arg9: %~9
 if %debug%==1 echo Localtion: %this%: %~0 .................
 
+:: NEQ - 不等于 
+if "%~2" NEQ "" (
+	echo 执行脚本1...
+	start %~2  %~1
+)
 
 :: --更新单个子模块
 ::git submodule update  %destpath%
@@ -454,10 +484,11 @@ if  "%~1" NEQ ""  (
 	echo 更新所有子模块...
 	git submodule update
 )
+
 :: NEQ - 不等于 
-if "%~2" NEQ "" (
-	echo 执行脚本...
-	start %~2  %~1
+if "%~3" NEQ "" (
+	echo 执行脚本2...
+	start %~3  %~1
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::
@@ -482,6 +513,7 @@ GOTO:EOF
 ::         [arg2]: 子模块名 						  ::
 ::                 子模块相对路径					  ::
 ::         [arg3]: 待执行脚本路径					  ::
+::         [arg4]: 待执行脚本路径					  ::
 :: 返回值： 									 	  ::
 :: 													  ::
 :: ================================================== ::
@@ -498,6 +530,12 @@ if %debug%==1 echo ---arg7: %~7
 if %debug%==1 echo ---arg8: %~8
 if %debug%==1 echo ---arg9: %~9
 if %debug%==1 echo Localtion: %this%: %~0 .................
+
+:: NEQ - 不等于 
+if "%~3" NEQ "" (
+	echo 执行脚本1...
+	start %~3   %~2
+)
 
 :: ----------------------------------------------------------------
 :: 【解释】
@@ -545,10 +583,11 @@ if  "%~1" EQU "1"  (
 		echo 缺少参数[ 子模块名 ]
 	)
 )
+
 :: NEQ - 不等于 
-if "%~3" NEQ "" (
-	echo 执行脚本...
-	start %~3   %~2
+if "%~4" NEQ "" (
+	echo 执行脚本2...
+	start %~4   %~2
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::

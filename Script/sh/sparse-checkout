@@ -1,0 +1,5 @@
+doc/md/
+/Script/
+.gitignore
+video.lnk
+.gitattributes

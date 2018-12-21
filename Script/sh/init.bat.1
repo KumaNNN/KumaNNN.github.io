@@ -1,6 +1,6 @@
 :: ============================================================================= ::
 :: 子仓库初始化
-:: 单分支方案
+:: 多分支方案
 ::
 :: 将此脚本和Script目录一起复制到子仓库根目录。
 :: 注： 通常情况，此脚本运行完毕会删除自身
@@ -38,7 +38,6 @@ set root=%cd%
 :: 设置当前脚本路径
 set thispath=%~dp0
 
-
 if %debug%==1 echo ------------------------ 简易日期时间和时间戳  ----------------------
 
 :: 日期分隔符
@@ -65,11 +64,10 @@ set deti=%de%%ti%
 :::: 去除所有空格
 set timestamp=%deti: =%
 echo 时间戳："%timestamp%"
+
 if %debug%==1 echo ------------------------ 简易日期时间和时间戳  ----------------------
 
-
 if %debug%==1 echo ------------------------ 获取目录名  ----------------------
-
 ::::::::::::调用示例::::::::::::::::::::::::
 ::set spath=DevDocCenter
 ::set dpath=DevDocCenter_md
@@ -91,17 +89,14 @@ echo 目录名: %dirname%
 if %debug%==1 echo ------------------------ 获取目录名  ----------------------
 :: ===================================变量预处理========================================== ::
 
-
-
 :: ===================================核心调用及日志处理========================================== ::
-
 :: 日志开关
 set log=1
 :: 日志文件名
 set logName=%dirname%.init.log
 :: 换成 ANSI 代码页,中文字符可以正确识别 
-chcp 936 
- 
+chcp 936  
+
 :: 调用及日志处理
 if %log%==1 (
 	@call :output>%logName%
@@ -209,6 +204,7 @@ echo ------------------------START: Commit_0  ------------------------
 
 echo 输出 .gitignore...
 echo /start.bat >>.gitignore
+echo /*.add >>.gitignore
 echo !T!.gitignore >>.gitignore
 
 echo 添加到暂存...
@@ -220,19 +216,14 @@ git commit -m "Commit_0 : init"
 echo ------------------------END: Commit_0  ------------------------ 
 
 
-
 echo ------------------------START: Commit_1  ------------------------ 
-::  增加所有文件
+:: 增加 doc/md 和 Script目录，并新建md分支
 
 echo 输出 .gitignore...
-echo .DS_Store >.gitignore
-echo Thumbs.db >>.gitignore
-echo /start.bat >>.gitignore
-echo !T!.gitignore >>.gitignore
+echo /*.add >>.gitignore
+echo !T!doc/md >>.gitignore
+echo !T!Script >>.gitignore
 echo !T!.gitattributes >>.gitignore
-echo !T!**/.gitkeep >>.gitignore
-echo !T!**/*.exe >>.gitignore
-echo !T!*.exe >>.gitignore
 
 echo 启用大文件(LFS)支持
 git lfs install
@@ -241,12 +232,42 @@ echo 复制 .gitattributes...
 xcopy  %thispath%.gitattributes   %root%\  /Y
 
 echo 添加到暂存...
+git add .gitignore
+git add doc/md/
+git add Script/
+
+
+echo git提交...
+git commit -m "Commit_1 : + doc/md/* and Script"
+
+echo 新建md分支...
+git checkout -b md
+
+echo 切换至master分支...
+git checkout master
+
+echo ------------------------END: Commit_1  ------------------------ 
+
+
+
+echo ------------------------START: Commit_2  ------------------------ 
+::  增加所有文件
+
+echo 输出 .gitignore...
+echo .DS_Store >.gitignore
+echo Thumbs.db >>.gitignore
+echo /start.bat >>.gitignore
+echo !T!.gitignore >>.gitignore
+echo !T!**/.gitkeep >>.gitignore
+echo /*.add >>.gitignore
+
+echo 添加到暂存...
 git add .
 
 echo git提交...
-git commit -m "Commit_1 : + All file"
+git commit -m "Commit_2 : + All file"
 
-echo ------------------------END: Commit_1  ------------------------ 
+echo ------------------------END: Commit_2  ------------------------ 
 
 
 echo ------------------------ 复制钩子  ------------------------
@@ -268,6 +289,8 @@ echo ------------------------ 复制钩子  ------------------------
 
 echo ------------------------ YAML输出  ------------------------
 
+echo 切换至md分支
+git checkout md
 
 :: 调用脚本
 call %~dp0YAMLwrite.bat
@@ -278,6 +301,8 @@ git add .
 echo git提交...
 git commit -m "Commit_3 : + md's YAML"
 
+echo 切换至master分支
+git checkout master
 
 echo ------------------------ YAML输出  ------------------------
 
@@ -289,7 +314,7 @@ set gitPrefix=https://github.com/KumaDocCenter/
 :: 分支
 set branch=master
 :: 所有分支(master:md)
-set branchs=master
+set branchs=master:md
 :: 子模块前脚本
 set submodule_sh=""
 :: 子模块后脚本

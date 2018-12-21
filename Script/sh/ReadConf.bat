@@ -166,6 +166,9 @@ set source_mo=doc\md
 :: 目标根目录 
 ::set dest_dir=%root%s1
 set dest_dir=%root%source\_posts\Dev
+
+:: 设置子模块配置根目录
+set SubModuleConfRoot=%root%.git\modules\source_md
 ::::::::::::::::::::::变量配置:::::::::::::::::::::::::
 if %debug%==1 echo shellpath: %~dp0
 if %debug%==1 echo root: %root%
@@ -175,7 +178,7 @@ if %debug%==1 echo dest_dir : %dest_dir%
 
 
 :: 指定目录下的/所有子目录(*)/指定相对路径的特定文件(\c\c.txt)
-call CallX.bat  "source=%this%;destination=conf.bat;label=ReadDirRelativePathFile"  "%source_dir%"  "\.git\myconf\copy.conf"  1  %this%:cb03    参数05  参数06  参数07  参数08  参数09
+call CallX.bat  "source=%this%;destination=conf.bat;label=ReadDirRelativePathFile"  "%SubModuleConfRoot%"  "\myconf\copy.conf"  1  %this%:cb03    参数05  参数06  参数07  参数08  参数09
 
 GOTO:EOF
 :cb03

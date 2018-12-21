@@ -21,12 +21,13 @@ set SubModuleRoot=source_md
 :: 先跳转到脚本目录
 cd %~dp0
 
+REM %~dp0 : K:\...\Script\sh\ 
 :: 被调用(存放目录：./Script/sh)
 :: NEQ - 不等于 (参数%1不等于空)
 if "%1" NEQ "" (
 	cd..
 	cd..
-	xcopy %0 %SubModuleRoot%\%1\
+	xcopy  %~dp0%0  %SubModuleRoot%\%1\  /Y	
 	start  %SubModuleRoot%\%1\info.bat
 	exit
 )
