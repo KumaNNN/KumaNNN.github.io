@@ -1,13 +1,15 @@
 ---
 title: GitHub  Blog架构
-date: 2018-12-12 02:35:46
-updated: 2018-12-12 02:35:51
 mathjax: false
-categories: 
-tags:
+categories:
+  - Pre
 typora-root-url: GitHubBlog
 typora-copy-images-to: GitHubBlog
-top: 
+abbrlink: 3884487082
+date: 2018-12-12 02:35:46
+updated: 2018-12-12 02:35:51
+tags:
+top:
 ---
 
 # GitHub  Blog架构
@@ -162,7 +164,7 @@ Blog仓库名：`KumaNNN.github.io`
 
 * `init.log`  ： 仓库初始化日志，转移
   * 管理库： `data\SubRepo\init`
-* `*.add` `*.init` `*.del`  `*.updata`  ： 子模块批处理配置文件，转移
+* `*.[Repo]add` `*.init` `*.[Repo]del`  `*.[Repo]updata`  ： 子模块批处理配置文件，转移
   * 父项目： `.git\myconf\submodule\staged`
   * 管理库： `data\SubRepo\conf`
 * `doc/md/*.YAML`  ：(`md` 分支或`doc/md`) md 文件的YAML头，处理后删除

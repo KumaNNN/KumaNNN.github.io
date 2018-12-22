@@ -90,11 +90,12 @@ echo ------------------------ 启用 sparse-checkout 并检出分支 ------------------
 :: 跳转到子模块工作目录
 cd %SubModuleRoot%\%1
 echo cd: %cd%
-:: 启用 sparse-checkout 
-git config core.sparsecheckout true
-:: 检出分支
-git checkout master
-
+if exist ".git" (
+	REM 启用 sparse-checkout 
+	git config core.sparsecheckout true
+	REM 检出分支
+	git checkout master
+)
 echo ------------------------ 启用 sparse-checkout 并检出分支 ------------------------
 
 exit
