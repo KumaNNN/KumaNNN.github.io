@@ -7,3 +7,95 @@
 	url = https://github.com/BlogThemesHexo/KumaNNN_Hexo_Next.git
 	branch = mymaster
 
+[submodule "source_md/Ajax"]
+	path = source_md/Ajax
+	url = https://github.com/KumaDocCenter/Ajax.git
+	branch = master
+[submodule "source_md/Apache.httpd"]
+	path = source_md/Apache.httpd
+	url = https://github.com/KumaDocCenter/Apache.httpd.git
+	branch = master
+[submodule "source_md/Blog"]
+	path = source_md/Blog
+	url = https://github.com/KumaDocCenter/Blog.git
+	branch = master
+[submodule "source_md/Bootstrap"]
+	path = source_md/Bootstrap
+	url = https://github.com/KumaDocCenter/Bootstrap.git
+	branch = master
+[submodule "source_md/Composer"]
+	path = source_md/Composer
+	url = https://github.com/KumaDocCenter/Composer.git
+	branch = master
+[submodule "source_md/CSS"]
+	path = source_md/CSS
+	url = https://github.com/KumaDocCenter/CSS.git
+	branch = master
+[submodule "source_md/Docker"]
+	path = source_md/Docker
+	url = https://github.com/KumaDocCenter/Docker.git
+	branch = master
+[submodule "source_md/git"]
+	path = source_md/git
+	url = https://github.com/KumaDocCenter/git.git
+	branch = master
+[submodule "source_md/js.ES6"]
+	path = source_md/js.ES6
+	url = https://github.com/KumaDocCenter/js.ES6.git
+	branch = master
+[submodule "source_md/js.JavaScript"]
+	path = source_md/js.JavaScript
+	url = https://github.com/KumaDocCenter/js.JavaScript.git
+	branch = master
+[submodule "source_md/js.Jquery"]
+	path = source_md/js.Jquery
+	url = https://github.com/KumaDocCenter/js.Jquery.git
+	branch = master
+[submodule "source_md/js.NodeJS"]
+	path = source_md/js.NodeJS
+	url = https://github.com/KumaDocCenter/js.NodeJS.git
+	branch = master
+[submodule "source_md/Mysql"]
+	path = source_md/Mysql
+	url = https://github.com/KumaDocCenter/Mysql.git
+	branch = master
+[submodule "source_md/NoSQL.Memcache"]
+	path = source_md/NoSQL.Memcache
+	url = https://github.com/KumaDocCenter/NoSQL.Memcache.git
+	branch = master
+[submodule "source_md/NoSQL.Mongodb"]
+	path = source_md/NoSQL.Mongodb
+	url = https://github.com/KumaDocCenter/NoSQL.Mongodb.git
+	branch = master
+[submodule "source_md/NoSQL.Redis"]
+	path = source_md/NoSQL.Redis
+	url = https://github.com/KumaDocCenter/NoSQL.Redis.git
+	branch = master
+[submodule "source_md/RegExp"]
+	path = source_md/RegExp
+	url = https://github.com/KumaDocCenter/RegExp.git
+	branch = master
+[submodule "source_md/svn"]
+	path = source_md/svn
+	url = https://github.com/KumaDocCenter/svn.git
+	branch = master
+[submodule "source_md/Vagrant"]
+	path = source_md/Vagrant
+	url = https://github.com/KumaDocCenter/Vagrant.git
+	branch = master
+[submodule "source_md/XML"]
+	path = source_md/XML
+	url = https://github.com/KumaDocCenter/XML.git
+	branch = master
+[submodule "source_md/Html"]
+	path = source_md/Html
+	url = https://github.com/KumaDocCenter/Html.git
+	branch = master
+[submodule "source_md/Linux"]
+	path = source_md/Linux
+	url = https://github.com/KumaDocCenter/Linux.git
+	branch = master
+[submodule "source_md/Nginx"]
+	path = source_md/Nginx
+	url = https://github.com/KumaDocCenter/Nginx.git
+	branch = master
