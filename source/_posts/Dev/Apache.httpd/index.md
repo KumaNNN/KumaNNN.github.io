@@ -1,21 +1,28 @@
 ---
-title: index
-date: 2018-12-19 16:17:59
-updated: 2018-12-19 16:17:59 
+title:  Index
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Apache.httpd
+typora-root-url: index
+typora-copy-images-to: index
+abbrlink: 1005662515
+date: 2018-12-29 14:37:40
+updated: 2018-12-29 14:37:40
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 0
 ---
 
 
-## [Apache](apache.md)
+# 索引 
 
-* [Apache简介](apache.md)
-* [安装和配置](apache.md)
-* [目录结构](apache.md)
-* [配置虚拟主机](apache.md)
-* [权限配置](apache.md)
+## apache 
+[本地预览](apache.md)    [Blog](http://blog.kuma8866.top/posts/3588426178/)     [Github](https://github.com/KumaDocCenter/Apache/blob/master/doc/md/apache.md)
 
+* Apache简介
+* 安装和配置
+* 目录结构
+* 配置虚拟主机
+* 权限配置 
+
+ 

@@ -1,13 +1,16 @@
 ---
 title: MySQL 管理
-date: 2018-12-18 12:35:17
-updated: 2018-12-18 12:35:17 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Mysql
+typora-root-url: mysql_manage
+typora-copy-images-to: mysql_manage
+abbrlink: 1044743360
+date: 2018-12-18 12:35:17
+updated: 2018-12-18 12:35:17
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -28,14 +31,14 @@ top:
 
 ### 文本备份
 
-文本备份是最简单的，复制——粘贴！   \\\\
-一般认为，只适合**Myisam**存储引擎的表！   \\\\
-因为Myisam引擎的表它会将表分为**三**个部分来进行存储    \\\\
+文本备份是最简单的，复制——粘贴！   
+一般认为，只适合**Myisam**存储引擎的表！   
+因为Myisam引擎的表它会将表分为**三**个部分来进行存储    
 
-文本备份的缺点：   \\\\
+文本备份的缺点：   
 每次都需要备份整个全部文件，非常浪费磁盘空间！
 
-![](note/mysql_manage_01.png)
+![](mysql_manage_01.png)
 
 
 
@@ -54,7 +57,7 @@ top:
 select * into outfile 'd:/stu.sql' from stu;
 ```
 
-![](note/mysql_manage_02.png)
+![](mysql_manage_02.png)
 
 
 
@@ -154,17 +157,17 @@ source d:/studb.sql
 
 Mysql需要客户端进行连接认证才能进行服务器操作：需要用户信息。Mysql中所有的用户信息都是保存在mysql数据库下的``user``表中。
 
-![](note/mysql_manage_03.png)
+![](mysql_manage_03.png)
 
 
-![1530181955777](note/mysql_manage_04.png)
+![1530181955777](mysql_manage_04.png)
 
 默认的，在安装Mysql的时候，如果不选择创建匿名用户，那么意味着所有的用户只有一个：root超级用户 
 
 
-在mysql中，对用户管理中，是由对应的**Host**和**User**共同组成**复合主键**来区分用户。   \\\\
-``User``：代表用户名。    \\\\
-``Host``：代表允许访问数据库的客户端（IP或者主机地址）。如果host使用%代表所有的用户（客户端）都可以访问。   \\\\
+在mysql中，对用户管理中，是由对应的**Host**和**User**共同组成**复合主键**来区分用户。   
+``User``：代表用户名。    
+``Host``：代表允许访问数据库的客户端（IP或者主机地址）。如果host使用%代表所有的用户（客户端）都可以访问。   
 
 
 
@@ -190,10 +193,10 @@ create user 'username'@'host' identified by '明文密码';
 -- values('host','username',password('pwd'),privilegevaluelist);
 
 ```
-**用户** ： 可以是 ``'用户名'`` 或``'用户名'@'主机地址'``     \\\\
-**主机地址**：  省略时默认为`` %``  ，即所有主机可访问此账户。   \\\\
-``privilegelist``  权限字段   \\\\
-``password()``  加密密码   \\\\
+**用户** ： 可以是 ``'用户名'`` 或``'用户名'@'主机地址'``     
+**主机地址**：  省略时默认为`` %``  ，即所有主机可访问此账户。   
+``privilegelist``  权限字段   
+``password()``  加密密码   
 ``privilegevaluelist`` 对应的权限的值
 
 
@@ -316,7 +319,7 @@ set password = 'new_password';
 
 1  **使用 --skip-grant-tables 选项启动mysql服务**
 
-首先，停止mysql服务 。   \\\\
+首先，停止mysql服务 。   
 
 **启动服务器但是跳过权限**，当前启动的服务器没有权限概念：非常危险，任何客户端，不需要任何用户信息都可以直接登录，而且是**root**权限。
 
@@ -364,9 +367,9 @@ flush privileges;
 
 在mysql中将权限管理分为三类：
 
-1、  数据权限：增删改查（select|update|delete|insert）   \\\\
-2、  结构权限：结构操作（create|drop）   \\\\
-3、  管理权限：权限管理（create user|grant|revoke）：通常只给管理员如此权限   \\\\
+1、  数据权限：增删改查（select|update|delete|insert）   
+2、  结构权限：结构操作（create|drop）   
+3、  管理权限：权限管理（create user|grant|revoke）：通常只给管理员如此权限   
 
 
 
@@ -374,11 +377,11 @@ flush privileges;
 
 将权限分配给指定的用户
 
-基本语法：``grant 权限列表 on 库名.表名 to 用户;``   \\\\
-**权限列表**：使用逗号分隔，但是可以使用``all privileges``代表全部权限   \\\\
+基本语法：``grant 权限列表 on 库名.表名 to 用户;``   
+**权限列表**：使用逗号分隔，但是可以使用``all privileges``代表全部权限   
 **数据库.表名**：可以是单表(``数据库名字.表名``)，可以是具体某个数据库(``数据库.*`` )，也可以整库（``*.*``）
 
-![img](note/mysql_manage_05.png)
+![img](mysql_manage_05.png)
 
 
 
@@ -388,7 +391,7 @@ flush privileges;
 
 基本语法：``revoke  权限列表 on  库名.表名  from '用户名' [@主机地址];``
 
-![](note/mysql_manage_06.png)
+![](mysql_manage_06.png)
 
 
 

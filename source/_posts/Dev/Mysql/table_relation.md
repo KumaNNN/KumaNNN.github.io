@@ -1,13 +1,16 @@
 ---
 title: 表关系
-date: 2018-12-18 12:35:17
-updated: 2018-12-18 12:35:17 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Mysql
+typora-root-url: table_relation
+typora-copy-images-to: table_relation
+abbrlink: 2063222971
+date: 2018-12-18 12:35:17
+updated: 2018-12-18 12:35:17
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -73,9 +76,9 @@ top:
 
 ``班级表  学生表  ``
 
-![](note/table_relation_01.png)
+![](table_relation_01.png)
 
-![](note/table_relation_02.png) 
+![](table_relation_02.png) 
 
 一对多或者是多对一 应该是多的这一个表中 要新建一个字段来保存另外一端的所属ID 字段
 
@@ -94,14 +97,14 @@ top:
 
 ``班级表  讲师表`` 
 
-![](note/table_relation_03.png)
+![](table_relation_03.png)
 
 
 既然通过两张表自己增加字段解决不了问题，那么就通过第三张表来解决。
 
  
 
-![](note/table_relation_04.png)
+![](table_relation_04.png)
 
 
 **多对多解决方案；**增加一个中间表，让中间表与对应的其他表形成两个多对一的关系：多对一的解决方案是在“多”表中增加“一”表对应的主键字段。

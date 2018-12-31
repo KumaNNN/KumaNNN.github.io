@@ -1,13 +1,16 @@
 ---
 title: MySQL 视图
-date: 2018-12-18 12:35:17
-updated: 2018-12-18 12:35:17 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Mysql
+typora-root-url: mysql_view
+typora-copy-images-to: mysql_view
+abbrlink: 932476632
+date: 2018-12-18 12:35:17
+updated: 2018-12-18 12:35:17
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -29,7 +32,7 @@ top:
 
 基本语法：`create view 视图名字 as select指令;` //可以是单表数据，也可以是连接查询，联合查询或者子查询
 
-![](note/view1.png)
+![](view1.png)
 
 查看视图结构：视图本身是虚拟表，所以关于表的一些操作都适用于视图
 
@@ -37,7 +40,7 @@ top:
 
 普通用户我只想给其一个查看 学生姓名 、学生的所在班级
 
-![](note/view2.png)
+![](view2.png)
 
 
 
@@ -61,7 +64,7 @@ top:
 
 基本语法：`drop view 视图名字;`
 
-![](note/view3.png)
+![](view3.png)
 
 
 
@@ -75,11 +78,11 @@ top:
 
 先将my\_student 表中的记录按照money字段进行降序排序 然后将其作为一个view表
 
-![](note/view4.png)
+![](view4.png)
 
 然后再对v\_stu\_select 这个view表按照c\_id进行分组 想取得组内的第一条记录：但是发现在结果不对
 
-![](note/view5.png)
+![](view5.png)
 
 视图 其实一共有三种执行方式：
 
@@ -89,7 +92,7 @@ temptable，临时表
 
 undefined，未定义，就是默认的，mysql自己决定算法（从 merge，和temptable内选择）！
 
-![](note/view6.png)
+![](view6.png)
 
 1、 merge算法是先合并后执行：group by是在order by之前执行，所以视图1是先合并后再执行，从而先执行的group by后执行order by，导致数据错误。
 

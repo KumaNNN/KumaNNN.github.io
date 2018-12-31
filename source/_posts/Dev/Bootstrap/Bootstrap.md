@@ -1,13 +1,16 @@
 ---
 title: Bootstrap
-date: 2018-12-18 12:30:56
-updated: 2018-12-18 12:30:56 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Bootstrap
+typora-root-url: Bootstrap
+typora-copy-images-to: Bootstrap
+abbrlink: 3545416915
+date: 2018-12-18 12:30:56
+updated: 2018-12-18 12:30:56
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -45,25 +48,25 @@ top:
 
 中文网：[[www.bootcss.com]](http://www.bootcss.com)
 
-![](media/image1.png)
+![](image1.png)
 
 (2)解压压缩包
 
-![](media/image2.png)
+![](image2.png)
 
-![](media/image3.png)
+![](image3.png)
 
 CSS文件夹：
 
-![](media/image4.png)
+![](image4.png)
 
 Fonts文件夹
 
-![](media/image5.png)
+![](image5.png)
 
 JavaScript文件夹
 
-![](media/image6.png)
+![](image6.png)
 
 (3)**将bootstrap文件部署到项目中**
 
@@ -71,11 +74,11 @@ bootstrap要求使用的是HTML5的文档！
 
 1.  要设置移动设备优先
 
-![](media/image7.png)
+![](image7.png)
 
 2.  将bootstrap中的css文件引入到我们当前的项目中 ，通过link标签来引入
 
-![](media/image8.png)
+![](image8.png)
 
 3.  需要引入bootstrap中的js文件， 通过script标签的src属性来引入
 
@@ -132,17 +135,17 @@ bootstrap官网给程序猿写好了很多CSS效果！它封装了很多类名 �
 
 -   .container-fluid 类，用于 100% 宽度，占据全部视口（viewport）的容器。
 
-![](media/image9.png)
+![](image9.png)
 
 ## 排版样式
 
 -   `<p></p>`
 
-![](media/image10.png)
+![](image10.png)
 
 -   `<h1>~<h6>`或者`.h1~.h6`
 
-![](media/image11.png)
+![](image11.png)
 
 -   `.text-center` 让文本居中
 
@@ -156,19 +159,19 @@ bootstrap官网给程序猿写好了很多CSS效果！它封装了很多类名 �
 
 -   `.text-capitalize` 首字母大写
 
-![](media/image12.png)
+![](image12.png)
 
 -   `.list-unstyled ` 去掉了列表前面的项目符号 清除了ul的padding
 
 -   `.list-inline` 将所有的Li标签的内容排成同一行， 增加了少量的padding ，使用了`display:inline-block `
 
-![](media/image13.png)
+![](image13.png)
 
 -   `.dl-horizontal` 将dt与dd中的内容排列成一行
 
-![](media/image14.png)
+![](image14.png)
 
-![](media/image15.png)
+![](image15.png)
 
 ## 按钮样式
 
@@ -194,7 +197,7 @@ bootstrap官网给程序猿写好了很多CSS效果！它封装了很多类名 �
 
 -   .btn-xs 超小按钮
 
-![](media/image16.png)
+![](image16.png)
 
 ## 表格样式
 
@@ -210,9 +213,9 @@ bootstrap官网给程序猿写好了很多CSS效果！它封装了很多类名 �
 
 **下图状态类：**只能行标签与单元格标签设置，也就是说只能给tr或者td 和th
 
-![](media/image17.png)
+![](image17.png)
 
-![](media/image18.png)
+![](image18.png)
 
 ## 栅格系统
 
@@ -226,7 +229,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 
 ### 栅格参数
 
-![](media/image19.png)
+![](image19.png)
 
 **需求：**
 
@@ -238,7 +241,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 
 -   如果设置的分辨率小于768像素， 我们就1行2列
 
-![](media/image20.png)
+![](image20.png)
 
 ### 格式：列偏移 
 
@@ -260,7 +263,7 @@ n表示的是偏移量
 
 -   .form-control \<input\>、\<textarea\> 和 \<select\> 元素都将被默认设置宽度属性为 width: 100%;。 建议只给单行文本框与单行密码框使用
 
-![](media/image21.png)
+![](image21.png)
 
 -   form-horizontal  水平排列的表单
 
@@ -270,9 +273,9 @@ n表示的是偏移量
 >
 > 注意这个form-inline要给form标签设置
 
-![](media/image22.png)
+![](image22.png)
 
-![](media/image23.png)
+![](image23.png)
 
 -   form-group 表单组
 
@@ -351,7 +354,7 @@ n表示的是偏移量
 
 -   img-responsive 响应式的图片
 
-![](media/image24.png)
+![](image24.png)
 
 # 三、组件
 
@@ -359,7 +362,7 @@ n表示的是偏移量
 
 [[http://fontawesome.dashgame.com/]](http://fontawesome.dashgame.com/) 一套绝佳的图标字体库和CSS框架
 
-![](media/image25.png)
+![](image25.png)
 
 ## 下拉菜单
 
@@ -371,25 +374,25 @@ n表示的是偏移量
 
 -   data-toggle:dropdown 是用来控制下拉菜单的显示与隐藏
 
-![](media/image26.png)
+![](image26.png)
 
 ## 按钮组
 
 .btn-group
 
-![](media/image27.png)
+![](image27.png)
 
 ## 分页
 
 .pagination
 
-![](media/image28.png)
+![](image28.png)
 
 ## 路径导航
 
 面包屑导航
 
-![](media/image29.png)
+![](image29.png)
 
 ## 徽章
 

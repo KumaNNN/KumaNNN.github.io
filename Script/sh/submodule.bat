@@ -36,6 +36,10 @@ set root=%cd%
 set thispath=%~dp0
 :: 设置子模块根目录
 set SubModuleRoot=source_md
+:: 设置日志路径
+set log=.git\myconf\submodule\log
+if not exist %log%  mkdir %log%
+
 :::::::::::::::: 变量预处理 ::::::::::::::::
 if %is_index%==1 (
 	:: EQU - 等于
@@ -339,19 +343,27 @@ if "%~4" NEQ "" (
 :: 非强制
 ::git submodule add -b %branch%  %gitref%  %destpath%
 
-:: 强制 -f   NEQ - 不等于
-if  "%~3" NEQ ""  (
-	echo 添加子模块[ %SubModuleRoot%/%~2 ]...
-	git submodule add -b %~3 -f  %~1  %SubModuleRoot%/%~2
-) else (
-	echo 添加子模块[ %~1 ]...
-	git submodule add  -f  %~1  %SubModuleRoot%/%~2
-)
- 
-:: NEQ - 不等于 
-if "%~5" NEQ "" (
-	echo 执行脚本2...
-	start %~5   %~2  %~1  %~3
+(
+	REM 强制 -f   NEQ - 不等于
+	if  "%~3" NEQ ""  (
+		echo 添加子模块[ %SubModuleRoot%/%~2 ]...
+		set _sn=%SubModuleRoot%/%~2
+		git submodule add -b %~3 -f  %~1  %SubModuleRoot%/%~2
+	) else (
+		echo 添加子模块[ %~1 ]...
+		set _sn=%~1
+		git submodule add  -f  %~1  %SubModuleRoot%/%~2
+	)
+) && ( 
+	REM NEQ - 不等于 
+	if "%~5" NEQ "" (
+		echo 执行脚本2...
+		start %~5   %~2  %~1  %~3
+	)
+)||( 
+	echo 子模块添加失败... >%log%\%~2.add.log
+	echo 子模块: !_sn! >>%log%\%~2.add.log
+	echo git: %~1  >>%log%\%~2.add.log
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::
@@ -406,20 +418,30 @@ if "%~2" NEQ "" (
 :: --初始化所有子模块
 ::git submodule init
 
-
-:: NEQ - 不等于
-if  "%~1" NEQ ""  (
-	echo 初始化子模块[ %SubModuleRoot%/%~1 ]...
-	git submodule init  %SubModuleRoot%/%~1
-) else (
-	echo 初始化所有子模块...
-	git submodule init
-)
-
-:: NEQ - 不等于 
-if "%~3" NEQ "" (
-	echo 执行脚本2...
-	start %~3  %~1
+(
+	REM NEQ - 不等于
+	if  "%~1" NEQ ""  (
+		echo 初始化子模块[ %SubModuleRoot%/%~1 ]...
+		set _sn=%SubModuleRoot%/%~1
+		git submodule init  %SubModuleRoot%/%~1
+	) else (
+		echo 初始化所有子模块...
+		git submodule init
+	)
+) && (
+	REM NEQ - 不等于 
+	if "%~3" NEQ "" (
+		echo 执行脚本2...
+		start %~3  %~1
+	)
+)||(
+	if  "%~1" NEQ ""  (
+		echo 子模块初始化失败... >%log%\%~1.init.log
+		echo 子模块: !_sn! >>%log%\%~1.init.log		
+	) else (
+		echo 子模块初始化失败... >%log%\all.init.log
+		echo 子模块: [all] >>%log%\all.init.log		
+	)
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::
@@ -476,19 +498,30 @@ if "%~2" NEQ "" (
 :: --更新所有子模块
 ::git submodule update
 
-:: NEQ - 不等于
-if  "%~1" NEQ ""  (
-	echo 更新子模块[ %SubModuleRoot%/%~1 ]...
-	git submodule update  %SubModuleRoot%/%~1
-) else (
-	echo 更新所有子模块...
-	git submodule update
-)
-
-:: NEQ - 不等于 
-if "%~3" NEQ "" (
-	echo 执行脚本2...
-	start %~3  %~1
+(
+	REM NEQ - 不等于
+	if  "%~1" NEQ ""  (
+		echo 更新子模块[ %SubModuleRoot%/%~1 ]...
+		set _sn=%SubModuleRoot%/%~1
+		git submodule update  %SubModuleRoot%/%~1
+	) else (
+		echo 更新所有子模块...
+		git submodule update
+	)
+) && (
+	REM NEQ - 不等于 
+	if "%~3" NEQ "" (
+		echo 执行脚本2...
+		start %~3  %~1
+	)
+)||(
+	if  "%~1" NEQ ""  (
+		echo 子模块更新失败... >%log%\%~1.update.log
+		echo 子模块: !_sn! >>%log%\%~1.update.log		
+	) else (
+		echo 子模块更新失败... >%log%\all.update.log
+		echo 子模块: [all] >>%log%\all.update.log		
+	)
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::
@@ -544,50 +577,61 @@ if "%~3" NEQ "" (
 :: 根据 git submodule status 结果，变量其获取子模块名，然后再删除子模块。
 ::
 :: ----------------------------------------------------------------
-:: NEQ - 不等于  EQU - 等于
-if  "%~1" EQU "1"  (
-	echo 删除所有子模块...
-	for /f "usebackq tokens=* delims=" %%a in (` git submodule status `) do (
-		if %debug%==1 echo a: %%a
-		for /f "usebackq tokens=1-3 delims= " %%i in ( '%%a' ) do (
-			echo -----[子模块：%SubModuleRoot%/%%j ]--------------------------------------------------
-			if %debug%==1 echo i: "%%i"
-			if %debug%==1 echo j: "%%j"
-			if %debug%==1 echo k: "%%k"
-			
+REM NEQ - 不等于  EQU - 等于
+(
+	if  "%~1" EQU "1"  (
+		echo 删除所有子模块...
+		for /f "usebackq tokens=* delims=" %%a in (` git submodule status `) do (
+			if %debug%==1 echo a: %%a
+			for /f "usebackq tokens=1-3 delims= " %%i in ( '%%a' ) do (
+				echo -----[子模块：%SubModuleRoot%/%%j ]--------------------------------------------------
+				if %debug%==1 echo i: "%%i"
+				if %debug%==1 echo j: "%%j"
+				if %debug%==1 echo k: "%%k"
+				
+				echo 子模块记录从.git/config中删除并清除子模块目录下所有
+				git  submodule deinit -f %SubModuleRoot%/%%j
+				
+				echo 子模块记录从.gitmodules中删除并清除子模块目录
+				git rm -rf %SubModuleRoot%/%%j
+				
+				echo 删除子模块数据库
+				rd /s/q  .git\modules\%SubModuleRoot%\%%j
+				echo -----[子模块：%SubModuleRoot%/%%j ]--------------------------------------------------
+			)
+		)
+	) else (
+		if  "%~2" NEQ ""  (		
+			echo -----[子模块：%SubModuleRoot%/%~2 ]--------------------------------------------------
+			echo 删除子模块[ %SubModuleRoot%/%~2 ]...
+			set _sn=%SubModuleRoot%/%~2
 			echo 子模块记录从.git/config中删除并清除子模块目录下所有
-			git  submodule deinit -f %SubModuleRoot%/%%j
+			git  submodule deinit -f %SubModuleRoot%/%~2
 			
 			echo 子模块记录从.gitmodules中删除并清除子模块目录
-			git rm -rf %SubModuleRoot%/%%j
+			git rm -rf %SubModuleRoot%/%~2
 			
 			echo 删除子模块数据库
-			rd /s/q  .git\modules\%SubModuleRoot%\%%j
-			echo -----[子模块：%SubModuleRoot%/%%j ]--------------------------------------------------
+			rd /s/q  .git\modules\%SubModuleRoot%\%~2
+			echo -----[子模块：%SubModuleRoot%/%~2 ]--------------------------------------------------
+		) else (
+			echo 缺少参数[ 子模块名 ]
 		)
 	)
-) else (
-	if  "%~2" NEQ ""  (		
-		echo -----[子模块：%SubModuleRoot%/%~2 ]--------------------------------------------------
-		echo 删除子模块[ %SubModuleRoot%/%~2 ]...
-		echo 子模块记录从.git/config中删除并清除子模块目录下所有
-		git  submodule deinit -f %SubModuleRoot%/%~2
-		
-		echo 子模块记录从.gitmodules中删除并清除子模块目录
-		git rm -rf %SubModuleRoot%/%~2
-		
-		echo 删除子模块数据库
-		rd /s/q  .git\modules\%SubModuleRoot%\%~2
-		echo -----[子模块：%SubModuleRoot%/%~2 ]--------------------------------------------------
-	) else (
-		echo 缺少参数[ 子模块名 ]
+) && (
+	REM NEQ - 不等于 
+	if "%~4" NEQ "" (
+		echo 执行脚本2...
+		start %~4   %~2
 	)
-)
-
-:: NEQ - 不等于 
-if "%~4" NEQ "" (
-	echo 执行脚本2...
-	start %~4   %~2
+)||(
+	if  "%~1" EQU "1"  (
+		echo 子模块删除失败... >%log%\%~2.del.log
+		echo 子模块: !_sn! >>%log%\%~2.del.log		
+	) else (
+		echo 子模块删除失败... >%log%\all.del.log
+		echo 子模块: [all] >>%log%\all.del.log		
+	)
 )
 GOTO:EOF
 :: ==========[Function]================================================================== ::

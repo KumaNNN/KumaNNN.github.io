@@ -1,28 +1,36 @@
 ---
-title: index
-date: 2018-12-18 12:35:40
-updated: 2018-12-18 12:35:40 
+title:  Index
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - XML
+typora-root-url: index
+typora-copy-images-to: index
+abbrlink: 3108201712
+date: 2018-12-29 14:41:43
+updated: 2018-12-29 14:41:43
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 0
 ---
 
 
-## [XML基础知识]([XML]基础知识.md)
+# 索引 
+ 
+## XML_基础知识 
+[本地预览](XML_基础知识.md)    [Blog](http://blog.kuma8866.top/posts/2727003801/)     [Github](https://github.com/KumaDocCenter/XML/blob/master/doc/md/XML_基础知识.md)
 
-* [XML语法]([XML]基础知识.md)
-* [XML的用途]([XML]基础知识.md)
-* [操作XML]([XML]基础知识.md)
-  * [操作XML元素节点]([XML]基础知识.md)
-  * [操作XML属性节点]([XML]基础知识.md)
-* [Xpath查询]([XML]基础知识.md)
+* XML语法
+* XML的用途
+* 操作XML
+  * 操作XML元素节点
+  * 操作XML属性节点
+* Xpath查询 
+ 
+ 
+## XML_案例 
+[本地预览](XML_案例.md)    [Blog](http://blog.kuma8866.top/posts/3698054443/)     [Github](https://github.com/KumaDocCenter/XML/blob/master/doc/md/XML_案例.md)
 
-
-
-## [XML 案例]([XML]案例.md)
-
-* [获取天气信息]([XML]案例.md)
-* [电子词典]([XML]案例.md)
+* 获取天气信息
+* 电子词典
+ 
+ 

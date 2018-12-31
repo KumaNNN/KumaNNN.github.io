@@ -1,13 +1,16 @@
 ---
-title: NoSQL_Memcache
-date: 2018-12-18 12:35:30
-updated: 2018-12-18 12:35:30 
+title: NoSQL之Memcache
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - NoSQL.Memcache
+typora-root-url: NoSQL_Memcache
+typora-copy-images-to: NoSQL_Memcache
+abbrlink: 402189821
+date: 2018-12-18 12:35:30
+updated: 2018-12-18 12:35:30
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -17,7 +20,7 @@ top:
 
 在大部分的PHP的网站开发当中，我们往往采用的数据存储方式是**php+mysql**，因此就会产生如下图所示的请求方式：
 
-![img](assets/wps2B64.tmp.jpg) 
+![img](wps2B64.tmp.jpg) 
 
 以上的架构对一般对于访问量不大的网站没有任何问题，例如：个人博客网站，小公司的企业网站。然而当网站的数据量和访问量增大之后，即使您的MySql数据库做了非常完美的优化手段，这个架构的请求方式是不会有任何改变的。也就是说，该架构所有的读写操作都是实时发生的，就算你设定了读写分离其实也是把这一切的工作依然是实时的，全部由MySql数据库来承受。所以这种请求方式的架构是有瓶颈的，虽然说理论上你还可以部署更多的数据库读写分离来减轻压力，就算是实时的请求也能扛得过去，但依然存在一个问题，更多的数据库部署意味要添加更多的服务器，这个成本其实是很高的，所以网站优化的另外一个思维就是在当前服务器中减轻数据库的压力，减轻访问(连接)的次数,而并不是不断通过添加服务器来解决。
 
@@ -300,7 +303,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 **PHP + Memcache + MySql的架构图**
 
-![img](assets/wps2B89.tmp.png) 
+![img](wps2B89.tmp.png) 
 
 当前方式是客户端（用户浏览器）发起请求，这时这种架构的请求方式，我们称为非实时请求，那么每一次的请求必须通过中间的缓存层面进行，如果缓存中有数据，那么数据库就不会做出任何的响应，如果没有缓存的数据，数据库只会响应一次，并把响应的结果放到内存中等待用户下一次的请求。
 
@@ -316,7 +319,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 1. 复制memcahe软件包里面的exe文件到一个非中文的目录下
 
-![img](assets/wps2B8A.tmp.jpg) 
+![img](wps2B8A.tmp.jpg) 
 
  
 
@@ -324,17 +327,17 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
    如果是window7则使用如下方式打开cmd窗口
 
-![img](assets/wps2B9A.tmp.jpg) 
+![img](wps2B9A.tmp.jpg) 
 
 如果windows10则推荐使用`power shell`（使用快捷方式 windows键 + x键）
 
-![img](assets/wps2B9B.tmp.jpg) 
+![img](wps2B9B.tmp.jpg) 
 
  
 
 3. 进入对应软件的目录，查看帮助
 
-![img](assets/wps2BAC.tmp.jpg) 
+![img](wps2BAC.tmp.jpg) 
 
  
 
@@ -346,19 +349,19 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 `-d` 参数  表示可以把memcache加入到window系统服务，然后可以使用命令启动或者是重启
 
-![img](assets/wps2BAD.tmp.jpg) 
+![img](wps2BAD.tmp.jpg) 
 
 `-vvv`参数 打印启动的信息
 
 `-f `增长因子
 
-![img](assets/wps2BBD.tmp.jpg) 
+![img](wps2BBD.tmp.jpg) 
 
  
 
 4. 一次性启动：默认是占据这个终端窗口的
 
-![img](assets/wps2BBE.tmp.jpg) 
+![img](wps2BBE.tmp.jpg) 
 
 如果需要终止服务，只需要按一下`ctrl+c`
 
@@ -370,29 +373,29 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 1. 在启动memcache.exe的时候加上` -d install`即可安装为服务
 
-![img](assets/wps2BBF.tmp.jpg) 
+![img](wps2BBF.tmp.jpg) 
 
  
 
 2. 当成为一个系统服务后可以在服务列表里面进行服务的管理
 
-![img](assets/wps2BD0.tmp.jpg) 
+![img](wps2BD0.tmp.jpg) 
 
 查看具体的服务信息
 
-![img](assets/wps2BD1.tmp.jpg) 
+![img](wps2BD1.tmp.jpg) 
 
  
 
 3. 点击【属性】后
 
-![img](assets/wps2BE2.tmp.jpg) 
+![img](wps2BE2.tmp.jpg) 
 
  
 
 4 . 如果要卸载window下的memcache服务，则可以使用 `-d uninstall`命令
 
-![img](assets/wps2BE3.tmp.jpg) 
+![img](wps2BE3.tmp.jpg) 
 
  
 
@@ -402,45 +405,45 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 `> telnet localhost 11211 `  {表示的含义是去请求本机的11211的服务}
 
-![img](assets/wps2BF3.tmp.jpg) 
+![img](wps2BF3.tmp.jpg) 
 
 **解决：**在程序里面安装Telnet命令即可，操作如下：先打开控制面板
 
-![img](assets/wps2BF4.tmp.jpg) 
+![img](wps2BF4.tmp.jpg) 
 
 点击【程序】
 
-![img](assets/wps2C05.tmp.jpg) 
+![img](wps2C05.tmp.jpg) 
 
 【打开或关闭windows功能】
 
-![img](assets/wps2C06.tmp.jpg) 
+![img](wps2C06.tmp.jpg) 
 
 【Telnet客户端】
 
-![img](assets/wps2C17.tmp.jpg) 
+![img](wps2C17.tmp.jpg) 
 
  
 
 2. 连接远程memcache服务器
 
-![img](assets/wps2C18.tmp.jpg) 
+![img](wps2C18.tmp.jpg) 
 
 输入上面的命令后回车，然后按一下`ctrl+]`之后，在回车
 
-![img](assets/wps2C28.tmp.jpg) 
+![img](wps2C28.tmp.jpg) 
 
  
 
 3. 输入如下命令测试：
 
-![img](assets/wps2C29.tmp.jpg) 
+![img](wps2C29.tmp.jpg) 
 
  
 
 4. 退出终端：输入`quit`即可
 
-![img](assets/wps2C3A.tmp.jpg) 
+![img](wps2C3A.tmp.jpg) 
 
  
 
@@ -450,7 +453,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 由于windows自带的telnet提供的功能不能进行字符的删除，则我们可以使用xshell提供的telnet功能。
 
-![img](assets/wps2C3B.tmp.jpg) 
+![img](wps2C3B.tmp.jpg) 
 
  
 
@@ -460,11 +463,11 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 注意：memcache需要使用客户端进行链接的，前提是memcache服务必须启动。
 
-![img](assets/wps2C4B.tmp.jpg) 
+![img](wps2C4B.tmp.jpg) 
 
 确保服务是正常启动的。
 
-![img](assets/wps2C4C.tmp.jpg) 
+![img](wps2C4C.tmp.jpg) 
 
 使用客户端telnet链接
 
@@ -474,7 +477,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 测试是否连接成功（`stats`查看memcache的状态）
 
-![img](assets/wps2C5D.tmp.jpg) 
+![img](wps2C5D.tmp.jpg) 
 
  
 
@@ -500,7 +503,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 使用如下：
 
-![img](assets/wps2C5E.tmp.jpg) 
+![img](wps2C5E.tmp.jpg) 
 
 
 
@@ -510,7 +513,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 `> get KEY`
 
-![img](assets/wps2C6F.tmp.jpg) 
+![img](wps2C6F.tmp.jpg) 
 
 
 
@@ -524,7 +527,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 这是因为我们使用add做添加的时候，如果某个key在缓存系统里面存在，使用add的时候，会报错的。则就出现一个set，如果不存在，则添加，如果存在则替换
 
-![img](assets/wps2C70.tmp.jpg) 
+![img](wps2C70.tmp.jpg) 
 
 
 
@@ -532,11 +535,11 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 该命令删除指定key的值
 
-![img](assets/wps2C71.tmp.jpg) 
+![img](wps2C71.tmp.jpg) 
 
 删除一个不存在的key
 
-![img](assets/wps2C81.tmp.jpg) 
+![img](wps2C81.tmp.jpg) 
 
 
 
@@ -548,17 +551,17 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 使用如下：
 
-![img](assets/wps2C82.tmp.jpg) 
+![img](wps2C82.tmp.jpg) 
 
 常见参数解释
 
 
 
-![img](assets/wps2C94.tmp.jpg) 
+![img](wps2C94.tmp.jpg) 
 
 `flush_all`命令-清空memcache里面所有的数据，==实际生产环境慎用==(会产生，雪崩效应)
 
-![img](assets/wps2CA5.tmp.jpg) 
+![img](wps2CA5.tmp.jpg) 
 
 
 
@@ -570,7 +573,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 使用如下：
 
-![img](assets/wps2CA6.tmp.jpg) 
+![img](wps2CA6.tmp.jpg) 
 
 
 
@@ -580,7 +583,7 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 使用如下：
 
-![img](assets/wps2CB6.tmp.jpg) 
+![img](wps2CB6.tmp.jpg) 
 
  
 
@@ -600,9 +603,9 @@ memcache是一个c/s架构的软件，需要安装server端来提供相应的服
 
 如果我们打开http://www.php.net/manual/zh/搜索`memcache`关键字会出现以下情况的信息，如图所示:
 
-![img](assets/wps2CC7.tmp.jpg) 
+![img](wps2CC7.tmp.jpg) 
 
-![img](assets/wps2CC8.tmp.jpg) 
+![img](wps2CC8.tmp.jpg) 
 
 在PHP手册里面提供了**memcache**和**memcached**两个扩展类来操作memcache服务器。本质上来说memcache和memcached是的功能是一样的。
 
@@ -633,25 +636,25 @@ memcache类支持**php5.3 - php5.6**的单服务器和多服务器的操作。�
 
 2. 利用phpinfo查看PHP环境信息，选择合适的dll扩展文件，主要是查看PHP版本，平台架构，是否线程安全，以及vs版本
 
-![img](assets/wps2CD8.tmp.jpg) 
+![img](wps2CD8.tmp.jpg) 
 
  
 
 3. 将上面的扩展文件复制到php的ext目录
 
-![img](assets/wps2CD9.tmp.jpg) 
+![img](wps2CD9.tmp.jpg) 
 
  
 
 4. 修改php.ini文件，增加`extension=php_memcache.dll`信息
 
-![img](assets/wps2CEA.tmp.jpg) 
+![img](wps2CEA.tmp.jpg) 
 
  
 
 5. 使用`phpinfo()`测试，如果出现如下信息，表示安装成功
 
-![img](assets/wps2CEB.tmp.jpg) 
+![img](wps2CEB.tmp.jpg) 
 
  
 
@@ -698,7 +701,7 @@ memcache类支持**php5.3 - php5.6**的单服务器和多服务器的操作。�
 
 ## php中的基本数据类型缓存
 
-![img](assets/wps2CFC.tmp.jpg) 
+![img](wps2CFC.tmp.jpg) 
 
  
 
@@ -706,7 +709,7 @@ memcache类支持**php5.3 - php5.6**的单服务器和多服务器的操作。�
 
 ## php中的复合数据类型缓存
 
-![img](assets/wps2CFD.tmp.jpg) 
+![img](wps2CFD.tmp.jpg) 
 
 **注意：**  在我们存储复合数据类型的时候，memcache的底层会给我们做序列化操作。这个行为对程序员来说是完全透明的。
 
@@ -744,25 +747,25 @@ https://blog.csdn.net/xinxinji/article/details/50523629
 
    a. 修改php.ini文件的三处，表示现在使用memcache来保存session数据
 
-![img](assets/wps2D0D.tmp.jpg) 
+![img](wps2D0D.tmp.jpg) 
 
 ​	b. 把session数据保存在哪台memcache上面
 
-![img](assets/wps2D0E.tmp.jpg) 
+![img](wps2D0E.tmp.jpg) 
 
 ​	c. 开启php操作memcache的扩展，先把对应的dll文件复制到php的ext目录
 
-![img](assets/wps2D0F.tmp.jpg) 
+![img](wps2D0F.tmp.jpg) 
 
-![img](assets/wps2D20.tmp.jpg) 
+![img](wps2D20.tmp.jpg) 
 
  
 
 ​		注意：通过`phpinfo()`里面的信息，选择对应的php_memcache.dll 版本。
 
-![img](assets/wps2D21.tmp.jpg) 
+![img](wps2D21.tmp.jpg) 
 
-![img](assets/wps2D32.tmp.jpg) 
+![img](wps2D32.tmp.jpg) 
 
  
 
@@ -772,25 +775,25 @@ https://blog.csdn.net/xinxinji/article/details/50523629
 
    现在可使用memcache保存session数据
 
-![img](assets/wps2D33.tmp.jpg) 
+![img](wps2D33.tmp.jpg) 
 
 ​	memcache扩展成功开启
 
-![img](assets/wps2D43.tmp.jpg) 
+![img](wps2D43.tmp.jpg) 
 
 3. 测试使用
 
    需要注意：使用memcache保存session后，memcache服务器必须启动
 
-![img](assets/wps2D44.tmp.jpg) 
+![img](wps2D44.tmp.jpg) 
 
 ​	设置session数据
 
-![img](assets/wps2D55.tmp.jpg) 
+![img](wps2D55.tmp.jpg) 
 
 ​	获取session里面的数据
 
-![img](assets/wps2D56.tmp.jpg) 
+![img](wps2D56.tmp.jpg) 
 
  
 
@@ -808,7 +811,7 @@ https://blog.csdn.net/xinxinji/article/details/50523629
 
 概图：
 
-![img](assets/wps2D66.tmp.jpg) 
+![img](wps2D66.tmp.jpg) 
 
  
 
@@ -826,13 +829,13 @@ https://blog.csdn.net/xinxinji/article/details/50523629
 
 1. 使用分布式存储数据（内部使用分布的策略的就是使用的取模，内置策略）
 
-![img](assets/wps2D67.tmp.jpg) 
+![img](wps2D67.tmp.jpg) 
 
  
 
 2. 获取分布式数据
 
-![img](assets/wps2D68.tmp.jpg) 
+![img](wps2D68.tmp.jpg) 
 
  
 
@@ -846,11 +849,11 @@ https://blog.csdn.net/xinxinji/article/details/50523629
 
 由于memcache是一个内存缓存系统，本身需要内存来保存数据，这就牵涉到内存的申请释放的问题。在memcache设计之初是不断申请和释放。但是这样设计导致一个问题：叫做**内存碎片化**。（备注：电脑的磁盘也存在碎片化的概念），同时还会使得管理上非常的麻烦，需要不断的找操作系统申请内存，释放内存，这无疑是一个很大的开销。
 
-![img](assets/wps2D79.tmp.jpg) 
+![img](wps2D79.tmp.jpg) 
 
 了解：**什么是内存碎片化？**
 
-![img](assets/wps2D7A.tmp.jpg) 
+![img](wps2D7A.tmp.jpg) 
 
 内存碎片化永远存在，但是可以使用优秀的算法尽可能的减少内存碎片化。内存的频繁的申请和释放也是需要消耗资源。
 
@@ -862,13 +865,13 @@ https://blog.csdn.net/xinxinji/article/details/50523629
 
 1. 启动memcache的时候使用`-m` 指定分配的内存大小
 
-   ![img](assets/wps2D8B.tmp.jpg) 
+   ![img](wps2D8B.tmp.jpg) 
 
  
 
 2. 预先分配机制
 
-![img](assets/wps2D8C.tmp.jpg) 
+![img](wps2D8C.tmp.jpg) 
 
 **注意一下几点：**
 
@@ -893,12 +896,12 @@ d. memcache里面最大的value可以是1M
    a. 内存预先分配机制（内存碎片化和内存管理）
 
 		b. LRU算法（为了更好的使用空间，需要注意chunk在不够用的情况下，才会这样）
-	
+		
 		c. 惰性删除机制（memcache本身不监控数据是否过期，当下一次重新获取数据的时候，才会去查看数据是否有效，如果有效则返回，否则清除。）
 
 **LRU算法**：被称为最近最少使用原则的算法，当memcache的一个slab里面的chunk不够使用的情况下（存储满了，数据在有效期）当有新的满足chunk的数据过来的情况下，memcache会优先把slab里面最近一段时间内，最不活跃的数据先剔除掉，腾出空间，给新的数据使用。 
 
-![img](assets/wps2D9C.tmp.jpg) 
+![img](wps2D9C.tmp.jpg) 
 
  
 
@@ -928,7 +931,7 @@ libmemcached-1.0.14.tar.gz
 
 memcached-2.1.0.tgz
 
-![img](assets/wps2D9D.tmp.jpg) 
+![img](wps2D9D.tmp.jpg) 
 
  
 
@@ -946,7 +949,7 @@ libevent下载地址：<http://libevent.org/>
 
 1. 上传源码到` /usr/local/src` 目录下，对libevent，解压，并安装
 
-![1536655654383](assets/1536655654383.png)
+![1536655654383](1536655654383.png)
 
 ```shell
 # cd /usr/local/src
@@ -974,7 +977,7 @@ libevent下载地址：<http://libevent.org/>
 
 1. 上传源码到 `/usr/local/src` 目录，编译安装libmemcached库
 
-![1536655672202](assets/1536655672202.png)
+![1536655672202](1536655672202.png)
 
 ```shell
 # cd /usr/local/src 
@@ -990,7 +993,7 @@ libevent下载地址：<http://libevent.org/>
 
 注意，如果安装过程中，出现如下的错误，则按照如下的方式进行解决
 
-![img](assets/wps2DAF.tmp.jpg) 
+![img](wps2DAF.tmp.jpg) 
 
 解决：
 
@@ -1032,7 +1035,7 @@ extension="/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/memcached
 
 4. 使用`phpinfo()`函数进行测试，如果在出现如下界面，表示扩展安装成功
 
-![img](assets/wps2DB0.tmp.jpg) 
+![img](wps2DB0.tmp.jpg) 
 
  
 
@@ -1044,7 +1047,7 @@ extension="/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/memcached
 
 文档：<http://php.net/manual/zh/memcached.expiration.php>
 
-![img](assets/wps2DC1.tmp.jpg) 
+![img](wps2DC1.tmp.jpg) 
 
  
 
@@ -1095,7 +1098,7 @@ extension="/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/memcached
 
 1. 典故：主要是sina公司发现memcache本身不支持高可用，单独为其开发了一个高可用的插件（MemcacheDB）定期的把memcache内存里面的数据同步的写到磁盘上面。
 
-![img](assets/wps2DC2.tmp.jpg) 
+![img](wps2DC2.tmp.jpg) 
 
 ​	备注：该产品产生的原因是因为当时没有可以把内存里面的数据同步写入到磁盘的产品。则新浪自主开发了该产品。但是后面出现redis可以把内存里面的数据写入到磁盘，所以该产品基本不使用了。后面使用redis做数据缓存和持久化存储。
 
@@ -1105,7 +1108,7 @@ extension="/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/memcached
 
 http://www.07net01.com/program/524088.html
 
-![img](assets/wps2DD2.tmp.jpg) 
+![img](wps2DD2.tmp.jpg) 
 
  
 
@@ -1119,13 +1122,13 @@ http://www.07net01.com/program/524088.html
 
 1. 缓存网站里面的局部数据
 
-![img](assets/wps2DE4.tmp.jpg) 
+![img](wps2DE4.tmp.jpg) 
 
  
 
 2. 访问频率限制功能  如，[点赞 1天之内点赞1次] 
 
-![img](assets/wps2DF4.tmp.jpg) 
+![img](wps2DF4.tmp.jpg) 
 
 例如：同一个手机号码一分钟之内只能发送1次短信验证（有效期60s）；一天只能只能拥有3次发送短信的机会(有效期)[时间点： 1. 到今天23:59:59末点时间戳  、   2. 设置 今日末点23:59:59 - 当前时间 =  s数 ]。
 
@@ -1133,7 +1136,7 @@ http://www.07net01.com/program/524088.html
 
 3. 文章浏览数统计
 
-![img](assets/wps2DF5.tmp.jpg) 
+![img](wps2DF5.tmp.jpg) 
 
 对于文章浏览数没必要实时的写入数据库，我们可以将文章的浏览器数先写入到memcache缓存中，然后在夜晚通过定时任务将对应的浏览器写入到数据库中，做持久化操作。
 
@@ -1141,7 +1144,7 @@ http://www.07net01.com/program/524088.html
 
 4. 热门软件下载排行榜
 
-![img](assets/wps2E06.tmp.jpg) 
+![img](wps2E06.tmp.jpg) 
 
 一般这些数据也不是实时的，一般来说都是统计前一天的下载量，所以我们可以将对应软件下载排行数据缓存一天，到下一天后进行重新缓存。
 
@@ -1177,7 +1180,7 @@ http://www.07net01.com/program/524088.html
 
 # http状态码-502
 
-![1536658468283](assets/1536658468283.png)
+![1536658468283](1536658468283.png)
 
  PHP的应用服务器挂了，也就是**php-fpm**不可以使用了。
 

@@ -71,6 +71,7 @@ index_generator:
 
   
 ############## 分类和标签(Category & Tag) ##############
+# 其中: 前的是正式的名称，后的是访问的路径
 # 示例：
 # category_map:
 #   综合: common
@@ -79,6 +80,8 @@ index_generator:
 # 标签同理
 default_category: default
 category_map:
+    开发: Dev
+    个人: Pre
 tag_map:
 ############## 分类和标签(Category & Tag) ##############
 

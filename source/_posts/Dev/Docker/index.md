@@ -1,17 +1,24 @@
 ---
-title: index
-date: 2018-12-18 12:30:37
-updated: 2018-12-18 12:30:37 
+title:  Index
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Docker
+typora-root-url: index
+typora-copy-images-to: index
+abbrlink: 2446584502
+date: 2018-12-29 14:38:14
+updated: 2018-12-29 14:38:14
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 0
 ---
 
 
-* [docker 技术](docker技术.md)
+# 索引 
+ 
+## docker技术 
+[本地预览](docker技术.md)    [Blog](http://blog.kuma8866.top/posts/1951862235/)     [Github](https://github.com/KumaDocCenter/Docker/blob/master/doc/md/docker技术.md)
+
   * 简介
   * Docker安装
   * Docker常用命令
@@ -20,3 +27,5 @@ top:
   * Docker镜像管理
   * Docker数据卷
   * Dockerfile
+ 
+ 

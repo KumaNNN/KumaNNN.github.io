@@ -1,13 +1,16 @@
 ---
 title: NoSql之Redis数据库
-date: 2018-12-18 12:35:38
-updated: 2018-12-18 12:35:38 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - NoSQL.Redis
+typora-root-url: Redis
+typora-copy-images-to: Redis
+abbrlink: 3355790013
+date: 2018-12-18 12:35:38
+updated: 2018-12-18 12:35:38
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -32,7 +35,7 @@ top:
 5. **sorted set**(有序集合、orderset、缩写为zset)（1. 有序性，存在一个排序的法则（数字 0-9   字母表 a-z   I II III xI.... ） 2. 唯一性 3. 确定性）
 
 
- 
+
 
 **==注意==**：上面我们说的value的数据类型，其实在底层都是一个字符串，只是这些字符串满足一种认为的特定格式，所有才有了这么多数据类型。
 
@@ -44,7 +47,7 @@ top:
 
 ## **常见的nosql产品**
 
-![img](assets/wps93F3.tmp.jpg) 
+![img](wps93F3.tmp.jpg) 
 
 网站：<http://www.nosql-database.org/>
 
@@ -54,7 +57,7 @@ top:
 
 注意：key-value 底层的保存都是使用hash结构，特点就是时间复杂度为o(1)：随着数量的增加，在100w条里面查询一条记录和在1000w里面的时间数量级是一样的。
 
-![img](assets/wps9403.tmp.jpg) 
+![img](wps9403.tmp.jpg) 
 
 
 
@@ -102,9 +105,9 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 <http://www.zhihu.com/question/20084750>
 
-![img](assets/wps9404.tmp.jpg) 
+![img](wps9404.tmp.jpg) 
 
-![1536802433436](assets/1536802433436.png) 
+![1536802433436](1536802433436.png) 
 
 
 
@@ -112,25 +115,25 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 1. 复制软件
 
-![img](assets/wps9415.tmp.jpg) 
+![img](wps9415.tmp.jpg) 
 
  
 
 2. 在cmd里面启动服务（需要超级管理员的身份启动）
 
-![img](assets/wps9416.tmp.jpg) 
+![img](wps9416.tmp.jpg) 
 
  
 
 3. redis目录结构
 
-![img](assets/wps9426.tmp.jpg) 
+![img](wps9426.tmp.jpg) 
 
  
 
 4. 启动redis服务
 
-![img](assets/wps9427.tmp.jpg) 
+![img](wps9427.tmp.jpg) 
 
 ​	如果要终止，则使用 `ctrl + c`即可。
 
@@ -144,37 +147,37 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 1. 上传源代码
 
-![img](assets/wps9438.tmp.jpg) 
+![img](wps9438.tmp.jpg) 
 
  
 
 2. 解压redis的源码包
 
-![img](assets/wps9439.tmp.jpg) 
+![img](wps9439.tmp.jpg) 
 
  
 
 3. 进入解压后的目录，然后进行`make`（redis安装不需要configure的过程）
 
-![img](assets/wps943A.tmp.jpg) 
+![img](wps943A.tmp.jpg) 
 
  
 
 4. 指定安装路径，进行安装` make   PREFIX=/usr/local/redis    install` （PREFIX必须大写）
 
-![img](assets/wps944B.tmp.jpg) 
+![img](wps944B.tmp.jpg) 
 
  
 
 6. 建立redis的配置文件目录和配置文件的副本
 
-![img](assets/wps944C.tmp.jpg) 
+![img](wps944C.tmp.jpg) 
 
  
 
 7. 成功安装后的目录结构
 
-![img](assets/wps945C.tmp.jpg) 
+![img](wps945C.tmp.jpg) 
 
  
 
@@ -184,21 +187,21 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 1. 修改Redis的配置文件，将daemon改为yes
 
-![img](assets/wps945D.tmp.jpg) 
+![img](wps945D.tmp.jpg) 
 
-![img](assets/wps946E.tmp.jpg) 
+![img](wps946E.tmp.jpg) 
 
  
 
 2. 启动服务（跟随配置文件）
 
-![img](assets/wps946F.tmp.jpg) 
+![img](wps946F.tmp.jpg) 
 
  
 
 3. 使用客户端操作
 
-![img](assets/wps9470.tmp.jpg) 
+![img](wps9470.tmp.jpg) 
 
 ​	注意：如果要终止则按`ctrl+c`
 
@@ -206,11 +209,11 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 4. 关闭，在命令行输入` shutdown`
 
-![img](assets/wps9481.tmp.jpg) 
+![img](wps9481.tmp.jpg) 
 
 5. 如果停止不了，则采取杀死进程的方式
 
-![img](assets/wps9482.tmp.jpg) 
+![img](wps9482.tmp.jpg) 
 
  
 
@@ -220,7 +223,7 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 需要注意：Redis是一个c/s的架构，在使用之前，必须确保服务器端是开启的，同时Redis也是一个key-value型的nosql的数据库。并且其value值的类型有如下的几种：
 
-![img](assets/wps9492.tmp.jpg) 
+![img](wps9492.tmp.jpg) 
 
  
 
@@ -230,29 +233,29 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
    语法：`set   key  value`
 
-![img](assets/wps9493.tmp.jpg) 
+![img](wps9493.tmp.jpg) 
 
  
 
 2. **get** 获取值
 
-![img](assets/wps94A4.tmp.jpg) 
+![img](wps94A4.tmp.jpg) 
 
  
 
 3. **incr** 自增，默认自增1 $i++，注意：value的值必须是整数，还有如果key不存在则从0开始
 
-![img](assets/wps94A5.tmp.jpg) 
+![img](wps94A5.tmp.jpg) 
 
-![img](assets/wps94B5.tmp.jpg) 
+![img](wps94B5.tmp.jpg) 
 
-![img](assets/wps94B6.tmp.jpg) 
+![img](wps94B6.tmp.jpg) 
 
  
 
 4. **decr** 自减 默认是-1 $i--，值的类型必须是整数；如果key不存在默认是0
 
-![img](assets/wps94C7.tmp.jpg) 
+![img](wps94C7.tmp.jpg) 
 
 ​	注意：可以使用tab键进行命令的补齐，也可以使用上下键来执行之前的命令。
 
@@ -260,13 +263,13 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 5. **incrby** 指定自增的数字（步长）
 
-![img](assets/wps94C8.tmp.jpg) 
+![img](wps94C8.tmp.jpg) 
 
  
 
 6. **decrby** 指定自减的数字
 
-![img](assets/wps94D9.tmp.jpg) 
+![img](wps94D9.tmp.jpg) 
 
  
 
@@ -306,15 +309,15 @@ redis作者不愿意开发windows版本下的redis。微软技术小组，在red
 
 对应上面mysql表里面的数据，该这样保持在redis里面：
 
-![img](assets/wps94DA.tmp.jpg) 
+![img](wps94DA.tmp.jpg) 
 
 取出数据：
 
-![img](assets/wps94EA.tmp.jpg) 
+![img](wps94EA.tmp.jpg) 
 
 取id为1的用户名
 
-![img](assets/wps94EB.tmp.jpg) 
+![img](wps94EB.tmp.jpg) 
 
 
 
@@ -334,25 +337,25 @@ var json = {'name':'caoyang', 'age':12}
 
 1. **hset** 设置hash的单个值
 
-![img](assets/wps94EC.tmp.jpg) 
+![img](wps94EC.tmp.jpg) 
 
 2. **hget** 获取某个值
 
-![img](assets/wps94FD.tmp.jpg) 
+![img](wps94FD.tmp.jpg) 
 
 3. **hmset** 设置hash的多个值
 
-![img](assets/wps94FE.tmp.jpg) 
+![img](wps94FE.tmp.jpg) 
 
 4. **hgetall**  获取整个key的hash值
 
-![img](assets/wps950F.tmp.jpg) 
+![img](wps950F.tmp.jpg) 
 
 
 
 ## **link链表类型**（队列栈）
 
-![img](assets/wps9510.tmp.jpg) 
+![img](wps9510.tmp.jpg) 
 
 链表 可以从头部或者是尾部都可以存放数据
 
@@ -360,11 +363,11 @@ var json = {'name':'caoyang', 'age':12}
 
 1. **lpush** 向链表的头部【左侧】压入数据    **L 的小写**
 
-![img](assets/wps9520.tmp.jpg) 
+![img](wps9520.tmp.jpg) 
 
 2. **rpush** 向链表的尾部【右侧】压入数据
 
-![img](assets/wps9521.tmp.jpg) 
+![img](wps9521.tmp.jpg) 
 
  
 
@@ -374,21 +377,21 @@ var json = {'name':'caoyang', 'age':12}
 
 换成redis的链表来实现的话，只需要设置一个链表，然后往链表的左侧压入10个username即可；如果10个满了，在链表右侧弹出一个值即可。
 
-![img](assets/wps9532.tmp.jpg) 
+![img](wps9532.tmp.jpg) 
 
  
 
 3. **lrange** 获取链表里面所有的元素
 
-![img](assets/wps9533.tmp.jpg) 
+![img](wps9533.tmp.jpg) 
 
 4. **lpop** 删除链表里面头部的第一个元素，并返回该元素
 
-![img](assets/wps9534.tmp.jpg) 
+![img](wps9534.tmp.jpg) 
 
 5. **rpop**删除链表里面尾部的最后一个元素，并返回该元素
 
-![img](assets/wps9544.tmp.jpg) 
+![img](wps9544.tmp.jpg) 
 
  
 
@@ -401,7 +404,7 @@ var json = {'name':'caoyang', 'age':12}
 * 有序集合
 
 
- 
+
 
 一般来说我们口头上说的集合基本都是指的是**无序**即可。
 
@@ -425,21 +428,21 @@ var json = {'name':'caoyang', 'age':12}
 
 差集定义：A-B 元素在A存在但是在B里面不存在。B-A元素在B里面存在，但是不在A存在
 
-![img](assets/wps9545.tmp.jpg) 
+![img](wps9545.tmp.jpg) 
 
  
 
 1. **sadd** 向集合里面添加元素，并查看
 
-![img](assets/wps9556.tmp.jpg) 
+![img](wps9556.tmp.jpg) 
 
 ​	案例 ：来完成集合的交集、并集、差集
 
-![img](assets/wps9557.tmp.jpg) 
+![img](wps9557.tmp.jpg) 
 
 ​	使用的场合，如豆瓣里面的==书签系统==。
 
-![img](assets/wps9568.tmp.jpg) 
+![img](wps9568.tmp.jpg) 
 
  
 
@@ -455,23 +458,23 @@ orderset是set的一个升级版本【也叫作sortset】，意大利文叫zset�
 
 有序集合里面的元素是有序的，并且也是唯一的，也是确定的。
 
-![img](assets/wps95C1.tmp.jpg) 
+![img](wps95C1.tmp.jpg) 
 
 1. **zadd** 添加有序集合
 
-![img](assets/wps95C2.tmp.jpg) 
+![img](wps95C2.tmp.jpg) 
 
  
 
 2. **zrange** 获取有序集合里面的元素
 
-![img](assets/wps95C3.tmp.jpg) 
+![img](wps95C3.tmp.jpg) 
 
  
 
 3. `zrange  key 0 -1 WITHSCORES`  获取权值
 
-![img](assets/wps95D3.tmp.jpg) 
+![img](wps95D3.tmp.jpg) 
 
  
 
@@ -498,7 +501,7 @@ orderset是set的一个升级版本【也叫作sortset】，意大利文叫zset�
 
 通过上面的基本命令可以操作Redis后，一般来说我们都是编程语言进行操作，所以我们需要开启PHP操作Redis的扩展。
 
-![img](assets/wps95D4.tmp.jpg) 
+![img](wps95D4.tmp.jpg) 
 
  http://www.runoob.com/redis/redis-tutorial.html
 
@@ -510,55 +513,55 @@ orderset是set的一个升级版本【也叫作sortset】，意大利文叫zset�
 
    下载地址：https://pecl.php.net/package/redis/2.2.7/windows
 
-![img](assets/wps95E5.tmp.jpg) 
+![img](wps95E5.tmp.jpg) 
 
  
 
 2. 选择合适的版本【注意：这里需要根据phpinfo函数的信息进行选择】
 
-![img](assets/wps95E6.tmp.jpg) 
+![img](wps95E6.tmp.jpg) 
 
  
 
 3. 点击上面的 【dll】链接后，选择合适的版本
 
-![img](assets/wps95F7.tmp.jpg) 
+![img](wps95F7.tmp.jpg) 
 
  
 
 4. phpinfo函数的信息
 
-![img](assets/wps95F8.tmp.jpg) 
+![img](wps95F8.tmp.jpg) 
 
-![img](assets/wps95F9.tmp.jpg) 
+![img](wps95F9.tmp.jpg) 
 
 ​	   到pecl网站下载合适的版本
 
-![img](assets/wps9609.tmp.jpg) 
+![img](wps9609.tmp.jpg) 
 
  
 
 5. 复制合适的扩展文件到php的ext目录
 
-![img](assets/wps960A.tmp.jpg) 
+![img](wps960A.tmp.jpg) 
 
  
 
 6. 修改php.ini文件，如果不存在则增加，存在则去除前面的分号
 
-![img](assets/wps961B.tmp.jpg) 
+![img](wps961B.tmp.jpg) 
 
 
 
 7. 重启集成开发环境
 
-![img](assets/wps961C.tmp.jpg) 
+![img](wps961C.tmp.jpg) 
 
  
 
 8. 浏览器访问
 
-![img](assets/wps962D.tmp.jpg) 
+![img](wps962D.tmp.jpg) 
 
 
 
@@ -566,17 +569,17 @@ orderset是set的一个升级版本【也叫作sortset】，意大利文叫zset�
 
 1. 在网站根目录编写如下代码
 
-![img](assets/wps962E.tmp.jpg) 
+![img](wps962E.tmp.jpg) 
 
  
 
 2. 浏览器访问即可
 
-![img](assets/wps962F.tmp.jpg) 
+![img](wps962F.tmp.jpg) 
 
 3. php操作redis手册
 
-![img](assets/wps963F.tmp.jpg) 
+![img](wps963F.tmp.jpg) 
 
 
 
@@ -606,65 +609,65 @@ orderset是set的一个升级版本【也叫作sortset】，意大利文叫zset�
 
     
 
-      
+  ​    
 
 1. 上传源码包，并复制到`/usr/local/src`目录
 
-![img](assets/wps9640.tmp.jpg) 
+![img](wps9640.tmp.jpg) 
 
  
 
 2. 解压，并进入解压后的目录，并使用/usr/local/php/bin/phpize 生成文件
 
-![img](assets/wps9651.tmp.jpg) 
+![img](wps9651.tmp.jpg) 
 
  
 
 3. 使用`./configure --with-php-config=/usr/local/php/bin/php-config`来收集操作系统信息
 
-![img](assets/wps9652.tmp.jpg) 
+![img](wps9652.tmp.jpg) 
 
  
 
 4. 编译和安装
 
-![img](assets/wps9662.tmp.jpg) 
+![img](wps9662.tmp.jpg) 
 
 ​	注意使用的编译和安装后会生产一个目录，目录下有一个NAME.so文件
 
-![img](assets/wps9663.tmp.jpg) 
+![img](wps9663.tmp.jpg) 
 
  
 
 5. 修改php.ini文件
 
-![img](assets/wps9664.tmp.jpg) 
+![img](wps9664.tmp.jpg) 
 
 ​	增加如下内容
 
-![img](assets/wps9675.tmp.jpg) 
+![img](wps9675.tmp.jpg) 
 
 6. 重启Apache，并添加一个index.php测试文件
 
-![img](assets/wps9676.tmp.jpg) 
+![img](wps9676.tmp.jpg) 
 
  
 
 7. 浏览器访问这个测试文件
 
-![img](assets/wps9687.tmp.jpg) 
+![img](wps9687.tmp.jpg) 
 
  
 
 8. 在网站根目录编写如下代码
 
-![img](assets/wps9688.tmp.jpg) 
+![img](wps9688.tmp.jpg) 
 
  
 
 8. 浏览器访问
 
-![img](assets/wps9698.tmp.jpg) 
+![img](wps9698.tmp.jpg) 
 
 
 
@@ -674,31 +677,31 @@ orderset是set的一个升级版本【也叫作sortset】，意大利文叫zset�
 
 1.` keys * `看所有的key【*  通配符，表示任意的字符】
 
-![img](assets/wps9699.tmp.jpg) 
+![img](wps9699.tmp.jpg) 
 
  
 
 2. `del 删除key`（成功返回1 不成功返回0）
 
-![img](assets/wps969A.tmp.jpg) 
+![img](wps969A.tmp.jpg) 
 
  
 
 3.` exists `检测key是否存在（存在返回1 不存在返回0）
 
-![img](assets/wps96AB.tmp.jpg) 
+![img](wps96AB.tmp.jpg) 
 
  
 
 4. `type` 查看value的类型
 
-![img](assets/wps96AC.tmp.jpg) 
+![img](wps96AC.tmp.jpg) 
 
  
 
 5. `flushdb `清空当前数据库所有的key，只在测试的时候使用，==线上千万不要使用==。
 
-![img](assets/wps96BD.tmp.jpg) 
+![img](wps96BD.tmp.jpg) 
 
 
 
@@ -714,19 +717,19 @@ Redis里面的 数据库可以认为是 key的一个集合。
 
 6. `select Number`   切换数据库。redis默认是有16个数据库（下标从0开始），但是这个不怎么使用。
 
-![img](assets/wps96BE.tmp.jpg) 
+![img](wps96BE.tmp.jpg) 
 
  
 
 7. `flushall `清除所有数据库的key，千万==慎用==
 
-![img](assets/wps96BF.tmp.jpg) 
+![img](wps96BF.tmp.jpg) 
 
  
 
 8. `dbsize` 查看当前数据库的key的个数
 
-![img](assets/wps96CF.tmp.jpg) 
+![img](wps96CF.tmp.jpg) 
 
  
 
@@ -742,27 +745,27 @@ Redis里面的 数据库可以认为是 key的一个集合。
 
 1. 开启
 
-![img](assets/wps96D0.tmp.jpg) 
+![img](wps96D0.tmp.jpg) 
 
-![img](assets/wps96E1.tmp.jpg) 
+![img](wps96E1.tmp.jpg) 
 
 ​	重启redis的服务即可
 
-![img](assets/wps96E2.tmp.jpg) 
+![img](wps96E2.tmp.jpg) 
 
  
 
 2. 登录测试
 
-![img](assets/wps96F2.tmp.jpg) 
+![img](wps96F2.tmp.jpg) 
 
 ​	解决：
 
-![img](assets/wps96F3.tmp.jpg) 
+![img](wps96F3.tmp.jpg) 
 
 ​	还一种方案在登录的时候加参数` -a admin88`
 
-![img](assets/wps96F4.tmp.jpg) 
+![img](wps96F4.tmp.jpg) 
 
  
 
@@ -787,7 +790,7 @@ Redis的快照模式，默认安装完成就会自动开启的持久化模式，
 
 `vim /etc/redis/redis.conf`
 
-![img](assets/wps9705.tmp.jpg) 
+![img](wps9705.tmp.jpg) 
 
  
 
@@ -809,7 +812,7 @@ Redis中的Aof模式：Redis的aof文件有点类似mysql的**binlog**日志【�
 
 1. 开启
 
-![img](assets/wps9706.tmp.jpg) 
+![img](wps9706.tmp.jpg) 
 
 `save 900 1 `表示的含义：如果在900s或者900s以上有1次对key的操作则把内存数据持久化到磁盘上
 
@@ -821,13 +824,13 @@ Redis中的Aof模式：Redis的aof文件有点类似mysql的**binlog**日志【�
 
 如果忘记了，则查看即可
 
-![img](assets/wps9717.tmp.jpg) 
+![img](wps9717.tmp.jpg) 
 
 2. 测试 
 
    可以使用  `bgsave background save`快速的把内存数据持久化到磁盘上。
 
-![img](assets/wps9718.tmp.jpg) 
+![img](wps9718.tmp.jpg) 
 
  
 
@@ -839,13 +842,13 @@ aof【append fo file】，和快照是互斥。
 
 1. 修改 `/etc/redis/redis.conf`配置文件
 
-![img](assets/wps9728.tmp.jpg) 
+![img](wps9728.tmp.jpg) 
 
  
 
 2. 设置持久化数据的频率
 
-![img](assets/wps9729.tmp.jpg) 
+![img](wps9729.tmp.jpg) 
 
  
 

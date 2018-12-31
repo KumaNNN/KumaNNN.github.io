@@ -1,13 +1,16 @@
 ---
 title: 表的设计范式
-date: 2018-12-18 12:35:17
-updated: 2018-12-18 12:35:17 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Mysql
+typora-root-url: table_NormalFormat
+typora-copy-images-to: table_NormalFormat
+abbrlink: 2613340531
+date: 2018-12-18 12:35:17
+updated: 2018-12-18 12:35:17
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -28,7 +31,7 @@ top:
 
 原子：组成物质的最小单位，不可以再进行分割
 
-![](note/table_NF_01.png)
+![](table_NF_01.png)
 
 ----
 
@@ -54,9 +57,9 @@ top:
 
 因此，出现主键部分依赖的前提是，出现 复合主键！
 
-![](note/table_NF_02.png)
+![](table_NF_02.png)
 
-![](note/table_NF_03.png)
+![](table_NF_03.png)
 
  
 
@@ -81,7 +84,7 @@ top:
 
 联表查询   效率就会很低   反第三范式
 
-![](note/table_NF_04.png)
+![](table_NF_04.png)
 
  
 

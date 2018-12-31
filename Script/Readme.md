@@ -30,6 +30,8 @@ Script
     │  submodule_sparse_checkout.bat
     │  sparse-checkout
     │  .gitattributes
+    │  gindex.bat
+    │  Copy_source-Index_To_source_md-Index.bat
     └─git_submodule
         └─Template
                 Template.add
@@ -83,6 +85,18 @@ Script
   * `sparse-checkout` ： 稀疏检出配置文件。
     * 在脚本中，复制此文件到子模块的相应目录下。
   * `.gitattributes` : LFS配置文件。
+  * `gindex.bat` :  根据md文件生成index.md 模版
+
+    * 运行目录：` ./source/_posts/Dev/<SubModule Name>/`
+    * 需要 `abbrlink` 属性，所以需要在`hexo g` 之后执行。
+    * 部分内容需手动修改或添加
+    * 原有的index.md 备份为 index.md.bak0
+    * 拖动单个文件用此脚本打开，则只处理单个文件
+    * 直接运行脚本，则处理当前目录下所有md文件
+  * `Copy_source-Index_To_source_md-Index.bat` ：复制source下的index.md 到 source_md 下
+    * 必需在合适目录运行
+    * `./source/_posts/Dev/<SubModule Name>`
+    * 修改source下的index.md 文件后，复制脚本，运行脚本。
 * `git_submodule`  ： git 子模块根目录。
   * `Template`  ： 模版目录。
     * `Template.bat` ：配置文件生成。

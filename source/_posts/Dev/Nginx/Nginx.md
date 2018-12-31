@@ -1,13 +1,16 @@
 ---
 title: Nginx
-date: 2018-12-19 16:20:02
-updated: 2018-12-19 16:20:02 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Nginx
+typora-root-url: Nginx
+typora-copy-images-to: Nginx
+abbrlink: 1706463495
+date: 2018-12-19 16:20:02
+updated: 2018-12-19 16:20:02
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -168,11 +171,11 @@ nginx和apache的软件底层架构不一样。**Nginx的并发性能要比apach
 
 1. 豆瓣
 
-   ![img](assets/wpsC837.tmp.jpg)
+   ![img](wpsC837.tmp.jpg)
 
 2. 搜狐
 
-   ![img](assets/wps231A.tmp.jpg)
+   ![img](wps231A.tmp.jpg)
 
 
 
@@ -192,7 +195,7 @@ nginx和apache的软件底层架构不一样。**Nginx的并发性能要比apach
 
 ### 目录结构
 
-![1536392816584](assets/1536392816584.png)
+![1536392816584](1536392816584.png)
 
 
 
@@ -200,25 +203,25 @@ nginx和apache的软件底层架构不一样。**Nginx的并发性能要比apach
 
 1. 使用ftpd客户端进行上传操作
 
-![1536392952965](assets/1536392952965.png)
+![1536392952965](1536392952965.png)
 
 2. 把所有的保存copy到/usr/local/src目录下
 
-![img](assets/wpsA365.tmp.jpg) 
+![img](wpsA365.tmp.jpg) 
 
 复制后
 
-![img](assets/wpsA366.tmp.jpg) 
+![img](wpsA366.tmp.jpg) 
 
 3. 由于nginx依赖pcre软件包，所以需要先安装pcre包
 
    a. 解压
 
-![img](assets/wpsA376.tmp.jpg) 
+![img](wpsA376.tmp.jpg) 
 
 ​	b. 编译和安装一起
 
-![img](assets/wpsA387.tmp.jpg) 
+![img](wpsA387.tmp.jpg) 
 
 注意：pcre包安装的时候不需要指定安装路径 --prefix 
 
@@ -228,11 +231,11 @@ nginx和apache的软件底层架构不一样。**Nginx的并发性能要比apach
 
    a. 解压nginx安装包
 
-![img](assets/wpsA388.tmp.jpg) 
+![img](wpsA388.tmp.jpg) 
 
 ​	b. 进入后，编译和安装
 
-![img](assets/wpsA389.tmp.jpg) 
+![img](wpsA389.tmp.jpg) 
 
 nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
@@ -240,13 +243,13 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 5. 安装后的目录结构
 
-![img](assets/wpsA39A.tmp.jpg) 
+![img](wpsA39A.tmp.jpg) 
 
  
 
 6. 启动服务
 
-![img](assets/wpsA39B.tmp.jpg) 
+![img](wpsA39B.tmp.jpg) 
 
  
 
@@ -254,11 +257,11 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 进程查看方式
 
-![img](assets/wpsA3AB.tmp.jpg) 
+![img](wpsA3AB.tmp.jpg) 
 
 端口查看方式
 
-![img](assets/wpsA3AC.tmp.jpg) 
+![img](wpsA3AC.tmp.jpg) 
 
 
 
@@ -274,25 +277,25 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 1. 解压php源码包
 
-![img](assets/wps3C8.tmp.jpg) 
+![img](wps3C8.tmp.jpg) 
 
  
 
 2. 进行目录，编译安装
 
-![img](assets/wps3D9.tmp.jpg) 
+![img](wps3D9.tmp.jpg) 
 
    收集操作系统的信息（主要是检测操作的位数，编译器是否存在）
 
-![img](assets/wps3DA.tmp.jpg) 
+![img](wps3DA.tmp.jpg) 
 
 3. 编译和安装（主要是把c语言的文件转换机器语言；安装把对应生成的二进制的命令复制到指定的安装目录里面）
 
-![img](assets/wps3EA.tmp.jpg) 
+![img](wps3EA.tmp.jpg) 
 
 ​	 注意：在编译的过程中，可能出现如下的错误
 
-![img](assets/wps3EB.tmp.jpg) 
+![img](wps3EB.tmp.jpg) 
 
 ​	可以使用如下命令进行解决
 
@@ -316,21 +319,21 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 4. **安装后**
 
-![img](assets/wps41E.tmp.jpg) 
+![img](wps41E.tmp.jpg) 
 
 ​	复制配置文件
 
-![img](assets/wps41F.tmp.jpg) 
+![img](wps41F.tmp.jpg) 
 
 ​	启动
 
-![img](assets/wps430.tmp.jpg) 
+![img](wps430.tmp.jpg) 
 
  
 
 5. 查看服务
 
-![img](assets/wps431.tmp.jpg) 
+![img](wps431.tmp.jpg) 
 
  
 
@@ -338,11 +341,11 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 		使得nginx能够完成动态的请求，修改如下的`nginx.conf`文件
 
-![img](assets/wps441.tmp.jpg) 
+![img](wps441.tmp.jpg) 
 
 ​	配置文件内容如下
 
-![img](assets/wps442.tmp.jpg) 
+![img](wps442.tmp.jpg) 
 
 ​	如果以后有index.php的文件的请求，则nginx会把请求交给php-fpm处理，php-fpm处理的动态脚本的目录	是/scripts目录（动态文件夹的目录可以修改）
 
@@ -350,43 +353,43 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 7. 增加一个动态请求的目录
 
-![img](assets/wps453.tmp.jpg) 
+![img](wps453.tmp.jpg) 
 
 ​	增加一个index.php测试文件（内容phpinfo()函数）
 
-![img](assets/wps454.tmp.jpg) 
+![img](wps454.tmp.jpg) 
 
  
 
 8. 重启nginx服务器    `-s` 表示传递一个信号量
 
-![img](assets/wps455.tmp.jpg) 
+![img](wps455.tmp.jpg) 
 
 ​          `-t` 检测nginx的配置文件语法是否正确
 
-![img](assets/wps466.tmp.jpg) 
+![img](wps466.tmp.jpg) 
 
 ​	   查看命令帮助
 
-![img](assets/wps467.tmp.jpg) 
+![img](wps467.tmp.jpg) 
 
  
 
 9. 浏览器查看
 
-![img](assets/wps477.tmp.jpg) 
+![img](wps477.tmp.jpg) 
 
 10. 通过上面查看发现php没有正确的加载配置文件，需要去php的源码包里面复制一份
 
-![img](assets/wps488.tmp.jpg) 
+![img](wps488.tmp.jpg) 
 
 ​	在上面正确复制后，重启**php-fpm**模式
 
-![img](assets/wps499.tmp.jpg) 
+![img](wps499.tmp.jpg) 
 
 ​	查看
 
-![img](assets/wps49A.tmp.jpg) 
+![img](wps49A.tmp.jpg) 
 
 
 
@@ -396,13 +399,13 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 ## Nginx启动错误
 
-![1536549071320](assets/1536549071320.png)
+![1536549071320](1536549071320.png)
 
 
 
 解决方法：
 
-![1536543104617](assets/1536543104617.png)
+![1536543104617](1536543104617.png)
 
 
 
@@ -412,15 +415,15 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 在Nginx成功安装后，我们可以在Nginx的安装目录下的`sbin`文件夹里面的nginx来对linux进行管理。
 
-![img](assets/wpsBCA.tmp.jpg) 
+![img](wpsBCA.tmp.jpg) 
 
 例如：语法检测   `# ./nginx -t`
 
-![img](assets/wpsBCB.tmp.jpg) 
+![img](wpsBCB.tmp.jpg) 
 
 例如：配置文件重新加载   `# ./nginx -s reload`
 
-![img](assets/wpsBDB.tmp.jpg) 
+![img](wpsBDB.tmp.jpg) 
 
  
 
@@ -430,7 +433,7 @@ nginx安装的时候指定了安装的路径(/usr/local/nginx)
 
 <http://blog.csdn.net/syhd142/article/details/8440667>
 
-![img](assets/wpsBDC.tmp.jpg) 
+![img](wpsBDC.tmp.jpg) 
 
 ==记住：**master** 和 **worker**。==
 
@@ -474,19 +477,19 @@ Nginx在内存中运行着多个进程；有一个主进程和几个worker进程
 
 1. 子进程的配置
 
-![img](assets/wpsA687.tmp.jpg) 
+![img](wpsA687.tmp.jpg) 
 
 2. 子进程处理的http请求参数（默认1024即可，不是越大越好）
 
-![img](assets/wpsA688.tmp.jpg) 
+![img](wpsA688.tmp.jpg) 
 
 3. mime.types
 
-![img](assets/wpsA699.tmp.jpg) 
+![img](wpsA699.tmp.jpg) 
 
 4. http 配置：主要是用来做web配置
 
-![img](assets/wpsA69A.tmp.jpg) 
+![img](wpsA69A.tmp.jpg) 
 
 gzip压缩
 
@@ -496,7 +499,7 @@ gzip压缩
 
 server配置
 
-![img](assets/wpsA6AA.tmp.jpg) 
+![img](wpsA6AA.tmp.jpg) 
 
 
 
@@ -504,11 +507,11 @@ server配置
 
 1. 修改server里面的 `server_name`
 
-![img](assets/wpsA6AB.tmp.jpg) 
+![img](wpsA6AB.tmp.jpg) 
 
 2. 更改hosts文件（Windows下），相当于是dns解释器
 
-![img](assets/wpsA6BC.tmp.jpg) 
+![img](wpsA6BC.tmp.jpg) 
 
 
 
@@ -516,15 +519,15 @@ server配置
 
 1. 增加一个server段
 
-![img](assets/wpsA6BD.tmp.jpg) 
+![img](wpsA6BD.tmp.jpg) 
 
 2. 创建一个虚拟主机的网站根目录（绝对路径）
 
-![img](assets/wpsA6CD.tmp.jpg) 
+![img](wpsA6CD.tmp.jpg) 
 
 3. 访问
 
-![img](assets/wpsA6CE.tmp.jpg) 
+![img](wpsA6CE.tmp.jpg) 
 
 # 负载均衡配置
 
@@ -570,7 +573,7 @@ server配置
 
 可以看到该网站的内容是来自于`load-blance`
 
-![img](assets/wpsA871.tmp.jpg) 
+![img](wpsA871.tmp.jpg) 
 
  
 
@@ -580,7 +583,7 @@ server配置
 
 ## **垂直扩展**
 
-![img](assets/wpsA881.tmp.jpg) 
+![img](wpsA881.tmp.jpg) 
 
 **在单台服务器上增加配置，但是这有问题：**
 
@@ -596,11 +599,11 @@ server配置
 
 ## 水平扩展
 
-![img](assets/wpsA892.tmp.jpg) 
+![img](wpsA892.tmp.jpg) 
 
 **f5报价**【好处：1. 简单 2. 效果特别明显 ，立竿见影】
 
-![img](assets/wpsA893.tmp.jpg) 
+![img](wpsA893.tmp.jpg) 
 
 在水平方向不断的增加主机，提升网站的整体的性能。
 
@@ -616,7 +619,7 @@ server配置
 
 ## 高可用
 
-![img](assets/wpsA8A3.tmp.jpg) 
+![img](wpsA8A3.tmp.jpg) 
 
  
 
@@ -642,40 +645,40 @@ ping IP 包返回，即， 心跳检测
 
 1. 画一个拓扑图
 
-![img](assets/wpsA8A4.tmp.jpg) 
+![img](wpsA8A4.tmp.jpg) 
 
 2. 配置3个虚拟主机 ，
    1. 端口 81
 
-![img](assets/wpsA8B5.tmp.jpg) 
+![img](wpsA8B5.tmp.jpg) 
 
 ​	2. 端口 82
 
-![img](assets/wpsA8B6.tmp.jpg) 
+![img](wpsA8B6.tmp.jpg) 
 
 ​	3. 端口83
 
-![img](assets/wpsA8B7.tmp.jpg) 
+![img](wpsA8B7.tmp.jpg) 
 
 ​	配置一个80(如果被占用就换个端口)的虚拟主机处理前端的用户请求:
 
-![img](assets/wpsA8C8.tmp.jpg) 
+![img](wpsA8C8.tmp.jpg) 
 
 ​	
 
 建立虚拟主机的网站根目录
 
-![img](assets/wpsA8C9.tmp.jpg) 
+![img](wpsA8C9.tmp.jpg) 
 
  
 
 **特别注意：配置Linux下的hosts文件，需要给upstream里面定义的虚拟主机的域名做一个对应的解析**
 
-![img](assets/wpsA8D9.tmp.jpg) 
+![img](wpsA8D9.tmp.jpg) 
 
 内容：
 
-![img](assets/wpsA8EA.tmp.jpg) 
+![img](wpsA8EA.tmp.jpg) 
 
  
 
@@ -683,31 +686,31 @@ ping IP 包返回，即， 心跳检测
 
    ==注意==：定义这个**upstream** 指令必须放在http里面的server前面
 
-![img](assets/wpsA8EB.tmp.jpg) 
+![img](wpsA8EB.tmp.jpg) 
 
  
 
 4. nginx的负载均衡的默认算法是轮询的算法，一个服务器接着一个服务器来。
 
-![img](assets/wpsA8FC.tmp.jpg) 
+![img](wpsA8FC.tmp.jpg) 
 
  
 
 5. 将nginx的负载均衡算法改为加权方式
 
-![img](assets/wpsA90C.tmp.jpg) 
+![img](wpsA90C.tmp.jpg) 
 
  
 
 6. 将nginx的负载均衡算法改为ip_hash;
 
-![img](assets/wpsA90D.tmp.jpg) 
+![img](wpsA90D.tmp.jpg) 
 
  
 
 7. 备用服务器的概念
 
-![img](assets/wpsA91E.tmp.jpg) 
+![img](wpsA91E.tmp.jpg) 
 
  
 
@@ -715,11 +718,11 @@ ping IP 包返回，即， 心跳检测
 
 
 
-![img](assets/wpsA91F.tmp.jpg) 
+![img](wpsA91F.tmp.jpg) 
 
 查看
 
-![img](assets/wpsA92F.tmp.jpg) 
+![img](wpsA92F.tmp.jpg) 
 
 地址：<http://tengine.taobao.org/nginx_docs/cn/docs/http/ngx_http_upstream_module.html>
 

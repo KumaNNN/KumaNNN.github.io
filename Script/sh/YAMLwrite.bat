@@ -78,7 +78,7 @@ for /f "usebackq tokens=*" %%a in (`dir /a/b/s %~1\*.md`) do (
 		REM -----------------变量解析---------------------::
 		call :ReplaceStr  line  {{date}}  "%datetime%"
 		call :ReplaceStr  line  {{title}}  "%%~na"
-		call :ReplaceStr  line  {{dot}}  .
+		call :ReplaceStr  line  {{dot}}  "%%~na"
 		REM -----------------变量解析---------------------::
 		:: 输出YAML到临时文件
 		echo !line!>>%yaml%.tmp

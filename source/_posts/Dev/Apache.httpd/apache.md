@@ -1,13 +1,16 @@
 ---
-title: apache
-date: 2018-12-19 16:17:59
-updated: 2018-12-19 16:17:59 
+title: Apache
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Apache.httpd
+typora-root-url: Apache
+typora-copy-images-to: Apache
+abbrlink: 3588426178
+date: 2018-12-19 16:17:59
+updated: 2018-12-19 16:17:59
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -42,7 +45,7 @@ Apache本身不用安装，我们只需将其安装为系统服务即可，在Wi
 
 我们需要在自己的电脑上面新建一个文件夹，这个文件夹不建议放置在系统盘，千万注意文件夹的名称不要使用中文特殊符号。  
 
-![](note/php_11.png)
+![](php_11.png)
 
 
 
@@ -52,35 +55,35 @@ Apache本身不用安装，我们只需将其安装为系统服务即可，在Wi
 httpd.exe  -k  install
 ```
 
-![](note/php_05.png)
+![](php_05.png)
 
 因为上图所示有报错：找到httpd.conf 这个文件上的37行
 
-![](note/php_06.png)
+![](php_06.png)
 
  
 
 我们需要将httpd.conf这个文件中的   ``c:/Apache24``
 
-![](note/php_07.png)
+![](php_07.png)
 
  
 
 替换为apache的实际安装目录
 
-![](note/php_08.png)
+![](php_08.png)
 
 
 
 添加一个**ServerName** 
 
-![](note/php_09.png)
+![](php_09.png)
 
 
 
 配置默认显示页面
 
-![](note/php_15.png)
+![](php_15.png)
 
 
 
@@ -88,13 +91,13 @@ httpd.exe  -k  install
 
 重启Apache ， 在命令行输入(可省略 .exe)： ``httpd -k restart``
 
-![](note/php_10.png) 
+![](php_10.png) 
 
 
 
 在浏览器访问配置的域名，测试是否成功
 
-![](note/php_12.png) 
+![](php_12.png) 
 
 ----
 
@@ -108,7 +111,7 @@ Apache默认的是被安装成了windows系统服务器，所以管理Apache也�
 
 **我的电脑---->右键---->管理----->服务与应用程序---->服务**   
 
-![](note/php_13.png)
+![](php_13.png)
 
 或在开始----->运行里面输入：**services.msc**  
 
@@ -157,7 +160,7 @@ Apache默认的是被安装成了windows系统服务器，所以管理Apache也�
 
 ## 目录结构
 
-![](note/php_14.png)
+![](php_14.png)
 
 ----
 
@@ -176,20 +179,20 @@ Apache默认的是被安装成了windows系统服务器，所以管理Apache也�
 第一步：我们需要在Apache的配置文件中开启虚拟主机的配置 
 Httpd.conf 在这个文件中 开启虚拟主机的配置文件
 
-![](note/php_16.png)
+![](php_16.png)
 
 
 
 第二步：使用``<VirtualHost  *:80>  </ VirtualHost> `` ，配置一个虚拟主机就是写一对``<VirtualHost>``这对标签 
 
-![](note/php_17.png)
+![](php_17.png)
 
 第三步[可选]：hosts 文件重定向，如果域名是没有配置在DNS服务器的，可用此方法   
 
 hosts文件路径： 
 Windows  ``C:\Windows\System32\drivers\etc\hosts``   
 
-![](note/php_18.png)
+![](php_18.png)
 
 
 
@@ -197,7 +200,7 @@ Windows  ``C:\Windows\System32\drivers\etc\hosts``
 
 ``ServerName   域名 ``
 
-![](note/php_19.png)
+![](php_19.png)
 
 
 
@@ -207,11 +210,11 @@ Windows  ``C:\Windows\System32\drivers\etc\hosts``
 
 ``DocumentRoot  "域名所对应的目录"``
 
-![](note/php_20.png)
+![](php_20.png)
 
 
 
-![](note/php_21.png)
+![](php_21.png)
 
 ## 权限配置
 
@@ -224,7 +227,7 @@ Windows  ``C:\Windows\System32\drivers\etc\hosts``
 **允许用户访问**  ``Require   all   granted``    
 **拒绝用户访问**  ``Require   all   denied``  
 
-![](note/php_22.png)
+![](php_22.png)
 
 
 
@@ -243,7 +246,7 @@ Windows  ``C:\Windows\System32\drivers\etc\hosts``
 **注意：**  
  如果网站已经上线，我们就使用拒绝访问的方式；如果我们在开发中，可以使用以列表的形式显示。
 
-![](note/php_23.png)
+![](php_23.png)
 
 
 
@@ -266,7 +269,7 @@ Windows  ``C:\Windows\System32\drivers\etc\hosts``
 **第2步：**  
 在该目录下的任何子目录中，创建一个特殊的文件（`` .htaccess ``），在该文件中写所需要的“权限内容”（几乎跟Directory中的写法一样）：  
 
-![](note/php_24.png)
+![](php_24.png)
 
 
 

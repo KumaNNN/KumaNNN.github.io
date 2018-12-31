@@ -1,13 +1,16 @@
 ---
 title: SVN
-date: 2018-12-18 12:35:35
-updated: 2018-12-18 12:35:35 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - svn
+typora-root-url: SVN
+typora-copy-images-to: SVN
+abbrlink: 3963543486
+date: 2018-12-18 12:35:35
+updated: 2018-12-18 12:35:35
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -18,7 +21,7 @@ top:
 
 传统的团队合作开发项目流程如下：
 
-![](media/image1.png)
+![](image1.png)
 
 **问题：上面团队开发的流程会产生哪些痛点？**
 
@@ -30,7 +33,7 @@ top:
 
 团队采用svn方式开发项目的流程图解：
 
-![](media/image2.png)
+![](image2.png)
 
 ## 2、SVN介绍
 
@@ -66,11 +69,11 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 软件在课件中：
 
-![](media/image3.png)
+![](image3.png)
 
 ## 1、安装服务端
 
-![](media/image4.png)
+![](image4.png)
 
 提示：如果VisualSVN安装不上可以安装Subversion版本的。
 
@@ -78,31 +81,31 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 1、双击安装程序，点击next下一步
 
-![](media/image5.png)
+![](image5.png)
 
 2.  接受软件的相关协议，点击next。
 
-![](media/image6.png)
+![](image6.png)
 
 3、选择勾选最后一项，配置svn服务端的相关的命令到系统的环境变量，点击next下一步
 
-![](media/image7.png)
+![](image7.png)
 
 4.  选择标准版Standard Edition。
 
-![](media/image8.png)
+![](image8.png)
 
 5.  选择一个安装目录，这里以安装到D:\\svn\\server为例
 
-![](media/image9.png)
+![](image9.png)
 
 6、点击finish完成
 
-![](media/image10.png)
+![](image10.png)
 
 7、查看安装的svn服务端环境变量是否生效，直接在cmd窗口中出输入svn命令，若出现以下提示说明已生效。
 
-![](media/image11.png)
+![](image11.png)
 
 
 
@@ -112,11 +115,11 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 ②(推荐)点击环境变量path选项，直接点击确定即可，不需要修改，这样可以立即生效
 
-![](media/image12.png)
+![](image12.png)
 
 再次关闭黑窗口重新打开，输入svn命令进行测试即可。
 
-![](media/image13.png)
+![](image13.png)
 
 ## 2、安装客户端
 
@@ -124,51 +127,51 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 查看系统位数：计算机\--\>右键属性
 
-![](media/image14.png)
+![](image14.png)
 
 **安装TortoiseSVN步骤：**
 
 1、双击安装程序，点击next下一步
 
-![](media/image15.png)
+![](image15.png)
 
 2、接受软件的相关协议，点击next。
 
-![](media/image16.png)
+![](image16.png)
 
 3、选择选项command line client tools-Will be installed on local hard driver
 
-![](media/image17.png)
+![](image17.png)
 
 4、点击第一个选项TortoiseSVN，配置安装的目录，目录可自定义，这里以安装到D:\\svn\\client\\中为例，点击next。
 
-![](media/image18.png)
+![](image18.png)
 
 注：路径尽量不要包含特殊字符和中文。
 
 5、安装完成，点击finish.。
 
-![](media/image19.png)
+![](image19.png)
 
 6、测试是否安装成功，在桌面鼠标右键，多出以下两个选项说明安装成功：
 
-![](media/image20.png)
+![](image20.png)
 
 7、如需要汉化可安装系统对应位数的汉化包即可：
 
-![](media/image21.png)
+![](image21.png)
 
 安装一路next即可，会自动找到上面svn客户端的安装位置：
 
 切换中文步骤：TortoiseSVN\--\>Settings\--\>General\--\>Language
 
-![](media/image22.png)
+![](image22.png)
 
-![](media/image23.png)
+![](image23.png)
 
 变成中文效果：
 
-![](media/image24.png)
+![](image24.png)
 
 ---
 
@@ -184,11 +187,11 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 **步骤1**：建立项目目录 。如：`D:/app/blog`
 
-![](media/image25.png)
+![](image25.png)
 
 **步骤2**：把项目目录变为仓库。 命令为：` svnadmin create D:/app/blog`（项目目录绝对路径）
 
-![](media/image26.png)
+![](image26.png)
 
 **步骤3**：开启监管仓库目录的服务。命令为：`svnserve -d -r D:/app/blog`
 
@@ -198,7 +201,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 >
 > -r：监管的目录。
 
-![](media/image27.png)
+![](image27.png)
 
 **注**：上面黑窗口正在监管仓库服务，不要关闭，否则导致后面连接不上。
 
@@ -212,7 +215,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 三大指令使用图解：
 
-![](media/image28.png)
+![](image28.png)
 
 
 
@@ -224,7 +227,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 **步骤1**：如在我们桌面中，建立一个项目检出目录myblog，用于存放检出的代码：
 
-![](media/image29.png)
+![](image29.png)
 
 ==**检出和版本库浏览器的区别：**==
 
@@ -234,25 +237,25 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 **步骤2**：输入我们svn服务器的地址，指定一个检出代码的本地目录
 
-![](media/image30.png)
+![](image30.png)
 
 检出成功之后，会在本地检出目录多出一个`.svn`的隐藏文件夹，==重要此文件夹下存储着和服务端仓库直接的关联信息，更改信息等，不能随意改动。==同时版本为0， 说明是一个新建立的仓库，之间没有任何的commit提交。
 
-![](media/image31.png)
+![](image31.png)
 
 ## 4、上传代码到svn仓库中
 
 **步骤1**：在检出的目录中，建立一些测试文件或目录，鼠标右键选择**commit**提交指令
 
-![](media/image32.png)
+![](image32.png)
 
 **步骤2**：【重要】填写提交的备注，主要是用于后面代码的版本回退（代码找回）
 
-![](media/image33.png)
+![](image33.png)
 
 提交确定之后，提示无权限提交，
 
-![](media/image34.png)
+![](image34.png)
 
 因为默认新创建的仓库，只能更新或检出，但是不能commit提交,后面需要修改此仓库的配置文件，进行权限配置。
 
@@ -268,7 +271,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 每个仓库的conf目录中，都会有以下三个配置文件：
 
-![](media/image35.png)
+![](image35.png)
 
 `svnserve.conf` ：当前仓库的核心配置文件，可以开启某些文件的功能
 
@@ -292,21 +295,21 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 的\#号给去掉，且把read改为write，如下：
 
-![](media/image36.png)
+![](image36.png)
 
 ==注：最前面要顶格写，即不要留空格。只要保存配置文件会立刻生效，不需要重新监管仓库服务。==
 
 再次进行commit提交测试：成功了，提示版本1，说明此仓库成功提交过1次。
 
-![](media/image37.png)
+![](image37.png)
 
 尝试对检出目录的index.php文件进行如下修改测试：
 
-![](media/image38.png)
+![](image38.png)
 
 再次进行提交；
 
-![](media/image39.png)
+![](image39.png)
 
 
 
@@ -320,7 +323,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 **步骤1**：修改svnserve.conf配置文件，开启passwd和authz文件的功能
 
-![](media/image40.png)
+![](image40.png)
 
 配置解释：
 
@@ -336,7 +339,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 **步骤2**，修改passwd文件，给当前仓库增加一些用户名和密码
 
-![](media/image41.png)
+![](image41.png)
 
 **格式**： `用户名 = 密码`（密码明文）
 
@@ -346,7 +349,7 @@ coding(码市): [https://coding.net/](https://coding.net/)
 
 **步骤3**：修改authz文件，给当前仓库的用户名分配一些权限（rw）
 
-![](media/image42.png)
+![](image42.png)
 
 设置组：
 
@@ -369,7 +372,7 @@ cainiao_group = cainiao
 
 再次进行commit提交，若出现一个输入密码的弹窗，说明配置授权用户访问成功：
 
-![](media/image43.png)
+![](image43.png)
 
 注意：如果没有**w**权限，提交的时候会提示`Access Denies`权限拒绝。
 
@@ -385,21 +388,21 @@ cainiao_group = cainiao
 
 底部启动任务管理器\--\>进程\--\>找到进程名explorer.exe\--\>鼠标右键结束，然后再找到文件选项新建刚才结束的进程explorer.exe,如下图所示：
 
-![](media/image44.png)
+![](image44.png)
 
 -   win8，win10解决办法：
 
 修改如下注册表：按住win+r,输入regedit
 
-![](media/image45.png)
+![](image45.png)
 
 需要修改注册表中的某些选项，参考下面的图片：
 
-![](media/image46.png)
+![](image46.png)
 
 找到对应的注册表的值（Tortoise打头的），在前面加多空格，空格越多优先级越高：
 
-![](media/image47.png)
+![](image47.png)
 
 最后在底部任务栏管理器选中window资源管理器\--\>鼠标右键重新启动即可,再去看检出目录就可以看到图标了。
 
@@ -409,7 +412,7 @@ cainiao_group = cainiao
 
 -   **常规(同步)**图标：
 
-![](media/image48.png)
+![](image48.png)
 
 出现此图标，说明此文件中的内容与svn服务器中对应文件内容一样。
 
@@ -417,7 +420,7 @@ cainiao_group = cainiao
 
 -   **修改**图标：
 
-![](media/image49.png)
+![](image49.png)
 
 当我们对本地的某个文件进行修改，导致与svn服务器上面的对应的文件的内容不一致就会出现此图标。
 
@@ -425,7 +428,7 @@ cainiao_group = cainiao
 
 -   **无版本控制**图标
 
-![](media/image50.png)
+![](image50.png)
 
 说明此文件没有与svn服务器建立关联，说明没有被仓库管理过
 
@@ -433,7 +436,7 @@ cainiao_group = cainiao
 
 -   **忽略**图标
 
-![](media/image51.png)
+![](image51.png)
 
 当我们有些文件不想提交到svn服务器或者没有必要提交，我们可以把这些文件设置为忽略即可，那么提交的时候这些文件就不会出现在提交的文件变更列表中。
 
@@ -445,13 +448,13 @@ cainiao_group = cainiao
 
 具体操作：选中要忽略的文件鼠标右键\--\>TortoiseSVN\--\>增加到忽略列表。如下：
 
-![](media/image52.png)
+![](image52.png)
 
 其中带**recursively**是递归的意思，多用于忽略目录中及其子目录中的所有的文件。
 
 -   **冲突**的图标
 
-![](media/image53.png)
+![](image53.png)
 
 尤其是团队开发的时候，多个开发人员对同一个文件的相同行代码都进行了修改，那么后者提交的会覆盖前者提交的，但是svn不会进行覆盖，会提示我们解决冲突，把具有冲突的文件更新下来就是上面的黄色图标。
 
@@ -471,21 +474,21 @@ cainiao_group = cainiao
 
 首先，他们两者都要把代码给更新下来，此时，两者的代码应该是完全一致的：
 
-![](media/image54.png)
+![](image54.png)
 
 先是cainiao用户对index.php文件进行修改：修改6-10行,并成功commit提交。
 
-![](media/image55.png)
+![](image55.png)
 
 成功提交之后，即svn仓库中index.php的文件的最新内容是cainiao用户提交的。
 
 随后dashen用户同样也对index.php文件进行修改6-9行。
 
-![](media/image56.png)
+![](image56.png)
 
 现在dashen用户commit提交代码出现如下的冲突提示：
 
-![](media/image57.png)
+![](image57.png)
 
 出现上面的提示，说明提交的文件的内容与svn仓库中的index.php文件内容有冲突部分。
 
@@ -501,9 +504,9 @@ dashen用户：修改6-9行
 
 **步骤1**：鼠标选中有冲突的文件，鼠标右键选择更新，
 
-![](media/image58.png)
+![](image58.png)
 
-![](media/image59.png)
+![](image59.png)
 
 可见，更新下来会多出三个**辅助文件**：
 
@@ -537,15 +540,15 @@ dashen用户：修改6-9行
 
 **步骤1**：选中要回退的文件，`更新至版本`
 
-![](media/image60.png)
+![](image60.png)
 
 在通过之前提交的日志来找回：
 
-![](media/image61.png)
+![](image61.png)
 
 找到之前提交的日志信息，点击确定，即可回到之前的代码版本。
 
-![](media/image62.png)
+![](image62.png)
 
 注：
 
@@ -573,17 +576,17 @@ dashen用户：修改6-9行
 
 **步骤1**：如在app目录中建立多个项目文件夹（android、java）
 
-![](media/image63.png)
+![](image63.png)
 
 **步骤2**：把上面的android和java目录变为项目仓库。
 
-![](media/image64.png)
+![](image64.png)
 
 注：blog已经是仓库了，不要重复创建。
 
 **步骤3**：监管所有仓库的==父目录==（`D:/app`）,这样才可以访问到其中的某个仓库项目代码
 
-![](media/image65.png)
+![](image65.png)
 
 
 
@@ -601,7 +604,7 @@ dashen用户：修改6-9行
 
 如访问其中blog仓库项目：
 
-![](media/image66.png)
+![](image66.png)
 
 
 
@@ -626,7 +629,7 @@ svnserve.conf配置和passwd配置和之前单仓库配置一样，不用变。
 
 仅需要改变authz配置文件即可：
 
-![](media/image67.png)
+![](image67.png)
 
 **单仓库和多仓库的authz权限文件配置区别：**
 
@@ -644,27 +647,27 @@ svnserve.conf配置和passwd配置和之前单仓库配置一样，不用变。
 
 做法：鼠标右键TortoiseSVN\--\>Settings\--\>已保存数据\--\>清除全部\--\>确定
 
-![](media/image68.png)
+![](image68.png)
 
 ## 2、export导出指令
 
 export指令：相当于拷贝项目,导出的代码不会含有隐藏文件.svn，即不受svn版本控制
 
-![](media/image69.png)
+![](image69.png)
 
 导出来如下所示：
 
-![](media/image70.png)
+![](image70.png)
 
 ## 3、更改svn服务器地址
 
 做法：TortoiseSVN\--\>重新定位\--\>输入新的仓库地址即可
 
-![](media/image71.png)
+![](image71.png)
 
 重新输入新的仓库地址即可：
 
-![](media/image72.png)
+![](image72.png)
 
 ----
 
@@ -686,9 +689,9 @@ sc create SVNService binpath= \"D:\svn\server\bin\svnserve.exe --service -r D:\a
 
 `binpath=`后面有个空格， `start=`后面有个空格（只能有一个空格），其中`SVNService` 是服务的名称，此服务名称可以自己自定义，只要不和系统其它服务名重名即可。
 
-![](media/image73.png)
+![](image73.png)
 
-![](media/image74.png)
+![](image74.png)
 
 注册成功之后会在系统服务面板中出现对应。
 
@@ -696,13 +699,13 @@ sc create SVNService binpath= \"D:\svn\server\bin\svnserve.exe --service -r D:\a
 
 查看：底部任务栏启动任务管理器\--\>服务\--\>找到所注册的服务
 
-![](media/image75.png)
+![](image75.png)
 
 设置为服务自动启动：服务名右键属性
 
-![](media/image76.png)
+![](image76.png)
 
-![](media/image77.png)
+![](image77.png)
 
 ==注：如果是以之前黑窗口的形式监管服务，就不可以在使用window服务的形式进行监管。==
 
@@ -712,27 +715,27 @@ sc create SVNService binpath= \"D:\svn\server\bin\svnserve.exe --service -r D:\a
 
 net stop\|start\|restart 服务名 （如开启svn服务：`net start SVNService`）
 
-![](media/image78.png)
+![](image78.png)
 
 删除服务:
 
 sc delete 服务名 （如删除svn服务：`sc delete SVNService`）
 
-![](media/image79.png)
+![](image79.png)
 
 ## 3、cmd命令的批处理
 
 我们可以把之前在cmd中写的命令直接写在后缀名为bat的文件中，然后以管理员方式运行bat文件就相当于在cmd命令行中运行命令是一样的，这样操作起来更加方便。
 
-![](media/image80.png)
+![](image80.png)
 
 如其中关闭svn服务的批处理文件`stop_svn.bat`的内容如下：
 
-![](media/image81.png)
+![](image81.png)
 
 开启svn服务，`start_svn.bat`内容如下：
 
-![](media/image82.png)
+![](image82.png)
 
 ----
 
@@ -752,7 +755,7 @@ sc delete 服务名 （如删除svn服务：`sc delete SVNService`）
 
 前钩子和后钩子触发的顺序图解：
 
-![](media/image83.png)
+![](image83.png)
 
 
 
@@ -762,7 +765,7 @@ sc delete 服务名 （如删除svn服务：`sc delete SVNService`）
 
 其中使用最多的有两个钩子：提交前的钩子、提交后的钩子（重点，开发中使用较多）
 
-![](media/image84.png)
+![](image84.png)
 
 ## 2、钩子实战
 
@@ -778,7 +781,7 @@ web站点  `D:\local.com\blog`
 
 **步骤2**：把blog仓库中的hooks的`post-commit.tmpl`复制一份在当前目录，并改名为`post-commit.bat`
 
-![](media/image85.png)
+![](image85.png)
 
 post-commit.bat内容为：
 
@@ -792,7 +795,7 @@ SVN update %DIR% --username  dashen --password dashen123
 
 效果：
 
-![](media/image86.png)
+![](image86.png)
 
 
 ### 2.2、前钩子强制用户填写提交时备注信息【了解】
@@ -801,7 +804,7 @@ SVN update %DIR% --username  dashen --password dashen123
 
 第一步：打开blog仓库的hooks目录，把`pre-commit.tmpl`文件复制一份在当前目录，改名为`pre-commit.bat`,
 
-![](media/image87.png)
+![](image87.png)
 
 pre-commit.bat内容如下：
 
@@ -835,7 +838,7 @@ exit 1
 
 
 
-![](media/image88.png)
+![](image88.png)
 
 注：如需要中文提示，为防止乱码需要把`pre-commit.bat`文件的编码改为**ANSI**。英文提示则不需要
 

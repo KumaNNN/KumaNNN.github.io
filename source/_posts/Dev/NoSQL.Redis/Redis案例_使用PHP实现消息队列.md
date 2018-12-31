@@ -1,13 +1,16 @@
 ---
 title: Redis案例_使用PHP实现消息队列
-date: 2018-12-18 12:35:38
-updated: 2018-12-18 12:35:38 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - NoSQL.Redis
+typora-root-url: Redis案例_使用PHP实现消息队列
+typora-copy-images-to: Redis案例_使用PHP实现消息队列
+abbrlink: 3783825305
+date: 2018-12-18 12:35:38
+updated: 2018-12-18 12:35:38
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -31,28 +34,28 @@ top:
 
 1、编写挂号的代码如下
 
-![img](../../../../../%E8%AF%BE%E7%A8%8B%E5%92%8C%E4%BD%9C%E4%B8%9A/%E5%B0%B1%E4%B8%9A%E7%8F%AD/Day58/Redis/doc/assets/wps973A.tmp.jpg) 
+![img](wps973A.tmp.jpg) 
 
 ​	测试结果如下所示:
 
-![img](../../../../../%E8%AF%BE%E7%A8%8B%E5%92%8C%E4%BD%9C%E4%B8%9A/%E5%B0%B1%E4%B8%9A%E7%8F%AD/Day58/Redis/doc/assets/wps973B.tmp.jpg) 
+![img](wps973B.tmp.jpg) 
 
  
 
 2、医生叫号，病人排队进入诊室，就把队列中依次弹出
 
-![img](../../../../../%E8%AF%BE%E7%A8%8B%E5%92%8C%E4%BD%9C%E4%B8%9A/%E5%B0%B1%E4%B8%9A%E7%8F%AD/Day58/Redis/doc/assets/wps973C.tmp.jpg) 
+![img](wps973C.tmp.jpg) 
 
  
 
 ​	测试结果如下:
 
-![img](../../../../../%E8%AF%BE%E7%A8%8B%E5%92%8C%E4%BD%9C%E4%B8%9A/%E5%B0%B1%E4%B8%9A%E7%8F%AD/Day58/Redis/doc/assets/wps974D.tmp.jpg) 
+![img](wps974D.tmp.jpg) 
 
 ​	继续刷新页面，医生实际中是点击了一个按钮
 
-![img](../../../../../%E8%AF%BE%E7%A8%8B%E5%92%8C%E4%BD%9C%E4%B8%9A/%E5%B0%B1%E4%B8%9A%E7%8F%AD/Day58/Redis/doc/assets/wps974E.tmp.jpg) 
+![img](wps974E.tmp.jpg) 
 
 ​	如果医生看完了所有的病人，那么就应该显示当前当前停止就诊了
 
-![img](../../../Day29/day29-JavaScript高级/资料) 
+![img](wps975E.tmp.jpg) 

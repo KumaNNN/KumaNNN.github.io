@@ -1,13 +1,16 @@
 ---
 title: MySQL 字段约束
-date: 2018-12-18 12:35:17
-updated: 2018-12-18 12:35:17 
 mathjax: false
-categories: 
+categories:
+  - Dev
+  - Mysql
+typora-root-url: mysql_constraint
+typora-copy-images-to: mysql_constraint
+abbrlink: 1492550196
+date: 2018-12-18 12:35:17
+updated: 2018-12-18 12:35:17
 tags:
-typora-root-url: .
-typora-copy-images-to: .
-top: 
+top: 1
 ---
 
 
@@ -17,17 +20,17 @@ top:
 
 ## 非空值约束
 
-mysql的**NULL**不是数据，也不是类型！只是标识字段属性！ \\\\
-用于说明某个字段，是否可以为null  \\\\
+mysql的**NULL**不是数据，也不是类型！只是标识字段属性！ 
+用于说明某个字段，是否可以为null  
 
 是：NULL，而不是：‘NULL’
 
-属性： \\\\
-``null``   表示可以为空，默认  \\\\
-``not null``  表示不能为空  \\\\
-如果，在添加数据时 ，没有指定值，也可能会是NULL！  \\\\
+属性： 
+``null``   表示可以为空，默认  
+``not null``  表示不能为空  
+如果，在添加数据时 ，没有指定值，也可能会是NULL！  
 
-![](note/mysql_key_01.png)
+![](mysql_key_01.png)
 
 ----
 
@@ -35,7 +38,7 @@ mysql的**NULL**不是数据，也不是类型！只是标识字段属性！ \\\
 
 ## 默认值约束
 
-**Default**：默认值 \\\\
+**Default**：默认值 
 
 当字段被设计的时候，如果允许默认条件下，用户不进行数据的插入，那么就可以使用事先准备好的数据来填充：通常填充的是NULL 。
 
@@ -55,7 +58,7 @@ name varchar(20) default '小米'
 
 主键分为：**单字段主键**  和 多字段联合的**复合主键**
 
-一个表，只能有一个主键！ \\\\
+一个表，只能有一个主键！ 
 典型的，在创建表时，主动增加一个 非实体的自然属性，充当主键，采用整型，运算速度快！
 
 **关键字**： ``primary key``
@@ -64,11 +67,11 @@ name varchar(20) default '小米'
 
 #### 单字段主键
 
-在定义列的同时指定主键，语法：  \\\\
-``字段名  数据类型   primary key [默认值]``  \\\\
+在定义列的同时指定主键，语法：  
+``字段名  数据类型   primary key [默认值]``  
 
 
-在定义完所有列之后指定主键，语法： \\\\
+在定义完所有列之后指定主键，语法： 
 ``[constraint <约束名>] primary key [字段名]``
 
 ```mysql
@@ -90,7 +93,7 @@ primary key (id)
 
 #### 复合主键
 
-复合主键，语法： \\\\
+复合主键，语法： 
 
 ``primary key [字段1,字段2,...字段n]``
 
@@ -103,7 +106,7 @@ primary key (id,name)
 );
 ```
 
-![](note/mysql_key_02.png)
+![](mysql_key_02.png)
 
 ### 管理主键
 
@@ -124,17 +127,17 @@ alter table  表名 drop primary key;
 
 ## 唯一值约束
 
-**唯一值约束**，要求该列的值唯一，允许为空，且只能一个空值。   \\\\
+**唯一值约束**，要求该列的值唯一，允许为空，且只能一个空值。   
 唯一值约束可以确保列中不出现重复值。
 
 **关键字**： ``unique``
 
 
 
-在定义列的同时指定唯一，语法：  \\\\
-``字段名  数据类型 unique   ``  \\\\
+在定义列的同时指定唯一，语法：  
+``字段名  数据类型 unique   ``  
 
-在定义完所有列之后指定唯一，语法： \\\\
+在定义完所有列之后指定唯一，语法： 
 ``[constraint <约束名>] unique (字段名)``
 
 ```mysql
@@ -184,8 +187,8 @@ alter table 表名 add unique  index  索引名字 (字段列表);
 
 
 
-**主表(父表)**：对于两个具有关联关系的表而言，关联字段中``主键``所在的表是主表。 \\\\
-**从表(子表)**：对于两个具有关联关系的表而言，关联字段中``外键``所在的表是从表。  \\\\
+**主表(父表)**：对于两个具有关联关系的表而言，关联字段中``主键``所在的表是主表。 
+**从表(子表)**：对于两个具有关联关系的表而言，关联字段中``外键``所在的表是从表。  
 
 
 
@@ -193,10 +196,10 @@ alter table 表名 add unique  index  索引名字 (字段列表);
 
 
 
-在定义列的同时指定外键，语法：  \\\\
-``[constraint `外键名`] foreign key  [`索引名`] (外键字段列表)  references 主表(主键字段);   ``  \\\\
+在定义列的同时指定外键，语法：  
+``[constraint `外键名`] foreign key  [`索引名`] (外键字段列表)  references 主表(主键字段);   ``  
 
-在创建表后增加外键，语法： \\\\
+在创建表后增加外键，语法： 
 ``Alter  table 从表 add [constraint `外键名`] foreign key  [`索引名`]  (外键字段列表) references 主表(主键);``
 
 ```mysql
@@ -213,17 +216,17 @@ alter table my_table add constraint `stu_fy` foreign key (c_id) references my_cl
 
 创建外键后会自动增加一个普通索引，可以指定普通索引的名称，也可以让系统分配 。
 
-![](note/foreignkey01.png)
+![](foreignkey01.png)
 
 
 
 ### **删除外键**
 
-外键不允许修改，只能先删除后增加  \\\\
-基本语法：``alter table 子表 drop  foreign key 外键名字;`` \\\\
-外键名字可以通过 ``show create table table_name ``查看  \\\\
+外键不允许修改，只能先删除后增加  
+基本语法：``alter table 子表 drop  foreign key 外键名字;`` 
+外键名字可以通过 ``show create table table_name ``查看  
 
-注意： \\\\
+注意： 
 
 **外键不能删除产生的普通索引，只会删除外键自己**
 
@@ -256,7 +259,7 @@ alter table my_table drop foreign key `stu_fy`;
 
 常用的约束模式： ``on update cascade``, ``on delete set null``，更新级联，删除置空
 
-![](note/foreignkey02.png)
+![](foreignkey02.png)
 
 
 
@@ -272,22 +275,22 @@ alter table my_table drop foreign key `stu_fy`;
 
 ## 自动增长
 
-**自动增长**，可以从1开始，逐一递增的数值 。\\\\
+**自动增长**，可以从1开始，逐一递增的数值 。
 
 **关键字**： ``auto_increment``
 
 
 
-一张表只可有一个字段使用 ``auto_increment`` 约束，且该字段必须为主键。\\\\
+一张表只可有一个字段使用 ``auto_increment`` 约束，且该字段必须为主键。
 
 
 
-典型的，从1 开始，没有负数，可以采用 无符号 **unsigned**整型！   \\\\
+典型的，从1 开始，没有负数，可以采用 无符号 **unsigned**整型！   
 **注意**： unsigned，不是列属性，是类型的一部分！（包括zerofill）因此位置上与类型在一起！
 
 
 
-语法： \\\\
+语法： 
 
 ``字段名  数据类型  auto_increment``
 
