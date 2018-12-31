@@ -38,7 +38,7 @@ Blog仓库名：`KumaNNN.github.io`
 
 * **master**  ： 内容发布分支。
 
-* **\<blog\>**  ： blog源程序分支（以 blog源程序的名称命名，如 `Hexo`）
+* **<blog\>**  ： blog源程序分支（以 blog源程序的名称命名，如 `Hexo`）
 
   * `source_md/<SubModules>`  ：内容源，子模块，拉取文档库中可引用的分支(默认：`md`)
 

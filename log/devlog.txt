@@ -1,0 +1,346 @@
+[开发日志]
+
+
+父仓库，预提交钩子(pre-commit) 
+
+:: git子仓库 git post-commit 实现
+git commit 时将status=1
+配置文件
+.git\myconf\copy.conf
+配置项
+status=0  (1:复制 / 0:不复制)
+dirname=XXX
+
+:: git父仓库 git pre-commit 实现
+执行复制并将status=0
+
+
+:: 子仓库初始化脚本 init.bat 实现
+改进仓库初始化脚本 init.bat ，使其能复制钩子脚本
+改进仓库初始化脚本 init.bat ，使其能根据目录名，添加remote等信息
+:: git remote add origin https://github.com/KumaDocCenter/Ajax.git
+Script目录需要同步到md分支，所以sh.bat中的md分支逻辑需要重构
+
+:: 独立脚本实现
+脚本，手动运行，自动检出public数据库，并复制到public
+
+改进仓库初始化脚本 init.bat ，使其能将某些信息写入一个文件,用于批量添加子模块
+
+- 子模块 通用 初始化脚本 submodule.bat
+	- 添加
+	- 删除
+	- 更新
+submodule_adds 更改为 submodule_s ,可读取配置信息，根据信息批量添加 删除 更新 初始化等操作
+	- 依据：文件后缀
+
+
+子模块批处理脚本需改进，增加成功后才执行脚本，
+		- submodule_batch.bat
+		- submodule.bat
+
+		
+改进 init.bat 的工作目录	
+
+独立脚本，配置git仓库信息，如用户，邮箱等等。。	
+
+source_md , md 文件头处理，输出YAML，需要手动添加到md文件中。
+info.bat  要修改 gitref
+
+init.log 需要修改命名。
+改进 *.add输出。
+info.bat 改进调用环境
+
+submodule_batch.bat 测试
+
+脚本，从 *.add 中读取信息，并生成文档。
+	分支：
+	https://github.com/KumaDocCenter/KumaDocCenter.github.io/tree/master
+
+
+
+子仓库和子模块运行环境不同，需要修改。
+	- 子模块，git数据库位置不同
+	- write_copy_status.bat 需修改(推荐从.git文件中读取路径)
+	- 新建脚本 Copy_hook_submodule.bat ，添加子模块时调用
+
+init.bat 输出多种配置文件(*.add *.del *.update *.init)	
+
+
+ReadConf.bat  读取文件位置有误，
+在子模块环境中，不存在.git 文件夹
+
+
+新建脚本，查找所有 dir.bak 目录，
+并在另一位置(DevDocCenter_md)建立目录(dir),用于检出md分支。	
+
+dirname 优化，能自动获取上级目录名
+
+.gitignore 不忽略 .exe 
+ !*.exe
+ 
+重写相关脚本，使用单分支方式。
+	- init.bat
+
+	
+
+子模块 稀疏检出 doc/md 
+	- + submodule_sparse_checkout.bat (参考Copy_hook_submodule.bat)
+	- + sparse-checkout
+	
+
+优化子模块批处理配置脚本
+	- init.bat (只生成1个sh) 
+	- init.bat.1 (只生成1个sh) 
+	- 修改所有已生成的子模块批处理配置文件
+
++ 脚本 submodule_hanlde.bat (配置于sh) ，作为子模块批处理时调用的
+在此脚本中扩展并调用其它脚本：
+	- Copy_hook_submodule.bat	
+	- info.bat	
+	- submodule_sparse_checkout.bat	
+
+KumaDocCenter.github.io
+	- *.add 同时保存为 *.Repo ,用于此需求(outRepoList.bat)
+
+init.bat 优化： 使用 LFS 追踪大文件
+	-尽早追踪，这意味着你应该在文件没有提交到仓库前就让 LFS 进行追踪。
+	- 参考阅读：https://www.oschina.net/translate/getting-started-with-git-lfs-tutorial
+	
+大文件类型？
+*.pdf
+*.rar
+*.zip
+*.exe
+*.7z
+
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+
+
+	
+1：(x.xx M)
+XML
+RegExp
+Vagrant
+svn
+Ajax
+Blog
+Composer
+js.ES6
+
+2:(xx.xx M)
+Bootstrap
+CSS
+Html
+Docker
+Mysql
+NoSQL.Memcache
+NoSQL.Redis
+NoSQL.Mongodb
+Apache.httpd
+js.JavaScript
+js.Jquery
+
+
+3:(xxx.xx M)
+git
+Linux
+Nginx
+js.NodeJS
+----------push ok ---------------
+
+
+子模块钩子，需重构
+	- 需增加 lfs 钩子
+	- post-commit 重构 (+ lfs 支持)
+	
+
+子模块 稀疏检出 改进，增加判断	
+
+Excel 域名计算器
+
+YAMLwrite.bat 脚本改进: 资源路径用 文件名同名
+
+
+
+写作：
+解决报错问题
+	- 文件名不能有特殊符号，如[ ] 
+解决兼容问题
+	- 在 YAML 中指定资源同名文件夹，而不是在图片链接中
+	- 图片链接中不能前置/
+	- 所有图片整理到同名文件夹(copymdpic.bat: 处理当前目录下内容)
+		- 最终确认后才删除，因为可能会有bug
+		- md文件中YAML信息，需要手动修改
+		- 图片源，需要手动删除
+		- 日志文件即脚本自身需要手动删除
+ 
+index.md  置底， top ：0 
+其它md文件 top：1
+
+
+	
++ gindex.bat 生成index.md ，包含本地链接，线上链接 (参考 copymdpic.bat)
+	- 运行目录：source
+	- 输出： source_md
+	- github : https://github.com/KumaDocCenter/Linux/blob/master/doc/md/linux操作系统1.md
+	- blog ：http://blog.kuma8866.top/posts/2155046660/
+	- 本地 ：[title](linux操作系统1.md)
+
+	
+	
+备注：
+如下的缩进 * 中文支持不理想，弃用
+
+缩进公式： （(n-1)*2，n=#） 
+[index.md示例数据:]---------------------------------------------------------
+# 索引
+
+## Ajax和JSON基础知识
+
+[本地预览](Ajax和JSON.md)     [Blog](http://blog.kuma8866.top/posts/2155046660/)     [Github](https://github.com/KumaDocCenter/Linux/blob/master/doc/md/linux操作系统1.md)
+
+* Ajax 概述#0=#-1 *2 
+  * Ajax工作原理##2=##-1 *2
+  * XMLHttpRequest对象介绍##2
+    * 使用Ajax的步骤###4=###-1 *2
+* JSON 概述
+* 处理服务器返回json格式的数据
+* 处理服务器返回XML格式数据
+
+
+
+## Ajax高级
+[index.md示例数据:]---------------------------------------------------------
+
+
+
+
++ Copy_source-Index_To_source_md-Index.bat  复制source下的index.md 到 source_md 下 
+	- 
+
+
+
+
+hexo配置改进
+	- 分类映射
+	
+ 
+所有 doc/md/*  commit 已完成
+所有 doc/md/* push  已完成
+
+
+---------------------------------------------------------------------OK
+
+TODO:
+
+
+子仓库本地化： 已完成
+子仓库远端化： 已完成(分批推送，用SourceTree)
+子仓库模块化： 进行中(第一批23个已完成)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+
+
+git checkout master
+git checkout md
+	
+git commit -a -m 'update Script/*'
+git commit -a -m 'update doc/md/*'
+ 
+git status
+git add .
+git push origin master
+git push origin md
+
+git add .   
+git commit -m  '更新 doc/md/* ，解决兼容问题'
+
+
+更新 YAML
+更新 doc/md/* ，解决兼容问题
+
+
+
+
+:: 指定目录下的/所有特定文件(c.txt) 
+:: 指定目录下的/指定相对路径的特定文件(\c\c.txt)
+:: 
+:: 指定目录下的/所有子目录(*)/所有特定文件(c.txt) 
+:: 指定目录下的/所有子目录(*)/指定相对路径的特定文件(\c\c.txt)
+
+
+
+:: 递归遍历指定文件(实际存在的文件) /r 后可指定路径
+:: 
+:: 方案：
+:: FOR /R [[drive:]path] %variable IN (set) DO command [command-parameters]
+:: (set)中为具体文件名，不含通配符，则枚举该目录树（即列举该目录及其下面的所有子目录），
+:: 而不管set中的指定文件是否存在。目录树包含(set)结尾
+:: 所以，需要 if exist %%i 判断文件是否存在
+:: for /r "%~dp0s\1" %%i in (c.txt) do if exist %%i echo %%i
+
+:: for /d %%b in ( %~dp0s\* ) do echo %%b
+
+
+
+
+:: ----------------------------------------------------------------
+:: 【解释】
+:: 示例数据:  
+:: 
+:: 
+:: 
+:: 
+:: ----------------------------------------------------------------
+
+
+:: TODO: 
+:: 1. SET变量的生命周期只在同一个文件中?(已解决：在入口文件启用)
+::	  原因：setlocal EnableDelayedExpansion  导致
+:: 2. 跨文件调用标签出错(已解决：CallX.bat)
+
+===============================================================================
+[废弃代码]
+
+
+
+
+-------------------------------------------------
+
+:: 获取目录名
+for %%i in ("%~dp0\.") do (
+  set dirname=%%~ni
+)
+echo 目录名: %dirname% 
+
+:: 添加远程仓库
+::git remote add origin https://github.com/KumaDocCenter/%dirname%.git
+
+
+
+
+
+
+
