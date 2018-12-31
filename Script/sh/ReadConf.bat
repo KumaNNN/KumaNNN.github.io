@@ -25,7 +25,7 @@ set this=%0
 set is_index=1
 :::::::::::::::: 变量预处理 ::::::::::::::::
 if %is_index%==1 (
-	:: EQU - 等于
+	REM EQU - 等于
 	if "%1" EQU "" (
 		goto Debug_Point
 	)
@@ -119,7 +119,7 @@ if "%1" NEQ "" (
 	if %debug%==1 echo calldest : !calldest!
 	if %debug%==1 echo calllabel : !calllabel!
 
-	:: EQU - 等于  (调用目标==当前)
+	REM EQU - 等于  (调用目标==当前)
 	if "!calldest!" EQU "%this%"  (
 		Call :!calllabel!  %2 %3 %4 %5 %6 %7 %8 %9 
 		GOTO:EOF
@@ -214,10 +214,10 @@ if %debug%==1 echo dest_dir : %dest_dir%
 
 
 ::EQU - 等于
-if "%status%" EQU "1" (
+if "!status!" EQU "1" (
 	if %debug%==1 echo ----source: !source_dir!\%dirname% 
 	if %debug%==1 echo ------dest: !dest_dir!\%dirname%
-	:: 复制目录及其文件  并修改配置信息
+	REM 复制目录及其文件  并修改配置信息
 	xcopy !source_dir!\%dirname%\%source_mo%  !dest_dir!\%dirname%  /E/Y/I  && (
 		echo 源目录 [ %dirname% ] 复制成功
 		echo.

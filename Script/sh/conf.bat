@@ -26,7 +26,7 @@ set this=%0
 set is_index=0
 :::::::::::::::: 变量预处理 ::::::::::::::::
 if %is_index%==1 (
-	:: EQU - 等于
+	REM EQU - 等于
 	if "%1" EQU "" (
 		goto Debug_Point
 	)
@@ -120,7 +120,7 @@ if "%1" NEQ "" (
 	if %debug%==1 echo calldest : !calldest!
 	if %debug%==1 echo calllabel : !calllabel!
 
-	:: EQU - 等于  (调用目标==当前)
+	REM EQU - 等于  (调用目标==当前)
 	if "!calldest!" EQU "%this%"  (
 		Call :!calllabel!  %2 %3 %4 %5 %6 %7 %8 %9 
 		GOTO:EOF
@@ -286,9 +286,9 @@ if %debug%==1 echo is_dirs: %is_dirs%
 
 :: 回调函数 参数处理     NEQ - 不等于
 if  "%~4" NEQ ""  (
-	:: 格式： File:Label  或 Label
+	REM 格式： File:Label  或 Label
 	for /f "tokens=1,2  delims=:" %%a in ( "%~4" ) do (
-		:: NEQ - 不等于
+		REM NEQ - 不等于
 		if  "%%b" NEQ "" (
 			set ReadDirRelativePathFile_callDestination=%%a
 			set ReadDirRelativePathFile_callLabel=%%b
@@ -304,11 +304,11 @@ if %debug%==1 echo ReadDirRelativePathFile_callLabel: !ReadDirRelativePathFile_c
 
 :: 指定目录下的/指定相对路径的特定文件(\c\c.txt)
 if %is_dirs% == 0 (
-	::设置全路径
+	REM 设置全路径
 	set fullpath=%~1%~2
 	if %debug%==1 echo fullpath: !fullpath!
 	
-	:: 调用函数并传递参数 
+	REM 调用函数并传递参数 
 	if exist !fullpath! (
 		call CallX.bat  "source=%this%;destination=!ReadDirRelativePathFile_callDestination!;label=!ReadDirRelativePathFile_callLabel!"   !fullpath!   !FileIndex!  !FileCount!  %~5  %~6   %~7  %~8  %~9
 		set /a  FileIndex+=1
@@ -334,11 +334,11 @@ if %is_dirs% == 1 (
 		if %debug%==1 echo [b: %%b ]
 		if %debug%==1 echo ThisFileRoot: %%b 
 		
-		::设置全路径
+		REM 设置全路径
 		set fullpath=%%b%~2
 		if %debug%==1 echo fullpath: !fullpath!
 
-		:: 调用函数并传递参数 
+		REM 调用函数并传递参数 
 		if exist !fullpath! (
 			call CallX.bat  "source=%this%;destination=!ReadDirRelativePathFile_callDestination!;label=!ReadDirRelativePathFile_callLabel!"   !fullpath!    !FileIndex!  !FileCount! %~5  %~6   %~7  %~8  %~9	   
 			set /a  FileIndex+=1
@@ -403,9 +403,9 @@ if %debug%==1 echo Localtion: %this%: %~0 .................
 
 :: 回调函数 参数处理     NEQ - 不等于
 if  "%~2" NEQ ""  (
-	:: 格式： File:Label  或 Label
+	REM 格式： File:Label  或 Label
 	for /f "tokens=1,2  delims=:" %%a in ( "%~2" ) do (
-		:: NEQ - 不等于
+		REM NEQ - 不等于
 		if  "%%b" NEQ "" (
 			set ReadAllSubDir_callDestination=%%a
 			set ReadAllSubDir_callLabel=%%b
@@ -434,7 +434,7 @@ for /d %%b in ( %~1* ) do (
    if %debug%==1 echo [b: %%b ]
    if %debug%==1 echo ThisFileRoot: %%b 
 
-   :: 调用函数并传递参数	
+   REM 调用函数并传递参数	
    call CallX.bat  "source=%this%;destination=!ReadAllSubDir_callDestination!;label=!ReadAllSubDir_callLabel!"  "%%b\"    %~3  %~4  %~5  %~6  %~7  %~8  %~9
 )
 GOTO:EOF
@@ -506,9 +506,9 @@ set ReadDirFile.FileCount=1
 
 :: 回调函数 参数处理     NEQ - 不等于
 if  "%~3" NEQ ""  (
-	:: 格式： File:Label  或 Label
+	REM 格式： File:Label  或 Label
 	for /f "tokens=1,2  delims=:" %%a in ( "%~3" ) do (
-		:: NEQ - 不等于
+		REM NEQ - 不等于
 		if  "%%b" NEQ "" (
 			set ReadDirFile_callDestination=%%a
 			set ReadDirFile_callLabel=%%b
@@ -535,7 +535,7 @@ if %debug%==1 echo ReadDirFile_callLabel: !ReadDirFile_callLabel!
 for /r "%~1" %%i in (%~2) do if exist %%i  (
 	if %debug%==1 echo ReadDirFile--- %%i  do anything  
 	
-	:: 调用函数并传递参数 
+	REM 调用函数并传递参数 
 	call CallX.bat  "source=%this%;destination=!ReadDirFile_callDestination!;label=!ReadDirFile_callLabel!"   "%%i"  !ReadDirFile.FileIndex!  !ReadDirFile.FileCount!  %~4  %~5  %~6  %~7  %~8  %~9
 	
 	set /a  ReadDirFile.FileIndex+=1
@@ -616,15 +616,15 @@ if %debug%==1 echo Localtion: %this%: %~0 .................
 
 :: 下标处理  NEQ - 不等于
 if  "%~3" NEQ "" (
-	:: 接收第三参数，作为文件唯一性的索引
+	REM 接收第三参数，作为文件唯一性的索引
 	SET ConfRead.index=%~3
 ) else (
-	:: 没有第三参数且时，初始化   EQU - 等于 <TODO: else 冗余>	
+	REM 没有第三参数且时，初始化   EQU - 等于 <TODO: else 冗余>	
 	if "%ConfRead.index%" EQU "" (
-		:: 索引不存在时
+		REM 索引不存在时
 		set /a ConfRead.index=0
 	) else (
-		:: 索引存在时 +1
+		REM 索引存在时 +1
 		set /a ConfRead.index+=1
 	) 	
 )
@@ -633,9 +633,9 @@ if %debug%==1 echo filepath : %~1
 
 :: 回调函数 参数处理     NEQ - 不等于
 if  "%~2" NEQ ""  (
-	:: 格式： File:Label  或 Label
+	REM 格式： File:Label  或 Label
 	for /f "tokens=1,2  delims=:" %%a in ( "%~2" ) do (
-		:: NEQ - 不等于
+		REM NEQ - 不等于
 		if  "%%b" NEQ "" (
 			set ConfRead_callDestination=%%a
 			set ConfRead_callLabel=%%b
@@ -669,7 +669,7 @@ for /f "usebackq tokens=1,2 delims==" %%i in ( "%~1" ) do (
 	if %debug%==1 echo -------ConfRead：!v! ---------	
 	if %debug%==1 echo [i: %%i ][j: %%j  ] 
 	
-	:: 设置变量
+	REM 设置变量
 	set %%i=%%j
 	set ConfReadArr[!ConfRead.index!].%%i=%%j	
 	
