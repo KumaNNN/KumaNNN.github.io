@@ -1,15 +1,12 @@
 ---
 title: Ajax和JSON案例
+date: 2018-12-18 17:59:18
+updated: 2018-12-18 17:59:18 
 mathjax: false
-categories:
-  - Dev
-  - Ajax
+categories: 
+tags:
 typora-root-url: Ajax和JSON案例
 typora-copy-images-to: Ajax和JSON案例
-abbrlink: 2669275496
-date: 2018-12-18 17:59:18
-updated: 2018-12-18 17:59:18
-tags:
 top: 1
 ---
 

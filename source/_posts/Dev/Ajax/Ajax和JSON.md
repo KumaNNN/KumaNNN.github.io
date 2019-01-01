@@ -1,15 +1,12 @@
 ---
 title: Ajax和JSON
+date: 2018-12-18 17:59:18
+updated: 2018-12-18 17:59:18 
 mathjax: false
-categories:
-  - Dev
-  - Ajax
+categories: 
+tags:
 typora-root-url: Ajax和JSON
 typora-copy-images-to: Ajax和JSON
-abbrlink: 2279573566
-date: 2018-12-18 17:59:18
-updated: 2018-12-18 17:59:18
-tags:
 top: 1
 ---
 

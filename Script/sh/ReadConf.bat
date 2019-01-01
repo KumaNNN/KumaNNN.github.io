@@ -150,10 +150,16 @@ echo.
 :: cd跳转到当前脚本目录
 cd %~dp0
 
+
 :: 工作根目录
 set root=%~dp0
 :: 路径处理：Script\sh\替换为空
+:: E:\...\Hexo\
 set root=%root:Script\sh\=%
+
+:: 路径处理：%root%Script\sh\替换为空
+:: ReadConf.bat
+set this=!this:%root%Script\sh\=!
 
 :: 源根目录 
 ::set source_dir=%root%s
@@ -170,7 +176,13 @@ set dest_dir=%root%source\_posts\Dev
 :: 设置子模块配置根目录
 set SubModuleConfRoot=%root%.git\modules\source_md
 ::::::::::::::::::::::变量配置:::::::::::::::::::::::::
+REM shellpath: E:\...\Hexo\Script\sh\
+REM this: ReadConf.bat
+REM root: E:\...\Hexo\
+REM source_dir : E:\...\Hexo\source_md
+REM dest_dir : E:\...\Hexo\source\_posts\Dev
 if %debug%==1 echo shellpath: %~dp0
+if %debug%==1 echo this: %this%
 if %debug%==1 echo root: %root%
 if %debug%==1 echo source_dir : %source_dir%
 if %debug%==1 echo dest_dir : %dest_dir%
@@ -219,7 +231,7 @@ if "!status!" EQU "1" (
 	if %debug%==1 echo ------dest: !dest_dir!\%dirname%
 	REM 复制目录及其文件  并修改配置信息
 	xcopy !source_dir!\%dirname%\%source_mo%  !dest_dir!\%dirname%  /E/Y/I  && (
-		echo 源目录 [ %dirname% ] 复制成功
+		echo Source Dir [ %dirname% ] copy success
 		echo.
 		echo status=^0>%~2
 		echo dirname=^%dirname%>>%~2
