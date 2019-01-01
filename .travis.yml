@@ -32,8 +32,8 @@ script:
   - chmod 777 ./node_modules/.bin/hexo       #修改权限
   - chmod 777 ./node_modules/.bin/gulp       #修改权限
   - hexo clean                               #清除
-  - hexo g && gulp                           #生成(需要安装gulp插件)
-  #- hexo g                                   #生成
+  #- hexo g && gulp                           #生成(需要安装gulp插件)
+  - hexo g                                   #生成
 
 
 ###### 脚本之后 ######
