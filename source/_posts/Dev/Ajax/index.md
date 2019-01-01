@@ -1,5 +1,5 @@
 ---
-title: Index2
+title: Index
 mathjax: false
 categories:
   - Dev
