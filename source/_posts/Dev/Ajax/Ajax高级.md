@@ -1,15 +1,16 @@
 ---
 title: Ajax高级
-date: 2018-12-18 17:59:18
-updated: 2018-12-18 17:59:18 
 mathjax: false
-categories: 
+categories:
   - Dev
   - Ajax
-tags:
 typora-root-url: Ajax高级
 typora-copy-images-to: Ajax高级
 top: 1
+abbrlink: 738503265
+date: 2018-12-18 17:59:18
+updated: 2018-12-18 17:59:18
+tags:
 ---
 
 # 五、FormData

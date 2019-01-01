@@ -1,13 +1,16 @@
 ---
 title: es6简介
-date: 2018-12-19 16:19:38
-updated: 2018-12-19 16:19:38 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - js.ES6
 typora-root-url: ECMAScript6
 typora-copy-images-to: ECMAScript6
 top: 1
+abbrlink: 3811458831
+date: 2018-12-19 16:19:38
+updated: 2018-12-19 16:19:38
+tags:
 ---
 
 
