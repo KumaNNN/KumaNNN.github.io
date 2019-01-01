@@ -205,12 +205,17 @@ auto_category:
  enable: false
  depth: 
 
-# 注： 已有 HEXO-abbrlink 插件实现 ，此处配置保持 false
+# 注： 已由 HEXO-abbrlink 插件实现 ，此处配置保持 false
 ############## HEXO-自动分类 ##############
 
 
 ############## HEXO-abbrlink ##############
 # 为hexo的每个帖子自动创建一个且唯一的链接
+# 会修改source中md文件的YAML数据
+#   如果YAML中abbrlink属性不存在，则根据title的值来生成abbrlink的值
+#   如果YAML中abbrlink属性存在，则使用已存在的abbrlink的值(此时更改title也不会产生新的值)
+# 格式： abbrlink: 738503265
+#
 #有两种设置：
 # alg -- Algorithm (目前支持crc16和crc32，默认为crc16)
 # rep -- Represent (生成的链接可以用十六进制<hex>或十进制<dec>值表示，默认为dec)
@@ -232,6 +237,7 @@ abbrlink:
 
   # 按文件夹名称自动生成类别
   # depth: 你想生成目录树的深度，应> 0 
+  # 若要重新生成类别，请清除abbrlink属性 
   # 参考：HEXO-自动分类(https://github.com/xu-song/hexo-auto-category)
   auto_category:
      enable: true
