@@ -23,7 +23,7 @@
 	echo ---[END: 按需复制内容到source]-------------
 	echo 
 	echo ---[START: 处理source/* md文件]-------------
-	./Script/sh/md.bat
+	#./Script/sh/md.bat
 	echo ---[END: 处理source/* md文件]-------------
 ) && (
 	git add .
