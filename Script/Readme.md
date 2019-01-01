@@ -32,6 +32,7 @@ Script
     │  .gitattributes
     │  gindex.bat
     │  Copy_source-Index_To_source_md-Index.bat
+    │  md.bat
     └─git_submodule
         └─Template
                 Template.add
@@ -97,6 +98,7 @@ Script
     * 必需在合适目录运行
     * `./source/_posts/Dev/<SubModule Name>`
     * 修改source下的index.md 文件后，复制脚本，运行脚本。
+  * `md.bat`  :   处理source/* md文件，生成一些YAML数据。
 * `git_submodule`  ： git 子模块根目录。
   * `Template`  ： 模版目录。
     * `Template.bat` ：配置文件生成。

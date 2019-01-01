@@ -4,15 +4,31 @@
 # /usr/bin/env cmd 
 
 #=================================================#
-# git Ԥ�ύ����
+# git 预提交钩子
 # 
 # 
 #
 #=================================================#
 
-
-# ִ�нű�
-./Script/sh/repair_public_link.bat
-./Script/sh/ReadConf.bat
-git add .
-exit 0
+(
+	# 执行脚本
+	echo ---[START: 修复public]-------------
+	#start "Script\sh\repair_public_link.bat"
+	./Script/sh/repair_public_link.bat
+	echo ---[END: 修复public]-------------
+	echo 
+	echo ---[START: 按需复制内容到source]-------------
+	#start 'Script\sh\ReadConf.bat'
+	./Script/sh/ReadConf.bat
+	echo ---[END: 按需复制内容到source]-------------
+	echo 
+	echo ---[START: 处理source/* md文件]-------------
+	./Script/sh/md.bat
+	echo ---[END: 处理source/* md文件]-------------
+) && (
+	git add .
+	exit 0
+) || (
+	exit 1
+)
+ 

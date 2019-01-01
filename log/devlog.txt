@@ -233,7 +233,14 @@ hexo配置改进
 所有 doc/md/*  commit 已完成
 所有 doc/md/* push  已完成
 
-
++ md.bat  处理source/*.md文件的分类和abbrlink
+	- 因 travis-ci 构建时，对md文件的修改，在最终结果中无效，
+	- 所以在本地使用 hexo g 来只处理md文件
+	- 处理前备份public为public.bak
+	- 处理后还原public.bak为public
+	- 预提交钩子调用
+	
+	
 ---------------------------------------------------------------------OK
 
 TODO:
@@ -245,12 +252,7 @@ TODO:
 
 
 
-+ bat  处理source/*.md文件的分类和abbrlink
-	- 因 travis-ci 构建时，对md文件的修改，在最终结果中无效，
-	- 所以在本地使用 hexo g 来只处理md文件
-	- 处理前备份public为public.bak
-	- 处理后还原public.bak为public
-	
+
 
 
 
