@@ -8,7 +8,6 @@ tags:
 typora-root-url: ECMAScript6
 typora-copy-images-to: ECMAScript6
 top: 1
-abbrlink: 3811458831
 ---
 
 

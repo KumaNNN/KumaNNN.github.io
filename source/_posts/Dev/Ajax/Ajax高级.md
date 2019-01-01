@@ -4,6 +4,8 @@ date: 2018-12-18 17:59:18
 updated: 2018-12-18 17:59:18 
 mathjax: false
 categories: 
+  - Dev
+  - Ajax
 tags:
 typora-root-url: Ajax高级
 typora-copy-images-to: Ajax高级
