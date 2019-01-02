@@ -216,8 +216,9 @@ Blog仓库名：`KumaNNN.github.io`
   * 所以`doc/md`的更改推荐在`md`分支下进行，然后定期合并到`master`分支
   * `master`分支==不能==合并到`md` 分支，会造成结构不符合当初预期。
   * 若需要从`master`分支检出`md` 分支所需的最新数据，可通过其它方法，如[git从其他分支checkout文件到当前分支](#git从其他分支checkout文件到当前分支)
+* [可选] 手动执行`md.bat` 脚本，处理新增的md文件。
 * git提交
-* 触发==提交钩子(post-commit)== ，
+* 触发==提交钩子(post-commit)== 
   * 写入`复制状态` 数据到子模块git数据库目录下。
 * git推送。
 
@@ -233,10 +234,11 @@ Blog仓库名：`KumaNNN.github.io`
   * 使用线上持续集成时： 提交当前分支(`Hexo`) ，忽略`public` 子模块。
     * 需要配置，参考 [忽略submodule中的修改或新增文件](#忽略submodule中的修改或新增文件)。
   * 不使用线上持续集成时： 先提交`public`子模块，再提交当前分支(`Hexo`) 。
-* git提交之前，触发==预提交钩子(pre-commit)==，
+* git提交
+* 触发==预提交钩子(pre-commit)==，
   * 修复public。
   * 调用脚本，读取配置(`copy.conf`) ，按需复制 `source_md/<SubModuleName>/doc/md/` 下的内容到 `source/_posts/Dev/<SubModuleName>` 。
-  * 处理source/* md文件
+  * ~~处理source/* md文件~~
 
 
 
