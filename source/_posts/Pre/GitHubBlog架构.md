@@ -226,17 +226,24 @@ Blog仓库名：`KumaNNN.github.io`
 
 
 
-#### 写作在父仓库TODO
+#### 写作在父仓库
 
 > 可能某些内容并没有依赖子仓库，是在本项目中(`source/*`)，此时，就需要在父仓库中写在。
 
-* 在父仓库 `source/*` 下更改内容 ，git提交并推送。
-  * 使用线上持续集成时： 提交当前分支(`Hexo`) ，忽略`public` 子模块。
-    * 需要配置，参考 [忽略submodule中的修改或新增文件](#忽略submodule中的修改或新增文件)。
-  * 不使用线上持续集成时： 先提交`public`子模块，再提交当前分支(`Hexo`) 。
+* 在父仓库 `source/*` 下更改内容 。
+  * **使用**线上持续集成时，本地工作流：
+    *  提交当前分支(`Hexo`) ~~，忽略`public` 子模块~~ `.gitignore` 文件中实现忽略`public` 目录。
+    * ~~所需的配置方案，参考 [忽略submodule中的修改或新增文件](#忽略submodule中的修改或新增文件)。~~
+  * **不使用**线上持续集成时，本地工作流： 
+    * ~~先提交`public`子模块，再提交当前分支(`Hexo`) 。~~
+    * `hexo d` 命令处理时，会自动在`.deploy_git` 目录中处理，不影响 `public` 目录。
+      * `.deploy_git` 目录可删除或提交
+    * `Manage.bat` 处理时，会自动在`public_deploy` 目录中处理，不影响 `public` 目录。
+      * `public_deploy`目录可删除或提交
+    * `public` 目录 提交到当前分支(`Hexo`) 。
 * git提交
 * 触发==预提交钩子(pre-commit)==，
-  * 修复public。
+  * ~~修复public。~~
   * 调用脚本，读取配置(`copy.conf`) ，按需复制 `source_md/<SubModuleName>/doc/md/` 下的内容到 `source/_posts/Dev/<SubModuleName>` 。
   * ~~处理source/* md文件~~
 
@@ -246,16 +253,18 @@ Blog仓库名：`KumaNNN.github.io`
 
 ### 线上
 
-#### 使用 Travis-ci 持续集成TODO
+#### 使用 Travis-ci 持续集成
 
-已配置如下流程
+**已配置如下流程**
 
 * Travis-ci 检测仓库接收的推送。
 
   * 拉取博客程序分支(`Hexo`)
   * 安装依赖，`hexo g`生成内容
-  * 在其它地方克隆并检出`master` 分支并复制`.git` 目录到`public`下
-  * 最后只提交并推送`public`下的内容到`master`分支，放弃其它内容。
+  * ~~方案1：在其它地方克隆并检出`master` 分支并复制`.git` 目录到`public`下~~
+  * 方案2： 直接将`public_git`目录下的固定文件复制到新生成的`public` 目录下。
+    * 仓库每次都初始化，即永远只有1个提交。
+  * 最后只提交并推送`public`下的内容到远端`master`分支，放弃其它内容。
 
   
 

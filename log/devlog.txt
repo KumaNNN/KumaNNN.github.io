@@ -218,13 +218,8 @@ index.md  置底， top ：0
 [index.md示例数据:]---------------------------------------------------------
 
 
-
-
 + Copy_source-Index_To_source_md-Index.bat  复制source下的index.md 到 source_md 下 
 	- 
-
-
-
 
 hexo配置改进
 	- 分类映射
