@@ -14,7 +14,7 @@
 	# 执行脚本
 	echo ---[START: 修复public]-------------
 	#start "Script\sh\repair_public_link.bat"
-	./Script/sh/repair_public_link.bat
+	#./Script/sh/repair_public_link.bat
 	echo ---[END: 修复public]-------------
 	echo 
 	echo ---[START: 按需复制内容到source]-------------

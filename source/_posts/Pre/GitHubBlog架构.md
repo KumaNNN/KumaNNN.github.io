@@ -226,7 +226,7 @@ Blog仓库名：`KumaNNN.github.io`
 
 
 
-#### 写作在父仓库
+#### 写作在父仓库TODO
 
 > 可能某些内容并没有依赖子仓库，是在本项目中(`source/*`)，此时，就需要在父仓库中写在。
 
@@ -246,7 +246,7 @@ Blog仓库名：`KumaNNN.github.io`
 
 ### 线上
 
-#### 使用 Travis-ci 持续集成
+#### 使用 Travis-ci 持续集成TODO
 
 已配置如下流程
 

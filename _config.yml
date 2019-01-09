@@ -161,7 +161,7 @@ sitemap:
 # URL为自定义，不能使用github的
 baidusitemap:                
   path: baidusitemap.xml
-  url: https://baidu.wiki
+  url: http://blog.kuma8866.top
 
 ############## SEO ##############
 

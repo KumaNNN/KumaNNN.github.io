@@ -10,7 +10,7 @@ node_js: stable
 
 ###### 缓存配置 ######
 # 缓存不经常更改的内容，可加快编译速度。
-# directories : 目录
+# directories , 目录
 cache:
     apt: true
     directories:
@@ -39,43 +39,79 @@ script:
 ###### 脚本之后 ######
 after_script:
 
-  #------------START 本地仓库初始化 ------------#
-  ## 克隆并检出分支，然后复制 .git 数据库到指定目录
-  ## GH_REF是最下面配置的仓库地址
-  - git clone https://${GH_REF} .deploy_git  
-  - cd .deploy_git
-  - git checkout master
-  - cd ../
-  ## 这一步之前的操作是为了保留master分支的提交记录，
-  ## 不然每次git init的话只有1条commit
-  - mv .deploy_git/.git/ ./public/   
-  #------------END 本地仓库初始化 ------------#
+  #==================================================================================================#
+  ## 方案1: 保留master分支的提交记录 ##
+  
+  # #------------START: public仓库git数据库获取 ------------#
+  # ## 克隆并检出分支，然后复制 .git 数据库到指定目录
+  # ## GH_REF 是最下面配置的仓库地址
+  # - git clone https://${GH_REF} .deploy_git  
+  # - cd .deploy_git
+  # - git checkout master
+  # - cd ../
+  # ## 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
+  # - mv .deploy_git/.git/ ./public/   
+  # #-------------END: public仓库git数据库获取 -------------#
 
   
-  #------------START 本地仓库配置 ------------#
-  ## public 目录已是git仓库，且保留了以往的提交记录，可根据实际需求检出文件
+  # #------------START: public仓库处理 ------------#
+  # ## public 目录已是git仓库，且保留了以往的提交记录，可根据实际需求检出文件
+  # - cd ./public
+  # - git checkout .gitignore                   # 个人需求
+  # - git checkout README.md                    # 个人需求  
+  # - git checkout CNAME                        # 个人需求  
+  # - git config user.name "kuma8866"           # 配置name
+  # - git config user.email "kuma8866@163.com"  # 配置email
+  # - git config http.postBuffer  524288000     # 配置提交缓存
+  # - git add .
+  # # 提交记录包含时间，跟上面更改时区配合
+  # - git commit -m "Travis CI 自动构建在 `date +"%Y-%m-%d %H:%M"`"  
+  # #-------------END: public仓库处理 -------------#
+  
+  #==================================================================================================#
+  ## 方案2: 不保留master分支的提交记录 ##
+  # 为达预期效果，不能有残留的旧文件，所以仓库每次都是1个commit
+  
+  #------------START: 固定文件处理 ------------#   
+  # 备份目录
+  #- cp -r public_git/.  public_git.bak/
+  # 删除不需复制的文件
+  - rm -f public_git/ReadMe.re
+  # 复制文件
+  - cp -r public_git/.  public/
+  # 删除目录
+  #- rm -f -r public_git
+  # 还原目录
+  #- mv -f public_git.bak  public_git
+  #-------------END: 固定文件处理 -------------#
+  
+  #------------START: public仓库处理 ------------#
   - cd ./public
-  - git checkout .gitignore                   # 个人需求
-  - git checkout README.md                    # 个人需求  
-  - git checkout CNAME                        # 个人需求  
+  - git init
   - git config user.name "kuma8866"           # 配置name
   - git config user.email "kuma8866@163.com"  # 配置email
   - git config http.postBuffer  524288000     # 配置提交缓存
   - git add .
-  - git commit -m "Travis CI 自动构建在 `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间，跟上面更改时区配合
-  #------------END 本地仓库配置 ------------#
+  # 提交记录包含时间，跟上面更改时区配合
+  - git commit -m "Travis CI 自动构建在 `date +"%Y-%m-%d %H:%M"`"  
+  #-------------END: public仓库处理 -------------#
   
+  #==================================================================================================#
   
-  #------------START 推送配置 ------------#
+
+  #------------START: 推送至远端仓库 ------------#
   ## 可配置多个远程仓库
   
   ## Github 
-  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:master  # GITHUB_TOKEN 是在Travis中配置token的名称
+  ### GITHUB_TOKEN 是在Travis中配置token的名称
+  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:master
   
   ## gitee
   
   ## Coding
-  #------------END 推送配置 ------------#
+  
+  #-------------END: 推送至远端仓库 -------------#
+
 
 
 ###### 分支监控 ######
