@@ -1,13 +1,17 @@
 ---
 title: PDO与异常案例
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - PHP
+  - PDO
 typora-root-url: PDO与异常案例
 typora-copy-images-to: PDO与异常案例
 top: 1
+abbrlink: 2958378060
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17
+tags:
 ---
 
 

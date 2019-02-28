@@ -1,13 +1,17 @@
 ---
 title: Laravel框架01
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - PHP
+  - Laravel框架
 typora-root-url: imgs
 typora-copy-images-to: imgs
 top: 1
+abbrlink: 1653891271
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17
+tags:
 ---
 
 

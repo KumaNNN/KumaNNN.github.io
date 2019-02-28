@@ -1,13 +1,17 @@
 ---
 title: GD图像处理技术案例
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - PHP
+  - GD
 typora-root-url: GD图像处理技术案例
 typora-copy-images-to: GD图像处理技术案例
 top: 1
+abbrlink: 2032372126
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17
+tags:
 ---
 
 
