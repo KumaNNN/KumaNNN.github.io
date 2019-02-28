@@ -1,13 +1,17 @@
 ---
 title: Index
-date: 2018-12-29 14:40:21 
-updated: 2018-12-29 14:40:21 
-mathjax: false 
-categories:  
-tags: 
+mathjax: false
+categories:
+  - Dev
+  - js.JavaScript
+  - JavaScript运行机制
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202888
+date: 2018-12-29 14:40:21
+updated: 2018-12-29 14:40:21
+tags:
 ---
 
 

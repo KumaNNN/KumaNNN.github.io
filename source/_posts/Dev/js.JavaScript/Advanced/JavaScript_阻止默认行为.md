@@ -1,13 +1,17 @@
 ---
-title:  JavaScript 阻止默认行为
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11 
+title: JavaScript 阻止默认行为
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - js.JavaScript
+  - Advanced
 typora-root-url: JavaScript_阻止默认行为
 typora-copy-images-to: JavaScript_阻止默认行为
 top: 1
+abbrlink: 670022636
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11
+tags:
 ---
 
 

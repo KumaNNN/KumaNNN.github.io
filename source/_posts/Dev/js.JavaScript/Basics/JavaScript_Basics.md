@@ -1,13 +1,17 @@
 ---
 title: JavaScript 基础知识
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - js.JavaScript
+  - Basics
 typora-root-url: JavaScript_Basics
 typora-copy-images-to: JavaScript_Basics
 top: 1
+abbrlink: 2727413452
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11
+tags:
 ---
 
 

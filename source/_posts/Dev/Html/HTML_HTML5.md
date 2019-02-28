@@ -1,13 +1,16 @@
 ---
 title: HTML和HTML5
-date: 2018-12-18 12:31:14
-updated: 2018-12-18 12:31:14 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - Html
 typora-root-url: HTML_HTML5
 typora-copy-images-to: HTML_HTML5
 top: 1
+abbrlink: 1392188595
+date: 2018-12-18 12:31:14
+updated: 2018-12-18 12:31:14
+tags:
 ---
 
 

@@ -112,7 +112,7 @@ theme: next
 ############## 部署(Deployment) ##############
 ## Docs: https://hexo.io/docs/deployment.html
 ## 因不用自带的Hexo d 部署，所以都注释掉
-deploy:
+#deploy:
 ## SSH方式
 # type: git
 # repo:  
@@ -249,6 +249,3 @@ abbrlink:
 
 
 
-
-include:
-  - .nojekyll

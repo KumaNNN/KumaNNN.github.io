@@ -1,13 +1,17 @@
 ---
 title: js运行机制
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - js.JavaScript
+  - JavaScript运行机制
 typora-root-url: js运行机制
 typora-copy-images-to: js运行机制
 top: 1
+abbrlink: 3150218531
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11
+tags:
 ---
 
 

@@ -1,13 +1,17 @@
 ---
 title: JavaScript 案例
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - js.JavaScript
+  - Advanced
 typora-root-url: JavaScript_案例
 typora-copy-images-to: JavaScript_案例
 top: 1
+abbrlink: 2023490148
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11
+tags:
 ---
 
 
