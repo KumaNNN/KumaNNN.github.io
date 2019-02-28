@@ -1,16 +1,12 @@
 ---
-title: JavaScript DOM对象和事件
+title:  JavaScript DOM对象和事件
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+categories: 
+tags:
 typora-root-url: JavaScript_DOM对象和事件
 typora-copy-images-to: JavaScript_DOM对象和事件
-abbrlink: 1771752198
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 

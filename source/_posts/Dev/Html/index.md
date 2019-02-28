@@ -1,12 +1,11 @@
 ---
-title:  Index
+title: Index
 mathjax: false
 categories:
   - Dev
   - Html
 typora-root-url: index
 typora-copy-images-to: index
-abbrlink: 1931691627
 date: 2018-12-29 14:38:22
 updated: 2018-12-29 14:38:22
 tags:

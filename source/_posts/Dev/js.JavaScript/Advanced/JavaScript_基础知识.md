@@ -1,16 +1,12 @@
 ---
-title: JavaScript 基础知识
+title:  JavaScript 基础知识
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+categories: 
+tags:
 typora-root-url: JavaScript_基础知识
 typora-copy-images-to: JavaScript_基础知识
-abbrlink: 2727413451
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 

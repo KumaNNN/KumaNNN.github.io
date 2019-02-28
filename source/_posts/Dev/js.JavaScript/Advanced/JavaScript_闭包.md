@@ -1,16 +1,12 @@
 ---
 title: JavaScript 闭包
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+categories: 
+tags:
 typora-root-url: JavaScript_闭包
 typora-copy-images-to: JavaScript_闭包
-abbrlink: 994947546
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 

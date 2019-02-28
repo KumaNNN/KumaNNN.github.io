@@ -1,16 +1,12 @@
 ---
 title: JavaScript 基础知识
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Basics
+categories: 
+tags:
 typora-root-url: JavaScript_Basics
 typora-copy-images-to: JavaScript_Basics
-abbrlink: 2727413452
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 
@@ -2773,7 +2769,7 @@ document.getElementsByName()这个方法多用于复选框中。 一组复选框
 			//1.先获取到所有的复选框  通过name属性值来获取  
 			//2.遍历数组  给里面的每个元素打上勾
 			for(var i=0;i<inputsObj.length;i++){
-				inputsObj[i].checked = false; //表示是被选中 
+				inputsObj[i].checked = false; //表示是未选中 
 			}
 		}
 

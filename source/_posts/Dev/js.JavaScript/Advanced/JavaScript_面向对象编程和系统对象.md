@@ -1,16 +1,12 @@
 ---
-title: JavaScript 面向对象编程和系统对象
+title:  JavaScript 面向对象编程和系统对象
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+categories: 
+tags:
 typora-root-url: JavaScript_面向对象编程和系统对象
 typora-copy-images-to: JavaScript_面向对象编程和系统对象
-abbrlink: 412987062
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 

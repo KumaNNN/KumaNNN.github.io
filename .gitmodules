@@ -95,3 +95,7 @@
 	path = source_md/Nginx
 	url = https://github.com/KumaDocCenter/Nginx.git
 	branch = master
+[submodule "source_md/PHP"]
+	path = source_md/PHP
+	url = https://github.com/KumaDocCenter/PHP.git
+	branch = master

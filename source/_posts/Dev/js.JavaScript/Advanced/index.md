@@ -1,16 +1,12 @@
 ---
-title:  Index
-mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+title: Index
+date: 2018-12-29 14:40:13 
+updated: 2018-12-29 14:40:13 
+mathjax: false 
+categories:  
+tags: 
 typora-root-url: index
 typora-copy-images-to: index
-abbrlink: 1132900689
-date: 2018-12-29 14:40:13
-updated: 2018-12-29 14:40:13
-tags:
 top: 0
 ---
 

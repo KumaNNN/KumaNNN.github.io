@@ -1,16 +1,12 @@
 ---
-title: JavaScript 高级
+title:  JavaScript 高级
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+categories: 
+tags:
 typora-root-url: JavaScript_高级
 typora-copy-images-to: JavaScript_高级
-abbrlink: 3348228145
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 

@@ -1,16 +1,12 @@
 ---
-title: JavaScript 冒泡事件
+title:  JavaScript 冒泡事件
+date: 2018-12-19 16:21:11
+updated: 2018-12-19 16:21:11 
 mathjax: false
-categories:
-  - Dev
-  - js.JavaScript
-  - Advanced
+categories: 
+tags:
 typora-root-url: JavaScript_冒泡事件
 typora-copy-images-to: JavaScript_冒泡事件
-abbrlink: 2780478422
-date: 2018-12-19 16:21:11
-updated: 2018-12-19 16:21:11
-tags:
 top: 1
 ---
 
