@@ -1,35 +1,39 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - 鍗氬椤圭洰
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202899
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# 索引 
+# 锟斤拷锟斤拷 
  	
-## 博客项目1 
-[本地预览](博客项目1.md)    [Blog](http://blog.kuma8866.top/posts/4006364827/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/博客项目/博客项目1.md)
+## 锟斤拷锟斤拷锟斤拷目1 
+[锟斤拷锟斤拷预锟斤拷](锟斤拷锟斤拷锟斤拷目1.md)    [Blog](http://blog.kuma8866.top/posts/4006364827/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/锟斤拷锟斤拷锟斤拷目/锟斤拷锟斤拷锟斤拷目1.md)
  
  
   	
-## 博客项目2 
-[本地预览](博客项目2.md)    [Blog](http://blog.kuma8866.top/posts/2009405217/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/博客项目/博客项目2.md)
+## 锟斤拷锟斤拷锟斤拷目2 
+[锟斤拷锟斤拷预锟斤拷](锟斤拷锟斤拷锟斤拷目2.md)    [Blog](http://blog.kuma8866.top/posts/2009405217/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/锟斤拷锟斤拷锟斤拷目/锟斤拷锟斤拷锟斤拷目2.md)
  
  
  
-## 博客项目3 
-[本地预览](博客项目3.md)    [Blog](http://blog.kuma8866.top/posts/12724151/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/博客项目/博客项目3.md)
+## 锟斤拷锟斤拷锟斤拷目3 
+[锟斤拷锟斤拷预锟斤拷](锟斤拷锟斤拷锟斤拷目3.md)    [Blog](http://blog.kuma8866.top/posts/12724151/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/锟斤拷锟斤拷锟斤拷目/锟斤拷锟斤拷锟斤拷目3.md)
  
  
  
-## 博客项目4 
-[本地预览](博客项目4.md)    [Blog](http://blog.kuma8866.top/posts/2661724692/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/博客项目/博客项目4.md)
+## 锟斤拷锟斤拷锟斤拷目4 
+[锟斤拷锟斤拷预锟斤拷](锟斤拷锟斤拷锟斤拷目4.md)    [Blog](http://blog.kuma8866.top/posts/2661724692/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/锟斤拷锟斤拷锟斤拷目/锟斤拷锟斤拷锟斤拷目4.md)
  
  
  

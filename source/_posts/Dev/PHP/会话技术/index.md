@@ -1,22 +1,26 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - ä¼šè¯æŠ€æœ¯
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202895
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òı 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
-## »á»°¼¼Êõ 
-[±¾µØÔ¤ÀÀ](»á»°¼¼Êõ.md)    [Blog](http://blog.kuma8866.top/posts/790821465/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»á»°¼¼Êõ/»á»°¼¼Êõ.md)
+## ï¿½á»°ï¿½ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](ï¿½á»°ï¿½ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/790821465/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ï¿½á»°ï¿½ï¿½ï¿½ï¿½/ï¿½á»°ï¿½ï¿½ï¿½ï¿½.md)
  
-* »á»°¼¼ÊõÏà¹Ø¸ÅÄî
-* COOKIE¼¼Êõ
-* SESSION¼¼Êõ
+* ï¿½á»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½
+* COOKIEï¿½ï¿½ï¿½ï¿½
+* SESSIONï¿½ï¿½ï¿½ï¿½
  

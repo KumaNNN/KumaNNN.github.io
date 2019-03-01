@@ -1,13 +1,17 @@
 ---
 title: http协议与文件编程案例
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - PHP
+  - http协议与文件编程
 typora-root-url: http协议与文件编程案例
 typora-copy-images-to: http协议与文件编程案例
 top: 1
+abbrlink: 2991748426
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17
+tags:
 ---
 
 

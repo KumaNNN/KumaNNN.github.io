@@ -1,31 +1,35 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - PDO
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202889
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òý 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
-## PDOÓëÒì³£ 
-[±¾µØÔ¤ÀÀ](PDOÓëÒì³£.md)    [Blog](http://blog.kuma8866.top/posts/1712274088/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PDO/PDOÓëÒì³£.md)
+## PDOï¿½ï¿½ï¿½ì³£ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](PDOï¿½ï¿½ï¿½ì³£.md)    [Blog](http://blog.kuma8866.top/posts/1712274088/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PDO/PDOï¿½ï¿½ï¿½ì³£.md)
  
-* PDOµÄ»ù±¾¸ÅÄî
-* PDOµÄ»ù±¾²Ù×÷
-* PDOÖÐµÄÊÂÎñ
-* PDOÖÐµÄÔ¤´¦Àí¼¼Êõ
-* PDOÖÐµÄÒì³£´¦Àí
+* PDOï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* PDOï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* PDOï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+* PDOï¿½Ðµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* PDOï¿½Ðµï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 
 
  
-## PDOÓëÒì³£°¸Àý 
-[±¾µØÔ¤ÀÀ](PDOÓëÒì³£°¸Àý.md)    [Blog](http://blog.kuma8866.top/posts/2958378060/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PDO/PDOÓëÒì³£°¸Àý.md)
+## PDOï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](PDOï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/2958378060/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PDO/PDOï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½.md)
  
-* °¸Àý£º·â×°PDO²Ù×÷Àà
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°PDOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  

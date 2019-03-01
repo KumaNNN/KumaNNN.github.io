@@ -1,29 +1,33 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - 琛ㄥ崟浼犲�煎拰鏂囦欢涓婁紶
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202897
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# 索引 
+# 锟斤拷锟斤拷 
  	
-## 表单传值和文件上传 
-[本地预览](表单传值和文件上传.md)    [Blog](http://blog.kuma8866.top/posts/2418534610/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/表单传值和文件上传/表单传值和文件上传.md)
+## 锟斤拷锟斤拷锟斤拷值锟斤拷锟侥硷拷锟较达拷 
+[锟斤拷锟斤拷预锟斤拷](锟斤拷锟斤拷锟斤拷值锟斤拷锟侥硷拷锟较达拷.md)    [Blog](http://blog.kuma8866.top/posts/2418534610/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/锟斤拷锟斤拷锟斤拷值锟斤拷锟侥硷拷锟较达拷/锟斤拷锟斤拷锟斤拷值锟斤拷锟侥硷拷锟较达拷.md)
  
-* 表单传值的概念
-* 表单传值的方式
-  * POST方式
-  * GET方式
-* PHP接收数据的方式
-  * $\_POST方式
-  * $_GET方式
-  * $_REQUEST方式
-* POST方式与GET方式的区别
-* 文件上传
+* 锟斤拷锟斤拷锟斤拷值锟侥革拷锟斤拷
+* 锟斤拷锟斤拷锟斤拷值锟侥凤拷式
+  * POST锟斤拷式
+  * GET锟斤拷式
+* PHP锟斤拷锟斤拷锟斤拷锟捷的凤拷式
+  * $\_POST锟斤拷式
+  * $_GET锟斤拷式
+  * $_REQUEST锟斤拷式
+* POST锟斤拷式锟斤拷GET锟斤拷式锟斤拷锟斤拷锟斤拷
+* 锟侥硷拷锟较达拷
  

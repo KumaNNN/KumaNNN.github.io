@@ -1,21 +1,25 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - MVC
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202887
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òý 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
 ## MVC 
-[±¾µØÔ¤ÀÀ](MVC.md)    [Blog](http://blog.kuma8866.top/posts/2218208633/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MVC/MVC.md)
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](MVC.md)    [Blog](http://blog.kuma8866.top/posts/2218208633/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MVC/MVC.md)
  
-* MVC»ù±¾¸ÅÄî
-* °¸Àý£ºÊ¹ÓÃMVCÊµÏÖÐÂÎÅ¹ÜÀíÏµÍ³
+* MVCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½MVCÊµï¿½ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ÏµÍ³
  

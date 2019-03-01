@@ -1,13 +1,17 @@
 ---
 title: http协议与文件编程
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17 
 mathjax: false
-categories: 
-tags:
+categories:
+  - Dev
+  - PHP
+  - http协议与文件编程
 typora-root-url: http协议与文件编程
 typora-copy-images-to: http协议与文件编程
 top: 1
+abbrlink: 3647702629
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17
+tags:
 ---
 
 

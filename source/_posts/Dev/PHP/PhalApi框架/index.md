@@ -1,30 +1,34 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - PhalApiæ¡†æž¶
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202892
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òý 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
-## PhalApi¿ò¼Ü 
-[±¾µØÔ¤ÀÀ](PhalApi¿ò¼Ü.md)    [Blog](http://blog.kuma8866.top/posts/745665408/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PhalApi¿ò¼Ü/PhalApi¿ò¼Ü.md)
+## PhalApiï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](PhalApiï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/745665408/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PhalApiï¿½ï¿½ï¿½/PhalApiï¿½ï¿½ï¿½.md)
  
-* ¦Ð¿ò¼Ü
-  * ¼ò½é
-  * Ä¿Â¼½á¹¹
-  * ·ÃÎÊ½Ó¿Ú
-  * ²ÎÊýÑéÖ¤
-  * ÎÄµµÉú³É
-  * Ä£ÐÍ
+* ï¿½Ð¿ï¿½ï¿½
+  * ï¿½ï¿½ï¿½
+  * Ä¿Â¼ï¿½á¹¹
+  * ï¿½ï¿½ï¿½Ê½Ó¿ï¿½
+  * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤
+  * ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½
+  * Ä£ï¿½ï¿½
 
 
 
-* °¸Àý£º Ð¡³ÌÐòÂÖ²¥Í¼
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½Í¼
  

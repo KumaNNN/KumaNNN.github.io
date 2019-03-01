@@ -1,28 +1,32 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - MYSQLI
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202888
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òý 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
-## MYSQLIÀ©Õ¹ 
-[±¾µØÔ¤ÀÀ](MYSQLIÀ©Õ¹.md)    [Blog](http://blog.kuma8866.top/posts/3495660076/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLIÀ©Õ¹.md)
+## MYSQLIï¿½ï¿½Õ¹ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](MYSQLIï¿½ï¿½Õ¹.md)    [Blog](http://blog.kuma8866.top/posts/3495660076/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLIï¿½ï¿½Õ¹.md)
  
-* MYSQLIµÄ¸ÅÄî
-* MYSQLIÀ©Õ¹µÄÊ¹ÓÃ
+* MYSQLIï¿½Ä¸ï¿½ï¿½ï¿½
+* MYSQLIï¿½ï¿½Õ¹ï¿½ï¿½Ê¹ï¿½ï¿½
 
 
  
-## MYSQLIÀ©Õ¹°¸Àý 
-[±¾µØÔ¤ÀÀ](MYSQLIÀ©Õ¹°¸Àý.md)    [Blog](http://blog.kuma8866.top/posts/2685337793/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLIÀ©Õ¹°¸Àý.md)
+## MYSQLIï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](MYSQLIï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/2685337793/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLIï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½.md)
  
-* MYSQLIÊµÏÖºóÌ¨ÐÂÎÅ¹ÜÀíÏµÍ³
+* MYSQLIÊµï¿½Öºï¿½Ì¨ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ÏµÍ³
  

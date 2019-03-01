@@ -1,28 +1,32 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - httpåè®®ä¸æ–‡ä»¶ç¼–ç¨‹
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202894
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òı 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
-## httpĞ­ÒéÓëÎÄ¼ş±à³Ì 
-[±¾µØÔ¤ÀÀ](httpĞ­ÒéÓëÎÄ¼ş±à³Ì.md)    [Blog](http://blog.kuma8866.top/posts/3647702629/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/httpĞ­ÒéÓëÎÄ¼ş±à³Ì/httpĞ­ÒéÓëÎÄ¼ş±à³Ì.md)
+## httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/3647702629/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½/httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½.md)
  
-* HTTPĞ­Òé
-* ÎÄ¼ş±à³Ì
+* HTTPĞ­ï¿½ï¿½
+* ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½
  
  
  
-## httpĞ­ÒéÓëÎÄ¼ş±à³Ì°¸Àı 
-[±¾µØÔ¤ÀÀ](httpĞ­ÒéÓëÎÄ¼ş±à³Ì°¸Àı.md)    [Blog](http://blog.kuma8866.top/posts/2991748426/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/httpĞ­ÒéÓëÎÄ¼ş±à³Ì/httpĞ­ÒéÓëÎÄ¼ş±à³Ì°¸Àı.md)
+## httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/2991748426/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½/httpĞ­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½.md)
  
-* ÎÄ¼şÏÂÔØ
+* ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
  

@@ -1,26 +1,30 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - ThinkPHP5æ¡†æž¶
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202898
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òý 
+# ï¿½ï¿½ï¿½ï¿½ 
 
-## ThinkPHP5»ù´¡»ã×Ü 
-[±¾µØÔ¤ÀÀ](ThinkPHP5»ù´¡»ã×Ü.md)    [Blog](http://blog.kuma8866.top/posts/1124976518/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ThinkPHP5¿ò¼Ü/ThinkPHP5»ù´¡»ã×Ü.md)
+## ThinkPHP5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](ThinkPHP5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/1124976518/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ThinkPHP5ï¿½ï¿½ï¿½/ThinkPHP5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.md)
  
  
  
  
-## ThinkPHP5°¸Àý»ã×Ü 
-[±¾µØÔ¤ÀÀ](ThinkPHP5°¸Àý»ã×Ü.md)    [Blog](http://blog.kuma8866.top/posts/2849568870/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ThinkPHP5¿ò¼Ü/ThinkPHP5°¸Àý»ã×Ü.md)
+## ThinkPHP5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](ThinkPHP5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/2849568870/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ThinkPHP5ï¿½ï¿½ï¿½/ThinkPHP5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.md)
  
  
  

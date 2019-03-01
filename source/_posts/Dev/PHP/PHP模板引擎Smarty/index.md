@@ -1,29 +1,33 @@
 ---
-title: Index 
-date: 2019-03-01 16:49:24 
-updated: 2019-03-01 16:49:24 
-mathjax: false 
-categories:  
-tags: 
+title: Index
+mathjax: false
+categories:
+  - Dev
+  - PHP
+  - PHPæ¨¡æ¿å¼•æ“Smarty
 typora-root-url: index
 typora-copy-images-to: index
 top: 0
+abbrlink: 1102202890
+date: 2019-03-01 16:49:24
+updated: 2019-03-01 16:49:24
+tags:
 ---
 
 
-# Ë÷Òı 
+# ï¿½ï¿½ï¿½ï¿½ 
  	
-## smartyÄ£°å¼¼Êõ 
-[±¾µØÔ¤ÀÀ](smartyÄ£°å¼¼Êõ.md)    [Blog](http://blog.kuma8866.top/posts/3997252698/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHPÄ£°åÒıÇæSmarty/smartyÄ£°å¼¼Êõ.md)
+## smartyÄ£ï¿½å¼¼ï¿½ï¿½ 
+[ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½](smartyÄ£ï¿½å¼¼ï¿½ï¿½.md)    [Blog](http://blog.kuma8866.top/posts/3997252698/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHPÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Smarty/smartyÄ£ï¿½å¼¼ï¿½ï¿½.md)
  
-* SMARTY»ù±¾¸ÅÄî
-* SMARTY²¿Êğ
-* SMARTY³ÌĞòÉè¼Æ
-  * ÊôĞÔÉèÖÃ(¶¨½ç·û Ä¿Â¼ ³£Á¿)
-* SMARTYÄ£°åÉè¼Æ
-  * SMARTYÄ£°å×¢ÊÍ
-  * SMARTYÄ£°å±äÁ¿
-  * SMARTYÏµÍ³±äÁ¿
-  * SMARTYÄÚÖÃº¯Êı
-  * SMARTY±äÁ¿µ÷½ÚÆ÷
+* SMARTYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* SMARTYï¿½ï¿½ï¿½ï¿½
+* SMARTYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿Â¼ ï¿½ï¿½ï¿½ï¿½)
+* SMARTYÄ£ï¿½ï¿½ï¿½ï¿½ï¿½
+  * SMARTYÄ£ï¿½ï¿½×¢ï¿½ï¿½
+  * SMARTYÄ£ï¿½ï¿½ï¿½ï¿½ï¿½
+  * SMARTYÏµÍ³ï¿½ï¿½ï¿½ï¿½
+  * SMARTYï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½
+  * SMARTYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  
