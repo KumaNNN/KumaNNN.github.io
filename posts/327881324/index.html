@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="PHP变量与常量 变量变量名的命名规则 变量名可以使用大小写英文字母、下划线、数字组成  变量名不可以以数字开头  变量名不能使用$this 来命名，因为$this它是一个关键字  在面向对象使用 在定义变量名的时候要做到见名知意 变量名区分大小写  如果变量名是由多个单词组成的最好可以使用下划线连接法和驼峰法 比如：$get_user_name  下划线连接 比如：$getUserName 从第">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP变量与常量">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/327881324/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="PHP变量与常量 变量变量名的命名规则 变量名可以使用大小写英文字母、下划线、数字组成  变量名不可以以数字开头  变量名不能使用$this 来命名，因为$this它是一个关键字  在面向对象使用 在定义变量名的时候要做到见名知意 变量名区分大小写  如果变量名是由多个单词组成的最好可以使用下划线连接法和驼峰法 比如：$get_user_name  下划线连接 比如：$getUserName 从第">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_01.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_02.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_04.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_05.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_06.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_07.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_08.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_09.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_29.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP变量与常量">
+<meta name="twitter:description" content="PHP变量与常量 变量变量名的命名规则 变量名可以使用大小写英文字母、下划线、数字组成  变量名不可以以数字开头  变量名不能使用$this 来命名，因为$this它是一个关键字  在面向对象使用 在定义变量名的时候要做到见名知意 变量名区分大小写  如果变量名是由多个单词组成的最好可以使用下划线连接法和驼峰法 比如：$get_user_name  下划线连接 比如：$getUserName 从第">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/327881324/php_variable_constant_01.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/327881324/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PHP变量与常量 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/327881324/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP变量与常量
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/基础知识/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">7 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="PHP变量与常量"><a href="#PHP变量与常量" class="headerlink" title="PHP变量与常量"></a>PHP变量与常量</h1><hr>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量名的命名规则"><a href="#变量名的命名规则" class="headerlink" title="变量名的命名规则"></a>变量名的命名规则</h3><ul>
+<li><p>变量名可以使用<strong>大小写英文字母</strong>、<strong>下划线</strong>、<strong>数字</strong>组成</p>
+</li>
+<li><p>变量名<strong>不可以以数字开头</strong></p>
+</li>
+<li><strong>变量名不能使用$this 来命名，因为$this它是一个关键字  在面向对象使用</strong></li>
+<li>在定义变量名的时候要做到见名知意</li>
+<li>变量名<strong>区分大小写</strong> </li>
+<li>如果变量名是由多个单词组成的最好可以使用<strong>下划线连接法</strong>和<strong>驼峰法</strong><ul>
+<li>比如：<code>$get_user_name</code>  下划线连接</li>
+<li>比如：<code>$getUserName</code> 从第二个单词开始首字母要大写 </li>
+</ul>
+</li>
+</ul>
+<p><img src="php_variable_constant_01.png" alt=""> </p>
+<h3 id="创建或者声明变量-增"><a href="#创建或者声明变量-增" class="headerlink" title="创建或者声明变量(增)"></a>创建或者声明变量(增)</h3><p><strong>语法：</strong><br><code>$变量名 = 值;</code></p>
+<p><strong>注意：</strong><br>这里的$符号它不是属于变量名的一部分，它只是一种语法规则而已！<br>PHP是一种弱类型的语言，在创建变量的时候不需要指明变量的数据类型！<br>虽然PHP在创建变量的时候不需要指明变量的数据类型， 但是它也是有类型的！它的数据类型是由其值决定的！   </p>
+<p>不能使用没有定义的变量。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$name;</span><br><span class="line">$age=<span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="修改变量的值-改"><a href="#修改变量的值-改" class="headerlink" title="修改变量的值(改)"></a>修改变量的值(改)</h3><p>给变量重新赋值一个值！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//修改变量的值</span></span><br><span class="line">$v1=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">echo</span> $v1; <span class="comment">// 10</span></span><br><span class="line">$v1=<span class="number">20</span>;  <span class="comment">//重新赋值</span></span><br><span class="line"><span class="keyword">echo</span> $v1; <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+<p><img src="php_variable_constant_02.png" alt=""> </p>
+<h3 id="获取变量的值-查"><a href="#获取变量的值-查" class="headerlink" title="获取变量的值(查)"></a>获取变量的值(查)</h3><p>使用输出语句将变量的值输出 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$v1=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">echo</span> $v1;  <span class="comment">//获取变量的值(查)</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除-删"><a href="#删除-删" class="headerlink" title="删除(删)"></a>删除(删)</h3><p>要删除变量就得使用PHP中的一个内置的系统函数！ </p>
+<p><code>unset(变量名)</code>   </p>
+<p>使用<code>unset()</code>这个函数以后会将变量名与引用给去掉。<br>但其值是被PHP的垃圾回收机制给销毁！   </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$v1=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">echo</span> $v1; </span><br><span class="line"></span><br><span class="line"><span class="keyword">unset</span>($v1);  <span class="comment">//销毁变量</span></span><br><span class="line"><span class="keyword">echo</span> $v1;   <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h3><p><strong>概念</strong>：一个变量的值刚好是另外变量的名字！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$v1=<span class="string">'abc'</span>;</span><br><span class="line">$abc=<span class="number">10</span>;</span><br><span class="line"><span class="comment">//可变变量语法： $$变量名</span></span><br><span class="line"><span class="keyword">echo</span> $$v1; <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a>超全局变量</h3><p>超全局变量也称之为<strong>预定义变量</strong> </p>
+<p><strong>预定义变量：</strong>  PHP系统预先定义变量，这几个变量程序员无法创建！只能使用。<br>得到的结果都是数组。 </p>
+<p><img src="php_variable_constant_04.png" alt=""></p>
+<p>下面是一些常用的超全局变量：</p>
+<h4 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h4><p><strong>作用</strong>：获取到服务器与浏览器的相关信息！ </p>
+<p><strong>$_SERVER[‘SERVER_NAME’]</strong></p>
+<p><img src="php_variable_constant_05.png" alt=""></p>
+<p><strong>$_SERVER[‘SERVER_ADDR’]</strong>  </p>
+<p><img src="php_variable_constant_06.png" alt=""></p>
+<p><strong>$_SERVER[‘REMOTE_ADDR’]</strong>  </p>
+<p><img src="php_variable_constant_07.png" alt=""></p>
+<p><strong>$_SERVER[‘DOCUMENT_ROOT’]</strong>  </p>
+<p><img src="php_variable_constant_08.png" alt=""></p>
+<p><strong>$_SERVER[‘SCRIPT_FILENAME’]</strong></p>
+<p><img src="php_variable_constant_09.png" alt=""></p>
+<h4 id="GET"><a href="#GET" class="headerlink" title="$_GET"></a>$_GET</h4><p><strong>作用：</strong>获取到表单以get方式提交的数据或者是用户模拟get方式提交的数据！ </p>
+<p><img src="php_variable_constant_10.png" alt=""></p>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>如果我们需要将表单中数据发送给PHP来进行处理，那么就需要给当前的表单控件标签设置name属性值 。</p>
+</li>
+<li><p>如果我们不需要将表单中的某一个表单控件的数据提交给PHP来进行处理的话 ，就不需要设置name属性。</p>
+</li>
+</ol>
+<p>模拟get请求</p>
+<p><img src="php_variable_constant_11.png" alt=""></p>
+<h4 id="POST"><a href="#POST" class="headerlink" title="$_POST"></a>$_POST</h4><p><strong>作用：</strong>获取到表单以POST方式提交的数据！ </p>
+<p><img src="php_variable_constant_12.png" alt=""></p>
+<h4 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h4><p><strong>$_REQUEST = $_POST +$_GET</strong>      </p>
+<p><strong>作用</strong>：它可以获取表单以post方式提交的数据，也可以获取到表单以get方式提交的数据。 </p>
+<p><img src="php_variable_constant_13.png" alt=""></p>
+<hr>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p><strong>什么是常量？</strong><br>常量一旦被定义就不能修改和删除！这个数据是一直是固定的！常量的值是存放全局数据区的常量区中！  </p>
+<p>在一个PHP文件中，常量 的值永远是固定的！它不会发生改变！</p>
+<h3 id="常量名的命名规则"><a href="#常量名的命名规则" class="headerlink" title="常量名的命名规则"></a>常量名的命名规则</h3><ul>
+<li><p>常量名在定义的时候<strong>不能使用$符号</strong>  </p>
+</li>
+<li><p>常量名的命名规则与变量名其实是差不多的 </p>
+</li>
+<li>常量名命名的时候建议使用大写 </li>
+<li>常量名命名的可以很松散 </li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常量名命名可以很松散</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'^_^'</span>,<span class="string">'aaa'</span>);</span><br><span class="line"><span class="keyword">echo</span> constant(<span class="string">'^_^'</span>);  <span class="comment">//输出：aaa</span></span><br></pre></td></tr></table></figure>
+<h3 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h3><p><strong>语法：</strong><br><code>define(&quot;常量名&quot;,常量的值);</code>  </p>
+<p>在新版的PHP中， 可以使用const 这个关键字来定义常量，  const这个关键字它本身是用来定义类常量。  </p>
+<p><code>const 常量名 = 值;</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//define定义常量</span></span><br><span class="line"><span class="comment">//常量名一般是大写，常量一旦被定义，其值不能被修改和删除(unset())</span></span><br><span class="line">define(<span class="string">"PI"</span>,<span class="number">3.14</span>);</span><br><span class="line"><span class="keyword">echo</span> PI;   <span class="comment">//3.14</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const定义常量</span></span><br><span class="line"><span class="comment">//PHP7 新增语法</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="number">33</span>;</span><br><span class="line"><span class="keyword">echo</span> p;  <span class="comment">//33</span></span><br></pre></td></tr></table></figure>
+<h3 id="数组常量"><a href="#数组常量" class="headerlink" title="数组常量"></a>数组常量</h3><p>在php7之后，常量支持以数组的形式来进行定义。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//定义数组常量</span></span><br><span class="line">define(<span class="string">'ARR'</span>,<span class="keyword">array</span>(<span class="number">1</span>,<span class="number">5</span>));</span><br><span class="line">var_dump(ARR);</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组常量输出：</span></span><br><span class="line"><span class="keyword">Array</span>(</span><br><span class="line">	[<span class="number">0</span>] =&gt; <span class="number">1</span>,</span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">5</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="检测常量是否被定义"><a href="#检测常量是否被定义" class="headerlink" title="检测常量是否被定义"></a>检测常量是否被定义</h3><p>要使用一个PHP中的内置函数来测试常量是否定义。   </p>
+<p><code>bool defined (string $name)</code></p>
+<p><code>bool</code>   ：指的函数的返回值 。 如果该常量已经定义就得到一个<strong>true</strong> ， 如果该常量没有定义就会得到一个<strong>false</strong>。    </p>
+<p><code>string $name</code>  ：字符串 要求是常量名。也就是说在defined这个函数里面写常量名需要加引号。 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测常量PI是否已定义</span></span><br><span class="line">var_dump(defined(<span class="string">'PI'</span>));    <span class="comment">//bool(true)</span></span><br></pre></td></tr></table></figure>
+<h3 id="常量名的大小写"><a href="#常量名的大小写" class="headerlink" title="常量名的大小写"></a>常量名的大小写</h3><p>一般情况下常量名肯定是区分大小写的 ，可以通过第三个参数来开启不区分大小写。 </p>
+<p><code>bool define (常量名, 常量值 [, bool $case_insensitive = false ] );</code>  </p>
+<p>关于第三个参数： </p>
+<ul>
+<li>默认为 <strong>false </strong>表示区分大小写，如果不写就表示区分大小写。  </li>
+<li>如果将其写为 <strong>true</strong> 则表示不区分大小写。</li>
+</ul>
+<hr>
+<h3 id="预定义常量"><a href="#预定义常量" class="headerlink" title="预定义常量"></a>预定义常量</h3><p>系统预先定义好的常量 ！</p>
+<ul>
+<li><p><strong>PHP_OS</strong> ：输出当前服务器所在的操作系统</p>
+</li>
+<li><p><strong>PHP_VERSION</strong> ：输出当前PHP的版本</p>
+</li>
+<li><strong>PHP_INT_MAX</strong> ：输出PHP中最大的整型数据</li>
+<li><strong>PHP_INT_SIZE</strong>     ：输出PHP中整型的所占用的字节数</li>
+</ul>
+<p><img src="php_variable_constant_14.png" alt=""></p>
+<hr>
+<h3 id="魔术常量"><a href="#魔术常量" class="headerlink" title="魔术常量"></a>魔术常量</h3><p>使用的语法和常量是一样的，而且也是预定义的，但是其值是由其所在的位置决定的，可能出现很多的值！  </p>
+<p><strong>注意：左右两边各有两个下划线</strong>    </p>
+<p>一些常用的魔术常量：  </p>
+<ul>
+<li><p><code>__DIR__</code>     获取当前文件所在的目录的路径。   </p>
+</li>
+<li><p><code>__FILE__</code>   <strong>获取当前文件所在的路径。</strong> </p>
+</li>
+<li><code>__LINE__</code>    文件中的当前行号。 </li>
+<li><code>__FUNCTION__</code>  当前的函数的名字</li>
+<li><code>__CLASS__</code>   <strong>当前的类的名字</strong></li>
+<li><code>__METHOD__</code>  <strong>当前方法的名字</strong></li>
+</ul>
+<p><img src="php_variable_constant_15.png" alt=""></p>
+<hr>
+<h2 id="按值传递和按引用传递"><a href="#按值传递和按引用传递" class="headerlink" title="按值传递和按引用传递"></a>按值传递和按引用传递</h2><p><strong>传递：变量与变量之间的赋值</strong> </p>
+<h3 id="按值传递"><a href="#按值传递" class="headerlink" title="按值传递"></a>按值传递</h3><p>将一个变量的值赋值给另外一个变量，然后修改其中一个变量的值，并<strong>不会影响</strong>到另外一个变量 。这两个变量之间是没有联系的！</p>
+<p><img src="php_variable_constant_16.png" alt=""></p>
+<p><strong>问：</strong>将变量$v1给unset掉 会不会影响到变量$v2？</p>
+<p><strong>答</strong>：不会影响到$v2这个变量  </p>
+<p><img src="php_variable_constant_17.png" alt=""></p>
+<p><img src="php_variable_constant_18.png" alt=""></p>
+<h3 id="按引用传递"><a href="#按引用传递" class="headerlink" title="按引用传递"></a>按引用传递</h3><p>将一个变量的内存地址赋值给另外一个变量，然后修改一个变量的值 ，它<strong>会影响</strong>到另外一个变量的值。这两个变量之间是有联系的！ </p>
+<p>在PHP中是通过一个&amp;(求地址运算符)得到一个变量的值内存地址。</p>
+<p><img src="php_variable_constant_19.png" alt=""></p>
+<ol>
+<li>先得到$v1的内存地址，然后将这个内存地址赋值给$v2 。</li>
+<li>$v1与$v2这两个变量指向是同一个地址空间！如果修改一个变量的值另外一个变量也会跟着改变。</li>
+</ol>
+<p><strong>思考一下：</strong>如果将其中一个变量给unset掉，那么会不会影响到另外一个变量？</p>
+<p><strong>答</strong>  ：不会影响到另外一个变量。因为unset这个函数它只是将变量名与引用给销毁，变量的值还在。</p>
+<p><img src="php_variable_constant_20.png" alt=""></p>
+<hr>
+<h2 id="变量的数据类型"><a href="#变量的数据类型" class="headerlink" title="变量的数据类型"></a>变量的数据类型</h2><p><strong>PHP中有八种数据类型：</strong>  </p>
+<p>整型、浮点型、布尔型、字符串型、数组、对象、资源、NULL </p>
+<h3 id="标量数据类型-基本数据类型"><a href="#标量数据类型-基本数据类型" class="headerlink" title="标量数据类型(基本数据类型)"></a>标量数据类型(基本数据类型)</h3><p>特点：只能存储一个值！  </p>
+<p><strong>整型、浮点型、布尔型、字符串型</strong></p>
+<h4 id="整型-int-或者integer"><a href="#整型-int-或者integer" class="headerlink" title="整型 int 或者integer"></a>整型 int 或者integer</h4><p><code>PHP_INT_SIZE</code>：表示整型的字节数<br><code>PHP_INT_MAX</code>：表示整型的最大数   </p>
+<p>整型在内存中是使用是<strong>二进制</strong>的方式来表示的！<br>4个字节共表示32位！但是最高位表示符号位。如果最高位是0表示正数，如果1表示负数！  </p>
+<p>在PHP中定义整型数据可以使用四种方式来表示：   \\<br>(十进制、八进制、十六进制、二进制)</p>
+<ul>
+<li>十进制：1234  -1234</li>
+<li>八进制：以0开头</li>
+<li>十六进制：以0x开头</li>
+<li>二进制：以0b开头</li>
+</ul>
+<p>问：如果给<code>PHP_INT_MAX+1</code>会不会报错？<br>答：不会，会自动将这个数转换为浮点型数据。</p>
+<h4 id="浮点数-float或者double"><a href="#浮点数-float或者double" class="headerlink" title="浮点数 float或者double"></a>浮点数 float或者double</h4><p>其实浮点数是分为单精度与双精度之分 只是PHP没有作这个区分！<br>浮点数使用8个字节来表示   </p>
+<p><strong>单精度</strong>与<strong>双精度</strong>   </p>
+<p>浮点数有两种表示的方式：<br><code>小数、指数</code>  </p>
+<p>小数：<code>12.38</code><br>指数：7e3 —&gt; 7*10^3   </p>
+<p>如果是使用指数来表示：</p>
+<ul>
+<li>e后面必须要有数</li>
+<li>e后面必须是整数 </li>
+</ul>
+<p>浮点数的字长和平台相关，尽管通常最大值是 1.8e308 并具有 14 位十进制数字的精度（64 位 IEEE 格式）。   </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//定义浮点数</span></span><br><span class="line">$v1=<span class="number">10.23</span>;</span><br><span class="line">var_dump($v1);   <span class="comment">//float(10.23)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用指数定义浮点数</span></span><br><span class="line">$v2=<span class="number">7e3</span>;</span><br><span class="line">var_dump($v2); <span class="comment">//7*10^3</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>最好不要使用浮点数来进行比较！   </p>
+<p>因为计算机只能识别二进制数，需要将0.3转换为二进制数， 乘2取整法<br>因此小数在转换为二进制的时候会丢失精度！</p>
+<h4 id="布尔型-bool或boolean"><a href="#布尔型-bool或boolean" class="headerlink" title="布尔型 bool或boolean"></a>布尔型 bool或boolean</h4><p>布尔型常用表示<strong>真</strong>与<strong>假</strong>！  </p>
+<p>布尔型只有两个值：<code>true</code>和<code>false</code> ，并且这两个单词不区分大小写！  \\</p>
+<p><strong>要打印布尔型的结果，不能使用 echo 输出，必须使用<code>var_dump</code>语句来打印。</strong> </p>
+<p>布尔类型一般多用于比较<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//定义布尔类型</span></span><br><span class="line">$flag=<span class="keyword">false</span>;</span><br><span class="line">var_dump($flag);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="字符串数据类型-string"><a href="#字符串数据类型-string" class="headerlink" title="字符串数据类型 string"></a>字符串数据类型 string</h4><p>在PHP中定义字符串数据类型总共有四种方式：</p>
+<ul>
+<li>单引号 </li>
+<li>双引号 </li>
+<li>heredoc 语法结构 </li>
+<li>nowdoc 语法结构（自 PHP 5.3.0 起） </li>
+</ul>
+<h5 id="单引号"><a href="#单引号" class="headerlink" title="单引号"></a>单引号</h5><p>使用单引号定义的字符串的特点如下：</p>
+<ol>
+<li>单引号不可以解析其中的变量！</li>
+<li>当使用单引号定义字符串时，如果字符串里面又有单引号，需要用反斜线来进行转义。</li>
+<li>单引号定义的字符串里面只能解析转义单引号和转换反斜线。其它的字符转义不了。</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//单引号 定义字符串</span></span><br><span class="line">$name=<span class="string">'张三'</span>;</span><br><span class="line">$res=<span class="string">'姓名： $name'</span>;   <span class="comment">//单引号不可以解析其中的变量</span></span><br><span class="line"><span class="keyword">echo</span> $res;</span><br><span class="line"></span><br><span class="line"><span class="comment">//反斜线来进行转义</span></span><br><span class="line">$str=<span class="string">'姓名：\'张三\''</span>;</span><br><span class="line"><span class="keyword">echo</span> $str; <span class="comment">// 姓名：'张三'</span></span><br></pre></td></tr></table></figure>
+<h5 id="双引号"><a href="#双引号" class="headerlink" title="双引号"></a>双引号</h5><p> 使用双号定义的字符串的特点如下：</p>
+<ul>
+<li><p>双引号可以解析其中的变量！</p>
+</li>
+<li><p>当使用双引号定义字符串时，如果字符串里面又有双引号，需要用反斜线来进行转义。</p>
+</li>
+<li>双引号定义的字符转义字符都可以被解析！</li>
+<li>双引号内如果有变量名，需要确定变量名边界 。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//双引号 定义字符串</span></span><br><span class="line">$name=<span class="string">'张三'</span>;</span><br><span class="line">$res=<span class="string">"姓名： $name"</span>;   </span><br><span class="line"><span class="keyword">echo</span> $res; <span class="comment">//姓名： 张三</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//反斜线来进行转义</span></span><br><span class="line">$str=<span class="string">"姓名：\"张三\" "</span>;</span><br><span class="line"><span class="keyword">echo</span> $str; <span class="comment">// 姓名："张三"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//策略一：变量名与后面的字符串之间加上空格</span></span><br><span class="line">$res=<span class="string">"姓名 $name "</span>;   </span><br><span class="line"><span class="comment">//策略二（标准做法）：将变量名用大括号包裹起来，这里的花括号就表示变量名的边界！</span></span><br><span class="line">$res=<span class="string">"姓名&#123;$name&#125;"</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="php_variable_constant_21.png" alt=""></p>
+<h5 id="heredoc"><a href="#heredoc" class="headerlink" title="heredoc"></a>heredoc</h5><p>定界符，就是让用户自己定义字符串的边界！  </p>
+<p>适用于定义复杂的、多行的字符串，因为字符串的边界是可以由自己随便定义的，所以可以人为的保证边界和字符串的内部不会发生冲突！</p>
+<p><strong>语法形式</strong>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//注：标记名称前后不能有空格，结束时的标记名称必须靠边。</span></span><br><span class="line"><span class="comment">// heredoc 相当于双引号定义的字符串    </span></span><br><span class="line">&lt;&lt;&lt;标记名称</span><br><span class="line">    字符串</span><br><span class="line">标记名称;</span><br><span class="line"></span><br><span class="line"><span class="comment">//示例</span></span><br><span class="line">$str=<span class="string">&lt;&lt;&lt;doc</span></span><br><span class="line"><span class="string">    dsfdsfdsf</span></span><br><span class="line"><span class="string">doc;</span></span><br></pre></td></tr></table></figure>
+<h5 id="nowdoc"><a href="#nowdoc" class="headerlink" title="nowdoc"></a>nowdoc</h5><p><strong>语法形式</strong>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//注：标记名称前后不能有空格，结束时的标记名称必须靠边。</span></span><br><span class="line"><span class="comment">// nowdoc 相当于单引号定义的字符串    </span></span><br><span class="line">&lt;&lt;&lt;<span class="string">'标记名称'</span></span><br><span class="line">    字符串</span><br><span class="line">标记名称;</span><br><span class="line"></span><br><span class="line"><span class="comment">//示例</span></span><br><span class="line">$str=<span class="string">&lt;&lt;&lt;'doc'</span></span><br><span class="line"><span class="string">    dsfdsfdsf</span></span><br><span class="line"><span class="string">doc;</span></span><br></pre></td></tr></table></figure>
+<p><strong>关于heredoc与nowdoc需要注意的地方</strong>：</p>
+<ol>
+<li>当我们在PHP中要定义大量的HTML代码或者是JS代码说可以使用这两种定界符。</li>
+<li>heredoc定义的字符串它是可以解析变量的 。</li>
+<li>nowdoc定义的字符串它不能解析变量。</li>
+<li>nowdoc开始定界符处需要加上单引号。</li>
+<li>不管是heredoc与nowdoc在结束定界符处前面不能有空格 一定要顶格写，开始定界符后面也不要有空格！</li>
+</ol>
+<h3 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h3><p>特点：复合数据类型可以存储多个值！  </p>
+<p><strong>数组、对象</strong></p>
+<p>（详见其它文档）</p>
+<h3 id="特殊数据类型"><a href="#特殊数据类型" class="headerlink" title="特殊数据类型"></a>特殊数据类型</h3><p><strong>资源、NULL</strong></p>
+<h4 id="资源-resource"><a href="#资源-resource" class="headerlink" title="资源 resource"></a>资源 resource</h4><p>凡是PHP操作的外部数据，得到的都是资源数据类型！   </p>
+<p><strong>注意</strong>：  </p>
+<ul>
+<li>资源数据类型是不能进行定义的，只能读取！</li>
+<li>将资源转换为布尔型，会转换为true </li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$fp=fopen(<span class="string">'a.txt'</span>,<span class="string">'r+'</span>);</span><br><span class="line">var_dump($fp);  <span class="comment">// resource(3) of type(stream)</span></span><br></pre></td></tr></table></figure>
+<h4 id="空-Null"><a href="#空-Null" class="headerlink" title="空 Null"></a>空 Null</h4><p><strong>如何得到这个空型：</strong></p>
+<ul>
+<li>将一个变量赋值为null  </li>
+<li>使用一个没有定义的变量</li>
+<li>将一个变量unset掉</li>
+<li>调用一个没有返回值的函数 </li>
+</ul>
+<p><img src="php_variable_constant_22.png" alt=""></p>
+<hr>
+<h2 id="变量数据类型的转换"><a href="#变量数据类型的转换" class="headerlink" title="变量数据类型的转换"></a>变量数据类型的转换</h2><p>变量会根据上下文的环境，数据类型可以会做相应转换！   </p>
+<p>分为：<strong>自动转换</strong> 、<strong>强制转换</strong>   </p>
+<p><strong>注意： </strong>   </p>
+<p>不管是自动转换还是强制转换，变量数据类型转换的结果都是相同的！</p>
+<h3 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h3><p>PHP会根据上下文的环境，对变量数据类型进行自动转换！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动转换</span></span><br><span class="line">$flag=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>($flag)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="keyword">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><p>使用PHP中的系统内置函数，将一个变量的数据类型强制的转换为另外一个数据类型！  </p>
+<p><strong>语法：</strong>  </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(目标变量的数据类型)变量名  <span class="comment">//把变量数据类型强制的转换为目标变量的数据类型</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th><strong>强制类型转换符</strong></th>
+<th><strong>转换为的类型</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(int)变量名或者(integer)变量名</td>
+<td>将变量名强制的转换为整型</td>
+</tr>
+<tr>
+<td>(float)变量名</td>
+<td>将变量名强制的转换为浮点型</td>
+</tr>
+<tr>
+<td>(bool)变量名</td>
+<td>将变量名强制的转换为布尔型  <strong>true</strong>\</td>
+<td><strong>false</strong></td>
+</tr>
+<tr>
+<td>(string)变量名</td>
+<td>将变量名强制的转换为字符型</td>
+</tr>
+<tr>
+<td>(array)变量名</td>
+<td>将变量名强制的转换为一个数组</td>
+</tr>
+<tr>
+<td>(object)变量名</td>
+<td>将变量名强制的转换为一个对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="将其它数据类型转换为整型"><a href="#将其它数据类型转换为整型" class="headerlink" title="将其它数据类型转换为整型"></a>将其它数据类型转换为整型</h4><p><code>(int)变量名或者(integer)变量名</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>其它数据类型</strong></th>
+<th style="text-align:center"><strong>整型的结果</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“字符”</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>“数字字符”</td>
+<td style="text-align:center">数字</td>
+</tr>
+<tr>
+<td>“字符数字”</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>“”与“  ”与 “0”   空字符串与有空格的字符串</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>false</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>true</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>null</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>float</td>
+<td style="text-align:center">取整</td>
+</tr>
+</tbody>
+</table>
+<p><img src="php_variable_constant_23.png" alt=""></p>
+<h4 id="将其它的数据类型转换为浮点型"><a href="#将其它的数据类型转换为浮点型" class="headerlink" title="将其它的数据类型转换为浮点型"></a>将其它的数据类型转换为浮点型</h4><p><code>(float)变量名</code></p>
+<p><img src="php_variable_constant_24.png" alt=""></p>
+<h4 id="将其它的数据类型转换为布尔型"><a href="#将其它的数据类型转换为布尔型" class="headerlink" title="将其它的数据类型转换为布尔型"></a>将其它的数据类型转换为布尔型</h4><p><code>(bool)变量名</code></p>
+<p><img src="php_variable_constant_25.png" alt=""></p>
+<h4 id="将其它的数据类型为数组"><a href="#将其它的数据类型为数组" class="headerlink" title="将其它的数据类型为数组"></a>将其它的数据类型为数组</h4><p><code>(Array)变量名</code>   </p>
+<p><strong>注意：</strong> 在工作中这种方法几乎不会使用。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$v1=<span class="number">10</span>;</span><br><span class="line">$arr= <span class="keyword">Array</span>($v1);</span><br><span class="line">var_dump($arr);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="与类型相关的函数"><a href="#与类型相关的函数" class="headerlink" title="与类型相关的函数"></a>与类型相关的函数</h2><h3 id="gettype"><a href="#gettype" class="headerlink" title="gettype"></a>gettype</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string  gettype ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p>获取到变量的数据类型</p>
+<p><img src="php_variable_constant_26.png" alt=""></p>
+<h3 id="settype"><a href="#settype" class="headerlink" title="settype"></a>settype</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool settype ( mixed &amp;$var , string $type );</span><br></pre></td></tr></table></figure></p>
+<p>将变量数据类型设置为指定的类型</p>
+<ul>
+<li>mixed  &amp;$var：要设置的变量</li>
+<li>string $type：将变量设置为什么类型</li>
+</ul>
+<p><img src="php_variable_constant_27.png" alt=""></p>
+<h3 id="isset"><a href="#isset" class="headerlink" title="isset"></a>isset</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool  <span class="keyword">isset</span>(mixed $var1[,mixed $var2]);</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：判断一个变量是否存在，存在就返回<strong>true</strong>，不存在就返回<strong>false</strong></p>
+<p>变量不存在有三种情况：</p>
+<ol>
+<li>变量未被声明（没有被初始化）</li>
+<li>变量被unset掉了</li>
+<li>变量的值如果为NULL，也认为不存在！</li>
+</ol>
+<p><img src="php_variable_constant_28.png" alt=""></p>
+<h3 id="is-int"><a href="#is-int" class="headerlink" title="is_int"></a>is_int</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool  is_int ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否是整型，如果$val是整型返回 TRUE，否则返回 FALSE。 </p>
+<h3 id="is-float"><a href="#is-float" class="headerlink" title="is_float"></a>is_float</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool is_float ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否是浮点型，如果 $var 是 float 则返回 TRUE，否则返回 FALSE。</p>
+<h3 id="is-string"><a href="#is-string" class="headerlink" title="is_string"></a>is_string</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool is_string ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否是字符串型，如果 $var 是String则返回 TRUE，否则返回 FALSE。</p>
+<h3 id="is-bool"><a href="#is-bool" class="headerlink" title="is_bool"></a>is_bool</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool is_bool ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否是布尔型 ，如果 $var 是 boolean则返回 TRUE，否则返回 FALSE。</p>
+<h3 id="is-array"><a href="#is-array" class="headerlink" title="is_array"></a>is_array</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool is_array ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否是数组，如果 $var 是 Array则返回 TRUE，否则返回 FALSE。</p>
+<h3 id="is-null"><a href="#is-null" class="headerlink" title="is_null"></a>is_null</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool is_null ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否是NULL，如果 $var 是 null则返回 TRUE，否则返回 FALSE。</p>
+<h3 id="is-numeric"><a href="#is-numeric" class="headerlink" title="is_numeric"></a>is_numeric</h3><p>语法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool  is_numeric ( mixed $var );</span><br></pre></td></tr></table></figure></p>
+<p><strong>作用</strong>：检测变量是否为数字或数字字符串，如果 $var 是数字和数字字符串则返回 TRUE，否则返回 FALSE。</p>
+<p><img src="php_variable_constant_29.png" alt=""></p>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/327881324/" title="PHP变量与常量">http://blog.kuma8866.top/posts/327881324/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3495660076/" rel="next" title="MYSQLI扩展">
+                <i class="fa fa-chevron-left"></i> MYSQLI扩展
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/790821465/" rel="prev" title="会话技术">
+                会话技术 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP变量与常量"><span class="nav-text">PHP变量与常量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量名的命名规则"><span class="nav-text">变量名的命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建或者声明变量-增"><span class="nav-text">创建或者声明变量(增)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改变量的值-改"><span class="nav-text">修改变量的值(改)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取变量的值-查"><span class="nav-text">获取变量的值(查)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-删"><span class="nav-text">删除(删)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可变变量"><span class="nav-text">可变变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超全局变量"><span class="nav-text">超全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SERVER"><span class="nav-text">$_SERVER</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GET"><span class="nav-text">$_GET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST"><span class="nav-text">$_POST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#REQUEST"><span class="nav-text">$_REQUEST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-text">常量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量名的命名规则"><span class="nav-text">常量名的命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义常量"><span class="nav-text">定义常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组常量"><span class="nav-text">数组常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测常量是否被定义"><span class="nav-text">检测常量是否被定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量名的大小写"><span class="nav-text">常量名的大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义常量"><span class="nav-text">预定义常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术常量"><span class="nav-text">魔术常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按值传递和按引用传递"><span class="nav-text">按值传递和按引用传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按值传递"><span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按引用传递"><span class="nav-text">按引用传递</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的数据类型"><span class="nav-text">变量的数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标量数据类型-基本数据类型"><span class="nav-text">标量数据类型(基本数据类型)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整型-int-或者integer"><span class="nav-text">整型 int 或者integer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点数-float或者double"><span class="nav-text">浮点数 float或者double</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布尔型-bool或boolean"><span class="nav-text">布尔型 bool或boolean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串数据类型-string"><span class="nav-text">字符串数据类型 string</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单引号"><span class="nav-text">单引号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双引号"><span class="nav-text">双引号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#heredoc"><span class="nav-text">heredoc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nowdoc"><span class="nav-text">nowdoc</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合数据类型"><span class="nav-text">复合数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊数据类型"><span class="nav-text">特殊数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源-resource"><span class="nav-text">资源 resource</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空-Null"><span class="nav-text">空 Null</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量数据类型的转换"><span class="nav-text">变量数据类型的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动转换"><span class="nav-text">自动转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制类型转换"><span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将其它数据类型转换为整型"><span class="nav-text">将其它数据类型转换为整型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将其它的数据类型转换为浮点型"><span class="nav-text">将其它的数据类型转换为浮点型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将其它的数据类型转换为布尔型"><span class="nav-text">将其它的数据类型转换为布尔型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将其它的数据类型为数组"><span class="nav-text">将其它的数据类型为数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与类型相关的函数"><span class="nav-text">与类型相关的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gettype"><span class="nav-text">gettype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#settype"><span class="nav-text">settype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isset"><span class="nav-text">isset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-int"><span class="nav-text">is_int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-float"><span class="nav-text">is_float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-string"><span class="nav-text">is_string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-bool"><span class="nav-text">is_bool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-array"><span class="nav-text">is_array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-null"><span class="nav-text">is_null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-numeric"><span class="nav-text">is_numeric</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

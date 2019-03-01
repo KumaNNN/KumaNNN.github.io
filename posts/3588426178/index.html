@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Apache Apache概要apache它是用于提供http服务的 。apache web 服务器软件，通常指的是 apache httpd    什么是集成环境：有一些人将apache、mysql、php这三个软件组成到一起 然后开发出一个新的软件！工作一般都是使用集成环境！wamp……..    为什么我们不使用集成环境？1、我们不知道集成环境有没有后门 安全性的问题2、我们得知道这三个软件">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/3588426178/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="Apache Apache概要apache它是用于提供http服务的 。apache web 服务器软件，通常指的是 apache httpd    什么是集成环境：有一些人将apache、mysql、php这三个软件组成到一起 然后开发出一个新的软件！工作一般都是使用集成环境！wamp……..    为什么我们不使用集成环境？1、我们不知道集成环境有没有后门 安全性的问题2、我们得知道这三个软件">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_05.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_06.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_07.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_08.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_09.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3588426178/php_24.png">
+<meta property="og:updated_time" content="2018-12-19T08:17:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apache">
+<meta name="twitter:description" content="Apache Apache概要apache它是用于提供http服务的 。apache web 服务器软件，通常指的是 apache httpd    什么是集成环境：有一些人将apache、mysql、php这三个软件组成到一起 然后开发出一个新的软件！工作一般都是使用集成环境！wamp……..    为什么我们不使用集成环境？1、我们不知道集成环境有没有后门 安全性的问题2、我们得知道这三个软件">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/3588426178/php_11.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/3588426178/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Apache | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/3588426178/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Apache
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-19 16:17:59" itemprop="dateCreated datePublished" datetime="2018-12-19T16:17:59+08:00">2018-12-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Apache-httpd/" itemprop="url" rel="index"><span itemprop="name">Apache.httpd</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h1><hr>
+<h2 id="Apache概要"><a href="#Apache概要" class="headerlink" title="Apache概要"></a>Apache概要</h2><p><strong>apache它是用于提供http服务的 </strong>。<br>apache web 服务器软件，通常指的是 <code>apache httpd</code>   </p>
+<p><strong>什么是集成环境：</strong><br>有一些人将apache、mysql、php这三个软件组成到一起 然后开发出一个新的软件！<br>工作一般都是使用集成环境！wamp……..   </p>
+<p><strong>为什么我们不使用集成环境？</strong><br>1、我们不知道集成环境有没有后门 安全性的问题<br>2、我们得知道这三个软件是如何进行组合到一起！   </p>
+<hr>
+<h2 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h2><p>Apache本身不用安装，我们只需将其安装为系统服务即可，在Windows中。 </p>
+<p>我们需要在自己的电脑上面新建一个文件夹，这个文件夹不建议放置在系统盘，千万注意文件夹的名称不要使用中文特殊符号。  </p>
+<p><img src="php_11.png" alt=""></p>
+<p>安装Apache http服务，在命令行界面输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd.exe  -k  install</span><br></pre></td></tr></table></figure>
+<p><img src="php_05.png" alt=""></p>
+<p>因为上图所示有报错：找到httpd.conf 这个文件上的37行</p>
+<p><img src="php_06.png" alt=""></p>
+<p>我们需要将httpd.conf这个文件中的   <code>c:/Apache24</code></p>
+<p><img src="php_07.png" alt=""></p>
+<p>替换为apache的实际安装目录</p>
+<p><img src="php_08.png" alt=""></p>
+<p>添加一个<strong>ServerName</strong> </p>
+<p><img src="php_09.png" alt=""></p>
+<p>配置默认显示页面</p>
+<p><img src="php_15.png" alt=""></p>
+<p>检测是否有语法错误 ：使用<code>httpd.exe  -t</code>  </p>
+<p>重启Apache ， 在命令行输入(可省略 .exe)： <code>httpd -k restart</code></p>
+<p><img src="php_10.png" alt=""> </p>
+<p>在浏览器访问配置的域名，测试是否成功</p>
+<p><img src="php_12.png" alt=""> </p>
+<hr>
+<h2 id="管理Apache"><a href="#管理Apache" class="headerlink" title="管理Apache"></a>管理Apache</h2><h3 id="1-直接以windows服务的方式管理"><a href="#1-直接以windows服务的方式管理" class="headerlink" title="1.   直接以windows服务的方式管理"></a>1.   直接以windows服务的方式管理</h3><p>Apache默认的是被安装成了windows系统服务器，所以管理Apache也可以以windows的服务的形式管理：  </p>
+<p><strong>我的电脑—-&gt;右键—-&gt;管理—–&gt;服务与应用程序—-&gt;服务</strong>   </p>
+<p><img src="php_13.png" alt=""></p>
+<p>或在开始—–&gt;运行里面输入：<strong>services.msc</strong>  </p>
+<h3 id="2-可以在cmd下操作Apache"><a href="#2-可以在cmd下操作Apache" class="headerlink" title="2.  可以在cmd下操作Apache"></a>2.  可以在cmd下操作Apache</h3><p>如果说要使用黑窗口来管理Apache的话那么一定要进入到apache的安装目录下面执行httpd.exe这个文件才可以对其进行管理。 </p>
+<p><strong>命令：</strong><br><code>httpd.exe  –k  stop</code>        <strong>停止服务</strong><br><code>httpd.exe  –k  start</code>     <strong>开启服务</strong><br><code>httpd.exe  –k  restart</code>     <strong>重启服务</strong>        </p>
+<p><strong>注意：</strong>   </p>
+<p>凡是修改了Apache配置文件一定要记得重启apache服务！<br><code>httpd.exe  –k  restart</code>    <strong>重启服务</strong>    </p>
+<p>检测Apache配置文件的语法错误：<br><code>httpd.exe  –t</code>   </p>
+<p><strong>配置环境变量！</strong>  </p>
+<p>环境变量（environment variables）一般是指在操作系统中用来指定操作系统运行环境的一些参数，如：临时文件夹位置和系统文件夹位置等。</p>
+<p>环境变量是在操作系统中一个具有特定名字的对象，它包含了一个或者多个应用程序所将使用到的信息。例如Windows和DOS操作系统中的path环境变量，当要求系统运行一个程序而没有告诉它程序所在的完整路径时，系统除了在当前目录下面寻找此程序外，还应到path中指定的路径去找。用户通过设置环境变量，来更好的运行进程。</p>
+<p>因为我们经常要操作httpd.exe这个程序  我们就将它配置到环境变量中 。<br>环境变量配置的地方：<br><strong>我的电脑—&gt;右键–&gt;属性–&gt;高级系统设置–&gt;高级的选项卡-&gt;环境变量–&gt;path</strong>   </p>
+<p>然后将apache的bin文件夹目录赋值一份，添加到path的最后面。 </p>
+<hr>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="php_14.png" alt=""></p>
+<hr>
+<h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><h3 id="什么是虚拟主机"><a href="#什么是虚拟主机" class="headerlink" title="什么是虚拟主机"></a>什么是虚拟主机</h3><p><strong>概念</strong>：虚拟主机是指在网络服务器上分出一定的磁盘空间，用户可以租用此部分空间，以供用户放置站点及应用组件，提供必要的数据存放和传输功能。</p>
+<h3 id="基于域名的虚拟主机"><a href="#基于域名的虚拟主机" class="headerlink" title="基于域名的虚拟主机"></a>基于域名的虚拟主机</h3><p>第一步：我们需要在Apache的配置文件中开启虚拟主机的配置<br>Httpd.conf 在这个文件中 开启虚拟主机的配置文件</p>
+<p><img src="php_16.png" alt=""></p>
+<p>第二步：使用<code>&lt;VirtualHost  *:80&gt;  &lt;/ VirtualHost&gt;</code> ，配置一个虚拟主机就是写一对<code>&lt;VirtualHost&gt;</code>这对标签 </p>
+<p><img src="php_17.png" alt=""></p>
+<p>第三步[可选]：hosts 文件重定向，如果域名是没有配置在DNS服务器的，可用此方法   </p>
+<p>hosts文件路径：<br>Windows  <code>C:\Windows\System32\drivers\etc\hosts</code>   </p>
+<p><img src="php_18.png" alt=""></p>
+<h3 id="配置域名-hosts重定向"><a href="#配置域名-hosts重定向" class="headerlink" title="配置域名(hosts重定向)"></a>配置域名(hosts重定向)</h3><p><code>ServerName   域名</code></p>
+<p><img src="php_19.png" alt=""></p>
+<h3 id="配置域名对应的目录"><a href="#配置域名对应的目录" class="headerlink" title="配置域名对应的目录"></a>配置域名对应的目录</h3><p><code>DocumentRoot  &quot;域名所对应的目录&quot;</code></p>
+<p><img src="php_20.png" alt=""></p>
+<p><img src="php_21.png" alt=""></p>
+<h2 id="权限配置"><a href="#权限配置" class="headerlink" title="权限配置"></a>权限配置</h2><h3 id="目录访问权限"><a href="#目录访问权限" class="headerlink" title="目录访问权限"></a>目录访问权限</h3><p>需要使用一对<code>&lt;Directory  &quot;给哪一个目录设置权限&quot;&gt; &lt;/Directory&gt;</code>来配置</p>
+<p><strong>允许用户访问</strong>  <code>Require   all   granted</code><br><strong>拒绝用户访问</strong>  <code>Require   all   denied</code>  </p>
+<p><img src="php_22.png" alt=""></p>
+<h3 id="指定默认显示页面"><a href="#指定默认显示页面" class="headerlink" title="指定默认显示页面"></a>指定默认显示页面</h3><p><code>DirectoryIndex  默认显示的页面</code></p>
+<p>如果在我们当前的网站的根目录中没有默认显示的页面 那么需要如何显示？<br>1） <code>Options indexes</code><br>将当前的网站根目录中所有的文件与文件夹以列表的形式展示出来  </p>
+<p>2）  <code>Options none</code><br>拒绝访问  </p>
+<p><strong>注意：</strong><br> 如果网站已经上线，我们就使用拒绝访问的方式；如果我们在开发中，可以使用以列表的形式显示。</p>
+<p><img src="php_23.png" alt=""></p>
+<h3 id="目录访问权限中的“分布式权限”配置"><a href="#目录访问权限中的“分布式权限”配置" class="headerlink" title="目录访问权限中的“分布式权限”配置"></a>目录访问权限中的“分布式权限”配置</h3><p>对于某个目录的访问权限，我们在apache中使用Directory来设定，但可能不够方便：<br>1，apache配置修改，必须重启apache<br>2，某个站点中的“下级目录”访问权限，不方便单独设置  </p>
+<p>这种，可以称为 <strong>集中式权限</strong>；  </p>
+<p><strong>分布式权限</strong>，就是：针对某个网站的任何一个下级目录，都可以单独去设置其访问权限，并且可以不重启apache就生效。  </p>
+<p><strong>第1步：</strong><br>在该网站对应目录权限的Directorty配置中添加一条，表示允许覆写：<br><code>AllowOverride  all</code>   </p>
+<p><strong>第2步：</strong><br>在该目录下的任何子目录中，创建一个特殊的文件（<code>.htaccess</code>），在该文件中写所需要的“权限内容”（几乎跟Directory中的写法一样）：  </p>
+<p><img src="php_24.png" alt=""></p>
+<h2 id="简单的配置示例"><a href="#简单的配置示例" class="headerlink" title="简单的配置示例"></a>简单的配置示例</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 你可以用一个固定的IP地址来代替 * 号，比如说，你可能会希望在一个IP地址上运行一个基于域名的虚拟主机，而在另外一个IP地址上运行一个基于IP的或是另外一套基于域名的虚拟主机。</span></span><br><span class="line"><span class="comment"># 如果端口不是80 ，还需要在主配置文件配置监听端口(Listen 端口号） </span></span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">	 <span class="comment">#文档根目录</span></span><br><span class="line">     DocumentRoot "F:\Data\itcast\WorkSpace"</span><br><span class="line">	 <span class="comment">#主机名(域名)</span></span><br><span class="line">	 ServerName a.myweb.com</span><br><span class="line">	 <span class="comment">#目录权限控制</span></span><br><span class="line">	 &lt;Directory "F:\Data\itcast\WorkSpace"&gt;</span><br><span class="line">		<span class="comment">#是否允许访问 &lt;granted 允许 | denied 拒绝&gt;</span></span><br><span class="line">		Require all granted</span><br><span class="line">		<span class="comment">#默认访问的文件</span></span><br><span class="line">		DirectoryIndex index.html index.php</span><br><span class="line">		<span class="comment">#是否允许访问目录结构 &lt;Indexes 索引 | None 无 | All 所有&gt;</span></span><br><span class="line">		Options Indexes		</span><br><span class="line">		<span class="comment">#是否允许覆写 &lt; None 无 | All 所有&gt;</span></span><br><span class="line">		AllowOverride all</span><br><span class="line">	 &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/3588426178/" title="Apache">http://blog.kuma8866.top/posts/3588426178/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2669275496/" rel="next" title="Ajax和JSON案例">
+                <i class="fa fa-chevron-left"></i> Ajax和JSON案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3811458831/" rel="prev" title="es6简介">
+                es6简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache"><span class="nav-text">Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache概要"><span class="nav-text">Apache概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Apache"><span class="nav-text">安装Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理Apache"><span class="nav-text">管理Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接以windows服务的方式管理"><span class="nav-text">1.   直接以windows服务的方式管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-可以在cmd下操作Apache"><span class="nav-text">2.  可以在cmd下操作Apache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构"><span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置虚拟主机"><span class="nav-text">配置虚拟主机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是虚拟主机"><span class="nav-text">什么是虚拟主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于域名的虚拟主机"><span class="nav-text">基于域名的虚拟主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置域名-hosts重定向"><span class="nav-text">配置域名(hosts重定向)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置域名对应的目录"><span class="nav-text">配置域名对应的目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限配置"><span class="nav-text">权限配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录访问权限"><span class="nav-text">目录访问权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定默认显示页面"><span class="nav-text">指定默认显示页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录访问权限中的“分布式权限”配置"><span class="nav-text">目录访问权限中的“分布式权限”配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的配置示例"><span class="nav-text">简单的配置示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

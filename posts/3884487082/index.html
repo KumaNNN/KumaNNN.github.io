@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="GitHub  Blog架构TODO 脚本分离  参考方案环境配置博客程序 ： hexo  -  静态站点生成器 写作程序 ： Typora  -  makedown 编辑器 持续集成 ： Travis-ci  - 用于构建项目的开源持续集成环境 项目规划Blog仓库Blog仓库名：KumaNNN.github.io  此为用户站点，通过各分支进行管理。  master  ： 内容发布分支。  &amp;">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub  Blog架构">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/3884487082/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="GitHub  Blog架构TODO 脚本分离  参考方案环境配置博客程序 ： hexo  -  静态站点生成器 写作程序 ： Typora  -  makedown 编辑器 持续集成 ： Travis-ci  - 用于构建项目的开源持续集成环境 项目规划Blog仓库Blog仓库名：KumaNNN.github.io  此为用户站点，通过各分支进行管理。  master  ： 内容发布分支。  &amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-11T18:35:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub  Blog架构">
+<meta name="twitter:description" content="GitHub  Blog架构TODO 脚本分离  参考方案环境配置博客程序 ： hexo  -  静态站点生成器 写作程序 ： Typora  -  makedown 编辑器 持续集成 ： Travis-ci  - 用于构建项目的开源持续集成环境 项目规划Blog仓库Blog仓库名：KumaNNN.github.io  此为用户站点，通过各分支进行管理。  master  ： 内容发布分支。  &amp;">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/3884487082/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GitHub  Blog架构 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/3884487082/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">GitHub  Blog架构
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-12 02:35:46 / 修改时间：02:35:51" itemprop="dateCreated datePublished" datetime="2018-12-12T02:35:46+08:00">2018-12-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Pre/" itemprop="url" rel="index"><span itemprop="name">Pre</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">6.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="GitHub-Blog架构"><a href="#GitHub-Blog架构" class="headerlink" title="GitHub  Blog架构"></a>GitHub  Blog架构</h1><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><blockquote>
+<p>脚本分离</p>
+</blockquote>
+<h2 id="参考方案"><a href="#参考方案" class="headerlink" title="参考方案"></a>参考方案</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p><strong>博客程序</strong> ： <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>  -  静态站点生成器</p>
+<p><strong>写作程序</strong> ： <a href="https://www.typora.io/" target="_blank" rel="noopener">Typora</a>  -  makedown 编辑器</p>
+<p><strong>持续集成</strong> ： <a href="https://travis-ci.com" target="_blank" rel="noopener">Travis-ci</a>  - 用于构建项目的开源持续集成环境</p>
+<h3 id="项目规划"><a href="#项目规划" class="headerlink" title="项目规划"></a>项目规划</h3><h4 id="Blog仓库"><a href="#Blog仓库" class="headerlink" title="Blog仓库"></a>Blog仓库</h4><p>Blog仓库名：<code>KumaNNN.github.io</code></p>
+<ul>
+<li><p>此为用户站点，通过各分支进行管理。</p>
+</li>
+<li><p><strong>master</strong>  ： 内容发布分支。</p>
+</li>
+<li><p><strong>&lt;blog></strong>  ： blog源程序分支（以 blog源程序的名称命名，如 <code>Hexo</code>）</p>
+<ul>
+<li><p><code>source_md/&lt;SubModules&gt;</code>  ：内容源，子模块，拉取文档库中可引用的分支(默认：<code>md</code>)</p>
+<ul>
+<li>本地管理时，用子模块方式；</li>
+<li>集成环境，<del>直接当作仓库管理</del>  <a href="https://docs.travis-ci.com/user/customizing-the-build/#git-submodules" target="_blank" rel="noopener">Travis CI默认克隆git子模块</a>  ，且集成环境中并不需要操作此目录。</li>
+</ul>
+</li>
+<li><p><code>source/_post</code>  ： hexo内容源，通过一定的脚本自动化将<code>source_md/&lt;SubModules&gt;</code>  的内容复制到此。</p>
+<ul>
+<li>因为hexo每次生成时都需要修改源文件，所以分开存放。 </li>
+</ul>
+</li>
+<li><p><code>themes/&lt;SubModules&gt;</code>  ：主题源，子模块，拉取主题库中的<code>MyMaster</code>分支。</p>
+</li>
+<li><p><code>Script</code>  ： 脚本存放目录，存放相关的自定义脚本或钩子脚本。</p>
+</li>
+<li><p><code>public</code>  ：  hexo发布目录。子模块(或git仓库)，已配置将其下内容发布到本仓库<code>master</code>分支。</p>
+<ul>
+<li>当作 子模块，易于管理，因为子模块提交记录不在当前分支。</li>
+<li>使用<code>hexo g</code>生成内容前，通常需要使用<code>hexo clean</code> 清除此文件夹及其内容，以确保更改达到预期效果。这样会将此文件夹下的版本数据库<code>.git</code>也删除，如果每次都初始化，将不能保留提交记录。<ul>
+<li><strong>本地</strong>： <ul>
+<li>方案一：(当作git仓库时) 手动执行脚本，在其它地方克隆并检出<code>master</code> 分支，并复制<code>.git</code> 目录到<code>public</code>下。 <ul>
+<li>会产生git嵌套，在管理上带来一定的麻烦，慎用。</li>
+<li>在线上，只提交了此文件夹的内容，而放弃其它内容，倒无所谓。</li>
+</ul>
+</li>
+<li>方案二：(当作子模块时) 用脚本修复<code>public/.git</code> 文件。==使用中== <ul>
+<li>在不使用线上的 <strong>持续集成</strong> 时，可这样做。</li>
+<li>使用线上的 <strong>持续集成</strong> 时，放弃此子模块的提交。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>线上</strong>： 已在配置文件中配置，可保留提交记录。<ul>
+<li>Travis-ci 根据配置，克隆并检出指定分支(<code>Hexo</code>) ，安装依赖，<code>hexo g</code>生成内容，在其它地方克隆并检出<code>master</code> 分支并复制<code>.git</code> 目录到<code>public</code>下，最后只提交并推送<code>public</code>下的内容到<code>master</code>分支，放弃其它内容。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="文档-子仓库-和主题"><a href="#文档-子仓库-和主题" class="headerlink" title="文档(子仓库)和主题"></a>文档(子仓库)和主题</h4><p>==修正==：<strong>文档(子仓库)</strong> 已采用单分支(<code>master</code>) ，子模块化到<code>source_md/&lt;SubModules&gt;</code> ，再通过脚本复制<code>source_md/&lt;SubModules&gt;/doc/md/*</code> 到 <code>source/&lt;SubModules&gt;/</code> </p>
+<p><strong>注意</strong>： 文档和主题 ，可用组织进行管理</p>
+<ul>
+<li>文档&lt;组织名&gt;： <code>KumaDocCenter</code><ul>
+<li>管理库[^1]： <code>KumaDocCenter.github.io</code></li>
+<li>文档分库存储，<del>特定目录（如，md）新建分支(<code>md</code>)，以便引用。</del>  已采用单分支</li>
+<li><del>保持数据一致性：<code>md分支</code> 定期合并到master分支，或参考 <a href="#git从其他分支checkout文件到当前分支">git从其他分支checkout文件到当前分支</a>。</del> 已采用单分支</li>
+</ul>
+</li>
+<li>主题&lt;组织名&gt;：<code>BlogThemes&lt;blog源程序名称&gt;</code>    如，<code>BlogThemesHexo</code><ul>
+<li>管理库[^1]： <code>BlogThemes&lt;blog源程序名称&gt;.github.io</code>     如，<code>BlogThemesHexo.github.io</code></li>
+<li>blog源程序的主题，Fork成独立库，以便管理。</li>
+<li>库命名格式：<ul>
+<li><code>&lt;username&gt;_&lt;blog源程序名称&gt;_主题名称</code></li>
+<li><code>&lt;orgname&gt;_&lt;blog源程序名称&gt;_主题名称</code></li>
+</ul>
+</li>
+<li>从<code>master</code>新建分支<code>mymaster</code>，作为自己的博客主题，所有配置修改存储在此分支。</li>
+</ul>
+</li>
+</ul>
+<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>注： ==推荐每个分支一个目录，而不是在同一目录切换分支==。</p>
+<p><code>staged</code>  :  暂存。在此脚本中通常用于待处理目录。</p>
+<h3 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h3><h4 id="子仓库初始化"><a href="#子仓库初始化" class="headerlink" title="子仓库初始化"></a>子仓库初始化</h4><ul>
+<li>复制父项目下的<code>Start.bat</code>文件和<code>Script</code>文件夹到未初始化的子仓库，并运行<code>Start.bat</code>文件</li>
+<li><del>修改某些子仓库的名称和git地址。嵌套领域可用<code>.</code>连结，如 <code>Apache.httpd</code></del>  已通过脚本实现<ul>
+<li><del>需修改的文件：<code>*.add</code> <code>*.init</code> <code>*.del</code>  <code>*.updata</code>  <code>.git/config</code></del> 已通过脚本实现</li>
+<li>git嵌套： 可以忽略整个子目录<ul>
+<li>因为文件夹已嵌套，且用<code>.</code>连结作为仓库名，已便于区分，才可以这样做。</li>
+<li>适用于，想把上级目录也用git管理的情景。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>根据名称，建立远端仓库，并进行推送，以便子模块拉取。</li>
+<li><strong>多分支脚本流程</strong>：<ol>
+<li>检测<code>.git</code> 文件，存在则退出脚本。不存在则继续执行脚本。</li>
+<li>特定目录处理。<ul>
+<li>一些不存在的目录会自动创建，如 <code>doc/md</code>  <code>doc/Readme</code></li>
+</ul>
+</li>
+<li>空目录处理。<ul>
+<li>因为git会自动忽略空目录。</li>
+<li>对于空目录，添加 .gitkeep 文件</li>
+</ul>
+</li>
+<li>仓库配置。<ul>
+<li>初始化仓库，配置用户名，邮箱，添加远程仓库等等。</li>
+</ul>
+</li>
+<li>首次提交<ul>
+<li>提交空白仓库，只包含 .gitignore 文件</li>
+<li>提交信息： <code>Commit_0 : init</code></li>
+</ul>
+</li>
+<li>第2次提交 + 新建分支<ul>
+<li>增加 doc/md 和 Script目录，并依此新建md分支</li>
+<li>提交信息： <code>Commit_1 : + doc/md/* and Script</code></li>
+</ul>
+</li>
+<li>第3次提交<ul>
+<li>添加所有文件</li>
+<li>提交信息：<code>Commit_2 : + All file</code></li>
+</ul>
+</li>
+<li>复制钩子<ul>
+<li><del>==提交钩子(post-commit)==</del>  子仓库暂无</li>
+</ul>
+</li>
+<li>YAML输出</li>
+<li>输出子模块批处理配置文件<ul>
+<li>手动复制此配置文件到其它地方。</li>
+</ul>
+</li>
+<li>结果输出</li>
+</ol>
+</li>
+<li><strong>单分支脚本流程</strong>：<ol>
+<li>检测<code>.git</code> 文件，存在则退出脚本。不存在则继续执行脚本。</li>
+<li>特定目录处理。<ul>
+<li>一些不存在的目录会自动创建，如 <code>doc/md</code>  <code>doc/Readme</code></li>
+</ul>
+</li>
+<li>空目录处理。<ul>
+<li>因为git会自动忽略空目录。</li>
+<li>对于空目录，添加 .gitkeep 文件</li>
+</ul>
+</li>
+<li>仓库配置。<ul>
+<li>初始化仓库，配置用户名，邮箱，添加远程仓库等等。</li>
+</ul>
+</li>
+<li>首次提交<ul>
+<li>提交空白仓库，只包含 .gitignore 文件</li>
+<li>提交信息： <code>Commit_0 : init</code></li>
+</ul>
+</li>
+<li>第2次提交<ul>
+<li>添加所有文件</li>
+<li>提交信息：<code>Commit_1 : + All file</code></li>
+</ul>
+</li>
+<li>复制钩子<ul>
+<li><del>==提交钩子(post-commit)==</del>  子仓库暂无</li>
+</ul>
+</li>
+<li>YAML输出</li>
+<li>输出子模块批处理配置文件<ul>
+<li>手动复制此配置文件到其它地方。</li>
+</ul>
+</li>
+<li>结果输出</li>
+</ol>
+</li>
+</ul>
+<p><strong>产生的文件有：</strong></p>
+<ul>
+<li><code>init.log</code>  ： 仓库初始化日志，转移<ul>
+<li>管理库： <code>data\SubRepo\init</code></li>
+</ul>
+</li>
+<li><code>*.[Repo]add</code> <code>*.init</code> <code>*.[Repo]del</code>  <code>*.[Repo]updata</code>  ： 子模块批处理配置文件，转移<ul>
+<li>父项目： <code>.git\myconf\submodule\staged</code></li>
+<li>管理库： <code>data\SubRepo\conf</code></li>
+</ul>
+</li>
+<li><code>doc/md/*.YAML</code>  ：(<code>md</code> 分支或<code>doc/md</code>) md 文件的YAML头，处理后删除<ul>
+<li>将其内容复制到相应的md文件头部，然后删除此<code>*.YAML</code>文件，最后git提交。</li>
+</ul>
+</li>
+</ul>
+<h4 id="父项目添加子模块-子仓库"><a href="#父项目添加子模块-子仓库" class="headerlink" title="父项目添加子模块(子仓库)"></a>父项目添加子模块(子仓库)</h4><ul>
+<li>运行脚本 <code>Script\sh\submodule_batch.bat</code> ，添加子模块。</li>
+<li>子模块稀疏检出(<code>doc/md</code>)</li>
+<li>复制钩子<ul>
+<li>==提交钩子(post-commit)== ，在配置文件中已配置，脚本会自动复制此钩子。</li>
+</ul>
+</li>
+<li>脚本配置如下<ul>
+<li>配置读取目录  ： <code>.git\myconf\submodule\staged</code> <ul>
+<li>从该目录下读取子模块批处理配置文件</li>
+</ul>
+</li>
+<li>完成目录  ： <code>.git\myconf\submodule\ok</code><ul>
+<li>处理完毕后，将配置文件移动到此。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置文件格式参考  <code>Script\sh\git_submodule\Template</code> </li>
+<li>注： 子模块git数据库在父项目下的.git目录下。</li>
+</ul>
+<h4 id="写作在子仓库"><a href="#写作在子仓库" class="headerlink" title="写作在子仓库"></a>写作在子仓库</h4><ul>
+<li>完全可当做为普通git仓库来管理。</li>
+<li>(==单分支==)子仓库有<code>master</code>分支。</li>
+<li>(==多分支==)子仓库有<code>master</code>分支和<code>md</code> 分支。<ul>
+<li><code>md</code> 分支源自<code>master</code>分支的<code>doc/md</code> ，最终需要将最新的数据合并到<code>master</code>分支，以作存储。</li>
+<li>所以<code>doc/md</code>的更改推荐在<code>md</code>分支下进行，然后定期合并到<code>master</code>分支</li>
+<li><code>master</code>分支==不能==合并到<code>md</code> 分支，会造成结构不符合当初预期。</li>
+<li>若需要从<code>master</code>分支检出<code>md</code> 分支所需的最新数据，可通过其它方法，如<a href="#git从其他分支checkout文件到当前分支">git从其他分支checkout文件到当前分支</a></li>
+</ul>
+</li>
+<li>git提交并推送。</li>
+</ul>
+<h4 id="写作在子模块"><a href="#写作在子模块" class="headerlink" title="写作在子模块"></a>写作在子模块</h4><ul>
+<li>进入子模块，当做为普通git仓库来管理单分支。</li>
+<li>(==单分支==)子模块只检出<code>master</code> 分支，且==禁止==检出其它分支。</li>
+<li>(==多分支==)子模块只检出<code>md</code> 分支，且==禁止==检出其它分支。<ul>
+<li><code>md</code> 分支源自<code>master</code>分支的<code>doc/md</code> ，最终需要将最新的数据合并到<code>master</code>分支，以作存储。</li>
+<li>所以<code>doc/md</code>的更改推荐在<code>md</code>分支下进行，然后定期合并到<code>master</code>分支</li>
+<li><code>master</code>分支==不能==合并到<code>md</code> 分支，会造成结构不符合当初预期。</li>
+<li>若需要从<code>master</code>分支检出<code>md</code> 分支所需的最新数据，可通过其它方法，如<a href="#git从其他分支checkout文件到当前分支">git从其他分支checkout文件到当前分支</a></li>
+</ul>
+</li>
+<li>[可选] 手动执行<code>md.bat</code> 脚本，处理新增的md文件。</li>
+<li>git提交</li>
+<li>触发==提交钩子(post-commit)== <ul>
+<li>写入<code>复制状态</code> 数据到子模块git数据库目录下。</li>
+</ul>
+</li>
+<li>git推送。</li>
+</ul>
+<h4 id="写作在父仓库"><a href="#写作在父仓库" class="headerlink" title="写作在父仓库"></a>写作在父仓库</h4><blockquote>
+<p>可能某些内容并没有依赖子仓库，是在本项目中(<code>source/*</code>)，此时，就需要在父仓库中写在。</p>
+</blockquote>
+<ul>
+<li>在父仓库 <code>source/*</code> 下更改内容 。<ul>
+<li><strong>使用</strong>线上持续集成时，本地工作流：<ul>
+<li>提交当前分支(<code>Hexo</code>) <del>，忽略<code>public</code> 子模块</del> <code>.gitignore</code> 文件中实现忽略<code>public</code> 目录。</li>
+<li><del>所需的配置方案，参考 <a href="#忽略submodule中的修改或新增文件">忽略submodule中的修改或新增文件</a>。</del></li>
+</ul>
+</li>
+<li><strong>不使用</strong>线上持续集成时，本地工作流： <ul>
+<li><del>先提交<code>public</code>子模块，再提交当前分支(<code>Hexo</code>) 。</del></li>
+<li><code>hexo d</code> 命令处理时，会自动在<code>.deploy_git</code> 目录中处理，不影响 <code>public</code> 目录。<ul>
+<li><code>.deploy_git</code> 目录可删除或提交</li>
+</ul>
+</li>
+<li><code>Manage.bat</code> 处理时，会自动在<code>public_deploy</code> 目录中处理，不影响 <code>public</code> 目录。<ul>
+<li><code>public_deploy</code>目录可删除或提交</li>
+</ul>
+</li>
+<li><code>public</code> 目录 提交到当前分支(<code>Hexo</code>) 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>git提交</li>
+<li>触发==预提交钩子(pre-commit)==，<ul>
+<li><del>修复public。</del></li>
+<li>调用脚本，读取配置(<code>copy.conf</code>) ，按需复制 <code>source_md/&lt;SubModuleName&gt;/doc/md/</code> 下的内容到 <code>source/_posts/Dev/&lt;SubModuleName&gt;</code> 。</li>
+<li><del>处理source/* md文件</del></li>
+</ul>
+</li>
+</ul>
+<h3 id="线上"><a href="#线上" class="headerlink" title="线上"></a>线上</h3><h4 id="使用-Travis-ci-持续集成"><a href="#使用-Travis-ci-持续集成" class="headerlink" title="使用 Travis-ci 持续集成"></a>使用 Travis-ci 持续集成</h4><p><strong>已配置如下流程</strong></p>
+<ul>
+<li><p>Travis-ci 检测仓库接收的推送。</p>
+<ul>
+<li>拉取博客程序分支(<code>Hexo</code>)</li>
+<li>安装依赖，<code>hexo g</code>生成内容</li>
+<li><del>方案1：在其它地方克隆并检出<code>master</code> 分支并复制<code>.git</code> 目录到<code>public</code>下</del></li>
+<li>方案2： 直接将<code>public_git</code>目录下的固定文件复制到新生成的<code>public</code> 目录下。<ul>
+<li>仓库每次都初始化，即永远只有1个提交。</li>
+</ul>
+</li>
+<li>最后只提交并推送<code>public</code>下的内容到远端<code>master</code>分支，放弃其它内容。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><h3 id="bat脚本"><a href="#bat脚本" class="headerlink" title="bat脚本"></a>bat脚本</h3><ul>
+<li>子模块(子仓库)，==提交钩子(post-commit)==，写入数据到配置文件中（包含<code>状态</code>，<code>路径</code> 等信息）</li>
+<li>父仓库(Hexo)，==预提交钩子(pre-commit)==   , for   读取（遍历）子仓库中配置文件的变量，根据status参数，直接执行相应的命令。</li>
+</ul>
+<h3 id="shell-脚本"><a href="#shell-脚本" class="headerlink" title="shell 脚本"></a>shell 脚本</h3><p>git钩子的shell脚本，用<code>#!/bin/sh</code> ，而大部分任务流有bat脚本完成。</p>
+<p>根据shell脚本调用方式，最终选择 fork方式。</p>
+<p>这样能保证shell后面的命令继续执行，但不能获取子 Shell 中的环境变量</p>
+<blockquote>
+<p>如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; #!/bin/sh</span><br><span class="line">&gt; </span><br><span class="line">&gt; ./out.bat $@</span><br><span class="line">&gt; echo AAAAA</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>$# 是传给脚本的参数个数</li>
+<li>$0 是脚本本身的名字</li>
+<li>$1 是传递给该shell脚本的第一个参数</li>
+<li>$2 是传递给该shell脚本的第二个参数</li>
+<li>$@ 是传给脚本的所有参数的列表</li>
+</ul>
+</blockquote>
+<p><a href="https://www.cnblogs.com/insane-Mr-Li/p/9095668.html" target="_blank" rel="noopener">Shell 脚本中调用另一个 Shell 脚本的三种方式</a> </p>
+<blockquote>
+<p>主要以下有几种方式：    </p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fork</td>
+<td>新开一个子 Shell 执行，子 Shell 可以从父 Shell 继承环境变量，但是子 Shell 中的环境变量不会带回给父 Shell。<br>fork 是最普通的, 就是直接在脚本里面用 path/to/foo.sh 来调用 ，不需 fork 关键字</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>在同一个 Shell 内执行，但是父脚本中 exec 行之后的内容就不会再执行了</td>
+</tr>
+<tr>
+<td>source</td>
+<td>在同一个 Shell 中执行，在被调用的脚本中声明的变量和环境变量, 都可以在主脚本中进行获取和使用，相当于合并两个脚本在执行</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="涉及的命令"><a href="#涉及的命令" class="headerlink" title="涉及的命令"></a>涉及的命令</h3><p>for</p>
+<p>xcopy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xcopy 1\* 11 /eiy</span><br><span class="line"></span><br><span class="line">/E           复制目录和子目录，包括空目录。</span><br><span class="line">/I           如果目标不存在，且要复制多个文件，则假定目标必须是目录。</span><br><span class="line">/Y           取消提示以确认要覆盖现有目标文件。</span><br></pre></td></tr></table></figure>
+<p>复制1目录下的所有，不包含隐藏文件夹，到 11 目录</p>
+<hr>
+<h2 id="参考阅读"><a href="#参考阅读" class="headerlink" title="参考阅读"></a>参考阅读</h2><p>[^1]: 管理组织内所有库，默认为 <code>&lt;orgname&gt;.github.io</code>  ，<code>&lt;orgname&gt;</code>不用下划线等特殊字符</p>
+<p><a href="https://segmentfault.com/a/1190000012277504" target="_blank" rel="noopener">把 git 仓库的子目录独立成新仓库</a></p>
+<p><a href="https://segmentfault.com/a/1190000002548731" target="_blank" rel="noopener">Git 仓库拆拆拆</a></p>
+<blockquote>
+<h3 id="git从其他分支checkout文件到当前分支"><a href="#git从其他分支checkout文件到当前分支" class="headerlink" title="git从其他分支checkout文件到当前分支"></a>git从其他分支checkout文件到当前分支</h3><p>使用场景，把当前分支的某个文件替换为其他分支的文件</p>
+<p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; git checkout &lt;branch name&gt; -- path</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>path 就是你想要替换的目录或文件</p>
+</blockquote>
+<blockquote>
+<h3 id="忽略submodule中的修改或新增文件"><a href="#忽略submodule中的修改或新增文件" class="headerlink" title="忽略submodule中的修改或新增文件"></a>忽略submodule中的修改或新增文件</h3><p>我们要做的就是在<code>.gitmodules</code>的<code>[submodule “ProjectName”]</code>中添加一个<code>ignore</code>子项，这个ignore子项可以有3个可选的值，<code>untracked</code>, <code>dirty</code>和<code>all</code>, 它们的意思分别是：</p>
+<ul>
+<li><strong>untracked</strong> ：忽略 在子模块 新添加的，未受版本控制内容</li>
+<li><strong>dirty</strong> ： 忽略对\<projectname>目录下受版本控制的内容进行了修改</projectname></li>
+<li><strong>all</strong> ： 同时忽略untracked和dirty</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/3884487082/" title="GitHub  Blog架构">http://blog.kuma8866.top/posts/3884487082/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/676924322/" rel="next" title="Node.js入门和企业级项目开发06">
+                <i class="fa fa-chevron-left"></i> Node.js入门和企业级项目开发06
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2185734586/" rel="prev" title="Composer 笔记">
+                Composer 笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub-Blog架构"><span class="nav-text">GitHub  Blog架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-text">TODO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考方案"><span class="nav-text">参考方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置"><span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目规划"><span class="nav-text">项目规划</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Blog仓库"><span class="nav-text">Blog仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档-子仓库-和主题"><span class="nav-text">文档(子仓库)和主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流"><span class="nav-text">工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地"><span class="nav-text">本地</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子仓库初始化"><span class="nav-text">子仓库初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父项目添加子模块-子仓库"><span class="nav-text">父项目添加子模块(子仓库)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写作在子仓库"><span class="nav-text">写作在子仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写作在子模块"><span class="nav-text">写作在子模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写作在父仓库"><span class="nav-text">写作在父仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线上"><span class="nav-text">线上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Travis-ci-持续集成"><span class="nav-text">使用 Travis-ci 持续集成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build"><span class="nav-text">Build</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bat脚本"><span class="nav-text">bat脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-脚本"><span class="nav-text">shell 脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#涉及的命令"><span class="nav-text">涉及的命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考阅读"><span class="nav-text">参考阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git从其他分支checkout文件到当前分支"><span class="nav-text">git从其他分支checkout文件到当前分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略submodule中的修改或新增文件"><span class="nav-text">忽略submodule中的修改或新增文件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

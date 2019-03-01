@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Composer前言  当我们在做项目开发的时候，我们不可避免的需要进行一些通用性的功能，例如文件上传、缩略图的处理、二维码生成等等；当遇到这些需求后我们可以自己进行代码编写，函数封装、类库封装等操作，然后形成自己的代码库，以便下一次使用，但是自己写出来的代码毕竟经受的检验较少，所以我们一般会去网上搜寻相关的类库进行使用（便捷性），但是如果是在网上搜索的代码安全性和健壮性又很难得到保障，则这个时候">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Composer 笔记">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2185734586/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="Composer前言  当我们在做项目开发的时候，我们不可避免的需要进行一些通用性的功能，例如文件上传、缩略图的处理、二维码生成等等；当遇到这些需求后我们可以自己进行代码编写，函数封装、类库封装等操作，然后形成自己的代码库，以便下一次使用，但是自己写出来的代码毕竟经受的检验较少，所以我们一般会去网上搜寻相关的类库进行使用（便捷性），但是如果是在网上搜索的代码安全性和健壮性又很难得到保障，则这个时候">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsC3D.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsC4E.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsC5E.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image2.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image3.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsDF5.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/image10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537667106801.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsCA3.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsCB3.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsCC4.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660787366.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660761864.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660827975.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsCE7.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660855716.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660871530.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660908979.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD1A.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD1B.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD2C.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD3C.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD4D.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD5E.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537660973121.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/1537661008485.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsD91.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsDA1.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsDA2.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsDB3.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsDC3.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2185734586/wpsDD4.tmp.jpg">
+<meta property="og:updated_time" content="2018-12-18T04:30:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Composer 笔记">
+<meta name="twitter:description" content="Composer前言  当我们在做项目开发的时候，我们不可避免的需要进行一些通用性的功能，例如文件上传、缩略图的处理、二维码生成等等；当遇到这些需求后我们可以自己进行代码编写，函数封装、类库封装等操作，然后形成自己的代码库，以便下一次使用，但是自己写出来的代码毕竟经受的检验较少，所以我们一般会去网上搜寻相关的类库进行使用（便捷性），但是如果是在网上搜索的代码安全性和健壮性又很难得到保障，则这个时候">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2185734586/wpsC3D.tmp.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2185734586/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Composer 笔记 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2185734586/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Composer 笔记
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 12:30:29" itemprop="dateCreated datePublished" datetime="2018-12-18T12:30:29+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Composer/" itemprop="url" rel="index"><span itemprop="name">Composer</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Composer"><a href="#Composer" class="headerlink" title="Composer"></a>Composer</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="wpsC3D.tmp.jpg" alt="img"> </p>
+<p>当我们在做项目开发的时候，我们不可避免的需要进行一些<code>通用性</code>的功能，例如文件上传、缩略图的处理、二维码生成等等；当遇到这些需求后我们可以自己进行代码编写，函数封装、类库封装等操作，然后形成自己的代码库，以便下一次使用，但是自己写出来的代码毕竟经受的检验较少，所以我们一般会去网上搜寻相关的类库进行使用（便捷性），但是如果是在网上搜索的代码安全性和健壮性又很难得到保障，则这个时候有个我们迫切的需要一个类似nodejs里面的npm、python里面的pip、java里面的maven、linux下yum、apt-get等这样的包管理器，可以帮我们去管理这些类库，让开发者专门于业务的开发。哪里有需求，则哪里就有活雷锋，这个时候PHP的类库管理工具composer横空出生了！</p>
+<p> 例如：我们现在学习laravel框架</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; composer create-project laravel/laravel=5.2.* local.laravel52.com</span><br></pre></td></tr></table></figure>
+<p>例如：我们现在学习日志类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; composer  require monolog/monolog</span><br></pre></td></tr></table></figure>
+<p>当我们使用composer管理的这些类库的时候，这些类库都遵循PHP-FIG这个组织制定的一些列的规范，所以在正式需要composer之前，我们的先了解一下这些规范(PSR : php 标准推荐)。</p>
+<h2 id="psr规范简介"><a href="#psr规范简介" class="headerlink" title="psr规范简介"></a>psr规范简介</h2><p><strong>php-fig</strong>组织：主要是为了多个开源产品之间的一个互通问题。所以有一些开发者资源的组织起来来规范了PHP代码书写的标准，形成的标准规范被称为PSR规范。注意，该规范里面定义了很多的标准，例如：</p>
+<p>psr-1：代码基本规范，规范代码基本书写风格</p>
+<p>psr-2：对psr-1该版本的补充，增强</p>
+<p>psr-3：对日志类库进行规范 ，例如常见的 monolog类库（定义好日志类的 interface）</p>
+<p>psr-4：类库的自动加载机制，命名空间需要和类库的目录结构一致</p>
+<p><strong>参考文档：</strong></p>
+<p><a href="http://psr.phphub.org/" target="_blank" rel="noopener">http://psr.phphub.org/</a></p>
+<p><a href="http://www.cnblogs.com/52php/p/5852572.html" target="_blank" rel="noopener">http://www.cnblogs.com/52php/p/5852572.html</a></p>
+<h2 id="Composer简介"><a href="#Composer简介" class="headerlink" title="Composer简介"></a>Composer简介</h2><p>今天学习的知识点是PHP里面的类库管理，在正式讲解该知识点的时候，我们回顾这样一些这样的场景，当我们在Windows上装一些软件的时候，在iPhone手机或者安卓上装APP的时候，我们会怎么做呢？</p>
+<p>我们习惯于去软件管家商店进行下载APP store，例如常见的QQ软件管家，360软件管家，同样的问题也是会在PHP开发里面出现，例如我们的项目需要使用验证码、做文件上传、还有微信开发的类库，则我们该如何处理这些类库呢？</p>
+<p>答： 百度查询…</p>
+<p><img src="wpsC4E.tmp.jpg" alt="img"> </p>
+<p>在互联网上存在一个<a href="https://packagist.org/" target="_blank" rel="noopener">PHP的应用商店</a>，提供了PHP开发过程中常见的类库（需要遵循psr规范）。但是该网站只是提供一个类库对应的描述信息，以及下载地址。最终的类库文件的源码还是存在<strong>GitHub代码托管</strong>平台上的。该商店只是提供了对应的链接，下载的时候还是去GitHub上面进行下载。</p>
+<p><img src="wpsC5E.tmp.jpg" alt="img"> </p>
+<p>那么我们使用什么样的工具去下载PHP应用商店里面的类库信息呢?</p>
+<p>答：使用<strong>composer软件</strong>即可。</p>
+<p>Composer 是 PHP 的一个包==依赖管理工具== ， 不是一个包管理器。 能够帮助我们安装我们项目所需要的依赖包。</p>
+<p>除了解决文件依赖的关系，它还有更多的<strong>优点</strong>：</p>
+<ul>
+<li>下载网络上别人分享的优秀的类库（包）。</li>
+<li>可对下载的类库进行管理，如：删除、更新等众多便利的操作。</li>
+</ul>
+<p>其实composer也就类似与Linux中yum，前端中的npm、bower等操作。这些工具都是可以用来管理我们项目的依赖文件。</p>
+<p><strong>Composer 官网</strong>：<a href="https://getcomposer.org/" target="_blank" rel="noopener">https://getcomposer.org/</a></p>
+<p><strong>Composer 包地址</strong>：<a href="https://packagist.org/" target="_blank" rel="noopener">https://packagist.org/</a></p>
+<p><strong>国内网站</strong>：<a href="http://www.phpcomposer.com/" target="_blank" rel="noopener">http://www.phpcomposer.com/</a></p>
+<h2 id="为什么要学习Composer呢？"><a href="#为什么要学习Composer呢？" class="headerlink" title="为什么要学习Composer呢？"></a>为什么要学习Composer呢？</h2><ol>
+<li>不用重复造轮子（把被人的上传类库拿过来直接使用，不要自己编写）</li>
+<li>不用过分的关心某个功能的底层，只需要会看文档即可</li>
+<li>解决类库的依赖问题（例如某个项目需要使用其他的产品，则会自动的解决）</li>
+<li>…………..</li>
+</ol>
+<h2 id="如何使用Composer呢？"><a href="#如何使用Composer呢？" class="headerlink" title="如何使用Composer呢？"></a>如何使用Composer呢？</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><strong>安装方式一般有两种方式：</strong></p>
+<ul>
+<li><p>第一种方式：</p>
+<p>去composer官网( <a href="https://getcomposer.org/download/" target="_blank" rel="noopener">https://getcomposer.org/download/</a> )下载<code>Composer-setup.exe</code>进行在线安装，由于此软件安装需要联网且服务器在国外安装很难成功，所以这里推荐使用下面第二种方式进行安装。</p>
+<p><img src="image2.png" alt=""></p>
+</li>
+<li><p>[<strong>==推荐==</strong>]第二种方式</p>
+<p>去官网<a href="https://getcomposer.org/download" target="_blank" rel="noopener">https://getcomposer.org/download</a> 下载<code>composer.phar</code>文件。</p>
+<p><img src="image3.png" alt=""></p>
+<p>找到并进入 PHP 的安装目录,将下载的<code>composer.phar</code> 复制到 ==PHP 的安装目录==下面，也就是和 php.exe 在同一级目录。</p>
+<p><img src="image4.png" alt=""></p>
+<p>在 PHP 安装目录（如，<code>D:\phpStudy\php\php-5.6.27-nts</code>）下新建一个<code>composer.bat</code>文件，并将下列代码保存到此文件中。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@php "%~dp0composer.phar" %*</span><br></pre></td></tr></table></figure>
+<p>至此composer的安装就完成。</p>
+</li>
+</ul>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p> 进入对应php版本目录(<code>D:\phpStudy\php\php-5.6.27-nts</code>)中输入<code>composer</code>指令，出现如下提示代表安装成功：</p>
+<p><img src="image5.png" alt=""></p>
+<p>  为了可以全局（任意位置）访问composer，可以把php.exe的所在目录（<code>D:\phpStudy\php\php-5.6.27-nts</code>）定义在环境变量path选项中。</p>
+<p>  <img src="image6.png" alt=""></p>
+<p>  设置好后输入<code>php -v</code>  即可看到php版本号。</p>
+<p>  <img src="image7.png" alt=""></p>
+<p>  cmd中任意位置输入<code>composer</code>指令：</p>
+<p>  <img src="image8.png" alt=""></p>
+<p>通过上面的安装我们可以使用composer这个软件，没有任何问题，但是在使用过程，可能还需要去开启PHP的一些扩展。</p>
+<ol>
+<li>php_curl扩展</li>
+<li>php_openssl扩展</li>
+<li>php_fileinfo扩展</li>
+<li>php_mbstring扩展（多字节扩展库）</li>
+</ol>
+<p>在成功开启后，使用 phpinfo函数进行测试。</p>
+<h3 id="为composer配置国内镜像"><a href="#为composer配置国内镜像" class="headerlink" title="为composer配置国内镜像"></a>为composer配置国内镜像</h3><p>由于composer需要去网址为<a href="https://packagist.org" target="_blank" rel="noopener">https://packagist.org</a> 获取代码库地址，再通过地址去github上去下载代码到我们项目本地，由于这两个地址服务器都在国外，访问比较慢，也不稳定。</p>
+<p><img src="image9.png" alt=""></p>
+<p><strong>镜像原理</strong></p>
+<p><img src="wpsDF5.tmp.jpg" alt="img"> </p>
+<p>配置国内镜像：<a href="https://pkg.phpcomposer.com/" target="_blank" rel="noopener">https://pkg.phpcomposer.com/</a></p>
+<p>输入命令</p>
+<p>其它源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://packagist.laravel-china.org</span><br></pre></td></tr></table></figure>
+<p><strong>全局配置</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
+<p><img src="image10.png" alt=""></p>
+<p>如上，参看composer配置命令，可查看composer配置保存的路径，全局的默认在当前用户文件夹下。</p>
+<p><strong>局部配置</strong>：若只想在当前项目中有效，把上面的命令去掉 -g 即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config  repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
+<h1 id="Composer常见命令使用"><a href="#Composer常见命令使用" class="headerlink" title="==Composer常见命令使用=="></a>==Composer常见命令使用==</h1><p>在composer做类库的管理过程中，我们先需要去PHP的应用商品。去查看开发过程中需要的类库。然后使用composer进行下载。</p>
+<p> <img src="1537667106801.png" alt="1537667106801"></p>
+<h2 id="composer-create-project-命令"><a href="#composer-create-project-命令" class="headerlink" title="composer create-project 命令"></a>composer create-project 命令</h2><p>该命令是用来安装项目的，可以通过该命令去下载对应的项目文件，例如 laravel框架。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; composer create-project   团队名称/包名称[=版本号] [指定下载目录]  [-vvv打印交互信息]</span><br></pre></td></tr></table></figure>
+<p>注意：在使用composer安装项目的过程中，我们可能需要做两件事</p>
+<ol>
+<li>指定安装的目录名称</li>
+<li>指定安装的版本，默认是安装最新的版本</li>
+</ol>
+<p><strong>注意：</strong> 如果不指定版本，则下载最新的版本，如果不指定安装目录，则会把框架下载到命令执行的文件夹下，以包名称创建一个目录。</p>
+<p>注意：版本号需要根据packagist.org网站提供的版本进行指定</p>
+<p><img src="wpsCA3.tmp.jpg" alt="img"> </p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; composer create-project laravel/laravel=5.4.15  mylaravel</span><br></pre></td></tr></table></figure>
+<p>现在的意思是安装laravel5.4.15这个版本，并且把该包安装到 mylaravel文件夹下。</p>
+<p><img src="wpsCB3.tmp.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; composer create-project laravel/laravel</span><br></pre></td></tr></table></figure>
+<p>当我们不指定版本信息，也不指定安装目录的时候，这样会在命令执行目录下安装一个最新的laravel产品，并且文件夹的名称为laravel。</p>
+<h2 id="composer-require-命令"><a href="#composer-require-命令" class="headerlink" title="composer require 命令"></a>composer require 命令</h2><p>该命令是用来安装项目开发中的依赖文件，例如上传类库、验证码类库。</p>
+<p><img src="wpsCC4.tmp.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require 厂商/包名[=版本号]</span><br></pre></td></tr></table></figure>
+<p><strong>注</strong>：若不指定版本号默认安装最新版本</p>
+<p><strong>示例</strong></p>
+<p>如安装tp5验证码1.0.3 版本：</p>
+<p><code>composer require topthink/think-captcha=1.0.3</code></p>
+<p>如安装tp5验证码1.0的最高版本：</p>
+<p><code>composer require topthink/think-captcha=1.0.*</code></p>
+<h2 id="composer-json文件"><a href="#composer-json文件" class="headerlink" title="composer.json文件"></a>composer.json文件</h2><p>该文件是用来记录composer管理的类库信息，以及项目的信息、作者、联系方式….</p>
+<p><img src="1537660787366.png" alt="1537660787366"></p>
+<h2 id="composer-lock文件"><a href="#composer-lock文件" class="headerlink" title="composer.lock文件"></a>composer.lock文件</h2><p><img src="1537660761864.png" alt="1537660761864"></p>
+<p>主要是为了防止项目部署的时候，去下载最新的版本导致不兼容，在安装之后，需要把当前版本锁定起来。以后部署的时候，还是使用当时所锁定的版本，如果希望使用最新的版本，而不是锁定的版本，只需要删除该文件即可。</p>
+<h2 id="composer-install-命令"><a href="#composer-install-命令" class="headerlink" title="composer install 命令"></a>composer install 命令</h2><p><img src="1537660827975.png" alt="1537660827975"></p>
+<p>以后去公司之后，如果从git或者是svn上面检出了laravel项目，则第一步应该是先去项目的根目录下执行 <strong>composer install</strong> 去根据 composer.lock 或者composer.json 文件下载项目开发中的依赖信息。</p>
+<p><strong>安装<code>composer.json</code>指定的依赖包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
+<p>会自动安装在composer.json文件中所指定的各种依赖包，执行成功后会<strong>多处</strong>生成一个composer.lock的锁文件。后面需要更新依赖库只能通过<code>composer update</code>实现安装。</p>
+<p><code>composer.json</code>文件说明：<br><a href="https://docs.phpcomposer.com/01-basic-usage.html#composer.json-Project-Setup" target="_blank" rel="noopener">https://docs.phpcomposer.com/01-basic-usage.html#composer.json-Project-Setup</a></p>
+<p><code>composer.json</code>文件架构详解：<a href="https://docs.phpcomposer.com/04-schema.html" target="_blank" rel="noopener">https://docs.phpcomposer.com/04-schema.html</a></p>
+<h2 id="在配置文件指定具体的版本"><a href="#在配置文件指定具体的版本" class="headerlink" title="在配置文件指定具体的版本"></a>在配置文件指定具体的版本</h2><ol>
+<li>指定版本</li>
+</ol>
+<p><img src="wpsCE7.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>使用命令进行安装</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; composer install</span><br></pre></td></tr></table></figure>
+<p><img src="1537660855716.png" alt="1537660855716"></p>
+<p>删除composer.lock文件，重新执行 <code>composer install</code> 命令</p>
+<p><img src="1537660871530.png" alt="1537660871530"></p>
+<p>安装后</p>
+<p><img src="1537660908979.png" alt="1537660908979"></p>
+<h2 id="composer-update-类库升级"><a href="#composer-update-类库升级" class="headerlink" title="composer update-类库升级"></a>composer update-类库升级</h2><p>如果我们在开发过程中，现在希望某个类库可以升级</p>
+<p><img src="wpsD1A.tmp.jpg" alt="img"> </p>
+<ol>
+<li>修改一个composer.json里面的信息</li>
+</ol>
+<p><img src="wpsD1B.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li><code>composer update</code>进行更新</li>
+</ol>
+<p><img src="wpsD2C.tmp.jpg" alt="img"> </p>
+<h2 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h2><ul>
+<li><p><strong>查看所有的composer可以使用的命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看某个命令的使用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require --help</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>删除指定的包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer remove topthink/think-captcha</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>搜索指定的包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer search topthink/think-captcha</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>更新依赖包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
+<p>若修改<code>composer.json</code>中<strong>require</strong>指定的依赖包，则存在<code>composer.lock</code>文件，则只能通过</p>
+<p><code>composer update</code>进行更新。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>取消镜像</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g --unset repos.packagist</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>查看当前composer版本</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>升级composer版本</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer selfupdate</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="演示：项目下载"><a href="#演示：项目下载" class="headerlink" title="演示：项目下载"></a>演示：项目下载</h1><p>例如这里演示一下ci这个小框架的使用。</p>
+<ol>
+<li>在网站进行搜索ci框架</li>
+</ol>
+<p><img src="wpsD3C.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>使用<code>composer create-project</code> 进行安装</li>
+</ol>
+<p><img src="wpsD4D.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>查看</li>
+</ol>
+<p><img src="wpsD5E.tmp.jpg" alt="img"> </p>
+<ol start="4">
+<li>启动一下</li>
+</ol>
+<p><img src="1537660973121.png" alt="1537660973121"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; php -S localhost:8080 -t .</span><br></pre></td></tr></table></figure>
+<p>使用PHP开启一个调试服务器，使用的端口是8080 </p>
+<p><code>-t</code>代表是设置网站根目录</p>
+<p><code>.</code>代表将当前目录设置为网站根目录</p>
+<ol start="5">
+<li>浏览器查看</li>
+</ol>
+<p><img src="1537661008485.png" alt="1537661008485"></p>
+<h1 id="演示：日志类库下载"><a href="#演示：日志类库下载" class="headerlink" title="演示：日志类库下载"></a>演示：日志类库下载</h1><p><strong>参考阅读</strong></p>
+<p><a href="https://packagist.org/explore/popular" target="_blank" rel="noopener">热门的包</a></p>
+<p><a href="https://laravel-china.org/articles/3567/monolog-optimization-and-elk-friendly-log-format" target="_blank" rel="noopener">Monolog 优化及打造 ELK 友好的日志格式</a> </p>
+<p>这里演示monolog的使用。</p>
+<ol>
+<li>查看下载并monolog</li>
+</ol>
+<p><img src="wpsD91.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>查看安装后的目录结构</li>
+</ol>
+<p><img src="wpsDA1.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>使用</li>
+</ol>
+<p><img src="wpsDA2.tmp.jpg" alt="img"> </p>
+<p>一般来说类库的使用方式，需要查看文档。</p>
+<h1 id="版本号问题"><a href="#版本号问题" class="headerlink" title="版本号问题"></a>版本号问题</h1><p><strong>参阅文档：</strong></p>
+<p><a href="https://semver.org/lang/zh-CN/" target="_blank" rel="noopener">版本语义化</a></p>
+<p><a href="https://docs.phpcomposer.com/01-basic-usage.html" target="_blank" rel="noopener">Composer 基本使用</a></p>
+<p>注意：在我们使用composer管理类库的时候，存在一些版本的配置信息。</p>
+<p><img src="wpsDB3.tmp.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">^</span><br><span class="line"></span><br><span class="line">~</span><br><span class="line"></span><br><span class="line">*</span><br></pre></td></tr></table></figure>
+<p>具体的含义</p>
+<p><img src="wpsDC3.tmp.jpg" alt="img"> </p>
+<p>如果只有两位版本号 x.y，则这个时候 ^ ~ 是代表一样的含义，就是代表 &gt;x.y 但是小于 (x+1).0;</p>
+<p>^1.2</p>
+<p>~1.2</p>
+<p>都是代表版本大于1.2 但是要小于 2.0;</p>
+<p>但是如果版本号是 x.y.z 则这个时候，^ ~ 代表含义是不一样的</p>
+<p>~1.2.3 代表含义 代表的大于bug修复版本，但是小于次版本号</p>
+<p>^1.2.3 代表含义 代表大于当前版本，但是小于主版本号</p>
+<p><img src="wpsDD4.tmp.jpg" alt="img"> </p>
+<h1 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a><strong>相关资料</strong></h1><p><a href="http://blog.csdn.net/think2me/article/details/38456931" target="_blank" rel="noopener">Composer是干嘛的，怎么用它</a></p>
+<p><a href="https://www.cnblogs.com/52fhy/p/5246013.html" target="_blank" rel="noopener">Composer使用</a></p>
+<p><a href="https://segmentfault.com/n/1330000006227425" target="_blank" rel="noopener">如何创建一个自己的【Composer/Packagist】包</a></p>
+<p><a href="http://blog.csdn.net/hel12he/article/details/46503875" target="_blank" rel="noopener">Laravel5学习笔记：Composer.json配置文件说明</a></p>
+<p><a href="https://www.cnblogs.com/zhangwei595806165/p/5814476.html" target="_blank" rel="noopener">动手开发自己的第一个 composer 包</a></p>
+<p><a href="http://www.jquerycn.cn/a_16976" target="_blank" rel="noopener">提交PHP组件到Packagist 发布自己的Composer包</a></p>
+<p><a href="https://lvwenhan.com/php/410.html" target="_blank" rel="noopener"><strong>利用 Composer 完善自己的 PHP 框架</strong></a></p>
+<p><a href="https://laravel-china.org/wikis/16722" target="_blank" rel="noopener">如何从 phpcomposer 的 Composer 镜像迁移到 Laravel China 维护的镜像？</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2185734586/" title="Composer 笔记">http://blog.kuma8866.top/posts/2185734586/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3884487082/" rel="next" title="GitHub  Blog架构">
+                <i class="fa fa-chevron-left"></i> GitHub  Blog架构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3999917138/" rel="prev" title="CSS">
+                CSS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Composer"><span class="nav-text">Composer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#psr规范简介"><span class="nav-text">psr规范简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composer简介"><span class="nav-text">Composer简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要学习Composer呢？"><span class="nav-text">为什么要学习Composer呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用Composer呢？"><span class="nav-text">如何使用Composer呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为composer配置国内镜像"><span class="nav-text">为composer配置国内镜像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Composer常见命令使用"><span class="nav-text">==Composer常见命令使用==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-create-project-命令"><span class="nav-text">composer create-project 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-require-命令"><span class="nav-text">composer require 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-json文件"><span class="nav-text">composer.json文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-lock文件"><span class="nav-text">composer.lock文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-install-命令"><span class="nav-text">composer install 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在配置文件指定具体的版本"><span class="nav-text">在配置文件指定具体的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#composer-update-类库升级"><span class="nav-text">composer update-类库升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它命令"><span class="nav-text">其它命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#演示：项目下载"><span class="nav-text">演示：项目下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#演示：日志类库下载"><span class="nav-text">演示：日志类库下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本号问题"><span class="nav-text">版本号问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关资料"><span class="nav-text">相关资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

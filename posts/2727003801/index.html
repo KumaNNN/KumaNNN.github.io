@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="XML一、简介（了解）1.1、历史GML    通用标记语言 1969年，IBM公司的一些砖家为了解决不同系统中文档格式的问题而开发的一种文档描述语言。 SGML   标准通用标记语言 1986年，ANSI组织对GML进行整理并升级为SGML。但是SGML是一种非常严谨的文档描述语言，其结构非常复杂（标准手册就有500多页），难以理解和学习，进而影响其推广与应用。 HTML   超文本标记语言（W">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XML 基础知识">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2727003801/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="XML一、简介（了解）1.1、历史GML    通用标记语言 1969年，IBM公司的一些砖家为了解决不同系统中文档格式的问题而开发的一种文档描述语言。 SGML   标准通用标记语言 1986年，ANSI组织对GML进行整理并升级为SGML。但是SGML是一种非常严谨的文档描述语言，其结构非常复杂（标准手册就有500多页），难以理解和学习，进而影响其推广与应用。 HTML   超文本标记语言（W">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2727003801/1532025359169.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2727003801/1532352371653.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2727003801/1532351790124.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2727003801/clip_image002.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2727003801/1532353577345.png">
+<meta property="og:updated_time" content="2018-12-18T04:35:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XML 基础知识">
+<meta name="twitter:description" content="XML一、简介（了解）1.1、历史GML    通用标记语言 1969年，IBM公司的一些砖家为了解决不同系统中文档格式的问题而开发的一种文档描述语言。 SGML   标准通用标记语言 1986年，ANSI组织对GML进行整理并升级为SGML。但是SGML是一种非常严谨的文档描述语言，其结构非常复杂（标准手册就有500多页），难以理解和学习，进而影响其推广与应用。 HTML   超文本标记语言（W">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2727003801/1532025359169.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2727003801/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>XML 基础知识 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2727003801/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">XML 基础知识
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 12:35:40" itemprop="dateCreated datePublished" datetime="2018-12-18T12:35:40+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/XML/" itemprop="url" rel="index"><span itemprop="name">XML</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">14k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h2 id="一、简介（了解）"><a href="#一、简介（了解）" class="headerlink" title="一、简介（了解）"></a>一、简介（了解）</h2><h3 id="1-1、历史"><a href="#1-1、历史" class="headerlink" title="1.1、历史"></a>1.1、历史</h3><p><u><strong>GML</strong>    通用标记语言</u></p>
+<p>1969年，IBM公司的一些砖家为了解决不同系统中文档格式的问题而开发的一种文档描述语言。</p>
+<p><u><strong>SGML</strong>   标准通用标记语言</u></p>
+<p>1986年，ANSI组织对GML进行整理并升级为SGML。但是SGML是一种非常严谨的文档描述语言，其结构非常复杂（标准手册就有500多页），难以理解和学习，进而影响其推广与应用。</p>
+<p><u><strong>HTML</strong>   超文本标记语言（W3C）</u></p>
+<p>1993年，HTML继承了SGML的许多重要的特点，比如结构化、实现独立和可描述性，但是同时它也存在很多缺陷：比如它只能使用固定的有限的标记，而且它只侧重于对内容的显示。</p>
+<p><u><strong>XML</strong>  可扩展标记语言</u></p>
+<p>==1998==年，随着Web上数据的增多，这些HTML存在的缺点就变的不可被忽略。为了解决这些问题， W3C组织又基于SGML语言开发一款新的标记语言，并称之为XML。是xml1.0。<strong>到目前为止，xml的版本还是1.0</strong>。</p>
+<blockquote>
+<p>w3c从98年就发布了XML1.0版本，到现在还是1.0版本，说明了什么？</p>
+<p>并不是说明XML不好，反之，说明XML语法上没有缺陷，不需要升级。</p>
+</blockquote>
+<h3 id="1-2、概念"><a href="#1-2、概念" class="headerlink" title="1.2、概念"></a>1.2、概念</h3><p>XML（e<strong>X</strong>tensible <strong>M</strong>arkup <strong>L</strong>anguage）叫做 <strong>可扩展标记语言</strong></p>
+<p>从语法上来说，它和HTML非常像，都是使用标签语言，比如  <code>&lt;table&gt;&lt;/table&gt;</code> ，不同的是XML可以自己定义标签，比如 <code>&lt;name&gt;&lt;/name&gt;</code> 。</p>
+<p>从意义上来说，它和HTML完全不一样，HTML用于展示数据，而XML用于==存储==或者==传输==数据。</p>
+<blockquote>
+<p>有关XML和HTML的区别，在学习完XML语法之后，再来详细的比较。</p>
+</blockquote>
+<h2 id="二、-XML语法-（重点）"><a href="#二、-XML语法-（重点）" class="headerlink" title="二、==XML语法==（重点）"></a>二、==XML语法==（重点）</h2><h3 id="2-1、文档声明"><a href="#2-1、文档声明" class="headerlink" title="2.1、文档声明"></a>2.1、文档声明</h3><p>一个完整的xml文档必须有一个文档声明。文档声明中要注明XML版本和XML文档的编码。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2、树结构"><a href="#2-2、树结构" class="headerlink" title="2.2、树结构"></a>2.2、树结构</h3><p>XML 文档必须包含 ==<strong>根元素</strong>==。该元素是所有其他元素的父元素。</p>
+<p>XML 文档中的元素形成了一棵文档树。这棵树从根部开始，并扩展到树的最底端。</p>
+<p>所有元素均可拥有子元素：</p>
+<p><img src="1532025359169.png" alt="1532025359169"></p>
+<p>根据上图，编写XML代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"修仙"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">title</span>&gt;</span>斗破苍穹<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>天蚕土豆<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">year</span>&gt;</span>2010<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.9<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如上代码，我们就描述了一本书，按照这个规律，我们还可以添加更多的书：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--第1本书--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"修仙"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">title</span>&gt;</span>斗破苍穹<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>天蚕土豆<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">year</span>&gt;</span>2010<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>39.9<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--第2本书--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">"文学"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">title</span>&gt;</span>西游记<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">author</span>&gt;</span>吴承恩<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">year</span>&gt;</span>1560<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">price</span>&gt;</span>68.54<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>用浏览器打开这个XML文档，能够看到表示书籍的树状结构而不报错，就表示你的XML语法没有问题。</p>
+<blockquote>
+<p>PS：XML的注释和HTML一样。</p>
+<p>这部分总结起来就一句话：==XML有且仅有一个根元素==。</p>
+</blockquote>
+<h3 id="2-3、标签都必须闭合"><a href="#2-3、标签都必须闭合" class="headerlink" title="2.3、标签都必须闭合"></a>2.3、标签都必须闭合</h3><p>在 HTML，经常会看到没有关闭标签的元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is another paragraph</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./111.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 XML 中，省略关闭标签是非法的。所有元素都 <strong>必须</strong> 有关闭标签：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is another paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./111.jpg"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==无论是双标记还是单标记，XML标签都必须闭合。==</p>
+<p>注释：您也许已经注意到 XML 声明没有关闭标签。这不是错误。声明不属于XML本身的组成部分。它不是 XML 元素，也不需要关闭标签。</p>
+<blockquote>
+<p>元素命名尽量不要用<code>first-name</code>、<code>first.name</code>、<code>first:name</code>的形式。</p>
+</blockquote>
+<h3 id="2-4、XML-标签对大小写敏感"><a href="#2-4、XML-标签对大小写敏感" class="headerlink" title="2.4、XML 标签对大小写敏感"></a>2.4、XML 标签对大小写敏感</h3><p>XML 标签对大小写敏感。在 XML 中，标签 <code>&lt;Letter&gt;</code> 与标签 <code>&lt;letter&gt;</code> 是不同的。</p>
+<p>==必须使用相同的大小写来编写打开标签和关闭标签==：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Message</span>&gt;</span>这是  错误  的。<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>这是  正确  的。<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注释：打开标签和关闭标签通常被称为开始标签和结束标签。不论您喜欢哪种术语，它们的概念都是相同的。</p>
+<h3 id="2-5、XML-必须正确地嵌套"><a href="#2-5、XML-必须正确地嵌套" class="headerlink" title="2.5、XML 必须正确地嵌套"></a>2.5、XML 必须正确地嵌套</h3><p>在 HTML 中，常会看到没有正确嵌套的元素：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>==在 XML 中，所有元素都 <strong>必须</strong> 彼此正确地嵌套==：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>This text is bold and italic<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-6、XML-的属性值须加引号"><a href="#2-6、XML-的属性值须加引号" class="headerlink" title="2.6、XML 的属性值须加引号"></a>2.6、XML 的属性值须加引号</h3><p>与 HTML 类似，XML 也可拥有属性（名称/值的对）。</p>
+<p>==在 XML 中，XML 的属性值比须加引号（单或双引号都可）==。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">note</span> <span class="attr">date</span>=<span class="string">"08/08/2008"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在第一个文档中的错误是，note 元素中的 date 属性没有加引号。</p>
+<blockquote>
+<p>一个标签如果有属性，则必须给属性值</p>
+<p>一个标签不能存在同名属性</p>
+</blockquote>
+<h3 id="2-7、实体引用"><a href="#2-7、实体引用" class="headerlink" title="2.7、实体引用"></a>2.7、实体引用</h3><p>在 XML 中，一些字符拥有特殊的意义。</p>
+<p>如果你把字符 “&lt;” 放在 XML 元素中，会发生错误，这是因为解析器会把它当作新元素的开始。</p>
+<p>这样会产生 XML 错误：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;message&gt; 3&lt;5 &lt;/message&gt;</span><br></pre></td></tr></table></figure>
+<p>为了避免这个错误，请用<em>实体引用</em>来代替 “&lt;” 字符：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary &amp;lt; 1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 XML 中，有 5 个预定义的实体引用：</p>
+<table>
+<thead>
+<tr>
+<th>&amp;lt ;</th>
+<th>&lt;</th>
+<th>小于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;gt ;</td>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&amp;amp ;</td>
+<td>&amp;</td>
+<td>和号</td>
+</tr>
+<tr>
+<td>&amp;apos ;</td>
+<td>‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>&amp;quot ;</td>
+<td>“</td>
+<td>引号</td>
+</tr>
+</tbody>
+</table>
+<p>注释：在 XML 中，==只有字符 “&lt;” 和 “&amp;” 确实是非法的==。大于号是合法的，但是用实体引用来代替它是一个好习惯。</p>
+<h3 id="2-8、CDATA"><a href="#2-8、CDATA" class="headerlink" title="2.8、CDATA"></a>2.8、CDATA</h3><p>术语 CDATA 指的是不应由 XML 解析器进行解析的文本数据（Unparsed Character Data）。</p>
+<p>在 XML 元素中，”&lt;” 和 “&amp;” 是非法的。</p>
+<p>“&lt;” 会产生错误，因为解析器会把该字符解释为新元素的开始。</p>
+<p>“&amp;” 也会产生错误，因为解析器会把该字符解释为字符实体的开始。</p>
+<p>某些文本，比如 JavaScript 代码，包含大量 “&lt;” 或 “&amp;” 字符。为了避免错误，可以将脚本代码定义为 CDATA。</p>
+<p>CDATA 部分中的所有内容都会被解析器忽略。</p>
+<p>CDATA 部分由 <strong><code>&lt;![CDATA[这里写内容]]&gt;</code></strong> 结束：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">&lt;![CDATA[</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">matchwo</span>(<span class="params">a,b</span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">if</span> (a &lt; b &amp;&amp; a &lt; <span class="number">0</span>) then</span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="number">1</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="javascript"><span class="keyword">else</span></span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">]]&gt;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上面的例子中，解析器会忽略 CDATA 部分中的所有内容。</p>
+<blockquote>
+<p>CDATA 部分不能包含字符串 “]]&gt;”。也不允许嵌套的 CDATA 部分。</p>
+</blockquote>
+<blockquote>
+<p>标记 CDATA 部分结尾的 “]]&gt;” 不能包含空格或折行。</p>
+</blockquote>
+<h2 id="三、XML和HTML的区别（了解）"><a href="#三、XML和HTML的区别（了解）" class="headerlink" title="三、XML和HTML的区别（了解）"></a>三、XML和HTML的区别（了解）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">HTML</th>
+<th style="text-align:center">XML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">意义：展示数据</td>
+<td style="text-align:center">意义：存储并传输数据</td>
+</tr>
+<tr>
+<td style="text-align:center">标签有限且固定</td>
+<td style="text-align:center">标签可扩展</td>
+</tr>
+<tr>
+<td style="text-align:center">标签可不闭合</td>
+<td style="text-align:center">标签必须闭合</td>
+</tr>
+<tr>
+<td style="text-align:center">属性值可以不用引号</td>
+<td style="text-align:center">属性值必须有引号</td>
+</tr>
+</tbody>
+</table>
+<p>总体来说，HTML和XML设计的初衷就不一样，另一方面XML语法上比较严格。</p>
+<h2 id="四、XML的用途（理解）"><a href="#四、XML的用途（理解）" class="headerlink" title="四、XML的用途（理解）"></a>四、XML的用途（理解）</h2><h3 id="4-1、存储数据"><a href="#4-1、存储数据" class="headerlink" title="4.1、存储数据"></a>4.1、存储数据</h3><p>前面说到用xml表示一些书籍，其实这就是用xml存储数据信息。</p>
+<p>练习，用xml存储全班的学生，要求包括全班所有学生，每个学生要有id、姓名、性别、身高、体重、出生年月日、爱好。可以试着写一下。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--有一个根节点--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stu</span> <span class="attr">id</span>=<span class="string">"1"</span> <span class="attr">name</span>=<span class="string">"赵伟"</span> <span class="attr">age</span>=<span class="string">"37"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stu</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>2<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>周国权<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>100<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">stu</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stu</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>3<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>宋顺杰<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>120<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">stu</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stu</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>4<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>巫妖王<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">stu</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>练习，设计一个xml文档，存储一本中英词典的信息。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">word</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">en</span>&gt;</span>bag<span class="tag">&lt;/<span class="name">en</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cn</span>&gt;</span>包<span class="tag">&lt;/<span class="name">cn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">word</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">word</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">en</span>&gt;</span>desk<span class="tag">&lt;/<span class="name">en</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cn</span>&gt;</span>桌<span class="tag">&lt;/<span class="name">cn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">word</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">word</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">en</span>&gt;</span>position<span class="tag">&lt;/<span class="name">en</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">cn</span>&gt;</span>位置<span class="tag">&lt;/<span class="name">cn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">word</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的xml就充当了小型数据库。</p>
+</blockquote>
+<h3 id="4-2、传输数据时，数据的载体"><a href="#4-2、传输数据时，数据的载体" class="headerlink" title="4.2、传输数据时，数据的载体"></a>4.2、传输数据时，数据的载体</h3><p>有些项目是跨语言的，比如PHP从数据库取出一组数据，要发送给Android，这个时候就需要将数据转换成双方都能识别的语言，然后再进行数据的交互，此时就可以使用xml当做数据的载体了。</p>
+<p>再比如，有些网站提供各种接口，比如天气信息接口，那么我们的网站中如何使用别人提供的天气信息呢？很简单，提供者将数据转换为xml格式的数据，然后我们去获取，获取之后自行解析使用即可。</p>
+<p>下面是一个天气信息的接口：<br>请求地址： <a href="http://v.juhe.cn/weather/index" target="_blank" rel="noopener">http://v.juhe.cn/weather/index</a><br>请求参数： cityname=%E5%8C%97%E4%BA%AC&amp;dtype=xml&amp;format=&amp;key=810c3b2c488bc37d5f521196d8799a72<br>请求方式： GET</p>
+<h3 id="4-3、其他"><a href="#4-3、其他" class="headerlink" title="4.3、其他"></a>4.3、其他</h3><p>作为配置文件：比如飞秋的配置文件就是xml格式的</p>
+<p>其他领域使用：比如化学领域可以使用xml表示化学式。</p>
+<h2 id="五、操作XML（理解）"><a href="#五、操作XML（理解）" class="headerlink" title="五、操作XML（理解）"></a>五、操作XML（理解）</h2><h3 id="5-1、何为操作XML"><a href="#5-1、何为操作XML" class="headerlink" title="5.1、何为操作XML"></a>5.1、何为操作XML</h3><p>一句话，就是对XML进行==增删改查==操作。</p>
+<p>在操作XML的时候，我们把 <u>整个XML文档</u>、<u>文档中的标签</u>、<u>标签的属性</u>、<u>标签中的文本</u> 都叫做==节点==。</p>
+<ul>
+<li>查询：先读取XML，然后按要求读取XML节点的内容</li>
+<li>添加：按要求添加XML节点，最后保存</li>
+<li>修改：按要求修改XML节点，最后保存</li>
+<li>删除：按要求删除XML节点，最后保存</li>
+</ul>
+<p><img src="1532352371653.png" alt="1532352371653"></p>
+<h3 id="5-2、谁来操作XML"><a href="#5-2、谁来操作XML" class="headerlink" title="5.2、谁来操作XML"></a>5.2、谁来操作XML</h3><p>这里的操作可不是用记事本打开XML，然后对其操作。而是用编程语言来对其进行操作。大多数的编程语言都可对XML进行操作，有的编程语言在操作XML的时候还有很多不同的方式。</p>
+<p><img src="1532351790124.png" alt="1532351790124"></p>
+<p>==PHP方面，我们主要学习的是用PHP的<strong>simpleXML</strong>来操作XML，因为这种方式操作XML非常简单易学==。</p>
+<p>JavaScript方面，我们将在后面的JavaScript高级课程中讲解DOM操作。</p>
+<h3 id="5-3、为什么要操作XML"><a href="#5-3、为什么要操作XML" class="headerlink" title="5.3、为什么要操作XML"></a>5.3、为什么要操作XML</h3><p>很简单，如果有一个xml文档是软件的配置文件，那么我们是不是要读取这个xml，有时候还要对配置进行修改、添加或者删除操作？在比如有一个接口提供了XML格式的信息，而我们刚好要用这些信息，我们是不是要读取这个xml并整理其包含的信息？答案都是肯定的。所以操作XML是必要的。</p>
+<h3 id="5-4、simpleXML工作原理"><a href="#5-4、simpleXML工作原理" class="headerlink" title="5.4、simpleXML工作原理"></a>5.4、simpleXML工作原理</h3><p>① 开辟内存空间 </p>
+<p>② 载入XML文件到内存形成DOM树结构</p>
+<p>③ 生成SimpleXMLElement对象</p>
+<p><img src="clip_image002.jpg" alt="img"></p>
+<p>实际上是调用函数库中的一个函数 <code>simplexml_load_file()</code> 或 <code>simplexml_load_string()</code>将 XML 文档或XML字符串加载到内存并得到 <code>SimpleXMLElement</code>对象，然后调用 <code>SimpleXMLElement</code>对象中的方法对XML进行操作。</p>
+<p>SimpleXMLElement对象方法一览（具体查看手册）：</p>
+<p><img src="1532353577345.png" alt="1532353577345"></p>
+<h2 id="六、-操作XML元素节点-（重点）"><a href="#六、-操作XML元素节点-（重点）" class="headerlink" title="六、==操作XML元素节点==（重点）"></a>六、==操作XML元素节点==（重点）</h2><p>使用的xml文档是01.xml</p>
+<h3 id="6-1、获取元素节点的内容"><a href="#6-1、获取元素节点的内容" class="headerlink" title="6.1、获取元素节点的内容"></a>6.1、获取元素节点的内容</h3><p>当调用 <code>simplexml_load_file()</code> 函数之后，会得到一个simpleXMLElement对象，该对象包含了XML文档的所有内容，我们通过遍历该对象可以得到不同元素节点的内容。</p>
+<p>代码–获取XML中第一本书的名字：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用simplexml_load_file()函数，加载xml文档到内存，得到simpleXMLElement对象</span></span><br><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//$str = "&lt;book&gt;&lt;name&gt;sdf&lt;/name&gt;&lt;/book&gt;";</span></span><br><span class="line"><span class="comment">//调用simplexml_load_string()函数，加载xml字符串，得到simpleXMLElement对象</span></span><br><span class="line"><span class="comment">//$xml = simplexml_load_string($str);</span></span><br><span class="line"><span class="comment">//echo "&lt;pre&gt;";</span></span><br><span class="line"><span class="comment">//print_r($xml);</span></span><br><span class="line"><span class="comment">//获取第1本书的名字</span></span><br><span class="line"><span class="keyword">echo</span> $xml-&gt;book[<span class="number">0</span>]-&gt;name;</span><br></pre></td></tr></table></figure>
+<p>代码– ==遍历==获取XML中所有书的名字：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用simplexml_load_file()函数，加载xml文档到内存，得到simpleXMLElement对象</span></span><br><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//$str = "&lt;book&gt;&lt;name&gt;sdf&lt;/name&gt;&lt;/book&gt;";</span></span><br><span class="line"><span class="comment">//调用simplexml_load_string()函数，加载xml字符串，得到simpleXMLElement对象</span></span><br><span class="line"><span class="comment">//$xml = simplexml_load_string($str);</span></span><br><span class="line"><span class="comment">//echo "&lt;pre&gt;";</span></span><br><span class="line"><span class="comment">//print_r($xml);</span></span><br><span class="line"><span class="comment">//获取第1本书的名字</span></span><br><span class="line"><span class="comment">//echo $xml-&gt;book[0]-&gt;name;</span></span><br><span class="line"><span class="comment">//遍历把所有的书打印出来</span></span><br><span class="line"><span class="keyword">foreach</span> ($xml-&gt;book <span class="keyword">as</span> $value)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $value-&gt;name . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-2、添加元素节点"><a href="#6-2、添加元素节点" class="headerlink" title="6.2、添加元素节点"></a>6.2、添加元素节点</h3><p>步骤：</p>
+<ol>
+<li>得到simpleXMLELement对象；</li>
+<li>找到父级节点，为其添加子节点（addChild）；</li>
+<li>保存</li>
+</ol>
+<p>代码–添加一本新书：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>); <span class="comment">//得到simpleXMLElement对象，它表示文档中的根节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//表示在根节点中添加book节点，谁调用addChild，就是给谁添加子节点</span></span><br><span class="line"><span class="comment">//addChild的返回值仍然是simpleXMLElement对象</span></span><br><span class="line">$book = $xml-&gt;addChild(<span class="string">'book'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//在book中，添加name</span></span><br><span class="line">$book-&gt;addChild(<span class="string">'name'</span>, <span class="string">'西厢记'</span>);</span><br><span class="line"><span class="comment">//继续添加作者、发布时间、价格</span></span><br><span class="line">$book-&gt;addChild(<span class="string">'author'</span>, <span class="string">'赵伟'</span>);</span><br><span class="line">$book-&gt;addChild(<span class="string">'year'</span>, <span class="number">2015</span>);</span><br><span class="line">$book-&gt;addChild(<span class="string">'price'</span>, <span class="number">65</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line"><span class="comment">//$xml-&gt;saveXML('02.xml'); //给定参数，表示保存到哪里；未给定参数，则只会保存在内存中</span></span><br><span class="line">$xml-&gt;asXML(<span class="string">'02.xml'</span>); <span class="comment">//和saveXML一样</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-3、修改元素节点的内容"><a href="#6-3、修改元素节点的内容" class="headerlink" title="6.3、修改元素节点的内容"></a>6.3、修改元素节点的内容</h3><p>步骤：</p>
+<ol>
+<li>找到要进行修改的元素节点；</li>
+<li>对其内容(文本节点)进行从新赋值；</li>
+<li>最后保存。</li>
+</ol>
+<p>代码–修改第一本书的价格：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($xml);</span></span><br><span class="line">$xml-&gt;book[<span class="number">0</span>]-&gt;price = <span class="number">2.5</span>;</span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line">$xml-&gt;saveXML(<span class="string">'02.xml'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="6-4、删除元素节点"><a href="#6-4、删除元素节点" class="headerlink" title="6.4、删除元素节点"></a>6.4、删除元素节点</h3><p>步骤：</p>
+<ol>
+<li>找到要进行删除的元素节点；</li>
+<li>对其使用 <code>unset()</code> 进行删除；</li>
+<li>最后保存。</li>
+</ol>
+<p>代码–删除第一本书的出版时间：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($xml);</span></span><br><span class="line"><span class="keyword">unset</span>($xml-&gt;book[<span class="number">0</span>]-&gt;year);</span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line">$xml-&gt;saveXML(<span class="string">'02.xml'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="七、-操作XML属性节点-（重点）"><a href="#七、-操作XML属性节点-（重点）" class="headerlink" title="七、==操作XML属性节点==（重点）"></a>七、==操作XML属性节点==（重点）</h2><h3 id="7-1、获取元素的属性节点"><a href="#7-1、获取元素的属性节点" class="headerlink" title="7.1、获取元素的属性节点"></a>7.1、获取元素的属性节点</h3><p>步骤：</p>
+<ol>
+<li>因为属性属于元素，所以先找到元素节点</li>
+<li>通过 <code>attributes()</code>获取到该元素的所有属性（注意，调用attributes()方法得到的返回值仍然是对象）</li>
+<li>[获取元素的某个属性]</li>
+</ol>
+<p>代码–获取第一个book节点的所有属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>); <span class="comment">//返回simpleXMLElement对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($xml);</span></span><br><span class="line"><span class="comment">//先找到第一个book节点</span></span><br><span class="line">$book = $xml-&gt;book[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//调用attributes()方法，可以得到book节点的所有属性</span></span><br><span class="line">$attrs = $book-&gt;attributes();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r($attrs);</span><br></pre></td></tr></table></figure>
+<p>代码–获取第一个book节点的category属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>); <span class="comment">//返回simpleXMLElement对象</span></span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($xml);</span></span><br><span class="line"><span class="comment">//先找到第一个book节点</span></span><br><span class="line">$book = $xml-&gt;book[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//调用attributes()方法，可以得到book节点的所有属性</span></span><br><span class="line">$attrs = $book-&gt;attributes();</span><br><span class="line"></span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($attrs);</span></span><br><span class="line"><span class="comment">//获取book的category属性</span></span><br><span class="line"><span class="keyword">echo</span> $attrs-&gt;category; <span class="comment">//注：是属性，所以用 -&gt;</span></span><br><span class="line"><span class="keyword">echo</span> $attrs-&gt;id;</span><br></pre></td></tr></table></figure>
+<h3 id="7-2、为元素添加属性"><a href="#7-2、为元素添加属性" class="headerlink" title="7.2、为元素添加属性"></a>7.2、为元素添加属性</h3><p>步骤：</p>
+<ol>
+<li>找到元素节点</li>
+<li>通过 <code>addAttribute()</code>为元素添加属性</li>
+<li>保存</li>
+</ol>
+<p>代码–为第一个book节点添加download属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//先找到第一个book节点</span></span><br><span class="line">$book = $xml-&gt;book[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//调用addAttribute()方法为book添加属性</span></span><br><span class="line">$book-&gt;addAttribute(<span class="string">'download'</span>, <span class="number">20</span>);</span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line">$xml-&gt;asXML(<span class="string">'02.xml'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="7-3、修改元素的属性"><a href="#7-3、修改元素的属性" class="headerlink" title="7.3、修改元素的属性"></a>7.3、修改元素的属性</h3><p>步骤：</p>
+<ol>
+<li>找到元素节点</li>
+<li>采用从新赋值的方法，修改元素节点的属性的值</li>
+<li>保存</li>
+</ol>
+<p>代码–修改第一个book节点的category属性值：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//先找元素</span></span><br><span class="line">$book = $xml-&gt;book[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//找book的category属性，然后修改</span></span><br><span class="line">$book-&gt;attributes()-&gt;category = <span class="string">'玄幻'</span>;</span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line">$xml-&gt;asXML(<span class="string">'02.xml'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="7-4、删除元素的属性"><a href="#7-4、删除元素的属性" class="headerlink" title="7.4、删除元素的属性"></a>7.4、删除元素的属性</h3><p>步骤：</p>
+<ol>
+<li>找到元素节点</li>
+<li>找到元素节点的属性</li>
+<li>使用 <code>unset()</code>对其进行卸载</li>
+<li>保存</li>
+</ol>
+<p>代码–删除第一个book节点的category属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"><span class="comment">//先找元素</span></span><br><span class="line">$book = $xml-&gt;book[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//找book的category属性，然后修改</span></span><br><span class="line"><span class="keyword">unset</span>($book-&gt;attributes()-&gt;category);</span><br><span class="line"><span class="comment">//保存</span></span><br><span class="line">$xml-&gt;asXML(<span class="string">'02.xml'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="九、Xpath查询（会用几个常用语法）"><a href="#九、Xpath查询（会用几个常用语法）" class="headerlink" title="九、Xpath查询（会用几个常用语法）"></a>九、Xpath查询（会用几个常用语法）</h2><h3 id="9-1、什么是Xpath"><a href="#9-1、什么是Xpath" class="headerlink" title="9.1、什么是Xpath"></a>9.1、什么是Xpath</h3><p>官方给的解释是：XPath 使用路径表达式在 XML 文档中进行导航</p>
+<p>•     XPath 包含一个标准函数库</p>
+<p>•     XPath 是 XSLT 中的主要元素</p>
+<p>•     XPath 是一个 W3C 标准</p>
+<p>简言之，<strong>XPath</strong> <strong>是一种用来在内存中导航整个 XML</strong> <strong>树的语言</strong>。Xpath有它自己的一套字符串形式的语法，我们按照语法可以简化很多复杂的查询。</p>
+<p>XPath 的设计初衷是作为一种面向 XSLT 和 XPointer 的语言。XPath 1.0 在 1999 年成为了一种 W3C 标准。较新的 XPath 2.0 已于 2007 获得规范的状态。</p>
+<p>==<strong>PHP目前只支持XPath1.0</strong>==，所以在使用Xpath的时候，有些Xpath语法PHP并不支持或者支持的不好，而且PHP的版本不同，得到的结果也不同。</p>
+<p>Xpath在很多语言中（PHP、Java、.NET以及Javascript），都可以广泛使用。</p>
+<h3 id="9-2、Xpath使用方法"><a href="#9-2、Xpath使用方法" class="headerlink" title="9.2、Xpath使用方法"></a>9.2、Xpath使用方法</h3><p>在得到SimpleXMLElement对象之后，该对象中有一个xpath方法，xpath方法的参数就是一个符合Xpath语法的字符串，根据这个字符串的不同，我们可以得到不同的查询结果。</p>
+<p>示例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line">$result = $xml-&gt;xpath(<span class="string">'//book'</span>); <span class="comment">//查询所有的book节点</span></span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-3、选取节点"><a href="#9-3、选取节点" class="headerlink" title="9.3、选取节点"></a>9.3、选取节点</h3><p>Xpath语法：</p>
+<ol>
+<li><code>/</code> 选择根节点</li>
+<li><code>//</code> 选择任意节点。实测PHP支持不好，如果根节点是第1节点，则<code>//</code>支持第2节点，如案例中的book节点</li>
+<li><code>|</code> 或者的意思，表示选取若干节点</li>
+</ol>
+<p>使用示例代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//从根节点一层一层查询，下面三种方式都可用</span></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'/bookstore'</span>); </span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'/bookstore/book'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'/bookstore/book/name'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r($data);</span><br><span class="line"></span><br><span class="line"><span class="comment">//从任意一层节点开始查询</span></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//name'</span>); <span class="comment">//7版本可以，5.4版本不可以</span></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book/name'</span>); <span class="comment">//7版本可以，5.4版本不可以</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r($data);</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询多个不同的节点</span></span><br><span class="line"><span class="comment">//查询所有的name和所有的price节点</span></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//name | //price'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="9-4、方括号筛选"><a href="#9-4、方括号筛选" class="headerlink" title="9.4、方括号筛选"></a>9.4、方括号筛选</h3><p>方括号（[]）表示对已经查询到的节点的<strong>筛选</strong>。可以<strong>根据节点的位置进行筛选</strong>、也可以<strong>根据子节点筛选</strong>、还能<strong>根据属性进行筛选</strong>。比如查询到了所有的book节点，通过[]可以对book节点进行进一步的筛选。</p>
+<ol>
+<li><strong>根据位置筛选</strong><ul>
+<li><code>//book[1]</code> ：查询第一个book节点</li>
+<li><code>//book[last()]</code> ：查询最后一个节点</li>
+<li><code>//book[last()-1]</code> ：查询倒数第2个节点</li>
+<li><code>//book[position()&lt;3]</code> ：查询前两个节点</li>
+</ul>
+</li>
+</ol>
+<p>示例代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[1]'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[last()]'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[last()-1]'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[position() &lt; 3]'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r($data);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>根据子节点筛选</strong><ul>
+<li><code>//book[year]</code> ：查询book节点，但只查询含有year子节点的book</li>
+<li><code>//book[year&lt;2000]</code> ：查询book节点，但要求book含有子节点year，并且year的值要小于2000</li>
+<li><code>//book[contains(year, 0)]</code> ：（<strong>模糊查询</strong>）查询book节点，要求book含有子节点year，并且year中要包含数字0</li>
+</ul>
+</li>
+</ol>
+<p>示例代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$xml = simplexml_load_file(<span class="string">'01.xml'</span>);</span><br><span class="line"></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[year]'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[year&lt;2010]'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[contains(year, 1)]'</span>); <span class="comment">//1是数字不用加引号，如果是字符串则需要加引号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r($data);</span><br></pre></td></tr></table></figure>
+<h3 id="9-5、-根据属性筛选"><a href="#9-5、-根据属性筛选" class="headerlink" title="9.5、@根据属性筛选"></a>9.5、@根据属性筛选</h3><p>在Xpath语法中，带<code>@</code>的都表示元素的属性。</p>
+<ul>
+<li><code>//book[@category]</code> ：查询book节点，但只获取带有category属性的节点</li>
+<li><code>//book[@id&gt;2]</code> ：查询book节点，但只获取id属性值小于3的book</li>
+</ul>
+<p>示例代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[@category]'</span>); <span class="comment">//查询带有category属性的book</span></span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[@id&gt;2]'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="9-6、逻辑查询"><a href="#9-6、逻辑查询" class="headerlink" title="9.6、逻辑查询"></a>9.6、逻辑查询</h3><p>在查询的时候，查询条件中可以有<code>and</code>或者<code>or</code>来进行逻辑查询，比如：</p>
+<p><code>//book[@id and year]</code> ：查询book节点，要求book节点必须含有id属性，并且book必须有子节点year</p>
+<blockquote>
+<p>这个例子通过@将属性和子节点区分开了，带有@的都表示属性，不带@的就表示子节点。</p>
+</blockquote>
+<p>代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[@id&gt;1 and @id&lt;4]'</span>);</span><br><span class="line">$data = $xml-&gt;xpath(<span class="string">'//book[@category and year]'</span>); <span class="comment">//查询带有category属性，并且包含year子元素的book</span></span><br><span class="line">$word = $xml-&gt;xpath(<span class="string">"//word[$type = '$search']"</span>); <span class="comment">//根据查询的内容，找到=查询内容的词</span></span><br></pre></td></tr></table></figure>
+<h2 id="十一、DOM方式操作XML"><a href="#十一、DOM方式操作XML" class="headerlink" title="十一、DOM方式操作XML"></a>十一、DOM方式操作XML</h2><p>使用PHP中的DOM系列<strong>内置对象（类）</strong>，对XML进行查询。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//通过PHP的dom类查询所有的name</span></span><br><span class="line">$doc = <span class="keyword">new</span> DOMDocument(<span class="string">'1.0'</span>, <span class="string">'UTF-8'</span>);</span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($doc);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//先加载XML文档</span></span><br><span class="line">$doc-&gt;load(<span class="string">'01.xml'</span>); <span class="comment">//通过load方法，将xml加载到内存了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取节点</span></span><br><span class="line">$nodes = $doc-&gt;getElementsByTagName(<span class="string">'name'</span>);</span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($nodes); //数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">//输出节点某个项的值</span></span><br><span class="line"><span class="comment">$name1 = $nodes-&gt;item(0);  </span></span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($name1); //数组</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">echo $name1-&gt;nodeValue;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历获取的节点数组，输出节点所有项的值</span></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$nodes-&gt;length; $i++) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $nodes-&gt;item($i)-&gt;nodeValue . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十二、总结"><a href="#十二、总结" class="headerlink" title="十二、总结"></a>十二、总结</h2><ol>
+<li><strong>XML的语法</strong><ol>
+<li>有且只有一个根节点</li>
+<li>标签必须闭合</li>
+<li>属性必须有值，值必须有引号</li>
+<li>&lt; 和 &amp; 必须转换成实体，大段的特殊符号使用CDATA</li>
+</ol>
+</li>
+<li><strong>操作XML的元素（文本）节点</strong><ol>
+<li><strong>获取节点</strong> ： $xml = simplexml_load_file();  <strong>$xml-&gt;book[0]-&gt;name</strong> </li>
+<li><strong>添加节点</strong> ： $book = $xml-&gt;<strong>addChild</strong>(‘book’); $book-&gt;<strong>addChild</strong>(‘name’, ‘书名’);</li>
+<li><strong>修改节点</strong> ： $xml-&gt;book[0]-&gt;name = ‘新的名字’;  $xml-&gt;asXML();</li>
+<li><strong>删除节点</strong> ： <strong>unset</strong>($xml-&gt;book[0]-&gt;name);  $xml-&gt;asXML();</li>
+</ol>
+</li>
+<li><strong>操作属性节点</strong>（==必须先找到元素，比如第一个book元素$book==）<ol>
+<li><strong>获取属性</strong> ：$attrs = $book-&gt;attributes();  $attrs-&gt;category;</li>
+<li><strong>添加属性</strong>：$book-&gt;<strong>addAttribute</strong>(属性名，属性值);</li>
+<li><strong>修改属性</strong>：$attrs = $book-&gt;attributes();  $attrs-&gt;category = ‘新的值’;</li>
+<li><strong>删除属性</strong>：$attrs = $book-&gt;attributes();  <strong>unset</strong>($attrs-&gt;category);</li>
+</ol>
+</li>
+<li>==<strong>Xpath</strong>==<ol>
+<li><code>/</code> 表示从根节点查询</li>
+<li><code>//</code> 表示从任意节点开始查询</li>
+<li><code>[ ]</code> 里面表示对查询的节点进行筛选<ul>
+<li>[year &lt; 2000] 表示包含子节点year并且他的值小于2000</li>
+<li>[@id &lt; 3] 表示查询到的节点要有id属性并且id的值要小于3</li>
+</ul>
+</li>
+<li><code>last()</code> 表示最后一个</li>
+<li><code>position()</code> 表示节点的位置</li>
+<li><code>contains()</code> 表示<strong>模糊查询</strong></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2727003801/" title="XML 基础知识">http://blog.kuma8866.top/posts/2727003801/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3990249883/" rel="next" title="mongodb案例">
+                <i class="fa fa-chevron-left"></i> mongodb案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3698054443/" rel="prev" title="XML 案例">
+                XML 案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XML"><span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、简介（了解）"><span class="nav-text">一、简介（了解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、历史"><span class="nav-text">1.1、历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、概念"><span class="nav-text">1.2、概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、-XML语法-（重点）"><span class="nav-text">二、==XML语法==（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、文档声明"><span class="nav-text">2.1、文档声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、树结构"><span class="nav-text">2.2、树结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3、标签都必须闭合"><span class="nav-text">2.3、标签都必须闭合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4、XML-标签对大小写敏感"><span class="nav-text">2.4、XML 标签对大小写敏感</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5、XML-必须正确地嵌套"><span class="nav-text">2.5、XML 必须正确地嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6、XML-的属性值须加引号"><span class="nav-text">2.6、XML 的属性值须加引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7、实体引用"><span class="nav-text">2.7、实体引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8、CDATA"><span class="nav-text">2.8、CDATA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、XML和HTML的区别（了解）"><span class="nav-text">三、XML和HTML的区别（了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、XML的用途（理解）"><span class="nav-text">四、XML的用途（理解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1、存储数据"><span class="nav-text">4.1、存储数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2、传输数据时，数据的载体"><span class="nav-text">4.2、传输数据时，数据的载体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3、其他"><span class="nav-text">4.3、其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、操作XML（理解）"><span class="nav-text">五、操作XML（理解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1、何为操作XML"><span class="nav-text">5.1、何为操作XML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2、谁来操作XML"><span class="nav-text">5.2、谁来操作XML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3、为什么要操作XML"><span class="nav-text">5.3、为什么要操作XML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4、simpleXML工作原理"><span class="nav-text">5.4、simpleXML工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、-操作XML元素节点-（重点）"><span class="nav-text">六、==操作XML元素节点==（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1、获取元素节点的内容"><span class="nav-text">6.1、获取元素节点的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2、添加元素节点"><span class="nav-text">6.2、添加元素节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3、修改元素节点的内容"><span class="nav-text">6.3、修改元素节点的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4、删除元素节点"><span class="nav-text">6.4、删除元素节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、-操作XML属性节点-（重点）"><span class="nav-text">七、==操作XML属性节点==（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1、获取元素的属性节点"><span class="nav-text">7.1、获取元素的属性节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2、为元素添加属性"><span class="nav-text">7.2、为元素添加属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3、修改元素的属性"><span class="nav-text">7.3、修改元素的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4、删除元素的属性"><span class="nav-text">7.4、删除元素的属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、Xpath查询（会用几个常用语法）"><span class="nav-text">九、Xpath查询（会用几个常用语法）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1、什么是Xpath"><span class="nav-text">9.1、什么是Xpath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2、Xpath使用方法"><span class="nav-text">9.2、Xpath使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3、选取节点"><span class="nav-text">9.3、选取节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4、方括号筛选"><span class="nav-text">9.4、方括号筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5、-根据属性筛选"><span class="nav-text">9.5、@根据属性筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6、逻辑查询"><span class="nav-text">9.6、逻辑查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、DOM方式操作XML"><span class="nav-text">十一、DOM方式操作XML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、总结"><span class="nav-text">十二、总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

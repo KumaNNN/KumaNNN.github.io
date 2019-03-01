@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="三、概述手册位置：W3C手册 –  上面的JavaScript  – 左侧的Ajax 1、Ajax历史1999年，微软在IE5上使用，但是没有被认知。 2005年，谷歌的使用（地图、gmail），使得ajax被全世界所认识，并广泛使用。 2、Ajax是什么Ajax中的第一个A是Asynchronous [eɪˈsɪŋkrənəs] （异步）JavaScript and XML的缩写。可以看出它不是">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax和JSON">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2279573566/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="三、概述手册位置：W3C手册 –  上面的JavaScript  – 左侧的Ajax 1、Ajax历史1999年，微软在IE5上使用，但是没有被认知。 2005年，谷歌的使用（地图、gmail），使得ajax被全世界所认识，并广泛使用。 2、Ajax是什么Ajax中的第一个A是Asynchronous [eɪˈsɪŋkrənəs] （异步）JavaScript and XML的缩写。可以看出它不是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/clip_image002.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533174381333.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533175827721.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533177261715.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533177608297.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180011414.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180139583.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180161621.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180570079.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180660810.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180814951.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533180943150.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533181730505.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533192545261.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533182159575.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533193705248.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533194423187.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533197397016.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2279573566/1533266832968.png">
+<meta property="og:updated_time" content="2018-12-18T09:59:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax和JSON">
+<meta name="twitter:description" content="三、概述手册位置：W3C手册 –  上面的JavaScript  – 左侧的Ajax 1、Ajax历史1999年，微软在IE5上使用，但是没有被认知。 2005年，谷歌的使用（地图、gmail），使得ajax被全世界所认识，并广泛使用。 2、Ajax是什么Ajax中的第一个A是Asynchronous [eɪˈsɪŋkrənəs] （异步）JavaScript and XML的缩写。可以看出它不是">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2279573566/clip_image002.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2279573566/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ajax和JSON | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2279573566/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Ajax和JSON
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 17:59:18" itemprop="dateCreated datePublished" datetime="2018-12-18T17:59:18+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Ajax/" itemprop="url" rel="index"><span itemprop="name">Ajax</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">14k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">12 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="三、概述"><a href="#三、概述" class="headerlink" title="三、概述"></a>三、概述</h1><p>手册位置：W3C手册 –  上面的JavaScript  – 左侧的Ajax</p>
+<h2 id="1、Ajax历史"><a href="#1、Ajax历史" class="headerlink" title="1、Ajax历史"></a>1、Ajax历史</h2><p>1999年，微软在IE5上使用，但是没有被认知。</p>
+<p>2005年，谷歌的使用（地图、gmail），使得ajax被全世界所认识，并广泛使用。</p>
+<h2 id="2、Ajax是什么"><a href="#2、Ajax是什么" class="headerlink" title="2、Ajax是什么"></a>2、Ajax是什么</h2><p>Ajax中的第一个A是Asynchronous [eɪˈsɪŋkrənəs]</p>
+<p>（异步）JavaScript and XML的缩写。可以看出它不是一种技术，而是多种技术的综合体。</p>
+<p>其中有JavaScript、有xml、有json、有html、有css、有dom、有<strong>==XMLHttpRequest==</strong>对象等等，而且还必须有一种编程语言与ajax配合才行。</p>
+<p><strong>XMLHttpRequest对象，也叫做Ajax对象</strong>。</p>
+<p>Ajax的工作也是基于http协议的。</p>
+<h2 id="3、Ajax能做什么"><a href="#3、Ajax能做什么" class="headerlink" title="3、Ajax能做什么"></a>3、Ajax能做什么</h2><p>①、提高用户体验</p>
+<p>②、表单实时验证</p>
+<p><img src="clip_image002.jpg" alt="img"></p>
+<p>③、百度地图、谷歌地图</p>
+<p>④、网页版的聊天室</p>
+<p><img src="1533174381333.png" alt="1533174381333"></p>
+<p>⑤、无刷新的分页</p>
+<h1 id="四、Ajax工作原理"><a href="#四、Ajax工作原理" class="headerlink" title="四、Ajax工作原理"></a>四、Ajax工作原理</h1><p>通过ajax向服务器发送请求的时候，实际上是通过浏览器内置的XMLHttpRequest对象来发送的请求，服务器返回数据的时候，也是返回到XMLHttpRequest对象，经过XMLHttpRequest的处理，最后将用户想要的结果输出到浏览器。</p>
+<p><img src="1533175827721.png" alt="1533175827721"></p>
+<h1 id="五、XMLHttpRequest对象介绍"><a href="#五、XMLHttpRequest对象介绍" class="headerlink" title="五、XMLHttpRequest对象介绍"></a>五、XMLHttpRequest对象介绍</h1><h2 id="1、创建ajax对象（ajax对象）"><a href="#1、创建ajax对象（ajax对象）" class="headerlink" title="1、创建ajax对象（ajax对象）"></a>1、创建ajax对象（ajax对象）</h2><p>所有现代浏览器均支持 <strong>XMLHttpRequest</strong> 对象（==IE5 和 IE6 使用 ActiveXObject==）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var xhr = new XMLHttpRequest(); //IE6+</span></span><br><span class="line"><span class="comment">//var xhr = new ActiveXObject('Microsoft.XMLHTTP'); // IE5 和 IE6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个兼容各个浏览器的ajax对象</span></span><br><span class="line"><span class="keyword">var</span> xhr;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest(); <span class="comment">//IE6+</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>); <span class="comment">// IE5 和 IE6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、主要的成员属性："><a href="#2、主要的成员属性：" class="headerlink" title="2、主要的成员属性："></a>2、主要的成员属性：</h2><ul>
+<li><strong>readyState</strong>：表示ajax工作进行到何种状态</li>
+<li><strong>onreadystatechange</strong>：事件，表示readyState改变的时候触发的事件</li>
+<li><strong>status</strong>：http状态码</li>
+<li><strong>responseText</strong>：用来接收返回的文本类型的数据</li>
+<li><strong>responseXML</strong>：用来接收返回的是XML格式的数据</li>
+</ul>
+<h2 id="3、主要的方法"><a href="#3、主要的方法" class="headerlink" title="3、主要的方法"></a>3、主要的方法</h2><ul>
+<li><strong>open()</strong>：设置（定义）一个请求</li>
+<li><strong>send()</strong>：发送设置好的请求</li>
+<li><strong>setRequestHeader()</strong>：设置ajax请求头信息</li>
+</ul>
+<h1 id="六、-使用Ajax的步骤-重点"><a href="#六、-使用Ajax的步骤-重点" class="headerlink" title="六、==使用Ajax的步骤==(重点)"></a>六、==使用Ajax的步骤==(重点)</h1><p>完成验证用户名案例，要求用户名唯一，就是不能有重复。</p>
+<h2 id="1、创建两个文件"><a href="#1、创建两个文件" class="headerlink" title="1、创建两个文件"></a>1、创建两个文件</h2><p>创建文件，<code>01chkusername.html</code> 和 <code>01chkusername.php</code> 。</p>
+<p><code>01chkusername.html</code>：浏览器预览文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">请输入用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>01chkusername.php</code> ：检查用户名是否存在的脚本文件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//连接数据库，判断用户名是否存在。案例中，就不连接数据库了，假设zhangsan和lisi是存在的</span></span><br><span class="line">$arr = [<span class="string">'zhangsan'</span>, <span class="string">'lisi'</span>]; <span class="comment">//假设这是从数据库查询出来的已经存在的用户</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、绑定事件"><a href="#2、绑定事件" class="headerlink" title="2、绑定事件"></a>2、绑定事件</h2><p>给username绑定失去焦点事件，通过事件来操作数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//给username绑定失去焦点事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//获取用户输入的值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> u = <span class="keyword">this</span>.value;</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、设置请求"><a href="#3、设置请求" class="headerlink" title="3、设置请求"></a>3、设置请求</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//给username绑定失去焦点事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//获取用户输入的值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> u = <span class="keyword">this</span>.value;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//创建Ajax对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        <span class="comment">//准备工作（用什么方式，发送到哪里去发送的数据是什么，同步请求还是异步请求）</span></span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, <span class="string">'01chkusername.php?user='</span>+u, <span class="literal">true</span>);<span class="comment">//true 异步 | false 同步</span></span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、发送请求到服务器"><a href="#4、发送请求到服务器" class="headerlink" title="4、发送请求到服务器"></a>4、发送请求到服务器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//给username绑定失去焦点事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//获取用户输入的值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> u = <span class="keyword">this</span>.value;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//创建Ajax对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        <span class="comment">//准备工作（用什么方式，发送到哪里去发送的数据是什么，同步请求还是异步请求）</span></span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, <span class="string">'01chkusername.php?user='</span>+u, <span class="literal">true</span>);  <span class="comment">//true 异步 | false 同步</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//发送请求</span></span></span><br><span class="line"><span class="undefined">        xhr.send();</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>到这步，可以用浏览器进行检测，看数据是否发送到了服务器：</p>
+<p><img src="1533177261715.png" alt="1533177261715"></p>
+<h2 id="5、服务器接收请求的参数并判断"><a href="#5、服务器接收请求的参数并判断" class="headerlink" title="5、服务器接收请求的参数并判断"></a>5、服务器接收请求的参数并判断</h2><p>php文件：01chkusername.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//连接数据库，判断用户名是否存在。案例中，就不连接数据库了，假设zhangsan和lisi是存在的</span></span><br><span class="line">$arr = [<span class="string">'zhangsan'</span>, <span class="string">'lisi'</span>]; <span class="comment">//假设这是从数据库查询出来的已经存在的用户</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//get请求，使用$_GET来获取参数</span></span><br><span class="line">$user = $_GET[<span class="string">'user'</span>];</span><br><span class="line"><span class="comment">//判断用户是否存在</span></span><br><span class="line"><span class="keyword">if</span> (in_array($user, $arr)) &#123;</span><br><span class="line">    <span class="comment">//说明用户名存在，向浏览器返回</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过浏览器工具，发现服务器确实能够返回对应的值：</p>
+<p><img src="1533177608297.png" alt="1533177608297"></p>
+<h2 id="6、判断Ajax执行的状态，然后接收服务器返回的数据"><a href="#6、判断Ajax执行的状态，然后接收服务器返回的数据" class="headerlink" title="6、判断Ajax执行的状态，然后接收服务器返回的数据"></a>6、判断Ajax执行的状态，然后接收服务器返回的数据</h2><p>readyState是Ajax对象中的一个属性，它表示ajax执行的状态，它的值有5个，分别表示：</p>
+<p>readyState的四个状态如下：</p>
+<table>
+<thead>
+<tr>
+<th>0 (未初始化)</th>
+<th>对象已建立，但是尚未初始化（尚未调用open方法）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (初始化)</td>
+<td>对象已建立，尚未调用send方法，言外之意，open已经调用了</td>
+</tr>
+<tr>
+<td>2 (发送数据)</td>
+<td>send方法已调用，但是当前的状态及http头未知</td>
+</tr>
+<tr>
+<td>3 (数据传送中)</td>
+<td>已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</td>
+</tr>
+<tr>
+<td>==4 (完成)==</td>
+<td>==数据接收完毕==,此时可以通过==responseBody==和==responseText==获取完整的回应数据</td>
+</tr>
+</tbody>
+</table>
+<p> readyState应该配合另一个属性  onreadystatechange 来使用。onreadystatechange也是一个事件。</p>
+<p><strong>下面代码，15行之后是新加的代码，另外html中添加一个span标签</strong>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">请输入用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> /&gt;</span> <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//给username绑定失去焦点事件</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//获取用户输入的值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> u = <span class="keyword">this</span>.value;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//创建Ajax对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        <span class="comment">//准备工作（用什么方式，发送到哪里去发送的数据是什么，同步请求还是异步请求）</span></span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, <span class="string">'01chkusername.php?user='</span>+u, <span class="literal">true</span>);<span class="comment">//true 异步 | false 同步</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//发送请求</span></span></span><br><span class="line"><span class="undefined">        xhr.send();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="comment">/*********判断，当readyState等于4的时候，接收服务器返回的数据 ********************/</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//当readyState属性发生改变的时候，就执行下面的函数，</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//比如readyState的值从2变化到3的时候，就执行下面的函数，同理，从3变化到4的时候，也会执行</span></span></span><br><span class="line"><span class="javascript">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//alert(123);</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//接收服务器返回的数据</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> result = xhr.responseText;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//alert(result);</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(result == <span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">document</span>.getElementById(<span class="string">'msg'</span>).innerHTML = <span class="string">'&lt;font color="red"&gt;用户名已存在&lt;/font&gt;'</span>;</span></span><br><span class="line"><span class="javascript">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">document</span>.getElementById(<span class="string">'msg'</span>).innerHTML = <span class="string">'&lt;font color="green"&gt;恭喜，用户名可用&lt;/font&gt;'</span>;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="7、总结"><a href="#7、总结" class="headerlink" title="7、总结"></a>7、总结</h2><p>使用Ajax的步骤：</p>
+<ol>
+<li>创建ajax对象</li>
+<li>调用open方法：open(请求方式,  url,  同步或异步);</li>
+<li>调用send方法</li>
+<li>设置onreadystatechange事件，判断readyState</li>
+</ol>
+<p>设置onreadystatechange事件，判断readyState这一步可以放到open之前。</p>
+<h1 id="七、其他问题"><a href="#七、其他问题" class="headerlink" title="七、其他问题"></a>七、其他问题</h1><h2 id="1、编码字符"><a href="#1、编码字符" class="headerlink" title="1、编码字符"></a>1、编码字符</h2><p>encodeURI() — 不能对“:/=&amp;”进行编码</p>
+<p><strong>encodeURIComponent</strong>()  —  能对“:/===&amp;==”进行编码</p>
+<p><img src="1533180011414.png" alt="1533180011414"></p>
+<p>html页面对输入的内容进行编码：</p>
+<p><img src="1533180139583.png" alt="1533180139583"></p>
+<p>PHP页面对获取的参数进行解码：</p>
+<p><img src="1533180161621.png" alt="1533180161621"></p>
+<h2 id="2、缓存处理"><a href="#2、缓存处理" class="headerlink" title="2、缓存处理"></a>2、缓存处理</h2><p>什么是Ajax缓存原理？</p>
+<p>Ajax在发送的数据成功后，会把请求的URL和返回的响应结果保存在浏览器缓存内，当下一次调用Ajax发送相同的请求时，它会直接从缓存中把数据取出来，这是为了提高页面的响应速度和用户体验。==当前这两次请求URL完全相同，包括参数。这个时候，浏览器就不会与服务器交互，指的是IE浏览器==。</p>
+<p>两次请求的地址完全一致（包括参数），那么<strong>IE就会从缓存中取服务器上一次返回的结果</strong>。而不会从新向服务器发送请求。</p>
+<p>如何解决IE缓存的问题： </p>
+<p>1、在ajax发送请求前加上<code>xhr.setRequestHeader(&quot;If-Modified-Since&quot;,&quot;0&quot;);</code>//实测可用</p>
+<p><img src="1533180570079.png" alt="1533180570079"></p>
+<p>2、在服务器端加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Cache-Control:no-cache"</span>);</span><br><span class="line">header(<span class="string">"Pragma:no-cache"</span>);</span><br><span class="line">header(<span class="string">"Expires:-1"</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="1533180660810.png" alt="1533180660810"></p>
+<p>加入三个header，表示适用于各个浏览器。</p>
+<p>3、在 Ajax 的 URL 参数后加上 <code>&quot;?fresh=&quot; + Math.random();</code>，当然这里参数 <code>fresh</code> 可以任意取了</p>
+<p><img src="1533180814951.png" alt="1533180814951"></p>
+<p>4、第种方法和第3种类似，在 URL 参数后加上 <code>&quot;?timestamp=&quot; + new Date().getTime();</code></p>
+<p><img src="1533180943150.png" alt="1533180943150"></p>
+<p>5、用POST替代GET：不推荐</p>
+<p>==以上几种方式，比较推荐第3和第4中方法==。</p>
+<h2 id="3、get和post请求"><a href="#3、get和post请求" class="headerlink" title="3、get和post请求"></a>3、get和post请求</h2><p>使用POST请求，一定要设置下面的header：</p>
+<p><code>xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</code></p>
+<p><img src="1533181730505.png" alt="1533181730505"></p>
+<p>==使用post请求，PHP页面也使用对应的$_POST接收参数==。</p>
+<p>ajax中的get和post的一些说明：</p>
+<p>①、用post请求，不会产生缓存。</p>
+<p>②、用post请求的时候，能不能也用get，即post和get请求同时使用。</p>
+<p>​      答：能，只不过get请求的参数用$_GET获取，post请求的参数用$_POST获取。</p>
+<p>③、用$_REQUEST获取get和post方式提交的参数，如果参数名相同，获取的是谁？</p>
+<p>​       答：默认获取的是post的内容，根据<code>php.ini</code>配置文件中的配置。</p>
+<h2 id="4、同步、异步"><a href="#4、同步、异步" class="headerlink" title="4、同步、异步"></a>4、同步、异步</h2><p>==异步请求==，在同一个时间点可以执行多个进程；</p>
+<p>==同步请求==，在同一个时间点，只能进行一个操作，其他操作只能等待。</p>
+<p>在使用Ajax的时候，大多数都是异步请求，ajax请求什么时候结束，就立即处理ajax，如果ajax请求比较慢，那么继续加载当前页面的其他内容。</p>
+<p><img src="1533192545261.png" alt="1533192545261"></p>
+<h2 id="5、请求的url如果出错怎么办"><a href="#5、请求的url如果出错怎么办" class="headerlink" title="5、请求的url如果出错怎么办"></a>5、请求的url如果出错怎么办</h2><p>如果请求的url出错，则http状态码就不是200了。所以在获取服务器返回数据的时候，在加入一个条件，只有http状态码等于200的时候，才接收服务器返回的数据。</p>
+<p><img src="1533182159575.png" alt="1533182159575"></p>
+<h1 id="八、JSON"><a href="#八、JSON" class="headerlink" title="八、JSON"></a>八、JSON</h1><h2 id="1、什么是json"><a href="#1、什么是json" class="headerlink" title="1、什么是json"></a>1、什么是json</h2><p>w3c手册位置：上面的javascript – 左侧的JSON</p>
+<p>json==<strong>本质就是字符串</strong>==，只不过这个字符串的格式比较特殊，格式和JavaScript中的数组和对象的格式一样。</p>
+<p>下面定义几个JSON格式的字符串：</p>
+<p>①、 ==”==[‘apple’, ‘orange’, ‘banana’]==”==</p>
+<p>②、 ==”=={name:’zhangsan’, age:20}==”==</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明两个符合json格式的字符串</span></span><br><span class="line"><span class="comment">//先写js数组或对象，然后在外面加上引号形成一个字符串，这就是json格式的字符串。</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"['apple', 'pear', 'banana']"</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"&#123;name:'zhangsan', age:20&#125;"</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"[&#123;id:1, name:'zhaowei'&#125;, &#123;id:2, name:'荔枝味'&#125;, &#123;id:3, name:'赖志丽'&#125;]"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="2、json有什么用"><a href="#2、json有什么用" class="headerlink" title="2、json有什么用"></a>2、json有什么用</h2><p>json在web开发中，它起到的作用和xml和的作用一样。具体来说，json可以当做配置文件，json文件可以存储数据，json可以当做两种编程语言交换数据的媒介。</p>
+<p><img src="1533193705248.png" alt="1533193705248"></p>
+<h2 id="3、json和PHP进行转换（重要）"><a href="#3、json和PHP进行转换（重要）" class="headerlink" title="3、json和PHP进行转换（重要）"></a>3、json和PHP进行转换（重要）</h2><p><strong>1、把PHP数据转化成json格式</strong></p>
+<p>使用函数 <code>json_encode()</code></p>
+<p><img src="1533194423187.png" alt="1533194423187"></p>
+<p>PHP的索引数组转换成json之后，和JavaScript中的数组一样的格式。</p>
+<p>PHP的关联数组和对象转换成json之后，和JavaScript中的对象是一样的格式。</p>
+<p><strong>2、json数据转化成PHP数据</strong></p>
+<p>使用函数  <code>json_decode()</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$arr1 = [<span class="string">'apple'</span>, <span class="string">'banana'</span>];</span><br><span class="line">$arr2 = [<span class="string">'one'</span>=&gt;<span class="string">'刘备'</span>, <span class="string">'two'</span>=&gt;<span class="string">'关羽'</span>, <span class="string">'three'</span>=&gt;<span class="string">'张飞'</span>];</span><br><span class="line">$arr3 = [</span><br><span class="line">    [<span class="string">'one'</span>=&gt;<span class="string">'刘备'</span>, <span class="string">'two'</span>=&gt;<span class="string">'关羽'</span>, <span class="string">'three'</span>=&gt;<span class="string">'张飞'</span>],</span><br><span class="line">    [<span class="string">'one'</span>=&gt;<span class="string">'刘邦'</span>, <span class="string">'two'</span>=&gt;<span class="string">'项羽'</span>, <span class="string">'three'</span>=&gt;<span class="string">'虞姬'</span>],</span><br><span class="line">    [<span class="string">'one'</span>=&gt;<span class="string">'曹操'</span>, <span class="string">'two'</span>=&gt;<span class="string">'孟获'</span>, <span class="string">'three'</span>=&gt;<span class="string">'祝融夫人'</span>],</span><br><span class="line">];</span><br><span class="line">$obj = <span class="keyword">new</span> stdClass(); <span class="comment">//空对象</span></span><br><span class="line">$obj-&gt;name = <span class="string">'赵云'</span>;</span><br><span class="line">$obj-&gt;age = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">$j1 = json_encode($arr1);</span><br><span class="line">$j2 = json_encode($arr2);</span><br><span class="line">$j3 = json_encode($arr3);</span><br><span class="line">$j4 = json_encode($obj);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $j1 . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> $j2 . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> $j3 . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> $j4 . <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr /&gt;&lt;pre&gt;'</span>;</span><br><span class="line">$a1 = json_decode($j1);</span><br><span class="line">$a2 = json_decode($j2, <span class="keyword">true</span>); <span class="comment">//加入第2个参数true，表示还转换成原来的数组。不加true，会把关联数组换成对象</span></span><br><span class="line">$a3 = json_decode($j3, <span class="keyword">true</span>);</span><br><span class="line">$o = json_decode($j4);</span><br><span class="line">print_r($a1);</span><br><span class="line">print_r($a2);</span><br><span class="line">print_r($a3);</span><br><span class="line">print_r($o);</span><br></pre></td></tr></table></figure>
+<h2 id="4、json和JavaScript进行转换（重要）"><a href="#4、json和JavaScript进行转换（重要）" class="headerlink" title="4、json和JavaScript进行转换（重要）"></a>4、json和JavaScript进行转换（重要）</h2><p>把js数组或对象转换成json，使用 <code>JSON.stringify();</code></p>
+<p>把json字符串转换成js数组或对象，可以使用<code>JSON.parse()</code>，也可以使用<code>eval()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'apple'</span>, <span class="string">'banana'</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [&#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>:<span class="string">'张三'</span>&#125;, &#123;<span class="attr">id</span>:<span class="number">2</span>, <span class="attr">name</span>:<span class="string">'李四'</span>&#125;];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">'张三疯'</span>, <span class="attr">age</span>:<span class="number">20</span>&#125;;</span><br><span class="line"><span class="comment">//下面把js数组或对象转换成json</span></span><br><span class="line"><span class="keyword">var</span> j1 = <span class="built_in">JSON</span>.stringify(arr1);</span><br><span class="line"><span class="keyword">var</span> j2 = <span class="built_in">JSON</span>.stringify(arr2);</span><br><span class="line"><span class="keyword">var</span> o3 = <span class="built_in">JSON</span>.stringify(obj);</span><br><span class="line"><span class="built_in">console</span>.log(j1);</span><br><span class="line"><span class="built_in">console</span>.log(j2);</span><br><span class="line"><span class="built_in">console</span>.log(o3);</span><br><span class="line"><span class="comment">//把json字符串，转换成js数组或对象</span></span><br><span class="line"><span class="comment">//eval("var a1="+j1);</span></span><br><span class="line"><span class="keyword">var</span> a1 = <span class="built_in">JSON</span>.parse(j1);</span><br><span class="line"><span class="keyword">var</span> a2 = <span class="built_in">JSON</span>.parse(j2);</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">JSON</span>.parse(o3);</span><br><span class="line"><span class="built_in">console</span>.log(a1);</span><br><span class="line"><span class="built_in">console</span>.log(a2);</span><br><span class="line"><span class="built_in">console</span>.log(o);</span><br></pre></td></tr></table></figure>
+<h1 id="九、-处理服务器返回json格式的数据-重点"><a href="#九、-处理服务器返回json格式的数据-重点" class="headerlink" title="九、==处理服务器返回json格式的数据==(重点)"></a>九、==处理服务器返回json格式的数据==(重点)</h1><p>Ajax请求的时候，如果服务器返回json格式的数据，如何处理。</p>
+<p>案例–页面加载完毕，异步请求学生表的数据。</p>
+<h2 id="1、创建06stu-html"><a href="#1、创建06stu-html" class="headerlink" title="1、创建06stu.html"></a>1、创建06stu.html</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">cellpadding</span>=<span class="string">"2"</span> <span class="attr">rules</span>=<span class="string">"all"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>班级<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、发送Ajax请求到06stu-php"><a href="#2、发送Ajax请求到06stu-php" class="headerlink" title="2、发送Ajax请求到06stu.php"></a>2、发送Ajax请求到06stu.php</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//接收服务器返回的数据</span></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    xhr.open(<span class="string">'get'</span>, <span class="string">'06stu.php'</span>);</span></span><br><span class="line"><span class="javascript">    xhr.send(<span class="literal">null</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、06stu-php连接数据库查询并返回数据"><a href="#3、06stu-php连接数据库查询并返回数据" class="headerlink" title="3、06stu.php连接数据库查询并返回数据"></a>3、06stu.php连接数据库查询并返回数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$pdo = <span class="keyword">new</span> PDO(<span class="string">'mysql:host=localhost; dbname=test; charset=utf8'</span>, <span class="string">'root'</span>, <span class="string">'123'</span>);</span><br><span class="line"><span class="comment">//$sql = "select * from stu where id&gt;?";</span></span><br><span class="line">$sql = <span class="string">"select * from stu"</span>;</span><br><span class="line"></span><br><span class="line">$stmt = $pdo-&gt;prepare($sql); <span class="comment">//预处理SQL，得到返回值PDOStatement对象</span></span><br><span class="line"><span class="comment">//$stmt-&gt;bindValue(1, 5); //绑定第一个问号的值为5</span></span><br><span class="line">$stmt-&gt;execute();</span><br><span class="line"><span class="comment">//$data = $stmt-&gt;fetchAll(2);</span></span><br><span class="line">$data = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);</span><br><span class="line"></span><br><span class="line"><span class="comment">//echo '&lt;pre&gt;';</span></span><br><span class="line"><span class="comment">//print_r($data);  //检测是否能够查询到数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将数据返回给浏览器</span></span><br><span class="line"><span class="keyword">echo</span> json_encode($data);</span><br></pre></td></tr></table></figure>
+<p><img src="1533197397016.png" alt="1533197397016"></p>
+<h2 id="4、js接收json数据并处理"><a href="#4、js接收json数据并处理" class="headerlink" title="4、js接收json数据并处理"></a>4、js接收json数据并处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">           <span class="comment">//接收服务器返回的数据</span></span><br><span class="line">           <span class="keyword">var</span> str = xhr.responseText; <span class="comment">//因为json是字符串，所有还用responseText来接收</span></span><br><span class="line">           <span class="comment">//将JSON格式的字符串转换成js数组</span></span><br><span class="line">           <span class="keyword">var</span> arr = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">           <span class="comment">//console.log(arr);</span></span><br><span class="line">           <span class="keyword">var</span> res = <span class="string">''</span>;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">               res += <span class="string">'&lt;tr&gt;'</span>;</span><br><span class="line">               <span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> arr[i])&#123;  <span class="comment">// x 代表数组下标，如，id，name</span></span><br><span class="line">                   res += <span class="string">'&lt;td&gt;'</span> + arr[i][x] + <span class="string">'&lt;/td&gt;'</span>;  </span><br><span class="line">               &#125;</span><br><span class="line">               res += <span class="string">'&lt;/tr&gt;'</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//把连接好的数据，放到tbody中</span></span><br><span class="line">           <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>).innerHTML = res;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="十、-处理服务器返回XML格式数据-重点"><a href="#十、-处理服务器返回XML格式数据-重点" class="headerlink" title="十、==处理服务器返回XML格式数据==(重点)"></a>十、==处理服务器返回XML格式数据==(重点)</h1><p>服务器返回XML格式的数据，需要注意下面三点：</p>
+<p><strong>1、服务器端要指定header(‘content-type:text/==xml==; charset=utf-8);</strong></p>
+<p><strong>2、浏览器端接收xml类型的数据用==responseXML==</strong></p>
+<p><strong>3、浏览器端接收到的数据可以看做是document来使用。</strong></p>
+<p>创建<code>02xml.html</code>，验证用户名：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">请输入用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//输入框失去焦点的时候，发送ajax请求</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//接收服务器返回的XML格式的数据</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> res = xhr.responseXML; <span class="comment">//注意</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(res);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, <span class="string">'02xml.php?username='</span>+<span class="keyword">this</span>.value);</span></span><br><span class="line"><span class="undefined">        xhr.send();</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>创建<code>02xml.php</code>，返回xml格式的数据：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定返回的内容是xml</span></span><br><span class="line">header(<span class="string">'content-type:text/xml; charset=utf-8'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//制定一个xml字符串，如果有xml文件，也可以用file_get_contents读取xml文件</span></span><br><span class="line">$success = <span class="string">'&lt;msg&gt;&lt;result&gt;1&lt;/result&gt;&lt;content&gt;用户名可用&lt;/content&gt;&lt;/msg&gt;'</span>;</span><br><span class="line">$error = <span class="string">'&lt;msg&gt;&lt;result&gt;0&lt;/result&gt;&lt;content&gt;用户名不可用&lt;/content&gt;&lt;/msg&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//假设用户名lisi已经存在</span></span><br><span class="line"><span class="keyword">if</span>($_GET[<span class="string">'username'</span>] == <span class="string">'lisi'</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $error;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $success;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器测试：失去焦点后，看console的输出：</p>
+<p><img src="1533266832968.png" alt="1533266832968"></p>
+<p>==得到的返回值res，可以当做document对象来使用==，可以使用类似<code>document.getElementsByTagName()</code>来获取标签中的内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入框失去焦点的时候，发送ajax请求</span></span><br><span class="line">   <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">       xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">               <span class="comment">//接收服务器返回的XML格式的数据</span></span><br><span class="line">               <span class="keyword">var</span> res = xhr.responseXML; <span class="comment">//注意,res用法和document用法一样</span></span><br><span class="line">               <span class="comment">//console.log(res);</span></span><br><span class="line">               <span class="comment">/*</span></span><br><span class="line"><span class="comment">               //从返回值中获取msg标签</span></span><br><span class="line"><span class="comment">               var msg = res.getElementsByTagName('msg')[0];</span></span><br><span class="line"><span class="comment">               //从msg标签中，获取content标签</span></span><br><span class="line"><span class="comment">               var content = msg.getElementsByTagName('content')[0];</span></span><br><span class="line"><span class="comment">               //根据content查找它的子节点</span></span><br><span class="line"><span class="comment">               var text = content.childNodes[0];</span></span><br><span class="line"><span class="comment">               console.log(text.nodeValue);</span></span><br><span class="line"><span class="comment">               */</span></span><br><span class="line">               <span class="keyword">var</span> content = res.getElementsByTagName(<span class="string">'content'</span>)[<span class="number">0</span>];</span><br><span class="line">               <span class="built_in">console</span>.log(content.innerHTML);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       xhr.open(<span class="string">'get'</span>, <span class="string">'02xml.php?username='</span>+<span class="keyword">this</span>.value);</span><br><span class="line">       xhr.send();</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="十一、Ajax代码模版参考"><a href="#十一、Ajax代码模版参考" class="headerlink" title="十一、Ajax代码模版参考"></a>十一、Ajax代码模版参考</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//[可选]绑定事件</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//实例化Ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    <span class="comment">//设置Ajax对象的状态改变事件</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">//书写在此位置，可获取readyState的所有状态码</span></span><br><span class="line">        <span class="comment">//判断Ajax对象的状态码和请求的状态码</span></span><br><span class="line">        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//接收返回的完整数据并处理</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.open(<span class="string">'get'</span>, <span class="string">'07city.php?type=c&amp;Pcode=1001'</span>); <span class="comment">//设置请求信息</span></span><br><span class="line">    xhr.send();  <span class="comment">//发送请求</span></span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2279573566/" title="Ajax和JSON">http://blog.kuma8866.top/posts/2279573566/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/1535111454/" rel="next" title="vagrant技术">
+                <i class="fa fa-chevron-left"></i> vagrant技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/738503265/" rel="prev" title="Ajax高级">
+                Ajax高级 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#三、概述"><span class="nav-text">三、概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Ajax历史"><span class="nav-text">1、Ajax历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Ajax是什么"><span class="nav-text">2、Ajax是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Ajax能做什么"><span class="nav-text">3、Ajax能做什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Ajax工作原理"><span class="nav-text">四、Ajax工作原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、XMLHttpRequest对象介绍"><span class="nav-text">五、XMLHttpRequest对象介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建ajax对象（ajax对象）"><span class="nav-text">1、创建ajax对象（ajax对象）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、主要的成员属性："><span class="nav-text">2、主要的成员属性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、主要的方法"><span class="nav-text">3、主要的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-使用Ajax的步骤-重点"><span class="nav-text">六、==使用Ajax的步骤==(重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建两个文件"><span class="nav-text">1、创建两个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、绑定事件"><span class="nav-text">2、绑定事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、设置请求"><span class="nav-text">3、设置请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、发送请求到服务器"><span class="nav-text">4、发送请求到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、服务器接收请求的参数并判断"><span class="nav-text">5、服务器接收请求的参数并判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、判断Ajax执行的状态，然后接收服务器返回的数据"><span class="nav-text">6、判断Ajax执行的状态，然后接收服务器返回的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、总结"><span class="nav-text">7、总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、其他问题"><span class="nav-text">七、其他问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、编码字符"><span class="nav-text">1、编码字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、缓存处理"><span class="nav-text">2、缓存处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、get和post请求"><span class="nav-text">3、get和post请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、同步、异步"><span class="nav-text">4、同步、异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、请求的url如果出错怎么办"><span class="nav-text">5、请求的url如果出错怎么办</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、JSON"><span class="nav-text">八、JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、什么是json"><span class="nav-text">1、什么是json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、json有什么用"><span class="nav-text">2、json有什么用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、json和PHP进行转换（重要）"><span class="nav-text">3、json和PHP进行转换（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、json和JavaScript进行转换（重要）"><span class="nav-text">4、json和JavaScript进行转换（重要）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、-处理服务器返回json格式的数据-重点"><span class="nav-text">九、==处理服务器返回json格式的数据==(重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建06stu-html"><span class="nav-text">1、创建06stu.html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、发送Ajax请求到06stu-php"><span class="nav-text">2、发送Ajax请求到06stu.php</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、06stu-php连接数据库查询并返回数据"><span class="nav-text">3、06stu.php连接数据库查询并返回数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、js接收json数据并处理"><span class="nav-text">4、js接收json数据并处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十、-处理服务器返回XML格式数据-重点"><span class="nav-text">十、==处理服务器返回XML格式数据==(重点)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一、Ajax代码模版参考"><span class="nav-text">十一、Ajax代码模版参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

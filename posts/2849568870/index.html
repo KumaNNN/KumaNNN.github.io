@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="==TP5第一天==一、案例：搭建后台首页步骤1：创建控制器和方法在后台admin创建一个IndexController控制器的index方法，输出模板  步骤2：定义路由1Route::get(&quot;admin/index/index&quot;,&quot;admin/index/index&quot;); 步骤3：创建或配置模版在admin/view/index/创建一个index.html模板，此模板可以复制后台模板的in">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TP5框架案例">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2849568870/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="==TP5第一天==一、案例：搭建后台首页步骤1：创建控制器和方法在后台admin创建一个IndexController控制器的index方法，输出模板  步骤2：定义路由1Route::get(&quot;admin/index/index&quot;,&quot;admin/index/index&quot;); 步骤3：创建或配置模版在admin/view/index/创建一个index.html模板，此模板可以复制后台模板的in">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image69.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image70.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image71.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image72.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image73.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image74.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image75.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image76.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image77.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image78.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image79.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image80.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image81.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image41.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image42.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image43.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image44.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image45.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image46.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image47.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image48.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image49.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image50.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image51.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image52.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media2/image53.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image31.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image32.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image33.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image34.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image35.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image36.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image37.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image38.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image39.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image41.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image42.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image43.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image44.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image45.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image46.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image47.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image48.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image49.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image50.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image51.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image52.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image53.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image54.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image55.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image56.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image57.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image58.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media3/image59.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image39.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image41.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image42.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image43.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image44.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image45.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image46.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image47.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image48.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2849568870/media4/image49.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TP5框架案例">
+<meta name="twitter:description" content="==TP5第一天==一、案例：搭建后台首页步骤1：创建控制器和方法在后台admin创建一个IndexController控制器的index方法，输出模板  步骤2：定义路由1Route::get(&quot;admin/index/index&quot;,&quot;admin/index/index&quot;); 步骤3：创建或配置模版在admin/view/index/创建一个index.html模板，此模板可以复制后台模板的in">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2849568870/media1/image69.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2849568870/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>TP5框架案例 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2849568870/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">TP5框架案例
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/ThinkPHP5框架/" itemprop="url" rel="index"><span itemprop="name">ThinkPHP5框架</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">8 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="TP5第一天"><a href="#TP5第一天" class="headerlink" title="==TP5第一天=="></a>==TP5第一天==</h1><h1 id="一、案例：搭建后台首页"><a href="#一、案例：搭建后台首页" class="headerlink" title="一、案例：搭建后台首页"></a>一、案例：搭建后台首页</h1><h2 id="步骤1：创建控制器和方法"><a href="#步骤1：创建控制器和方法" class="headerlink" title="步骤1：创建控制器和方法"></a>步骤1：创建控制器和方法</h2><p>在后台<strong>admin</strong>创建一个<strong>IndexController</strong>控制器的<strong>index</strong>方法，输出模板</p>
+<p><img src="media1/image69.png" alt=""></p>
+<h2 id="步骤2：定义路由"><a href="#步骤2：定义路由" class="headerlink" title="步骤2：定义路由"></a>步骤2：定义路由</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">"admin/index/index"</span>,<span class="string">"admin/index/index"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="步骤3：创建或配置模版"><a href="#步骤3：创建或配置模版" class="headerlink" title="步骤3：创建或配置模版"></a>步骤3：创建或配置模版</h2><p>在<code>admin/view/index/</code>创建一个<code>index.html</code>模板，此模板可以复制后台模板的index.html，同时更改静态资源文件路径</p>
+<p><img src="media1/image70.png" alt=""></p>
+<h2 id="步骤4：模版公共部分处理"><a href="#步骤4：模版公共部分处理" class="headerlink" title="步骤4：模版公共部分处理"></a>步骤4：模版公共部分处理</h2><p>提取模版的公共部分，独立文件，并定义三个方法top、left、main</p>
+<p>此模版已处理。</p>
+<p><img src="media1/image71.png" alt=""></p>
+<p>定义路由：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">"admin/index/top"</span>,<span class="string">"admin/index/top"</span>);</span><br><span class="line">Route::get(<span class="string">"admin/index/left"</span>,<span class="string">"admin/index/left"</span>);</span><br><span class="line">Route::get(<span class="string">"admin/index/main"</span>,<span class="string">"admin/index/main"</span>);</span><br></pre></td></tr></table></figure>
+<p>复制对应的模板到<code>/admin/view/index</code>目录下面</p>
+<p><img src="media1/image72.png" alt=""></p>
+<p>修改<code>index.html</code>的iframe的src路径为对应的路由：</p>
+<p><img src="media1/image73.png" alt=""></p>
+<h2 id="步骤5：模版修改"><a href="#步骤5：模版修改" class="headerlink" title="步骤5：模版修改"></a>步骤5：模版修改</h2><p>修改top.html、left.html、main.html模板的<strong>静态资源文件</strong></p>
+<p><strong>a</strong>.  复制资源到<code>/public/static</code>中</p>
+<p><img src="media1/image74.png" alt=""></p>
+<p><strong>b</strong>.      <code>top.html</code>、<code>left.html</code>、<code>main.html</code>模板中进行替换路径(快捷键ctrl+h)</p>
+<p><img src="media1/image75.png" alt=""></p>
+<p>建议静态资源路径直接配置在文件<code>config.php</code>中，方便后期维护：</p>
+<p><img src="media1/image76.png" alt=""></p>
+<p>替换好如下所示，以top.html文件为例。</p>
+<p><img src="media1/image77.png" alt=""></p>
+<p>最终访问效果：</p>
+<p><img src="media1/image78.png" alt=""></p>
+<hr>
+<h1 id="二、案例：搭建登录页"><a href="#二、案例：搭建登录页" class="headerlink" title="二、案例：搭建登录页"></a>二、案例：搭建登录页</h1><h2 id="步骤1：创建控制器和方法-1"><a href="#步骤1：创建控制器和方法-1" class="headerlink" title="步骤1：创建控制器和方法"></a>步骤1：创建控制器和方法</h2><p>在后台admin中创建一个PublicController控制器的login方法，输出登录的内容</p>
+<p><img src="media1/image79.png" alt=""></p>
+<h2 id="步骤2：定义路由-1"><a href="#步骤2：定义路由-1" class="headerlink" title="步骤2：定义路由"></a>步骤2：定义路由</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::any(<span class="string">'admin/public/login'</span>,<span class="string">'admin/public/login'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="步骤3：配置和修改模版"><a href="#步骤3：配置和修改模版" class="headerlink" title="步骤3：配置和修改模版"></a>步骤3：配置和修改模版</h2><p>把后台模板<code>login.html</code>复制到<code>admin/view/public/</code>下面，并替换静态资源文件路径</p>
+<p><img src="media1/image80.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media1/image81.png" alt=""></p>
+<hr>
+<h1 id="TP5第二天"><a href="#TP5第二天" class="headerlink" title="==TP5第二天=="></a>==TP5第二天==</h1><h1 id="一、案例：完成后台登录功能"><a href="#一、案例：完成后台登录功能" class="headerlink" title="一、案例：完成后台登录功能"></a>一、案例：完成后台登录功能</h1><h2 id="1、代码实现"><a href="#1、代码实现" class="headerlink" title="1、代码实现"></a>1、代码实现</h2><p>一般系统第一个用户都是手工添加的，在<code>application/config.php</code>中添加一个密码的加密串（盐）</p>
+<p><img src="media2/image40.png" alt=""></p>
+<p>把密码和盐md5加密的结果复制到password字段中</p>
+<p><img src="media2/image41.png" alt=""></p>
+<h2 id="2、完成登录的实现"><a href="#2、完成登录的实现" class="headerlink" title="2、完成登录的实现"></a>2、完成登录的实现</h2><p><strong>步骤1</strong>：在login登录的表单中设置input的name属性和表的字段==保持一致==，同时设置提交方式为post提交</p>
+<p><img src="media2/image42.png" alt=""></p>
+<p><strong>步骤2</strong>：在<code>login</code>方法中，判断是否是<strong>post</strong>请求，完成用户的登录逻辑</p>
+<p><img src="media2/image43.png" alt=""></p>
+<p><strong>步骤3</strong>：在User模型中定义一个<code>checkuser</code>方法，判断用户名和密码是否匹配成功，成功把用户信息写入<strong>session</strong>中</p>
+<p><img src="media2/image44.png" alt=""></p>
+<p>在后台首页，回显session的用户名，修改<code>top.htm</code>页面</p>
+<p><img src="media2/image45.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media2/image46.png" alt=""></p>
+<h2 id="3、补充"><a href="#3、补充" class="headerlink" title="3、补充"></a>3、补充</h2><h3 id="3-1、跳转"><a href="#3-1、跳转" class="headerlink" title="3.1、跳转"></a>3.1、跳转</h3><p>在应用开发中，经常会遇到一些带有提示信息的跳转页面，例如操作成功或者操作错误页面，并且自动跳转到另外一个目标页面。系统的<code>\think\Controller</code>类内置了两个跳转方法<code>success()</code>和<code>error()</code></p>
+<p><strong>成功跳转</strong>：<code>$this-&gt;success($msg,$url,$data,$time)</code></p>
+<p><strong>失败跳转</strong>：<code>$this-&gt;error($msg,$url,$data,$time)</code></p>
+<p>参数说明：</p>
+<ul>
+<li><p><code>msg</code>：跳转的提示信息</p>
+</li>
+<li><p><code>url</code> ：跳转的地址。 可以直接使用助手函数<code>url()</code>生成地址。失败默认跳回上一页（<code>history.go(-1)</code>）。一般不需要指定</p>
+</li>
+<li><p><code>data</code>：返回的数据，一般不写，留空即可</p>
+</li>
+<li><p><code>time</code>  ：默认成功和失败等待时间都是3秒</p>
+</li>
+</ul>
+<h3 id="3-2、重定向"><a href="#3-2、重定向" class="headerlink" title="3.2、重定向"></a>3.2、重定向</h3><p><strong>语法</strong>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt; redirect($url,[$params]);</span><br></pre></td></tr></table></figure>
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><p><code>$url</code>：跳转的地址, 格式为 <code>模块/控制器/方法</code></p>
+<p>\$this-> redirect(‘index’)，未指定模块和控制器，默认会重定向到<strong>当前模块</strong>的<strong>当前控制器</strong>的index方法。</p>
+<p>在路由的强制模式前提下，则url必须是路由中定义的规则</p>
+</li>
+<li><p><code>$params</code>：跳转携带的参数，数组形式如：传参数id为3，<code>[id=&gt;3]</code></p>
+</li>
+</ul>
+<pre><code>**==问：什么时候使用跳转和重定向？==**
+
+答：
+
+**1、需要给用户操作的提示信息，则用跳转。**
+
+一般是删除或编辑失败的时候，这需要给用户提示错误信息，操作失败则用跳转error，成功用success。
+
+**2、不需要给任何提示信息，则用重定向。**
+
+如用户登录成功不需要给提示信息则直接redirect重定向到首页，登录失败就用error给用户提示错误信息。
+</code></pre><h3 id="3-3、session"><a href="#3-3、session" class="headerlink" title="3.3、session"></a>3.3、session</h3><p><strong>tp5中session会话默认是开启的</strong></p>
+<ul>
+<li><p>设置sesion信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session(<span class="string">'键'</span>,<span class="string">'值'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>获取session信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session(<span class="string">'键'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>清除session信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session(<span class="string">'键'</span>,<span class="keyword">null</span>); <span class="comment">//清除一个</span></span><br><span class="line">session(<span class="keyword">null</span>); <span class="comment">//清除当前会话所有的session</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="二、案例：完成后台退出功能"><a href="#二、案例：完成后台退出功能" class="headerlink" title="二、案例：完成后台退出功能"></a>二、案例：完成后台退出功能</h1><p>思路：<strong>清除用户登录成功所设置的session信息</strong></p>
+<p><strong>步骤1</strong>：在后台<code>admin</code>的<code>publicController</code>控制器中建立一个<code>logout</code>的方法完成退出的实现</p>
+<p><img src="media2/image47.png" alt=""></p>
+<p><strong>步骤2</strong>：设置退出链接的链接地址，并设置好路由</p>
+<p><img src="media2/image48.png" alt=""></p>
+<p><strong>步骤3</strong>：定义退出路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::get(<span class="string">'/user/logout'</span>,<span class="string">'admin/user/logout'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="三、案例：完成登录防翻墙"><a href="#三、案例：完成登录防翻墙" class="headerlink" title="三、案例：完成登录防翻墙"></a>三、案例：完成登录防翻墙</h1><p><strong>核心思想</strong>： 建立一个公共的控制器如：<code>CommonController</code>，在此控制器中做权限验证，判断是否有没有session,其他需要验证用户登录session信息的控制器就需要继承此控制器即可。</p>
+<p>把验证session的写在<code>CommonController</code>控制器的初始化方法<code>_initialize</code>中,</p>
+<p><img src="media2/image49.png" alt=""></p>
+<p>需要验证session的控制器，继承Common即可</p>
+<p><img src="media2/image50.png" alt=""></p>
+<p>注：Public控制器不可以继承，因为此时还没有登录进来，未有session信息。</p>
+<hr>
+<h1 id="四、验证器实现登录验证（新增）"><a href="#四、验证器实现登录验证（新增）" class="headerlink" title="四、验证器实现登录验证（新增）"></a>四、验证器实现登录验证（新增）</h1><h2 id="1、验证器概述"><a href="#1、验证器概述" class="headerlink" title="1、验证器概述"></a>1、验证器概述</h2><p>ThinkPHP5.0使用独立的<code>\think\Validate</code>验证器类进行验证。</p>
+<p>手册位置：验证==&gt;验证器。</p>
+<p><img src="media2/image51.png" alt=""></p>
+<h2 id="2、基本使用"><a href="#2、基本使用" class="headerlink" title="2、基本使用"></a>2、基本使用</h2><p><strong>步骤1</strong>. 先在控制器中先引入验证器类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> \<span class="title">think</span>\<span class="title">Validate</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>步骤2</strong>. 定义验证规则和提示信息：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$rule = [</span><br><span class="line"><span class="string">'表单name值'</span>	=&gt; <span class="string">'规则'</span>   <span class="comment">// （多个规则竖线‘|‘隔开）	</span></span><br><span class="line">      ......</span><br><span class="line">];</span><br><span class="line"><span class="comment">//定义验证不通过的提示信息</span></span><br><span class="line">$msg = [</span><br><span class="line">	<span class="string">'表单name值.规则名'</span>	=&gt; <span class="string">'规则的不通过时的提示信息'</span></span><br><span class="line">  ......	</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>步骤3</strong>. 进行数据验证</p>
+<p><strong>单个验证：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$validate = <span class="keyword">new</span> Validate($rule,$msg);</span><br><span class="line">$result = $validate-&gt;check($data);</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong>：$data是要验证的数据，要求是==一维数组==，其<strong>键名</strong>和规则<strong>rule中的键名</strong>需一致。<br><strong>返回值</strong>：验证成功返回<strong>true</strong>,失败返回对应规则的错误提示信息，通过<code>$validate-&gt;getError());</code>可获取到错误信</p>
+<p><strong>批量验证:</strong></p>
+<p>当需要同时验证多个规则的时候使用<code>batch()</code>方法即可</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$result = $validate-&gt;batch()-&gt;check($data);</span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong>：验证成功返回<strong>true</strong>，批量验证不通过，返回的是一个错误信息的数组[err1,err2]</p>
+<h2 id="3、代码如下"><a href="#3、代码如下" class="headerlink" title="3、代码如下"></a>3、代码如下</h2><p><strong>步骤1</strong>：引入验证器类</p>
+<p><img src="media2/image52.png" alt=""></p>
+<p><strong>步骤2</strong>：在<code>login</code>方法中定义验证器进行数据的验证</p>
+<p><img src="media2/image53.png" alt=""></p>
+<hr>
+<h1 id="TP5第三天"><a href="#TP5第三天" class="headerlink" title="==TP5第三天=="></a>==TP5第三天==</h1><h1 id="一、案例：完成登录的验证码功能"><a href="#一、案例：完成登录的验证码功能" class="headerlink" title="一、案例：完成登录的验证码功能"></a>一、案例：完成登录的验证码功能</h1><p>手册位置：杂项-->验证码</p>
+<p><strong>步骤1</strong>：找到<code>login.html</code>模板，设置<strong>img</strong>的<strong>src</strong>为<code>{:captcha_src()}</code></p>
+<p><img src="media3/image13.png" alt=""></p>
+<p><strong>步骤2</strong>：设置验证码的配置</p>
+<p><img src="media3/image14.png" alt=""></p>
+<p><strong>步骤3</strong>：设置随机数，单击验证码时，可重新请求验证码</p>
+<p><img src="media3/image15.png" alt=""></p>
+<p><strong>步骤4</strong>：单击登录按钮，在<code>login</code>方法中判断验证码是否输入正确</p>
+<p><img src="media3/image16.png" alt=""></p>
+<p><strong>步骤5</strong>：页面输入错误，返回来时候。让验证码自执行单击事件，即刷新验证码：</p>
+<p><img src="media3/image17.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media3/image18.png" alt=""></p>
+<hr>
+<h1 id="二、案例：完成文章分类的添加"><a href="#二、案例：完成文章分类的添加" class="headerlink" title="二、案例：完成文章分类的添加"></a>二、案例：完成文章分类的添加</h1><h2 id="1、输出添加分类的模板展示"><a href="#1、输出添加分类的模板展示" class="headerlink" title="1、输出添加分类的模板展示"></a>1、输出添加分类的模板展示</h2><p><strong>步骤1</strong>：在后台<code>admin</code>的<code>CategoryController</code>控制器中添加一个<code>add</code>方法，输出模板</p>
+<p><img src="media3/image19.png" alt=""></p>
+<p><strong>步骤2</strong>：定义访问的路由（<code>application/route.php</code>）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::get(<span class="string">'/category/add'</span>,<span class="string">'admin/category/add'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>步骤3</strong>：设置后台的菜单链接</p>
+<p><img src="media3/image20.png" alt=""></p>
+<p><strong>步骤4</strong>：把后台模板<code>add.html</code>模板文件复制到以下目录，并替换静态资源文件路径</p>
+<p><img src="media3/image21.png" alt=""></p>
+<p>如替换css路径：</p>
+<p><img src="media3/image22.png" alt=""></p>
+<p>并修改模板的内容：</p>
+<p><img src="media3/image23.png" alt=""></p>
+<p>效果如下：</p>
+<p><img src="media3/image24.png" alt=""></p>
+<p><strong>步骤5</strong>：==获取无限极分类数据显示在select框中==</p>
+<p>a.  在<code>Category</code>模型中定义一个无限极分类的方法</p>
+<p><img src="media3/image25.png" alt=""></p>
+<p>b.  控制器调用上面的方法，并把数据分类到模板中</p>
+<p><img src="media3/image26.png" alt=""></p>
+<p>c.  模板中进行遍历</p>
+<p><img src="media3/image27.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media3/image28.png" alt=""></p>
+<h2 id="2、完成添加分类数据的入库"><a href="#2、完成添加分类数据的入库" class="headerlink" title="2、完成添加分类数据的入库"></a>2、完成添加分类数据的入库</h2><p><strong>步骤1</strong>：把<strong>get</strong>路由换成<strong>any</strong>形式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/category/add'</span>,<span class="string">'admin/category/add'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>步骤2</strong>：在<code>add</code>方法判断是否是<strong>post</strong>请求，完成数据的入库操作</p>
+<p><img src="media3/image29.png" alt=""></p>
+<hr>
+<h1 id="三、案例：完成文章分类的列表展示"><a href="#三、案例：完成文章分类的列表展示" class="headerlink" title="三、案例：完成文章分类的列表展示"></a>三、案例：完成文章分类的列表展示</h1><p><strong>步骤1</strong>：修改<code>left.html</code>文件的链接地址</p>
+<p><img src="media3/image30.png" alt=""></p>
+<p><strong>步骤2</strong>：设置路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/category/index'</span>,<span class="string">'admin/category/index'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>步骤3</strong>：建立一个<code>index</code>的方法，取出分类的数据并分配在模板中，输出模板内容</p>
+<p><img src="media3/image31.png" alt=""></p>
+<p><strong>步骤4</strong>：把后台模板<code>showlist.html</code>复制到对应目录，并修改静态资源文件路径</p>
+<p><img src="media3/image32.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media3/image33.png" alt=""></p>
+<p>注：其中<code>create_time</code>和<code>update_time</code>在数据库中是时间戳<strong>int</strong>的格式，可以在配置文件<code>application/database.php</code>中修改以下配置项，在模板中显示时就会自动转化为日期格式：</p>
+<p><img src="media3/image34.png" alt=""></p>
+<p>如果不想转化，可以在对应的模型类中进行取消。</p>
+<p><img src="media3/image35.png" alt=""></p>
+<hr>
+<h1 id="四、案例：完成文章分类的编辑"><a href="#四、案例：完成文章分类的编辑" class="headerlink" title="四、案例：完成文章分类的编辑"></a>四、案例：完成文章分类的编辑</h1><h2 id="1、实现编辑分类数据回显到模板中"><a href="#1、实现编辑分类数据回显到模板中" class="headerlink" title="1、实现编辑分类数据回显到模板中"></a>1、实现编辑分类数据回显到模板中</h2><p><strong>步骤1</strong>：修改<code>index.html</code>模板的编辑的链接地址，并设置好路由</p>
+<p><img src="media3/image36.png" alt=""></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/category/upd,'</span>admin/category/upd);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>步骤2</strong>：建立一个<code>upd</code>的方法，根据<code>cat_id</code>的参数，取出当前分类的数据，分配到模板中</p>
+<p><img src="media3/image37.png" alt=""></p>
+<p><strong>步骤3</strong>：在<code>upd.html</code>模板中进行回显数据。模板可复制当前的<code>add.html</code></p>
+<p><img src="media3/image38.png" alt=""></p>
+<p>==小技巧：==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;select&quot;).val(3); //把option的value=3的默认选中</span><br><span class="line">$(&quot;select&quot;).val(当前分类的父分类cat_id);</span><br></pre></td></tr></table></figure>
+<p><img src="media3/image39.png" alt=""></p>
+<h2 id="2、实现分类编辑的数据入库"><a href="#2、实现分类编辑的数据入库" class="headerlink" title="2、实现分类编辑的数据入库"></a>2、实现分类编辑的数据入库</h2><p>在<code>upd</code>方法中判断<strong>post</strong>请求，完成编辑的数据入库</p>
+<p><img src="media3/image40.png" alt=""></p>
+<hr>
+<h1 id="五、把验证器独立出来使用"><a href="#五、把验证器独立出来使用" class="headerlink" title="五、把验证器独立出来使用"></a>五、把验证器独立出来使用</h1><p>如果把验证的逻辑都写在控制器的方法中，那么方法就会变的很臃肿且难以维护，且还会写出和其他功能相同的规则，造成代码冗余，我们可以把这些验证规则单独写一个验证器类中。方便后期维护，让控制器方法逻辑更加直观。</p>
+<p><strong>步骤1</strong>：在模块中创建一个<code>validate</code>目录，存储验证器类。 验证类名建议和模型类名保持一致</p>
+<p><img src="media3/image41.png" alt=""></p>
+<p>验证场景解读</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$scene=[</span><br><span class="line">    <span class="comment">//后面未写规则，则验证 【规则名】 下所有规则，多个规则用竖线 | 隔开</span></span><br><span class="line">    <span class="comment">//'场景名'=&gt;['规则名'=&gt;'规则|规则','规则名'],</span></span><br><span class="line">    <span class="string">'upd'</span>=&gt;[<span class="string">'cat_name'</span>=&gt;<span class="string">'require|unique'</span>,<span class="string">'pid'</span>],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p><strong>步骤2</strong>：使用上面的验证器进行验证</p>
+<p>如，在分类的<code>add</code>方法中使用：</p>
+<p><img src="media3/image42.png" alt=""></p>
+<p><strong>注：使用外部的单独验证器类进行验证，不需要引入。调用validae方法时候框架会自动加载</strong></p>
+<p><strong>validate</strong>方法的源码位置：<code>thinkphp\library\Controller.php</code></p>
+<p><img src="media3/image43.png" alt=""></p>
+<p><strong>参数1</strong>：验证的数据，要求是一个一维数组，键名是表的字段名。</p>
+<p><strong>参数2</strong>：<code>验证器名.场景名</code></p>
+<p>​        如果只写验证器名，则验证所有的元素规则。若只验证add场景下的元素，则这么写：验证器名.add</p>
+<p><strong>参数3</strong>：提示信息，默认写[]即可。</p>
+<p><strong>参数4</strong>：true为批量验证，false验证单个验证。</p>
+<p><strong>返回值</strong>：</p>
+<p>验证成功，返回<strong>true</strong></p>
+<p>验证失败，批量验证返回<strong>错误</strong>数组，单个验证返回一个错误的字符串。</p>
+<hr>
+<h1 id="六、案例：使用Ajax完成文章分类的无刷新删除"><a href="#六、案例：使用Ajax完成文章分类的无刷新删除" class="headerlink" title="六、案例：使用Ajax完成文章分类的无刷新删除"></a>六、案例：使用Ajax完成文章分类的无刷新删除</h1><p>jqueyr发送ajax请求：</p>
+<ul>
+<li><p><code>$.ajax({})</code> 发送get也可以post，可以控制同步或异步。</p>
+</li>
+<li><p><code>$.get(url,data,callback,dataType)</code> 只能发送get请求，默认是异步,只有成功的回调函数。</p>
+</li>
+<li><p><code>$.post(url,data,callback,dataType)</code>只能发送post请求，默认是异步，只有成功的回调函。</p>
+</li>
+</ul>
+<p><strong>==删除分类的注意事项：==</strong></p>
+<ul>
+<li><p>当前分类下不能存在子分类</p>
+</li>
+<li><p>当前分类下面不能存在文章</p>
+</li>
+</ul>
+<p>满足上面两个条件之一都不能删除。</p>
+<p><strong>步骤1</strong>：给<code>index.html</code>模板页面的删除链接阻止默认行为、设置自定义属性<code>cat_id</code>记录当前要删除的分类，设置类名为<code>delCat</code>。</p>
+<p><img src="media3/image44.png" alt=""></p>
+<p><strong>步骤2</strong>：给<code>class=&#39;delCat&#39;</code>，绑定单击事件，获取<code>cat_id</code>的属性值，发送ajax请求</p>
+<p><img src="media3/image45.png" alt=""></p>
+<p>查看get和post所传递的参数，查看抓包的<strong>header</strong>选项：</p>
+<p><img src="media3/image46.png" alt=""></p>
+<p><img src="media3/image47.png" alt=""></p>
+<p><strong>步骤3</strong>：在CategoryController控制器建立一个<code>ajaxDelCat</code>的方法，完成分类的删除</p>
+<p>a.  定义路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::get(<span class="string">'/category/ajaxdelcat'</span>,<span class="string">'admin/category/ajaxdelcat'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="media3/image48.png" alt=""></p>
+<p><img src="media3/image49.png" alt=""></p>
+<p><strong>步骤4</strong>：判断状态码等于200，即删除成功，移除当前<strong>tr</strong>行</p>
+<p><img src="media3/image50.png" alt=""></p>
+<hr>
+<h1 id="七、案例：完成文章的添加"><a href="#七、案例：完成文章的添加" class="headerlink" title="七、案例：完成文章的添加"></a>七、案例：完成文章的添加</h1><h2 id="1、输出添加文章模板的展示"><a href="#1、输出添加文章模板的展示" class="headerlink" title="1、输出添加文章模板的展示"></a>1、输出添加文章模板的展示</h2><p><strong>步骤1</strong>：在后台<code>admin</code>创建一个<code>ArticleController</code>，并建立一个<code>add</code>方法输出模板内容。</p>
+<p><img src="media3/image51.png" alt=""></p>
+<p><strong>步骤2</strong>：设置<code>add.html</code>模板的<strong>name</strong>名称</p>
+<p><img src="media3/image52.png" alt=""></p>
+<h2 id="2、集成富文本编辑器到文章的内容添加页中"><a href="#2、集成富文本编辑器到文章的内容添加页中" class="headerlink" title="2、集成富文本编辑器到文章的内容添加页中"></a>2、集成富文本编辑器到文章的内容添加页中</h2><p><strong>步骤1</strong>：把<strong>ueditor</strong>编辑器复制到<code>/public/plugins/</code>目录下面</p>
+<p><img src="media3/image53.png" alt=""></p>
+<p><strong>步骤2</strong>：引入富文本编辑器的三个js文件（可参考上面的index.html文件）</p>
+<p><img src="media3/image54.png" alt=""></p>
+<p>给文本域textarea设置一个id，给此id进行初始化。</p>
+<p><img src="media3/image55.png" alt=""></p>
+<p>效果如下：</p>
+<p><img src="media3/image56.png" alt=""></p>
+<h2 id="3、实现文章数据的入库"><a href="#3、实现文章数据的入库" class="headerlink" title="3、实现文章数据的入库"></a>3、实现文章数据的入库</h2><p>在<code>add</code>方法中判断是否是<strong>post</strong>请求，完成数据入库</p>
+<p><img src="media3/image57.png" alt=""></p>
+<p>定义验证器的<strong>add</strong>验证场景：</p>
+<p><img src="media3/image58.png" alt=""></p>
+<p>设置模型的时间戳自动维护：<br><img src="media3/image59.png" alt=""></p>
+<hr>
+<h1 id="TP5第四天"><a href="#TP5第四天" class="headerlink" title="==TP5第四天=="></a>==TP5第四天==</h1><h1 id="一、案例：完成文章的图片上传和缩略图生成"><a href="#一、案例：完成文章的图片上传和缩略图生成" class="headerlink" title="一、案例：完成文章的图片上传和缩略图生成"></a>一、案例：完成文章的图片上传和缩略图生成</h1><h2 id="1、实现文章的图片上传"><a href="#1、实现文章的图片上传" class="headerlink" title="1、实现文章的图片上传"></a>1、实现文章的图片上传</h2><p><strong>上传文件的要求：</strong></p>
+<ul>
+<li><p><strong>post</strong>请求</p>
+</li>
+<li><p>设置<strong>form</strong>标签的<code>enctype=&#39;multipart/form-data&#39;</code></p>
+</li>
+</ul>
+<pre><code>**步骤1**：设置表单上传文件的要求
+
+![](media4/image1.png)
+
+**步骤2**：设置文件上传域`type=file`
+
+![](media4/image2.png)
+
+**步骤3**：在`add`的方法中，接收文件信息，进行文件上传
+
+手册位置：杂项-\&gt;上传
+
+![](media4/image3.png)
+
+在当前控制器中，封装一个上传文件的方法，成功返回图片的路径
+
+![](media4/image4.png)
+
+上传成功如下：
+
+![](media4/image5.png)
+
+数据库存储的路径：
+
+![](media4/image6.png)
+
+**步骤4**：限制上传图片的一些要求：如图片的后缀，图片的大小
+
+![](media4/image7.png)
+</code></pre><h2 id="2、实现文章图片缩略图生成"><a href="#2、实现文章图片缩略图生成" class="headerlink" title="2、实现文章图片缩略图生成"></a>2、实现文章图片缩略图生成</h2><p>手册位置：杂项->图像处理</p>
+<p>安装<code>topthink/think-image</code>包通过执行以下指令：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> topthink/think-image=<span class="number">1.0</span><span class="number">.7</span></span><br></pre></td></tr></table></figure>
+<p><img src="media4/image8.png" alt=""></p>
+<p>下载好如下所示：</p>
+<p><img src="media4/image9.png" alt=""></p>
+<p>使用缩略图进行缩放处理：</p>
+<p><img src="media4/image10.png" alt=""></p>
+<p>表中存储的字段内容如下：</p>
+<p><img src="media4/image11.png" alt=""></p>
+<p>原图是路径默认反斜杠<code>\</code>分隔，缩略图路径默认是正斜杠，需要注意。</p>
+<p>效果如下：</p>
+<p><img src="media4/image12.png" alt=""></p>
+<hr>
+<h1 id="二、案例：完成文章列表的展示"><a href="#二、案例：完成文章列表的展示" class="headerlink" title="二、案例：完成文章列表的展示"></a>二、案例：完成文章列表的展示</h1><h2 id="1、实现文章列表在模板中展示"><a href="#1、实现文章列表在模板中展示" class="headerlink" title="1、实现文章列表在模板中展示"></a>1、实现文章列表在模板中展示</h2><p><strong>步骤1</strong>：设置<code>left.html</code>的链接地址</p>
+<p><img src="media4/image13.png" alt=""></p>
+<p><strong>步骤2</strong>：设置路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/article/index'</span>,<span class="string">'admin/article/index'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>步骤3</strong>：在<code>ArticleController</code>建立一个<code>index</code>的方法，获取文章数据，分配到模板中</p>
+<p><img src="media4/image14.png" alt=""></p>
+<p><strong>步骤4</strong>：模板中遍历数据</p>
+<p><img src="media4/image15.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media4/image16.png" alt=""></p>
+<h2 id="2、实现文章列表的分页功能"><a href="#2、实现文章列表的分页功能" class="headerlink" title="2、实现文章列表的分页功能"></a>2、实现文章列表的分页功能</h2><p>手册位置：杂项->分页</p>
+<p>在<code>index</code>方法中，把模型的select方法改为<strong>paginate</strong>(每页显示的条数)</p>
+<p><img src="media4/image17.png" alt=""></p>
+<p>在模板中调用<code>render()</code>方法进行渲染出分页的页码结构：</p>
+<p><img src="media4/image18.png" alt=""></p>
+<p>注意：默认tp5分页页码是没有样式，我们自己需自定义样式，可以引入<code>page.css</code>文件。</p>
+<p><img src="media4/image19.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media4/image20.png" alt=""></p>
+<hr>
+<h1 id="三、案例：文章的编辑"><a href="#三、案例：文章的编辑" class="headerlink" title="三、案例：文章的编辑"></a>三、案例：文章的编辑</h1><h2 id="1、实现编辑数据回显到模板中"><a href="#1、实现编辑数据回显到模板中" class="headerlink" title="1、实现编辑数据回显到模板中"></a>1、实现编辑数据回显到模板中</h2><p><strong>步骤1</strong>：给<code>index.html</code>的编辑设置链接地址</p>
+<p><img src="media4/image21.png" alt=""></p>
+<p><strong>步骤2</strong>：设置路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/article/upd,'</span>admin/article/upd<span class="string">');</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p><strong>步骤3</strong>：建立一个<code>upd</code>方法，取出当前分类的数据，回显到模板中</p>
+<p><img src="media4/image22.png" alt=""></p>
+<p><strong>步骤4</strong>：模板中进行回显</p>
+<p><img src="media4/image23.png" alt=""></p>
+<p><img src="media4/image24.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media4/image25.png" alt=""></p>
+<h2 id="2、实现编辑数据入库"><a href="#2、实现编辑数据入库" class="headerlink" title="2、实现编辑数据入库"></a>2、实现编辑数据入库</h2><p>在<code>upd</code>方法中，判断是否是<strong>post</strong>请求</p>
+<p><img src="media4/image26.png" alt=""></p>
+<p>编辑还需要完成图片上传，有图片，则在上传时需要把原图给移除</p>
+<p><img src="media4/image27.png" alt=""></p>
+<hr>
+<h1 id="四、案例：文章的删除"><a href="#四、案例：文章的删除" class="headerlink" title="四、案例：文章的删除"></a>四、案例：文章的删除</h1><p><strong>步骤1</strong>：给删除的链接地址设置一个<strong>url</strong></p>
+<p><img src="media4/image28.png" alt=""></p>
+<p><strong>步骤2</strong>：设置删除的路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/article/del,'</span>admin/article/del<span class="string">');</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p><strong>步骤3</strong>：在<code>articleController</code>中建立一个<code>del</code>的方法，完成删除，并删除文章的图片</p>
+<p><img src="media4/image29.png" alt=""></p>
+<p>删除文件<code>unlink</code>方法：</p>
+<p><img src="media4/image30.png" alt=""></p>
+<hr>
+<h1 id="五、案例：ajax-layer弹出层获取文章内容"><a href="#五、案例：ajax-layer弹出层获取文章内容" class="headerlink" title="五、案例：ajax+layer弹出层获取文章内容"></a>五、案例：ajax+layer弹出层获取文章内容</h1><p><strong>步骤1</strong>：设置查看文章内容的标签</p>
+<p><img src="media4/image39.png" alt=""></p>
+<p><strong>步骤2</strong>：给<code>class=showContent</code>绑定单击事件</p>
+<p><img src="media4/image40.png" alt=""></p>
+<p><strong>步骤3</strong>：设置一个路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group(<span class="string">'admin'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Route::any(<span class="string">'/article/showcontent'</span>,<span class="string">'admin/article/showcontent'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>步骤4</strong>：在<code>ArticleController</code>建立一个<code>showContent</code>方法，获取文章的详情，返回<strong>json</strong>格式数据</p>
+<p><img src="media4/image41.png" alt=""></p>
+<p><strong>步骤5</strong>：把响应的内容在==layer==弹出层进行显示</p>
+<p>a.  把下载下来的插件的压缩包中的layer文件夹复制<code>/public/plugins/</code>目录下</p>
+<p><img src="media4/image42.png" alt=""></p>
+<p>b.  引入上面插件的核心js文件layer.js</p>
+<p><img src="media4/image43.png" alt=""></p>
+<p>c.  页面层中显示内容</p>
+<p><img src="media4/image44.png" alt=""></p>
+<p>效果：<br><img src="media4/image45.png" alt=""></p>
+<hr>
+<h1 id="六、案例：实现上传图片的预览"><a href="#六、案例：实现上传图片的预览" class="headerlink" title="六、案例：实现上传图片的预览"></a>六、案例：实现上传图片的预览</h1><p>参考文件：</p>
+<p><img src="media4/image46.png" alt=""></p>
+<p><strong>步骤1</strong>：在<code>add.html</code>文件中引入核心js文件</p>
+<p><img src="media4/image47.png" alt=""></p>
+<p><strong>步骤2</strong>：给上传文件域设置<strong>onchange</strong>事件，以及设置图片预览的区域</p>
+<p><img src="media4/image48.png" alt=""></p>
+<p>效果：</p>
+<p><img src="media4/image49.png" alt=""></p>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2849568870/" title="TP5框架案例">http://blog.kuma8866.top/posts/2849568870/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/790821465/" rel="next" title="会话技术">
+                <i class="fa fa-chevron-left"></i> 会话技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/4277359260/" rel="prev" title="面向对象3">
+                面向对象3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TP5第一天"><span class="nav-text">==TP5第一天==</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、案例：搭建后台首页"><span class="nav-text">一、案例：搭建后台首页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤1：创建控制器和方法"><span class="nav-text">步骤1：创建控制器和方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤2：定义路由"><span class="nav-text">步骤2：定义路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤3：创建或配置模版"><span class="nav-text">步骤3：创建或配置模版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤4：模版公共部分处理"><span class="nav-text">步骤4：模版公共部分处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤5：模版修改"><span class="nav-text">步骤5：模版修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、案例：搭建登录页"><span class="nav-text">二、案例：搭建登录页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤1：创建控制器和方法-1"><span class="nav-text">步骤1：创建控制器和方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤2：定义路由-1"><span class="nav-text">步骤2：定义路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤3：配置和修改模版"><span class="nav-text">步骤3：配置和修改模版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TP5第二天"><span class="nav-text">==TP5第二天==</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、案例：完成后台登录功能"><span class="nav-text">一、案例：完成后台登录功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、代码实现"><span class="nav-text">1、代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、完成登录的实现"><span class="nav-text">2、完成登录的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、补充"><span class="nav-text">3、补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、跳转"><span class="nav-text">3.1、跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2、重定向"><span class="nav-text">3.2、重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3、session"><span class="nav-text">3.3、session</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、案例：完成后台退出功能"><span class="nav-text">二、案例：完成后台退出功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、案例：完成登录防翻墙"><span class="nav-text">三、案例：完成登录防翻墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、验证器实现登录验证（新增）"><span class="nav-text">四、验证器实现登录验证（新增）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、验证器概述"><span class="nav-text">1、验证器概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、基本使用"><span class="nav-text">2、基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、代码如下"><span class="nav-text">3、代码如下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TP5第三天"><span class="nav-text">==TP5第三天==</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、案例：完成登录的验证码功能"><span class="nav-text">一、案例：完成登录的验证码功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、案例：完成文章分类的添加"><span class="nav-text">二、案例：完成文章分类的添加</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、输出添加分类的模板展示"><span class="nav-text">1、输出添加分类的模板展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、完成添加分类数据的入库"><span class="nav-text">2、完成添加分类数据的入库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、案例：完成文章分类的列表展示"><span class="nav-text">三、案例：完成文章分类的列表展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、案例：完成文章分类的编辑"><span class="nav-text">四、案例：完成文章分类的编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现编辑分类数据回显到模板中"><span class="nav-text">1、实现编辑分类数据回显到模板中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现分类编辑的数据入库"><span class="nav-text">2、实现分类编辑的数据入库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、把验证器独立出来使用"><span class="nav-text">五、把验证器独立出来使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、案例：使用Ajax完成文章分类的无刷新删除"><span class="nav-text">六、案例：使用Ajax完成文章分类的无刷新删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、案例：完成文章的添加"><span class="nav-text">七、案例：完成文章的添加</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、输出添加文章模板的展示"><span class="nav-text">1、输出添加文章模板的展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、集成富文本编辑器到文章的内容添加页中"><span class="nav-text">2、集成富文本编辑器到文章的内容添加页中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、实现文章数据的入库"><span class="nav-text">3、实现文章数据的入库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TP5第四天"><span class="nav-text">==TP5第四天==</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、案例：完成文章的图片上传和缩略图生成"><span class="nav-text">一、案例：完成文章的图片上传和缩略图生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现文章的图片上传"><span class="nav-text">1、实现文章的图片上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现文章图片缩略图生成"><span class="nav-text">2、实现文章图片缩略图生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、案例：完成文章列表的展示"><span class="nav-text">二、案例：完成文章列表的展示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现文章列表在模板中展示"><span class="nav-text">1、实现文章列表在模板中展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现文章列表的分页功能"><span class="nav-text">2、实现文章列表的分页功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、案例：文章的编辑"><span class="nav-text">三、案例：文章的编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、实现编辑数据回显到模板中"><span class="nav-text">1、实现编辑数据回显到模板中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、实现编辑数据入库"><span class="nav-text">2、实现编辑数据入库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、案例：文章的删除"><span class="nav-text">四、案例：文章的删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、案例：ajax-layer弹出层获取文章内容"><span class="nav-text">五、案例：ajax+layer弹出层获取文章内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、案例：实现上传图片的预览"><span class="nav-text">六、案例：实现上传图片的预览</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

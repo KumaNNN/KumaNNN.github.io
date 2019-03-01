@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言 第3天课堂笔记 讲师：邵山欢 日期：2017年11月6日  复习先说一下，工作的时候关于nodejs有两种情况：  直接找关于nodejs的工作，此时99%是在写HTTP业务。不会让你去写nodejs内核。 现在企业需要的人就是能够加班、有超强学习能力。刚刚过去的两天，Vue出了2.5、Angular出了5。   在开发vue（40%市场份额）、react（60%市场份额）的时候，使用nod">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js入门和企业级项目开发03">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/1479802669/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="前言 第3天课堂笔记 讲师：邵山欢 日期：2017年11月6日  复习先说一下，工作的时候关于nodejs有两种情况：  直接找关于nodejs的工作，此时99%是在写HTTP业务。不会让你去写nodejs内核。 现在企业需要的人就是能够加班、有超强学习能力。刚刚过去的两天，Vue出了2.5、Angular出了5。   在开发vue（40%市场份额）、react（60%市场份额）的时候，使用nod">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image2.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image3.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image4.jpeg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1479802669/image23.png">
+<meta property="og:updated_time" content="2018-11-17T15:58:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js入门和企业级项目开发03">
+<meta name="twitter:description" content="前言 第3天课堂笔记 讲师：邵山欢 日期：2017年11月6日  复习先说一下，工作的时候关于nodejs有两种情况：  直接找关于nodejs的工作，此时99%是在写HTTP业务。不会让你去写nodejs内核。 现在企业需要的人就是能够加班、有超强学习能力。刚刚过去的两天，Vue出了2.5、Angular出了5。   在开发vue（40%市场份额）、react（60%市场份额）的时候，使用nod">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/1479802669/image2.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/1479802669/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Node.js入门和企业级项目开发03 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/1479802669/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Node.js入门和企业级项目开发03
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-17 23:58:47" itemprop="dateCreated datePublished" datetime="2018-11-17T23:58:47+08:00">2018-11-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/js-NodeJS/" itemprop="url" rel="index"><span itemprop="name">js.NodeJS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">12k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">11 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>第3天课堂笔记</p>
+<p>讲师：邵山欢</p>
+<p>日期：2017年11月6日</p>
+</blockquote>
+<h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><p><strong>先说一下，工作的时候关于nodejs有两种情况：</strong></p>
+<ol>
+<li><p>直接找关于nodejs的工作，此时99%是在写HTTP业务。不会让你去写nodejs内核。</p>
+<p>现在企业需要的人就是能够加班、有超强学习能力。刚刚过去的两天，Vue出了2.5、Angular出了5。</p>
+<p><img src="image2.png" alt=""></p>
+</li>
+<li><p>在开发vue（40%市场份额）、react（60%市场份额）的时候，使用nodejs的工作流工作，比如gulp、grunt、yeoman、webpack等等。最常见的，就是用nodejs做路由层。</p>
+</li>
+</ol>
+<p>项目的后台现在80%以上仍然是PHP、ASP、JSP，因为nodejs是单线程的脚本程序，无法撼动老牌后台服务器语言的。PHP、ASP、JSP是绝对不会找前端去写接口的。</p>
+<p><strong>复习一些知识点：</strong></p>
+<ul>
+<li>nodejs不是一个语言，是一个平台。js是语言。和PHP + Apache不同，nodejs即是语言的承接平台又是提供http服务的平台。</li>
+</ul>
+<ul>
+<li>nodejs的安装，跨操作系统的，我们写的代码在任何的操作系统中都能运行。但是要装不同的nodejs环境。</li>
+</ul>
+<ul>
+<li><p>nodejs没有根目录，得用http和fs共同配合做顶层路由设计，在原生的开发中，通常用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(req.url == <span class="string">""</span>)&#123;</span><br><span class="line"></span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(req.url == <span class="string">""</span>)&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>npm要会用，模块的使用。</p>
+</li>
+</ul>
+<ul>
+<li><p>Express简化了http程序的开发：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"exprss"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"&lt;h1&gt;你好&lt;/h1&gt;"</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GET请求和POST请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> id = url.parse(req.url , <span class="literal">true</span>).query.id;</span><br><span class="line">	res.send(<span class="string">"&lt;h1&gt;你好&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line">	form.parse(req , <span class="function"><span class="keyword">function</span>(<span class="params">err , fields , files</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>params：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/:xuehao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xuehao = req.params.xuehao;</span><br><span class="line">	res.send(<span class="string">"&lt;h1&gt;你好&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="二、TodoList的深入学习"><a href="#二、TodoList的深入学习" class="headerlink" title="二、TodoList的深入学习"></a>二、TodoList的深入学习</h1><h2 id="2-1-复习"><a href="#2-1-复习" class="headerlink" title="2.1 复习"></a>2.1 复习</h2><p>我们有了db.js这个模拟数据库之后，接下来写了一个todo.js的文件，里面有4个函数是操作db.js的。</p>
+<p>此时我们说db.js文件是<strong>可被预测状态的（predictable）</strong>。</p>
+<p>说A文件可被预测状态：</p>
+<ol>
+<li><p><strong>清晰性</strong>：对A文件的所有操作，都罗列出函数了；</p>
+</li>
+<li><p><strong>私有性</strong>：对A对象的操作，必须通过这些函数；</p>
+</li>
+<li><p><strong>灵活性</strong>：对A的操作可以任意插拔，删除一个函数就去掉了一种操作，增加一个函数就增加一个操作。</p>
+</li>
+</ol>
+<p>nodejs中的所有的关于文件的操作，都是异步的。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile();</span><br><span class="line">fs.writeFile();</span><br><span class="line">fs.appendFile();</span><br></pre></td></tr></table></figure>
+<p>所以他们都提供了回调函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fs.write(filepath , <span class="function"><span class="keyword">function</span>(<span class="params">err , data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>如果再把这个异步函数封装成一个函数，外层函数要接受一个callback回调函数，当fs的readFile执行完毕之后，调用callback通过实参将data传出去</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">read</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">	fs.write(filepath , <span class="function"><span class="keyword">function</span>(<span class="params">err , data</span>)</span>&#123;</span><br><span class="line">		callback(<span class="built_in">JSON</span>.parse(data.toString()));</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">read(<span class="function"><span class="keyword">function</span>(<span class="params">jsonobj</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(jsonobj);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>RESTful接口：</strong></p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>URL地址</th>
+<th>请求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增加TodO</td>
+<td>/todo</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>列出TODO</td>
+<td>/todo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>更改TODO顺序</td>
+<td>/todo</td>
+<td>MOVE</td>
+</tr>
+<tr>
+<td>删除TODO</td>
+<td>/todo/id号</td>
+<td>DELETE</td>
+</tr>
+<tr>
+<td>更改TODO</td>
+<td>/todo/id号</td>
+<td>PATCH</td>
+</tr>
+</tbody>
+</table>
+<p>我们将app.js中的中间件的function(req,res)都挪出去：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入控制器</span></span><br><span class="line"><span class="keyword">var</span> mainctrl = <span class="built_in">require</span>(<span class="string">"./controllers/mainctrl.js"</span>);</span><br><span class="line"><span class="comment">//静态化www文件夹</span></span><br><span class="line">app.use(express.static(<span class="string">"www"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//罗列中间件</span></span><br><span class="line">app.get(<span class="string">"/todo"</span>  		, mainctrl.showTodo);		<span class="comment">//列出所有的todo</span></span><br><span class="line">app.post(<span class="string">"/todo"</span> 		, mainctrl.addTodo);		<span class="comment">//增加todo</span></span><br><span class="line">app.delete(<span class="string">"/todo/:id"</span>  , mainctrl.removeTodo); 	<span class="comment">//删除todo</span></span><br><span class="line">app.patch(<span class="string">"/todo/:id"</span> 	, mainctrl.updateTodo); 	<span class="comment">//更改todo</span></span><br><span class="line">app.move(<span class="string">"/todo"</span> 		, mainctrl.moveTodo);		<span class="comment">//更改TODO的顺序</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//监听端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p>控制器controllers/mainctrl.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formidable = <span class="built_in">require</span>(<span class="string">"formidable"</span>);</span><br><span class="line"><span class="comment">//引入苦工（就是我们的model）</span></span><br><span class="line"><span class="keyword">var</span> todo = <span class="built_in">require</span>(<span class="string">"../models/todo.js"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//列出所有todo</span></span><br><span class="line">exports.showTodo = <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//当用户访问/todo命令苦工读取数据库</span></span><br><span class="line">	todo.allTodo(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//呈递在页面上</span></span><br><span class="line">		res.json(&#123;<span class="string">"results"</span> : data&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//增加todo</span></span><br><span class="line">exports.addTodo = <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//识别用户传入的title</span></span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line"></span><br><span class="line">	form.parse(req , <span class="function"><span class="keyword">function</span>(<span class="params">err , fields , files</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> title = fields.title;</span><br><span class="line">		todo.addTodo(title , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			res.json(&#123;<span class="string">"result"</span> : <span class="number">1</span>&#125;);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除todo</span></span><br><span class="line">exports.removeTodo = <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> id = req.params.id;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//命令苦工删除</span></span><br><span class="line">	todo.removeTodo(id , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		res.json(&#123;<span class="string">"result"</span> : <span class="number">1</span>&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//更改todo</span></span><br><span class="line">exports.updateTodo = <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> id = req.params.id;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line"></span><br><span class="line">	form.parse(req , <span class="function"><span class="keyword">function</span>(<span class="params">err , fields , files</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//命令苦工删除</span></span><br><span class="line">		todo.updateTodo(id , fields.k , fields.v , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			res.json(&#123;<span class="string">"result"</span> : <span class="number">1</span>&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//移动todo</span></span><br><span class="line">exports.moveTodo =  <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line"></span><br><span class="line">	form.parse(req , <span class="function"><span class="keyword">function</span>(<span class="params">err , fields , files</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> startidx = fields.startidx;</span><br><span class="line">		<span class="keyword">var</span> endidx = fields.endidx;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//命令苦工更改顺序</span></span><br><span class="line">		todo.moveTodo(startidx , endidx , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			res.json(&#123;<span class="string">"result"</span> : <span class="number">1</span>&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-MVC架构"><a href="#2-2-MVC架构" class="headerlink" title="2.2 MVC架构"></a>2.2 MVC架构</h2><p><strong>MVC、MVVM不是设计模式，而是代码的架构模式</strong>。</p>
+<ul>
+<li><p><strong>设计模式</strong>比如中介者模式、发布订阅模式、装饰器模式等等，他们解决的是偶尔性问题，类和类中间怎么一起工作；</p>
+</li>
+<li><p><strong>代码的架构</strong>模式是编程的时候文件的组织的模式。</p>
+</li>
+</ul>
+<p><strong>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写。</strong></p>
+<ul>
+<li><p><strong>Model（模型）</strong>是应用程序中用于处理应用程序数据逻辑的部分。通常模型对象负责在数据库中存取数据。</p>
+</li>
+<li><p><strong>View（视图）</strong>是应用程序中处理数据显示的部分。通常视图是依据模型数据创建的。</p>
+</li>
+<li><p><strong>Controller（控制器）</strong>是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
+</li>
+</ul>
+<p><img src="image3.png" alt=""></p>
+<p>MVC的一个图示：</p>
+<p><img src="image4.jpeg" alt="IMG\_256"></p>
+<h1 id="三、MongoDB"><a href="#三、MongoDB" class="headerlink" title="三、MongoDB"></a>三、MongoDB</h1><h2 id="3-1-NoSQL简介"><a href="#3-1-NoSQL简介" class="headerlink" title="3.1 NoSQL简介"></a>3.1 NoSQL简介</h2><p>之前学习的是SQL（structure query language ， 结构化查询语言）。<strong>SQL数据库有一个最大特点：限制每一个字段的类型。</strong></p>
+<p><img src="image5.png" alt=""></p>
+<p>比如id现在是数字类型，但是突然间国家开放成人本科，此时学校说学号要以CR打头，你就傻了，因为id必须是数字。<strong>现在我们要修改字段类型，时间耗费很多，因为所有已经存在的条目要跟着一起修改</strong>。<strong>如果要增加列，更是灾难，因为所有已经存在的条目都要跟着一起修改</strong>。</p>
+<p>NoSQL（非结构化数据库，Not Only SQL）应运而生。</p>
+<p>下面的数据就是合法的4条NoSQL数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;id&quot;:10001 , &quot;name&quot;:&quot;小明&quot; , &quot;age&quot; : 12 , &quot;sex&quot; : &quot;男&quot;&#125;</span><br><span class="line">&#123;&quot;id&quot;:10002 , &quot;name&quot;:&quot;小强&quot; , &quot;age&quot; : 13 , &quot;sex&quot; : &quot;男&quot;&#125;</span><br><span class="line">&#123;&quot;id&quot;:10003 , &quot;name&quot;:&quot;小吕&quot; , &quot;age&quot; : 14 , &quot;sex&quot; : &quot;女&quot;&#125;</span><br><span class="line">&#123;&quot;id&quot;:&quot;CR10001&quot; , &quot;name&quot;:&quot;小钢炮&quot; , &quot;age&quot; : 44 , &quot;sex&quot; : &quot;男&quot;,&quot;score&quot;:560&#125;</span><br></pre></td></tr></table></figure>
+<p>每个字段都不限制类型，id可以是数字，然后突然间变为字符串是合法的；也可以增加字段。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL</td>
+<td>适合复杂的查找、查询很迅速</td>
+<td>限制了字段的类型、表格一旦确定不容易更改表格的形态。</td>
+</tr>
+<tr>
+<td>NoSQL</td>
+<td>不限制字段类型，数据条目每一条都可以有不同的字段，便于修改表格的形态。</td>
+<td>不适合复杂的查找、查询不迅速</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-2-MongoDB数据库的安装"><a href="#3-2-MongoDB数据库的安装" class="headerlink" title="3.2 MongoDB数据库的安装"></a>3.2 MongoDB数据库的安装</h2><p>官网：<a href="https://www.mongodb.com/" target="_blank" rel="noopener">https://www.mongodb.com/</a></p>
+<p><img src="image6.png" alt=""></p>
+<p>下载之后：</p>
+<p><img src="image7.png" alt=""></p>
+<p>注意系统是64位的同学，学习mongodb3.0.6，32位的同学只能安装2代。</p>
+<p><img src="image8.png" alt=""></p>
+<p><img src="image9.png" alt=""></p>
+<p>现在要把bin这个文件夹设置为系统的环境变量。</p>
+<p><img src="image10.png" alt=""></p>
+<p>一路确定之后，就可以打开CMD：</p>
+<p><img src="image11.png" alt=""></p>
+<p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo -version</span><br></pre></td></tr></table></figure>
+<p>可以查看mongo数据库的版本号了，说明安装成功。</p>
+<h2 id="3-3-数据库的开机mongod"><a href="#3-3-数据库的开机mongod" class="headerlink" title="3.3 数据库的开机mongod"></a>3.3 数据库的开机mongod</h2><p>开启数据库我们称作”开机”。</p>
+<p>首先需要在c盘创建一个database文件夹。然后打开CMD输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath c:\database</span><br></pre></td></tr></table></figure>
+<p>mongo<strong>d</strong>负责开机。读作”芒果第”。</p>
+<p><code>--dbpath</code>表示设置数据库的存放目录。</p>
+<p><img src="image12.png" alt=""></p>
+<p>如果能够在CMD的最后一行看见：waiting for connections on port 27017</p>
+<p>说明开机成功。</p>
+<p><strong>注意，必须事先安装了windows补丁KB2731284，如果没有安装这个补丁，数据库将开机失败。</strong></p>
+<p>怎么知道自己是不是安装了这个补丁呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systeminfo</span><br></pre></td></tr></table></figure>
+<p><img src="image13.png" alt=""></p>
+<p>如果就是跑不成功，此时尝试用管理员模式打开CMD：</p>
+<p><img src="image14.png" alt=""></p>
+<p>如果还是开不了，就换为2.0.6版本即可。</p>
+<h2 id="3-4-简单的数据库操作mongo"><a href="#3-4-简单的数据库操作mongo" class="headerlink" title="3.4 简单的数据库操作mongo"></a>3.4 简单的数据库操作mongo</h2><p>MongoDB有可视化管理软件，叫做MongoBooster，前期我们先用CMD来管理。</p>
+<p>使用数据库之前要先用mongod开机，然后此CMD不能关闭，再次打开一个窗口，用mongo命令进入REPL环境。</p>
+<p>bin文件夹中两个工具：</p>
+<table>
+<thead>
+<tr>
+<th>工具名字</th>
+<th>负责的事情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mongod.exe</td>
+<td>负责开机</td>
+</tr>
+<tr>
+<td>mongo.exe</td>
+<td>负责管理数据库</td>
+</tr>
+<tr>
+<td>mongoimport.exe</td>
+<td>负责导入数据</td>
+</tr>
+<tr>
+<td>mongoexport.exe</td>
+<td>负责导出数据</td>
+</tr>
+</tbody>
+</table>
+<p><img src="image15.png" alt=""></p>
+<p><strong>数据库</strong>用use来<strong>创建</strong>，比如创建一个学生管理数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; use xsgl</span><br></pre></td></tr></table></figure>
+<p>这个叫做使用数据库，只不过当这个数据库不存在的时候，系统自动帮你创建。</p>
+<p>创建完数据库之后，要创建一个”表格”叫做banji0716，”表格”在MongoDB中称为”集合”。</p>
+<p>集合不用刻意创建，只需要在集合中插入一条数据，集合自动创建。</p>
+<p><strong>插入数据</strong>的语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.insert(&#123;&quot;id&quot;:10001,&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:12,&quot;sex&quot;:&quot;男&quot;&#125;);</span><br></pre></td></tr></table></figure>
+<p>数据库中的数据就是JSON。</p>
+<p><img src="image16.png" alt=""></p>
+<p>查看集合中的全部数据，用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.find()</span><br></pre></td></tr></table></figure>
+<p><img src="image17.png" alt=""></p>
+<p>查看0716班所有男生：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.find(&#123;&quot;sex&quot;:&quot;男&quot;&#125;);</span><br></pre></td></tr></table></figure>
+<p>查看0716班所有大于15岁的男生：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.find(&#123;&quot;sex&quot;:&quot;男&quot; , &quot;age&quot; : &#123;&quot;$gt&quot; : 15&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<p>查看0716班所有大于15岁的男生或者小于17岁的女生：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.find(&#123;&quot;$or&quot; : [&#123;&quot;sex&quot;:&quot;男&quot;,&quot;age&quot;:&#123;&quot;$gt&quot;:15&#125;&#125;,&#123;&quot;sex&quot;:&quot;女&quot;,&quot;age&quot;:&#123;&quot;$lt&quot;:17&#125;&#125;]&#125;);</span><br></pre></td></tr></table></figure>
+<p>也就是说NoSQL的CRUD（增删改查）操作，一律不使用SQL。</p>
+<p>原来的SQL现在不用了：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> banji0716 <span class="keyword">WHERE</span> (sex = <span class="string">"男"</span> <span class="keyword">AND</span> age &gt; <span class="number">13</span>) <span class="keyword">OR</span> (sex = <span class="string">"女"</span> <span class="keyword">AND</span> age &lt; <span class="number">17</span>)</span><br></pre></td></tr></table></figure>
+<p>查看已经有的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; show dbs</span><br></pre></td></tr></table></figure>
+<p><img src="image18.png" alt=""></p>
+<p>需要注意的是：数据库中必须有一条数据之后，才能被创建。</p>
+<p>删除数据库（实现要use 一个数据库）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.dropDatabase()</span><br></pre></td></tr></table></figure>
+<p>查看已有集合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; show collections</span><br></pre></td></tr></table></figure>
+<p>删除集合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.drop()</span><br></pre></td></tr></table></figure>
+<p>删除一个条目：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.banji0716.remove(&#123;&quot;id&quot;:&quot;CR10001&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-5-数据的导入-mongoimport-和导出-mongoexport"><a href="#3-5-数据的导入-mongoimport-和导出-mongoexport" class="headerlink" title="3.5 数据的导入(mongoimport)和导出(mongoexport)"></a>3.5 数据的导入(mongoimport)和导出(mongoexport)</h2><p>先开机，但是不要进入REPL环境！</p>
+<p><strong>数据导入</strong>：</p>
+<p>在桌面上准备一个数据.txt</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"id"</span>:<span class="number">10001</span> , <span class="attr">"name"</span>:<span class="string">"小明"</span> , <span class="attr">"age"</span> : <span class="number">12</span> , <span class="attr">"sex"</span> : <span class="string">"男"</span>&#125;</span><br><span class="line">&#123;<span class="attr">"id"</span>:<span class="number">10002</span> , <span class="attr">"name"</span>:<span class="string">"小强"</span> , <span class="attr">"age"</span> : <span class="number">13</span> , <span class="attr">"sex"</span> : <span class="string">"男"</span>&#125;</span><br><span class="line">&#123;<span class="attr">"id"</span>:<span class="number">10003</span> , <span class="attr">"name"</span>:<span class="string">"小吕"</span> , <span class="attr">"age"</span> : <span class="number">14</span> , <span class="attr">"sex"</span> : <span class="string">"女"</span>&#125;</span><br><span class="line">&#123;<span class="attr">"id"</span>:<span class="string">"CR10001"</span> , <span class="attr">"name"</span>:<span class="string">"小钢炮"</span> , <span class="attr">"age"</span> : <span class="number">44</span> , <span class="attr">"sex"</span> : <span class="string">"男"</span>,<span class="attr">"score"</span>:<span class="number">560</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>使用CMD命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoimport -d xsgl -c banji0716 C:\Users\Danny\Desktop\数据.txt --drop</span><br></pre></td></tr></table></figure>
+<p><code>-d</code>表示选择database数据库</p>
+<p><code>-c</code>表示选择collection集合（表）</p>
+<p><code>--drop</code>表示删除这个集合中已经有的数据</p>
+<p><strong>导出数据</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoexport -d xsgl -c banji0716 -o c:\beifen.txt</span><br></pre></td></tr></table></figure>
+<h2 id="3-6-使用mongobooster可视化数据库管理软件"><a href="#3-6-使用mongobooster可视化数据库管理软件" class="headerlink" title="3.6 使用mongobooster可视化数据库管理软件"></a>3.6 使用mongobooster可视化数据库管理软件</h2><p><img src="image19.png" alt=""></p>
+<h1 id="四、NodeJS操作MongoDB（非重点）"><a href="#四、NodeJS操作MongoDB（非重点）" class="headerlink" title="四、NodeJS操作MongoDB（非重点）"></a>四、NodeJS操作MongoDB（非重点）</h1><blockquote>
+<p>因为一会儿我们就要讲解Mongoose，将颠覆这里的知识。</p>
+<p>手册：<a href="https://docs.mongodb.com/ecosystem/drivers/node-js/" target="_blank" rel="noopener">https://docs.mongodb.com/ecosystem/drivers/node-js/</a></p>
+<p>或者：<a href="https://www.npmjs.com/package/mongodb" target="_blank" rel="noopener">https://www.npmjs.com/package/mongodb</a></p>
+</blockquote>
+<h2 id="4-1-连接数据库"><a href="#4-1-连接数据库" class="headerlink" title="4.1 连接数据库"></a>4.1 连接数据库</h2><p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save mongodb</span><br></pre></td></tr></table></figure>
+<p>用mongod开启数据库之后，写app.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数据库的地址，最末尾的斜杠是数据库的名字</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">'mongodb://localhost:27017/xsgl'</span>;</span><br><span class="line"></span><br><span class="line">MongoClient.connect(url, <span class="function"><span class="keyword">function</span>(<span class="params">err, db</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!err)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"数据库连接成功"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"数据库连接失败"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行node app.js即可。</p>
+<p><img src="image20.png" alt=""></p>
+<h2 id="4-2-查询和增加操作"><a href="#4-2-查询和增加操作" class="headerlink" title="4.2 查询和增加操作"></a>4.2 查询和增加操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数据库的地址，最末尾的斜杠是数据库的名字</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">'mongodb://localhost:27017/xsgl'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接数据库</span></span><br><span class="line">MongoClient.connect(url, <span class="function"><span class="keyword">function</span>(<span class="params">err, db</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!err)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"数据库连接成功"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"数据库连接失败"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="comment">//查询</span></span><br><span class="line">	<span class="comment">// db.collection("banji0716").find(&#123;&#125;).toArray(function(err , docs)&#123;</span></span><br><span class="line">	<span class="comment">// 	console.log(docs);</span></span><br><span class="line">	<span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//增加</span></span><br><span class="line">	db.collection(<span class="string">"banji0716"</span>).insert(&#123;<span class="string">"name"</span>:<span class="string">"小张"</span>,<span class="string">"age"</span>:<span class="number">7</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!err)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"插入成功"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>原生nodejs操作mongodb问题很多：</strong></p>
+<ol>
+<li><p>语法形式上大的回调函数太大了，要包裹所有的代码，甚至要包裹express的中间件；</p>
+</li>
+<li><p>不利于MVC编程，我们几乎不能将所有对数据库的操作封装到一个文件中。</p>
+</li>
+</ol>
+<h1 id="五、Mongoose"><a href="#五、Mongoose" class="headerlink" title="五、Mongoose"></a>五、Mongoose</h1><p>Mongoose简化了nodejs对nodejs的操作。</p>
+<p>mongoose是nodejs中的model那个文件。</p>
+<p><img src="image21.png" alt=""></p>
+<h2 id="5-1-基本使用"><a href="#5-1-基本使用" class="headerlink" title="5.1 基本使用"></a>5.1 基本使用</h2><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save mongoose</span><br></pre></td></tr></table></figure>
+<p>两步走：</p>
+<p><img src="image22.png" alt=""></p>
+<p>我们首先创建一个models的文件夹，创建一个Student.js的构造函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建schema</span></span><br><span class="line"><span class="keyword">var</span> studentSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">	<span class="string">"xuehao"</span> 	: <span class="built_in">Number</span>, </span><br><span class="line">	<span class="string">"xingming"</span> 	: <span class="built_in">String</span>,</span><br><span class="line">	<span class="string">"age"</span> 		: <span class="built_in">Number</span>,</span><br><span class="line">	<span class="string">"sex"</span> 		: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过schema创建model</span></span><br><span class="line"><span class="keyword">var</span> Student = mongoose.model(<span class="string">"Student"</span> , studentSchema);</span><br><span class="line"></span><br><span class="line"><span class="comment">//暴露</span></span><br><span class="line"><span class="built_in">module</span>.exports = Student;</span><br></pre></td></tr></table></figure>
+<p>然后创建app.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接数据库</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/xsgl'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接我们的model</span></span><br><span class="line"><span class="keyword">var</span> Student = <span class="built_in">require</span>(<span class="string">"./models/Student.js"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例化一个Student类的实例：</span></span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(&#123;</span><br><span class="line">	<span class="string">"xuehao"</span> : <span class="number">10001</span> ,</span><br><span class="line">	<span class="string">"age"</span> : <span class="number">12</span>,</span><br><span class="line">	<span class="string">"sex"</span> : <span class="string">"男"</span>,</span><br><span class="line">	<span class="string">"xingming"</span> : <span class="string">"小明"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用它的save方法即可放到数据库中持久</span></span><br><span class="line">xiaoming.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(err)&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"保存失败"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"保存成功"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>集合就是students，会被自动加上复数s：</p>
+<p><img src="image23.png" alt=""></p>
+<p>你创建model的时候：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Student = mongoose.model(<span class="string">"Student"</span> , studentSchema);</span><br></pre></td></tr></table></figure>
+<p>它将会自动将开头字母变为小心，末尾加s作为集合名字。</p>
+<h2 id="5-2-增"><a href="#5-2-增" class="headerlink" title="5.2 增"></a>5.2 增</h2><p><strong>注意，mongoose牛逼之处在于，schema、model一旦写好了，再也不用改</strong>！</p>
+<p>方法1：（实例化，然后save）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaohong = <span class="keyword">new</span> Student(&#123;</span><br><span class="line">	<span class="string">"xuehao"</span> 	: <span class="number">10002</span>, </span><br><span class="line">	<span class="string">"xingming"</span> 	: <span class="string">"小红"</span>,</span><br><span class="line">	<span class="string">"age"</span> 		: <span class="number">9</span>,</span><br><span class="line">	<span class="string">"sex"</span> 		: <span class="string">"女"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">xiaohong.save(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">	!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>方法2：（直接调用create）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Student.create(&#123;</span><br><span class="line">	<span class="string">"xuehao"</span> 	: <span class="number">10003</span>, </span><br><span class="line">	<span class="string">"xingming"</span> 	: <span class="string">"小花"</span>,</span><br><span class="line">	<span class="string">"age"</span> 		: <span class="number">5</span>,</span><br><span class="line">	<span class="string">"sex"</span> 		: <span class="string">"女"</span></span><br><span class="line">&#125;,(err)=&gt;&#123;</span><br><span class="line">	!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="5-3-删"><a href="#5-3-删" class="headerlink" title="5.3 删"></a>5.3 删</h2><p>方法1（先找到这个人，然后remove）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Student.find(&#123;<span class="string">"xingming"</span> : <span class="string">"小红"</span>&#125; , <span class="function"><span class="keyword">function</span>(<span class="params">err , results</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> zhegeren = results[<span class="number">0</span>];</span><br><span class="line">	zhegeren.remove(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">		!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>方法2（直接remove）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Student.remove(&#123;<span class="string">"xingming"</span> : <span class="string">"小花"</span>&#125; , (err)=&gt;&#123;</span><br><span class="line">	!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="5-4-改"><a href="#5-4-改" class="headerlink" title="5.4 改"></a>5.4 改</h2><p>方法1（找到，改了，然后save）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Student.find(&#123;<span class="string">"xingming"</span> : <span class="string">"小明"</span>&#125; , <span class="function"><span class="keyword">function</span>(<span class="params">err , results</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> thepeople = results[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">	thepeople.sex = <span class="string">"女"</span>;</span><br><span class="line"></span><br><span class="line">	thepeople.save(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">		!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>方法2（直接改）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Student.update(&#123;<span class="string">"xingming"</span> : <span class="string">"小明"</span>&#125; , &#123;<span class="string">"$set"</span> : &#123;<span class="string">"age"</span> : <span class="number">99</span>&#125;&#125; , <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">	!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Student.update(改变谁 , &#123;<span class="string">"$set"</span> : 怎么改&#125; , <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">	!err &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"成功"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="5-5-查"><a href="#5-5-查" class="headerlink" title="5.5 查"></a>5.5 查</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Student.find(&#123;<span class="string">"xingming"</span> : <span class="string">"小红"</span>&#125; , <span class="function"><span class="keyword">function</span>(<span class="params">err , results</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="六、Mongoose小案例-小小调查问卷表单"><a href="#六、Mongoose小案例-小小调查问卷表单" class="headerlink" title="六、Mongoose小案例 - 小小调查问卷表单"></a>六、Mongoose小案例 - 小小调查问卷表单</h1><p><strong>我们设计三个题目：</strong></p>
+<p>【单选题】双十一你最期待的事情：商场打折、淘宝购物节、单身狗过节啦</p>
+<p>【多选题】双十一你想买的东西：零食、衣服、电子产品、美容产品</p>
+<p>【数字题】你预算花费：range条，10块 ~ 20000块</p>
+<p>我们现在从前端、nodejs服务端、数据库，都是JavaScript语境！数据库也是JOSN！所以数组不会变形！</p>
+<p><strong>统计集合中有多少数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.surveys.count()</span><br></pre></td></tr></table></figure>
+<p>存储数据库特别简单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中间件</span></span><br><span class="line">app.post(<span class="string">"/tijiao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line">	form.parse(req , <span class="function"><span class="keyword">function</span>(<span class="params">err , fields</span>)</span>&#123;</span><br><span class="line">		Survey.create(&#123;</span><br><span class="line">			<span class="string">"timu1"</span> : fields.timu1 ,</span><br><span class="line">			<span class="string">"timu2"</span> : fields.timu2 ,</span><br><span class="line">			<span class="string">"timu3"</span> : fields.timu3 ,</span><br><span class="line">			<span class="string">"date"</span> : <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">		&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">			res.json(&#123;<span class="string">"result"</span> : err ? <span class="number">-1</span> : <span class="number">1</span>&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>数据可视化：<a href="http://echarts.baidu.com/demo.html#pie-simple" target="_blank" rel="noopener">http://echarts.baidu.com/demo.html#pie-simple</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/1479802669/" title="Node.js入门和企业级项目开发03">http://blog.kuma8866.top/posts/1479802669/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/791990203/" rel="next" title="Node.js入门和企业级项目开发02">
+                <i class="fa fa-chevron-left"></i> Node.js入门和企业级项目开发02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3327617678/" rel="prev" title="Node.js入门和企业级项目开发04">
+                Node.js入门和企业级项目开发04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复习"><span class="nav-text">复习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、TodoList的深入学习"><span class="nav-text">二、TodoList的深入学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-复习"><span class="nav-text">2.1 复习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-MVC架构"><span class="nav-text">2.2 MVC架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、MongoDB"><span class="nav-text">三、MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-NoSQL简介"><span class="nav-text">3.1 NoSQL简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-MongoDB数据库的安装"><span class="nav-text">3.2 MongoDB数据库的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-数据库的开机mongod"><span class="nav-text">3.3 数据库的开机mongod</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-简单的数据库操作mongo"><span class="nav-text">3.4 简单的数据库操作mongo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-数据的导入-mongoimport-和导出-mongoexport"><span class="nav-text">3.5 数据的导入(mongoimport)和导出(mongoexport)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-使用mongobooster可视化数据库管理软件"><span class="nav-text">3.6 使用mongobooster可视化数据库管理软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、NodeJS操作MongoDB（非重点）"><span class="nav-text">四、NodeJS操作MongoDB（非重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-连接数据库"><span class="nav-text">4.1 连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-查询和增加操作"><span class="nav-text">4.2 查询和增加操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、Mongoose"><span class="nav-text">五、Mongoose</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-基本使用"><span class="nav-text">5.1 基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-增"><span class="nav-text">5.2 增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-删"><span class="nav-text">5.3 删</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-改"><span class="nav-text">5.4 改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-查"><span class="nav-text">5.5 查</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、Mongoose小案例-小小调查问卷表单"><span class="nav-text">六、Mongoose小案例 - 小小调查问卷表单</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

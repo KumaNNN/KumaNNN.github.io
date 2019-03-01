@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言 第2天课堂笔记 讲师：邵山欢 日期：2017年11月3日  一、作业讲解开发一个小网站，功能是：  网址/  ，显示对考拉老师的话（别说坏话）。  网址/qian/12321 ，显示人民币一万两千三百二十一块整  网址/riqi/1997/5/8 ，显示这一天是农历丁酉年甲子月甲子年  网址/pinyin/我爱鹿晗  ，显示wǒ ài lù hán   讲一下作业： 第1步，创建packag">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js入门和企业级项目开发02">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/791990203/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="前言 第2天课堂笔记 讲师：邵山欢 日期：2017年11月3日  一、作业讲解开发一个小网站，功能是：  网址/  ，显示对考拉老师的话（别说坏话）。  网址/qian/12321 ，显示人民币一万两千三百二十一块整  网址/riqi/1997/5/8 ，显示这一天是农历丁酉年甲子月甲子年  网址/pinyin/我爱鹿晗  ，显示wǒ ài lù hán   讲一下作业： 第1步，创建packag">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/791990203/image22.png">
+<meta property="og:updated_time" content="2018-11-17T15:58:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js入门和企业级项目开发02">
+<meta name="twitter:description" content="前言 第2天课堂笔记 讲师：邵山欢 日期：2017年11月3日  一、作业讲解开发一个小网站，功能是：  网址/  ，显示对考拉老师的话（别说坏话）。  网址/qian/12321 ，显示人民币一万两千三百二十一块整  网址/riqi/1997/5/8 ，显示这一天是农历丁酉年甲子月甲子年  网址/pinyin/我爱鹿晗  ，显示wǒ ài lù hán   讲一下作业： 第1步，创建packag">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/791990203/image10.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/791990203/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Node.js入门和企业级项目开发02 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/791990203/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Node.js入门和企业级项目开发02
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-17 23:58:20" itemprop="dateCreated datePublished" datetime="2018-11-17T23:58:20+08:00">2018-11-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/js-NodeJS/" itemprop="url" rel="index"><span itemprop="name">js.NodeJS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">12 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>第2天课堂笔记</p>
+<p>讲师：邵山欢</p>
+<p>日期：2017年11月3日</p>
+</blockquote>
+<h1 id="一、作业讲解"><a href="#一、作业讲解" class="headerlink" title="一、作业讲解"></a>一、作业讲解</h1><p><strong>开发一个小网站，功能是：</strong></p>
+<ol>
+<li><p>网址/  ，显示对考拉老师的话（别说坏话）。</p>
+</li>
+<li><p>网址/qian/12321 ，显示人民币一万两千三百二十一块整</p>
+</li>
+<li><p>网址/riqi/1997/5/8 ，显示这一天是农历丁酉年甲子月甲子年</p>
+</li>
+<li><p>网址/pinyin/我爱鹿晗  ，显示wǒ ài lù hán</p>
+</li>
+</ol>
+<p><strong>讲一下作业：</strong></p>
+<p>第1步，创建package.json文件，使用CMD命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>第2步，安装依赖。</p>
+<p>这里学习一下，可以用空格隔开所有的依赖的名字，一次性安装多个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save nzh solarlunar pinyin</span><br></pre></td></tr></table></figure>
+<p>第3步，写app.js跑一个HelloWorld，验证引包都是正确的，没有少文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> nzh = <span class="built_in">require</span>(<span class="string">"nzh"</span>);</span><br><span class="line"><span class="keyword">var</span> solarlunar = <span class="built_in">require</span>(<span class="string">"solarlunar"</span>);</span><br><span class="line"><span class="keyword">var</span> pinyin = <span class="built_in">require</span>(<span class="string">"pinyin"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	res.end(<span class="string">"123"</span>);</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p>第4步，写app.js，得到用户的URL，并且得到里面有用的部分。</p>
+<p>这里我们使用一个新的内置模块叫做url，这个url模块有一个parse的方法，可以将url进行分解。</p>
+<p>比如url：<a href="http://127.0.0.1:3000/qian/123123?haha=2&amp;sex=nan" target="_blank" rel="noopener">http://127.0.0.1:3000/qian/123123?haha=2&amp;sex=nan</a></p>
+<p>进行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"><span class="built_in">console</span>.log( url.parse(req.url) );</span><br></pre></td></tr></table></figure>
+<p><img src="image10.png" alt=""></p>
+<p>两个东西最有用：</p>
+<p>● pathname 就是url的主干部分</p>
+<p>● query 就是GET请求的查询参数</p>
+<p>进一步的，如果parse函数里面加上第二个参数true，此时参数query将会自动成为对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url.parse(req.url , true);</span><br></pre></td></tr></table></figure>
+<p><img src="image11.png" alt=""></p>
+<p>第5步，进行正则模式的匹配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">http.createServer(<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="comment">//得到用户访问的地址的主干部分</span></span><br><span class="line">	<span class="keyword">var</span> pathname = url.parse(req.url , <span class="literal">true</span>).pathname;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(pathname == <span class="string">"/"</span>)&#123;</span><br><span class="line">		res.setHeader(<span class="string">"Content-Type"</span> , <span class="string">"text/html;charset=UTF8"</span>);</span><br><span class="line">		res.end(<span class="string">"这是首页"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="regexp">/\/qian\/.+$/</span>.test(pathname))&#123;</span><br><span class="line">		res.setHeader(<span class="string">"Content-Type"</span> , <span class="string">"text/html;charset=UTF8"</span>);</span><br><span class="line">		<span class="comment">//尝试得到qian后面的部分</span></span><br><span class="line">		<span class="keyword">var</span> money = pathname.match(<span class="regexp">/\/qian\/(.+)$/</span>)[<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">var</span> toMoney = nzh.toMoney(money);</span><br><span class="line">		<span class="comment">//nzh这个包有一个特点，当你toMondy转一个不合法的输入的时候，会返回原串</span></span><br><span class="line">		<span class="keyword">if</span>(money == toMoney)&#123;</span><br><span class="line">			res.end(<span class="string">"不合法的输入"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			res.end(toMoney);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p>第6步，可以将所有的业务放到其他的文件夹中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"><span class="keyword">var</span> showqian = <span class="built_in">require</span>(<span class="string">"./controllers/showqian.js"</span>);</span><br><span class="line"><span class="keyword">var</span> showriqi = <span class="built_in">require</span>(<span class="string">"./controllers/showriqi.js"</span>);</span><br><span class="line"><span class="keyword">var</span> showpinyin = <span class="built_in">require</span>(<span class="string">"./controllers/showpinyin.js"</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//得到用户访问的地址的主干部分</span></span><br><span class="line">	<span class="keyword">var</span> pathname = url.parse(req.url , <span class="literal">true</span>).pathname;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(pathname == <span class="string">"/"</span>)&#123;</span><br><span class="line">		res.setHeader(<span class="string">"Content-Type"</span> , <span class="string">"text/html;charset=UTF8"</span>);</span><br><span class="line">		fs.readFile(<span class="string">"./public/index.html"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">err , data</span>)</span>&#123;</span><br><span class="line">			res.end(data);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="regexp">/\/qian\/.+$/</span>.test(pathname))&#123;</span><br><span class="line">		<span class="comment">//如果URL匹配了/qian/...的模式，此时调用外部的函数</span></span><br><span class="line">		showqian(res , pathname);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="regexp">/\/riqi\/.+$/</span>.test(pathname))&#123;</span><br><span class="line">		showriqi(res , pathname);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="regexp">/\/pinyin\/.+$/</span>.test(pathname))&#123;</span><br><span class="line">		showpinyin(res , pathname);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		res.statusCode = <span class="number">404</span>;</span><br><span class="line">		res.setHeader(<span class="string">"Content-Type"</span> , <span class="string">"text/html;charset=UTF8"</span>);</span><br><span class="line">		res.end(<span class="string">"&lt;h1&gt;没有这个页面&lt;/h1&gt;"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="二、淘宝CNPM镜像"><a href="#二、淘宝CNPM镜像" class="headerlink" title="二、淘宝CNPM镜像"></a>二、淘宝CNPM镜像</h1><p>淘宝做了一个npm的镜像，叫做cnpm。</p>
+<p>官网： npm.taobao.org</p>
+<p>特别简单复制下面的程序到CMD中按回车就行了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p><code>-g</code>安装表示全局安装命令行程序，安装完毕之后，我们就能在CMD中使用cnpm了。</p>
+<p><img src="image12.png" alt=""></p>
+<p>今后使用cnpm命令代替npm命令，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save solarlunar</span><br></pre></td></tr></table></figure>
+<h1 id="三、Express框架"><a href="#三、Express框架" class="headerlink" title="三、Express框架"></a>三、Express框架</h1><h2 id="3-1-整体感知"><a href="#3-1-整体感知" class="headerlink" title="3.1 整体感知"></a>3.1 整体感知</h2><p>做http服务的时候，不方便：</p>
+<ul>
+<li><p>匹配URL很不方便 if(//.test()){}</p>
+</li>
+<li><p>使用静态页面不方便 fs.readFile(function(err,data){res.end(data)})</p>
+</li>
+<li><p>不能静态化一个文件夹，我们想将一个文件夹中的所有文件自动拥有路由，实现不了</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+<p><strong>Express简化了HTTP应用程序的开发。</strong></p>
+<p>官网： <a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">http://www.expressjs.com.cn/</a></p>
+<p><img src="image13.png" alt=""></p>
+<p>安装依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm intsall --save express</span><br></pre></td></tr></table></figure>
+<p>我们用昨天的作业在express中进行一个演示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"我是首页"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/qian/:shu"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"转钱为大写，要转的钱"</span> + req.params.shu);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/riqi/:nian/:yue/:ri"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"客官你好，我会将这个日期转为农历："</span> + req.params.nian + req.params.yue + req.params.ri);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/pinyin/:word"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"将这个词"</span> + req.params.word + <span class="string">"转为拼音"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-创建app和app的监听"><a href="#3-2-创建app和app的监听" class="headerlink" title="3.2 创建app和app的监听"></a>3.2 创建app和app的监听</h2><p>我们引入express之后，这个express是一个函数，这个函数可以调用创建出一个app对象。</p>
+<p>今后所有的操作都是用app对象来完成，需要注意的是，一个程序中只有一个app。也就是说express不能多次调用。</p>
+<p><strong>express程序的基本结构：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">中间件</span><br><span class="line">中间件</span><br><span class="line">中间件</span><br><span class="line">中间件</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-中间件"><a href="#3-3-中间件" class="headerlink" title="3.3 中间件"></a>3.3 中间件</h2><h3 id="3-3-1-动词"><a href="#3-3-1-动词" class="headerlink" title="3.3.1 动词"></a>3.3.1 动词</h3><p>中间件的语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.动词(<span class="string">"地址"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>我们先说动词，它是26种HTTP请求，必须是小写字母：</p>
+<p><img src="image14.png" alt=""></p>
+<p>动词表示当用户用这种请求访问这个页面的时候做的事情。</p>
+<p>我们现在就可以区分出用GET请求访问首页和POST请求访问首页做不同的事情：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"A"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"B"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-2-中间件的路径是自动比对主干部分"><a href="#3-3-2-中间件的路径是自动比对主干部分" class="headerlink" title="3.3.2 中间件的路径是自动比对主干部分"></a>3.3.2 中间件的路径是自动比对主干部分</h3><p>路径已经自动被url.parse()了，也就是说express会用用户输入的URL的主干部分来进行比对。</p>
+<p>也就是说我的中间件如果是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/xinwen"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"&lt;h1&gt;新闻频道&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>下面的URL都是合法的能够进入这个频道的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:3000/xinwen</span><br><span class="line">http://127.0.0.1:3000/xinwen/</span><br><span class="line">http://127.0.0.1:3000/xinwen?id=234234</span><br><span class="line">http://127.0.0.1:3000/xinwen?id=234234#234234345435234</span><br></pre></td></tr></table></figure>
+<p><img src="image15.png" alt=""></p>
+<h3 id="3-3-3-中间件可以有通配符"><a href="#3-3-3-中间件可以有通配符" class="headerlink" title="3.3.3 中间件可以有通配符"></a>3.3.3 中间件可以有通配符</h3><p>用<code>:</code>来表示画一个通配，要注意这里没有正则表达式的，在程序中可以通过<code>req.params.***</code>得到它。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/:banji/:xuehao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> banji = req.params.banji;</span><br><span class="line">	<span class="keyword">var</span> xuehao = req.params.xuehao;</span><br><span class="line"></span><br><span class="line">	res.send(banji + <span class="string">"班"</span> + xuehao + <span class="string">"号"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>今后的编程就不用写match()和test()方法了。</p>
+<p>还有一种*的通配符，没啥用，自己看手册。</p>
+<h3 id="3-3-4-中间件的顺序很关键"><a href="#3-3-4-中间件的顺序很关键" class="headerlink" title="3.3.4 中间件的顺序很关键"></a>3.3.4 中间件的顺序很关键</h3><p>比如我们输入班级、学号查询学生信息，但是不能查询3班8号。此时一定要注意中间件的顺序。</p>
+<p>中间件一旦匹配上的路由，此时不再进行其他匹配。有一种”拦截”的感觉。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/3/8"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"&lt;h1&gt;校长的儿子你也敢查！&lt;/h1&gt;"</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/:banji/:xuehao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> banji = req.params.banji;</span><br><span class="line">	<span class="keyword">var</span> xuehao = req.params.xuehao;</span><br><span class="line"></span><br><span class="line">	res.send(banji + <span class="string">"班"</span> + xuehao + <span class="string">"号"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-5-用next-放行拦截"><a href="#3-3-5-用next-放行拦截" class="headerlink" title="3.3.5 用next()放行拦截"></a>3.3.5 用next()放行拦截</h3><p>当一个中间件已经匹配了路径，但是自己不希望单独处理这次请求，可以用next来放行。</p>
+<p>我们做一个业务能够查询学生或者老师的信息，不管查询什么都要增加计数器的数量。此时可以单独用一个中间件写计数器，放行请求即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/chaxun/*"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</span><br><span class="line">	count++;</span><br><span class="line">	next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/chaxun/xuesheng/:banji/:xuehao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"查询"</span> + req.params.banji + <span class="string">"班"</span> + req.params.xuehao + <span class="string">"号"</span> + <span class="string">"&lt;br /&gt; 共查询了"</span> + count + <span class="string">"次"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/chaxun/laoshi/:gonghao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"查询"</span> + req.params.gonghao + <span class="string">"工号的老师"</span> + <span class="string">"&lt;br /&gt; 共查询了"</span> + count + <span class="string">"次"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="3-4-输出"><a href="#3-4-输出" class="headerlink" title="3.4 输出"></a>3.4 输出</h2><p>● 输出可以用res.send()做输出，会自动加上utf-8。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.send(<span class="string">"中文"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>● 如果输出的内容是一个JSON，此时要用res.json()来进行输出。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.json(&#123;<span class="string">"a"</span>:<span class="number">1</span>,<span class="string">"b"</span>:<span class="number">2</span>,<span class="string">"c"</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,&#123;<span class="string">"m"</span>:<span class="number">4</span>&#125;]&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>● 如果输出的内容是一个JSONP，此时要用res.jsonp()来输出，此时它会自动检测callback的GET请求，并且加上圆括号的调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.jsonp(&#123;<span class="string">"a"</span>:<span class="number">1</span>,<span class="string">"b"</span>:<span class="number">2</span>,<span class="string">"c"</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,&#123;<span class="string">"m"</span>:<span class="number">4</span>&#125;]&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>复习一下jQuery中的jsonp跨域：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">	<span class="string">"url"</span> : <span class="string">"/?callback=?"</span>,</span><br><span class="line">	<span class="string">"dataType"</span> : <span class="string">"JSONP"</span>,</span><br><span class="line">	<span class="string">"success"</span> : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//原理</span></span><br><span class="line"><span class="comment">//jQuery帮我们创建了一个&lt;script&gt;标签，src是这个url，用随机的字符串替换了?</span></span><br><span class="line"><span class="comment">//用随机的字符串为名字创建了一个全局的函数，将success指向它</span></span><br></pre></td></tr></table></figure>
+<p><img src="image16.png" alt=""></p>
+<p>● 如果输出的是一个外置页面，此时要用sendFile()这个API，注意这里必须要用绝对路径，此时我们用<strong><em>__dirname</em></strong>来进行一个拼合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//__dirname表示当前文件所在的目录</span></span><br><span class="line">	res.sendFile(__dirname + <span class="string">"/public/a.html"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>● 如果想要跳转页面，用res.redirect()即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	res.redirect(<span class="string">"http://www.163.com"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>复习：</strong></p>
+<p>res.send()</p>
+<p>res.sendFile()</p>
+<p>res.json()</p>
+<p>res.jsonp()</p>
+<p>res.redirect()</p>
+<h2 id="3-5-静态化一个文件夹"><a href="#3-5-静态化一个文件夹" class="headerlink" title="3.5 静态化一个文件夹"></a>3.5 静态化一个文件夹</h2><p>如果我们想让某文件夹中的所有文件自动拥有路由，此时非常简单，一句话即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(<span class="string">"public"</span>));</span><br></pre></td></tr></table></figure>
+<p>此时将把public文件夹进行静态化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">┣ app.js</span><br><span class="line">┣ public</span><br><span class="line">┃  ┣  a.html</span><br><span class="line">┃  ┣  m</span><br><span class="line">┃  ┃ ┣  n</span><br><span class="line">┃  ┃ ┃ ┣ wangjunkai.png</span><br></pre></td></tr></table></figure>
+<p>我们在app.js中静态化public文件夹：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.use(express.static(<span class="string">"public"</span>));</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p>此时：</p>
+<p><img src="image17.png" alt=""></p>
+<p><img src="image18.png" alt=""></p>
+<p>更进一步，如果我们不希望静态的文件夹出现在底层，而是在URL中体现public的名字，此时可用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">"/public"</span> , express.static(<span class="string">"public"</span>));</span><br></pre></td></tr></table></figure>
+<p><img src="image19.png" alt=""></p>
+<h1 id="四、Express中的GET请求和POST请求参数的获得"><a href="#四、Express中的GET请求和POST请求参数的获得" class="headerlink" title="四、Express中的GET请求和POST请求参数的获得"></a>四、Express中的GET请求和POST请求参数的获得</h1><h2 id="4-1-GET请求参数的获得"><a href="#4-1-GET请求参数的获得" class="headerlink" title="4.1 GET请求参数的获得"></a>4.1 GET请求参数的获得</h2><p><img src="image20.png" alt=""></p>
+<p>GET请求参数的识别实际上就是URL地址的解析。URL解析使用内置的url模块的parse方法即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line">app.get(<span class="string">"/tijiao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> query = url.parse(req.url , <span class="literal">true</span>).query;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"服务器收到了前端交来的数据"</span> , query);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="image21.png" alt=""></p>
+<h2 id="4-2-POST请求参数的获得"><a href="#4-2-POST请求参数的获得" class="headerlink" title="4.2 POST请求参数的获得"></a>4.2 POST请求参数的获得</h2><p>POST请求的参数携带在上行报文的报文体中。</p>
+<p>我们使用npm包formidable来识别这样的上行报文。</p>
+<p>API：<a href="https://www.npmjs.com/package/formidable" target="_blank" rel="noopener">https://www.npmjs.com/package/formidable</a></p>
+<p>安装依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm intsall formidable --save</span><br></pre></td></tr></table></figure>
+<p>后台app.js识别POST请求需要使用formidable这个包。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formidable = <span class="built_in">require</span>(<span class="string">'formidable'</span>);</span><br><span class="line">app.post(<span class="string">"/tijiao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line"></span><br><span class="line">	form.parse(req , <span class="function"><span class="keyword">function</span>(<span class="params">err , fields , files</span>)</span>&#123;</span><br><span class="line">		res.json(&#123;<span class="string">"result"</span> : <span class="number">1</span>&#125;)</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>总结一下两种请求后台怎么得到参数（伪代码）：</p>
+<p><strong>GET请求</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line">var query = url.parse(req.url , true).query;</span><br></pre></td></tr></table></figure>
+<p><strong>POST请求</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var formidable = require(&quot;formidable&quot;);</span><br><span class="line"></span><br><span class="line">app.post(&quot;/tijiao&quot; , function(req,res)&#123;</span><br><span class="line">	var form = new formidable.IncomingForm();</span><br><span class="line">	form.parse(req , function(err , fields , files)&#123;</span><br><span class="line">		console.log(fields);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-其他请求"><a href="#4-3-其他请求" class="headerlink" title="4.3 其他请求"></a>4.3 其他请求</h2><p>一共有26种请求，注意只有GET请求是通过URL缀<code>?</code>参数来传递参数的。其他的25种请求，都是通过上行报文来传参数的。formidable能够识别其他25种请求的参数。</p>
+<p>先说一下jQuery如何发出DELETE请求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#btn3"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		<span class="string">"url"</span> : <span class="string">"/tijiao"</span> ,</span><br><span class="line">		<span class="string">"type"</span> : <span class="string">"DELETE"</span> ,</span><br><span class="line">		<span class="string">"data"</span> : &#123;</span><br><span class="line">			<span class="string">"id"</span> : <span class="number">10086</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="string">"success"</span> : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">			alert(data.result);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>我们的Express这样识别它：（你会发现和POST请求的处理方法是一样的，都是formidable）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//识别DELETE请求</span></span><br><span class="line">app.delete(<span class="string">"/tijiao"</span> , <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</span><br><span class="line">	form.parse(req , (err , fields , files) =&gt; &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"服务器收到DELETE请求参数"</span> , fields);</span><br><span class="line">		res.json(&#123;<span class="string">"result"</span> : <span class="number">1</span>&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>总结一下：</p>
+<p><strong>GET请求</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var url = require(&quot;url&quot;);</span><br><span class="line">var query = url.parse(req.url , true).query;</span><br></pre></td></tr></table></figure>
+<p><strong>其他请求</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var formidable = require(&quot;formidable&quot;);</span><br><span class="line"></span><br><span class="line">app.动词(&quot;/tijiao&quot; , function(req,res)&#123;</span><br><span class="line">	var form = new formidable.IncomingForm();</span><br><span class="line">	form.parse(req , function(err , fields , files)&#123;</span><br><span class="line">		console.log(fields);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-RESTful风格路由"><a href="#4-4-RESTful风格路由" class="headerlink" title="4.4 RESTful风格路由"></a>4.4 RESTful风格路由</h2><p>注意这个单词的写法：RESTful。REST是Representational State Transfer。</p>
+<p><strong>RESTful风格的路由很简单，指的是用URL表示操作的资源，用HTTP动词表示何种操作。</strong></p>
+<p>不是RESTful风格的路由：</p>
+<table>
+<thead>
+<tr>
+<th>事儿</th>
+<th>处理这个事儿的URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增加一个学生</td>
+<td><a href="http://127.0.0.1/addStudent.php" target="_blank" rel="noopener">http://127.0.0.1/addStudent.php</a></td>
+</tr>
+<tr>
+<td>删除一个学号为10086的学生</td>
+<td><a href="http://127.0.0.1/removeStudent.php?id=10086" target="_blank" rel="noopener">http://127.0.0.1/removeStudent.php?id=10086</a></td>
+</tr>
+<tr>
+<td>修改一个学号为10086的学生的性别</td>
+<td><a href="http://127.0.0.1/updateStudent.php?id=10086&amp;sex=男" target="_blank" rel="noopener">http://127.0.0.1/updateStudent.php?id=10086&amp;sex=男</a></td>
+</tr>
+<tr>
+<td>列出所有学生</td>
+<td><a href="http://127.0.0.1/allStudent.php" target="_blank" rel="noopener">http://127.0.0.1/allStudent.php</a></td>
+</tr>
+</tbody>
+</table>
+<p>RESTful风格的路由</p>
+<table>
+<thead>
+<tr>
+<th>事儿</th>
+<th>处理这个事儿的URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增加一个学生</td>
+<td><a href="http://127.0.0.1/student" target="_blank" rel="noopener">http://127.0.0.1/student</a>   （POST）</td>
+</tr>
+<tr>
+<td>删除一个学号为10086的学生</td>
+<td><a href="http://127.0.0.1/student/10086" target="_blank" rel="noopener">http://127.0.0.1/student/10086</a>   （DELETE）</td>
+</tr>
+<tr>
+<td>修改一个学号为10086的学生的性别</td>
+<td><a href="http://127.0.0.1/student/10086" target="_blank" rel="noopener">http://127.0.0.1/student/10086</a>   （PATCH）</td>
+</tr>
+<tr>
+<td>列出所有学生</td>
+<td><a href="http://127.0.0.1/student" target="_blank" rel="noopener">http://127.0.0.1/student</a>   （GET）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="五、做一个RESTful风格路由的TodoList"><a href="#五、做一个RESTful风格路由的TodoList" class="headerlink" title="五、做一个RESTful风格路由的TodoList"></a>五、做一个RESTful风格路由的TodoList</h1><p><img src="image22.png" alt=""></p>
+<p>创建身份证，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></p>
+<p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save express formidable</span><br></pre></td></tr></table></figure>
+<p>先从做一个模拟数据库开始（事实上，第三节课就要学习MongoDB和mongoose）。</p>
+<p>创建db文件夹创建db.js文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	&#123;<span class="attr">"id"</span> : <span class="number">1</span> , <span class="attr">"title"</span> : <span class="string">"吃饭"</span> , <span class="attr">"done"</span> : <span class="literal">false</span>&#125;,</span><br><span class="line">	&#123;<span class="attr">"id"</span> : <span class="number">2</span> , <span class="attr">"title"</span> : <span class="string">"睡觉"</span> , <span class="attr">"done"</span> : <span class="literal">true</span>&#125;,</span><br><span class="line">	&#123;<span class="attr">"id"</span> : <span class="number">3</span> , <span class="attr">"title"</span> : <span class="string">"打豆豆"</span> , <span class="attr">"done"</span> : <span class="literal">false</span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>创建models文件夹，里面创建todo.js的文件。</p>
+<ul>
+<li><p><strong>[这个js文件暴露所有能够操作db.js数据库文件的函数，所有对db的操作必须找它！]</strong></p>
+</li>
+<li><p><strong>[这个js文件不是中间件，和http的服务没有关系，这个文件做的是最脏最累的底层的活儿，看不清楚和全局的关系，这个js文件可以单独的进行单元测试]</strong>。</p>
+</li>
+</ul>
+<p>nodejs中内置了一个叫做path的模块，里面提供了resolve()的函数，可以智能合并__dirname和层级路径。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//【查】列出所有的todo。结果通过回调函数返回。</span></span><br><span class="line"><span class="keyword">var</span> allTodo = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//path.resolve()表示只能合并路径。</span></span><br><span class="line">	fs.readFile(path.resolve(__dirname , <span class="string">"../db/db.js"</span>) , <span class="function"><span class="keyword">function</span>(<span class="params">err , data</span>)</span>&#123;</span><br><span class="line">		callback(data.toString());</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单元测试，测试查询功能：</span></span><br><span class="line">allTodo(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"哈哈读取啦"</span> , data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这个todo.js的全貌：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//文件路径</span></span><br><span class="line"><span class="keyword">var</span> filepath = path.resolve(__dirname , <span class="string">"../db/db.js"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//【查】列出所有的todo。结果通过回调函数返回。</span></span><br><span class="line">exports.allTodo = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//path.resolve()表示只能合并路径。</span></span><br><span class="line">	fs.readFile(filepath , <span class="function"><span class="keyword">function</span>(<span class="params">err , data</span>)</span>&#123;</span><br><span class="line">		callback(data.toString());</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//【增】增加Todo。思路是先读取所有的Todo，往数组中push一项，然后写文件</span></span><br><span class="line">exports.addTodo = <span class="function"><span class="keyword">function</span>(<span class="params">title , callback</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//利用刚刚写好的allTodo函数读取所有todo</span></span><br><span class="line">	allTodo(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//将字符串的数组变为真的数组</span></span><br><span class="line">		<span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">		<span class="comment">//遍历这个数组找最大的ID，为什么要找呢？因为我们的新Todo要为当前最大id+1</span></span><br><span class="line">		<span class="keyword">var</span> maxid = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length ; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(data[i].id &gt; maxid)&#123;</span><br><span class="line">				maxid = data[i].id;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//将data中push一项</span></span><br><span class="line">		data.push(&#123;<span class="string">"id"</span> : maxid + <span class="number">1</span> , <span class="string">"title"</span> : title , <span class="string">"done"</span> : <span class="literal">false</span>&#125;);</span><br><span class="line">		<span class="comment">//写！</span></span><br><span class="line">		fs.writeFile(filepath , <span class="built_in">JSON</span>.stringify(data) , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			callback();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//【删】思路是读取全部的数组，删除其中一项，然后写入文件</span></span><br><span class="line">exports.removeTodo = <span class="function"><span class="keyword">function</span>(<span class="params">id , callback</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//利用刚刚写好的allTodo函数读取所有todo</span></span><br><span class="line">	allTodo(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//将字符串的数组变为真的数组</span></span><br><span class="line">		<span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">		<span class="comment">//删除这个todo</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length ; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(data[i].id === id)&#123;</span><br><span class="line">				data.splice(i , <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//写！</span></span><br><span class="line">		fs.writeFile(filepath , <span class="built_in">JSON</span>.stringify(data) , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			callback();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//【改】思路是读取全部的数组，改变其中一项，写入</span></span><br><span class="line"><span class="comment">//k可能是title或者是done</span></span><br><span class="line">exports.updateTodo = <span class="function"><span class="keyword">function</span>(<span class="params">id , k , v , callback</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//利用刚刚写好的allTodo函数读取所有todo</span></span><br><span class="line">	allTodo(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//将字符串的数组变为真的数组</span></span><br><span class="line">		<span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">		<span class="comment">//改变这个todo，遍历所有todo看看哪个todo的id和你要改的id是一样的</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; data.length ; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(data[i].id === id)&#123;</span><br><span class="line">				data[i][k] = v;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//写！</span></span><br><span class="line">		fs.writeFile(filepath , <span class="built_in">JSON</span>.stringify(data) , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			callback();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写app.js主文件，主要是静态化www文件夹。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">//静态化www文件夹</span></span><br><span class="line">app.use(express.static(<span class="string">"www"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听端口</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>接口：就是没有界面的数据，通常是JSON或者JSONP形式</strong>。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/791990203/" title="Node.js入门和企业级项目开发02">http://blog.kuma8866.top/posts/791990203/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3057491457/" rel="next" title="Node.js入门和企业级项目开发01">
+                <i class="fa fa-chevron-left"></i> Node.js入门和企业级项目开发01
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/1479802669/" rel="prev" title="Node.js入门和企业级项目开发03">
+                Node.js入门和企业级项目开发03 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、作业讲解"><span class="nav-text">一、作业讲解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、淘宝CNPM镜像"><span class="nav-text">二、淘宝CNPM镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Express框架"><span class="nav-text">三、Express框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-整体感知"><span class="nav-text">3.1 整体感知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-创建app和app的监听"><span class="nav-text">3.2 创建app和app的监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-中间件"><span class="nav-text">3.3 中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-动词"><span class="nav-text">3.3.1 动词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-中间件的路径是自动比对主干部分"><span class="nav-text">3.3.2 中间件的路径是自动比对主干部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-中间件可以有通配符"><span class="nav-text">3.3.3 中间件可以有通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4-中间件的顺序很关键"><span class="nav-text">3.3.4 中间件的顺序很关键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5-用next-放行拦截"><span class="nav-text">3.3.5 用next()放行拦截</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-输出"><span class="nav-text">3.4 输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-静态化一个文件夹"><span class="nav-text">3.5 静态化一个文件夹</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Express中的GET请求和POST请求参数的获得"><span class="nav-text">四、Express中的GET请求和POST请求参数的获得</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-GET请求参数的获得"><span class="nav-text">4.1 GET请求参数的获得</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-POST请求参数的获得"><span class="nav-text">4.2 POST请求参数的获得</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-其他请求"><span class="nav-text">4.3 其他请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-RESTful风格路由"><span class="nav-text">4.4 RESTful风格路由</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、做一个RESTful风格路由的TodoList"><span class="nav-text">五、做一个RESTful风格路由的TodoList</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

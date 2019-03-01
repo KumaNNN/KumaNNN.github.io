@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="mongoDB案例：Mongodb实现短网址简介将一个非常长的URL地址转换为一个比较短的URL地址。主要为了用户的一个体验，因为短的信息美观一些。同时也可以达到隐藏url地址信息，有的时候我们可以不希望用户直接看到url里面包含的信息，或者有的时候出于某些操作可能根不希望别人看到。 一般在微博里面最常见。有的时候手机的短信也可以收到类似的url地址。 体验地址： http://dwz.waili">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb案例">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/3990249883/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="mongoDB案例：Mongodb实现短网址简介将一个非常长的URL地址转换为一个比较短的URL地址。主要为了用户的一个体验，因为短的信息美观一些。同时也可以达到隐藏url地址信息，有的时候我们可以不希望用户直接看到url里面包含的信息，或者有的时候出于某些操作可能根不希望别人看到。 一般在微博里面最常见。有的时候手机的短信也可以收到类似的url地址。 体验地址： http://dwz.waili">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps81FE.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8210.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8220.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8231.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8232.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8243.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8244.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8254.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536910478920.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536910497867.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps829A.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536911578689.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536913844373.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536913886975.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536913914046.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536913938083.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536913976415.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536914096593.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536914020696.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536914034810.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536914056393.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps82F2.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8303.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/wps8304.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536915532909.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3990249883/1536915512675.png">
+<meta property="og:updated_time" content="2018-12-18T04:35:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb案例">
+<meta name="twitter:description" content="mongoDB案例：Mongodb实现短网址简介将一个非常长的URL地址转换为一个比较短的URL地址。主要为了用户的一个体验，因为短的信息美观一些。同时也可以达到隐藏url地址信息，有的时候我们可以不希望用户直接看到url里面包含的信息，或者有的时候出于某些操作可能根不希望别人看到。 一般在微博里面最常见。有的时候手机的短信也可以收到类似的url地址。 体验地址： http://dwz.waili">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/3990249883/wps81FE.tmp.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/3990249883/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>mongodb案例 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/3990249883/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">mongodb案例
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 12:35:39" itemprop="dateCreated datePublished" datetime="2018-12-18T12:35:39+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/NoSQL-Mongodb/" itemprop="url" rel="index"><span itemprop="name">NoSQL.Mongodb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h1><h1 id="案例：Mongodb实现短网址"><a href="#案例：Mongodb实现短网址" class="headerlink" title="案例：Mongodb实现短网址"></a>案例：Mongodb实现短网址</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a><strong>简介</strong></h2><p>将一个非常长的URL地址转换为一个比较短的URL地址。主要为了用户的一个体验，因为短的信息美观一些。同时也可以达到隐藏url地址信息，有的时候我们可以不希望用户直接看到url里面包含的信息，或者有的时候出于某些操作可能根不希望别人看到。</p>
+<p>一般在微博里面最常见。有的时候手机的短信也可以收到类似的url地址。</p>
+<p>体验地址：</p>
+<p><a href="http://dwz.wailian.work/" target="_blank" rel="noopener">http://dwz.wailian.work/</a></p>
+<p>效果：</p>
+<p><img src="wps81FE.tmp.jpg" alt="img"> </p>
+<p>实现技术点：</p>
+<ol>
+<li>用户先输入一个长的网址，然后发送ajax请求去后台生成短的网址</li>
+<li>到时候后台会保存一个 短网址 和 长网址 的对应关系 【使用mongodb进行映射关系数据的存储】</li>
+<li>当用户利用短网址去访问的时候，短网址的服务器先判断短网址是否在本地的数据库里面存在，如果存在则取出后使用php的header(‘location:长URL’, 302)函数做一个跳转即可完成。【302：临时重定向】</li>
+</ol>
+<h2 id="新浪微博短网址api使用"><a href="#新浪微博短网址api使用" class="headerlink" title="新浪微博短网址api使用"></a>新浪微博短网址api使用</h2><p>现在如果实际是自己的公司要做这样的分享网址的业务，那么我们自己该如何处理呢？</p>
+<p>答：</p>
+<ol>
+<li>自己是否存在短的域名</li>
+<li>使用第三方的API进行生成【短网址最先从新浪的微博演变过来的，因为微博在设计的时候，只能发送140个文字】</li>
+</ol>
+<p><img src="wps8210.tmp.jpg" alt="img"> </p>
+<p>微信开发平台现在也支持短网址的操作。 </p>
+<p>api文档：<a href="http://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">http://open.weibo.com/wiki/Short_url/shorten</a></p>
+<p> 一款开源的PHP程序，让你可以轻松建立属于自己的短网址生成系统 【<a href="https://c7sky.com/yourls.html】" target="_blank" rel="noopener">https://c7sky.com/yourls.html】</a></p>
+<p>已知新浪有提供类似的API。</p>
+<ol>
+<li>成为新浪的开发者【身份证信息】</li>
+<li>创建应用（获取到appkey）</li>
+</ol>
+<p><img src="wps8220.tmp.jpg" alt="img"> </p>
+<p>appkey： <strong>752547878</strong></p>
+<ol start="3">
+<li>根据文档进行接口调用，提供了两种方式的url请求</li>
+</ol>
+<p><img src="wps8231.tmp.jpg" alt="img"> </p>
+<p>a) xml格式数据</p>
+<p><a href="http://api.t.sina.com.cn/short_url/shorten.xml?source=752547878&amp;url_long=http://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">http://api.t.sina.com.cn/short_url/shorten.xml?source=752547878&amp;url_long=http://open.weibo.com/wiki/Short_url/shorten</a></p>
+<p>b) json格式的数据</p>
+<p><a href="http://api.t.sina.com.cn/short_url/shorten.json?source=752547878&amp;url_long=http://open.weibo.com/wiki/Short_url/shorten" target="_blank" rel="noopener">http://api.t.sina.com.cn/short_url/shorten.json?source=752547878&amp;url_long=http://open.weibo.com/wiki/Short_url/shorten</a></p>
+<p><img src="wps8232.tmp.jpg" alt="img"> </p>
+<h2 id="用户自定义开发思路分析"><a href="#用户自定义开发思路分析" class="headerlink" title="用户自定义开发思路分析"></a><strong>用户自定义开发思路分析</strong></h2><p>通过上面的操作，我们可以使用别人提供的API进行短网址的生成，但是我们现在处于学习，我们可以自己去实现一个短网址的转换项目。自己在本地定义一个域名(hosts文件里面定义即可 例如：b.cn)</p>
+<p>思路：</p>
+<ol>
+<li>短网址必须唯一，一 一对应。可以参考MySQL的主键ID，即可以自增，也可以唯一</li>
+<li>网址必须短，但是需要存储的信息多。这个时候可以使用进制实现，进制可以实现使用较少的位数来保存更多的信息。</li>
+<li>短网址尽量乱，无规律。防止发现规律后批量请求。</li>
+</ol>
+<p>统一现在规定短网址的位数在6位，查看一下不同进制下可以保存的所有的短网址的信息：</p>
+<pre><code>二进制 111111    2^6
+八进制 777777   8^6
+十六进制 FFFFFF F   16^6
+六十二进制 62^6  
+</code></pre><p><img src="wps8243.tmp.jpg" alt="img"> </p>
+<p>使用6位的62进制最多可以表示出500多亿种状态。</p>
+<p><img src="wps8244.tmp.jpg" alt="img"> </p>
+<p><strong>使用62进制在处理的时候，不能体现出规律性</strong>。则我们需要设计出一个自己的码表。之前我们使用的16进制，可以使用 0-9 A-F 来表示10进制的 0-15 这个16个数，则现在我们的62进制，则也需要使用62个字符来表示我们10进制的0-61。</p>
+<p><strong>去哪里找出62个字符进行替代？</strong></p>
+<p>0-9：十个阿拉伯数字</p>
+<p>a-z：26个字符</p>
+<p>A-Z：26个字符</p>
+<hr>
+<p>正好为 62 个字符，所以我们可以使用上面的 字符行为一个码表。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>62进制</th>
+<th>10进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr>
+<td>9</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>11</td>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>12</td>
+<td>b</td>
+<td>11</td>
+</tr>
+<tr>
+<td>13</td>
+<td>c</td>
+<td>12</td>
+</tr>
+<tr>
+<td>…</td>
+<td>….</td>
+<td>…</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Y</td>
+<td>60</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Z</td>
+<td>61</td>
+</tr>
+</tbody>
+</table>
+<p>62进制：ZY</p>
+<p>10进制为：61<em>62^1 + 60 </em> 62^0</p>
+<p><strong>问题：为什么要使用62进制来设计短网址了吗？</strong></p>
+<p>答：进制大，短表示更多的可能性。</p>
+<h2 id="主键id和进制代码实现"><a href="#主键id和进制代码实现" class="headerlink" title="主键id和进制代码实现"></a><strong>主键id和进制代码实现</strong></h2><p>==代码实现的思路：==</p>
+<ul>
+<li><p><strong>首先 生成一个唯一的数字，然后把这个唯一的数字转换为62进制。</strong></p>
+<p> mongodb里面提供一个<strong>全局计算器</strong>，可以帮我们生成唯一的整数，理解成mysql里面的自增型的主键id。用户输入的一个长的url地址应该对应一个唯一的短的url地址。</p>
+<p> 实现：</p>
+<p> <a href="http://www.runoob.com/mongodb/mongodb-autoincrement-sequence.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/mongodb-autoincrement-sequence.html</a></p>
+</li>
+</ul>
+<p><img src="wps8254.tmp.jpg" alt="img"> </p>
+<p>演示：</p>
+<ol>
+<li>创建一个集合，集合里面存在两个字段</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; use short</span><br><span class="line"></span><br><span class="line">&gt; db.counter.findAndModify(&#123;query:&#123;&apos;_id&apos;: 1&#125; , update:&#123;&apos;$inc&apos;: &#123;&apos;value&apos;: 1&#125;&#125;&#125;);</span><br><span class="line"></span><br><span class="line">&#123; &quot;_id&quot; : 1, &quot;value&quot; : 10 &#125;</span><br></pre></td></tr></table></figure>
+<p>实现每调用一次，先获取对应的自增id 然后把对应的值自增一下。然后将自增的id转化为对应的短网址。</p>
+<ol start="2">
+<li><p>变短的62进制和域名的前缀进行拼接</p>
+<p>定义码表 </p>
+</li>
+</ol>
+<p><img src="1536910478920.png" alt="1536910478920"></p>
+<p>转换函数</p>
+<p><img src="1536910497867.png" alt="1536910497867"></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h2><h3 id="前台效果"><a href="#前台效果" class="headerlink" title="前台效果"></a><strong>前台效果</strong></h3><ol>
+<li>创建一个 输入长网址转换为短网址的页面</li>
+</ol>
+<p><img src="wps829A.tmp.jpg" alt="img"> </p>
+<p>效果</p>
+<p><img src="1536911578689.png" alt="1536911578689"></p>
+<ol start="2">
+<li>完成页面的ajax提交事件</li>
+</ol>
+<p><img src="1536913844373.png" alt="1536913844373"></p>
+<ol start="3">
+<li><p>复制按钮</p>
+<p>a) 复制静态资源到z.cn目录</p>
+</li>
+</ol>
+<p><img src="1536913886975.png" alt="1536913886975"></p>
+<p>​    b) 在index.html页面修改短网址框的val值 和 点击复制按钮的ID，并引入插件包</p>
+<p><img src="1536913914046.png" alt="1536913914046"></p>
+<p>引入插件并定义复制函数</p>
+<p><img src="1536913938083.png" alt="1536913938083"></p>
+<p>在完成ajax请求后进行复制函数调用</p>
+<p><img src="1536913976415.png" alt="1536913976415"></p>
+<h3 id="后台处理"><a href="#后台处理" class="headerlink" title="后台处理"></a><strong>后台处理</strong></h3><ol>
+<li><p>在function.php定义好进制转换函数</p>
+<p><img src="1536914096593.png" alt="1536914096593"></p>
+</li>
+</ol>
+<p>在后台op.php生成短网址和长网址的映射关系</p>
+<p><img src="1536914020696.png" alt="1536914020696"></p>
+<ol start="2">
+<li>如果存在则直接返回</li>
+</ol>
+<p><img src="1536914034810.png" alt="1536914034810"></p>
+<ol start="3">
+<li>不存在则生成</li>
+</ol>
+<p><img src="1536914056393.png" alt="1536914056393"></p>
+<h3 id="短网址访问"><a href="#短网址访问" class="headerlink" title="短网址访问"></a>短网址访问</h3><ol>
+<li>定义伪静态规则，开启Apache的rewrite模块</li>
+</ol>
+<p><img src="wps82F2.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>开启虚拟主机的重写</li>
+</ol>
+<p><img src="wps8303.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>在网站根目录创建.htaccess文件</li>
+</ol>
+<p><img src="wps8304.tmp.jpg" alt="img"> </p>
+<p>内容如下：</p>
+<p><img src="1536915532909.png" alt="1536915532909"></p>
+<ol start="5">
+<li>在b.cn/s目录创建一个index.php完成跳转</li>
+</ol>
+<p><img src="1536915512675.png" alt="1536915512675"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/3990249883/" title="mongodb案例">http://blog.kuma8866.top/posts/3990249883/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/4026166152/" rel="next" title="mongodb">
+                <i class="fa fa-chevron-left"></i> mongodb
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2727003801/" rel="prev" title="XML 基础知识">
+                XML 基础知识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mongoDB"><span class="nav-text">mongoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例：Mongodb实现短网址"><span class="nav-text">案例：Mongodb实现短网址</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新浪微博短网址api使用"><span class="nav-text">新浪微博短网址api使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户自定义开发思路分析"><span class="nav-text">用户自定义开发思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主键id和进制代码实现"><span class="nav-text">主键id和进制代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前台效果"><span class="nav-text">前台效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台处理"><span class="nav-text">后台处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#短网址访问"><span class="nav-text">短网址访问</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、SVN概述1、传统团队合作开发项目的流程传统的团队合作开发项目流程如下：  问题：上面团队开发的流程会产生哪些痛点？  代码冲突问题。因为多个组员可能修改同一个文件，造成同一个文件相同行代码进行整合的时候会产生冲突。  代码找回(丢失)问题。某个组员误删了文件或误删了某段代码，找不回来了。   采用svn版本控制工具就可以很好的解决上面问题。 团队采用svn方式开发项目的流程图解：  2、SV">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVN">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/3963543486/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="一、SVN概述1、传统团队合作开发项目的流程传统的团队合作开发项目流程如下：  问题：上面团队开发的流程会产生哪些痛点？  代码冲突问题。因为多个组员可能修改同一个文件，造成同一个文件相同行代码进行整合的时候会产生冲突。  代码找回(丢失)问题。某个组员误删了文件或误删了某段代码，找不回来了。   采用svn版本控制工具就可以很好的解决上面问题。 团队采用svn方式开发项目的流程图解：  2、SV">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image1.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image2.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image3.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image31.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image32.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image33.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image34.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image35.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image36.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image37.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image38.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image39.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image41.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image42.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image43.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image44.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image45.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image46.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image47.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image48.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image49.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image50.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image51.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image52.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image53.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image54.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image55.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image56.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image57.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image58.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image59.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image60.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image61.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image62.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image63.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image64.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image65.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image66.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image67.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image68.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image69.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image70.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image71.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image72.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image73.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image74.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image75.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image76.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image77.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image78.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image79.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image80.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image81.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image82.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image83.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image84.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image85.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image86.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image87.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3963543486/image88.png">
+<meta property="og:updated_time" content="2018-12-18T04:35:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVN">
+<meta name="twitter:description" content="一、SVN概述1、传统团队合作开发项目的流程传统的团队合作开发项目流程如下：  问题：上面团队开发的流程会产生哪些痛点？  代码冲突问题。因为多个组员可能修改同一个文件，造成同一个文件相同行代码进行整合的时候会产生冲突。  代码找回(丢失)问题。某个组员误删了文件或误删了某段代码，找不回来了。   采用svn版本控制工具就可以很好的解决上面问题。 团队采用svn方式开发项目的流程图解：  2、SV">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/3963543486/image1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/3963543486/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SVN | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/3963543486/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">SVN
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 12:35:35" itemprop="dateCreated datePublished" datetime="2018-12-18T12:35:35+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/svn/" itemprop="url" rel="index"><span itemprop="name">svn</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">9.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、SVN概述"><a href="#一、SVN概述" class="headerlink" title="一、SVN概述"></a>一、SVN概述</h1><h2 id="1、传统团队合作开发项目的流程"><a href="#1、传统团队合作开发项目的流程" class="headerlink" title="1、传统团队合作开发项目的流程"></a>1、传统团队合作开发项目的流程</h2><p>传统的团队合作开发项目流程如下：</p>
+<p><img src="image1.png" alt=""></p>
+<p><strong>问题：上面团队开发的流程会产生哪些痛点？</strong></p>
+<ol>
+<li><p><strong>代码冲突问题。</strong>因为多个组员可能修改同一个文件，造成同一个文件相同行代码进行整合的时候会产生冲突。</p>
+</li>
+<li><p><strong>代码找回(丢失)问题。</strong>某个组员误删了文件或误删了某段代码，找不回来了。</p>
+</li>
+</ol>
+<p>采用svn版本控制工具就可以很好的解决上面问题。</p>
+<p>团队采用svn方式开发项目的流程图解：</p>
+<p><img src="image2.png" alt=""></p>
+<h2 id="2、SVN介绍"><a href="#2、SVN介绍" class="headerlink" title="2、SVN介绍"></a>2、SVN介绍</h2><p><strong>SVN</strong>全名Subversion，即<strong>版本控制系统</strong>（主要可以追溯以前的代码版本）,Subversion是一个通用的系统,可用来管理任何类型的文件,其中主要文件是程序源码,它将数据放置在一个中央仓库(repository)中,这个仓库很像一个普通的文件服务器,不过它会记住文件的每一次变动,这样就可以找回之前的所写的任何的一个代码版本。</p>
+<p><strong>相关的版本控制软件：</strong></p>
+<ul>
+<li><p><strong>CSV</strong>：全称-Concurrent Versions System,与后面提到的SVN是同一个厂家，不过是svn的前身,现已被svn替代。</p>
+</li>
+<li><p><strong>VSS</strong>：全称-Visual Source Safe,此工具是Microsoft提供的，是使用的相当普遍的工具之一，做net开发使用较多。</p>
+</li>
+<li><p><strong>SVN</strong>：全称-Subversion现在国内企业使用的主流的版本控制系统。</p>
+</li>
+<li><p><strong>git</strong>（分支）：也可以对代码进行版本控制，它开始主要是用于管理linux内核的,由李纳斯发明，企业使用量和svn相当。</p>
+</li>
+</ul>
+<p>国外代码托管（同性交友网站）网站：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<p>国内代码托管网站（码云）：<a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a></p>
+<p>coding(码市): <a href="https://coding.net/" target="_blank" rel="noopener">https://coding.net/</a></p>
+<hr>
+<h1 id="二、-svn软件的安装"><a href="#二、-svn软件的安装" class="headerlink" title="二、==svn软件的安装=="></a>二、==svn软件的安装==</h1><p>==svn是c（client）/s(server)软件的架构，有服务端和客户端。==</p>
+<p>服务端下载地址: <a href="https://www.visualsvn.com/visualsvn/download/" target="_blank" rel="noopener">[https://www.visualsvn.com/visualsvn/download/]</a></p>
+<p>客户端下载地址： <a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">[https://tortoisesvn.net/downloads.html]</a></p>
+<p>软件在课件中：</p>
+<p><img src="image3.png" alt=""></p>
+<h2 id="1、安装服务端"><a href="#1、安装服务端" class="headerlink" title="1、安装服务端"></a>1、安装服务端</h2><p><img src="image4.png" alt=""></p>
+<p>提示：如果VisualSVN安装不上可以安装Subversion版本的。</p>
+<p>安装VisualSVN服务端步骤：</p>
+<p>1、双击安装程序，点击next下一步</p>
+<p><img src="image5.png" alt=""></p>
+<ol start="2">
+<li>接受软件的相关协议，点击next。</li>
+</ol>
+<p><img src="image6.png" alt=""></p>
+<p>3、选择勾选最后一项，配置svn服务端的相关的命令到系统的环境变量，点击next下一步</p>
+<p><img src="image7.png" alt=""></p>
+<ol start="4">
+<li>选择标准版Standard Edition。</li>
+</ol>
+<p><img src="image8.png" alt=""></p>
+<ol start="5">
+<li>选择一个安装目录，这里以安装到D:\svn\server为例</li>
+</ol>
+<p><img src="image9.png" alt=""></p>
+<p>6、点击finish完成</p>
+<p><img src="image10.png" alt=""></p>
+<p>7、查看安装的svn服务端环境变量是否生效，直接在cmd窗口中出输入svn命令，若出现以下提示说明已生效。</p>
+<p><img src="image11.png" alt=""></p>
+<p>如果安装的时候勾选了环境变量，但是依然没有出现以上提示，有以下两种解决办法：</p>
+<p>①重启电脑</p>
+<p>②(推荐)点击环境变量path选项，直接点击确定即可，不需要修改，这样可以立即生效</p>
+<p><img src="image12.png" alt=""></p>
+<p>再次关闭黑窗口重新打开，输入svn命令进行测试即可。</p>
+<p><img src="image13.png" alt=""></p>
+<h2 id="2、安装客户端"><a href="#2、安装客户端" class="headerlink" title="2、安装客户端"></a>2、安装客户端</h2><p>安装客户端的时候，先检查自己电脑系统的位数，选择对应系统位数安装即可。</p>
+<p>查看系统位数：计算机-->右键属性</p>
+<p><img src="image14.png" alt=""></p>
+<p><strong>安装TortoiseSVN步骤：</strong></p>
+<p>1、双击安装程序，点击next下一步</p>
+<p><img src="image15.png" alt=""></p>
+<p>2、接受软件的相关协议，点击next。</p>
+<p><img src="image16.png" alt=""></p>
+<p>3、选择选项command line client tools-Will be installed on local hard driver</p>
+<p><img src="image17.png" alt=""></p>
+<p>4、点击第一个选项TortoiseSVN，配置安装的目录，目录可自定义，这里以安装到D:\svn\client\中为例，点击next。</p>
+<p><img src="image18.png" alt=""></p>
+<p>注：路径尽量不要包含特殊字符和中文。</p>
+<p>5、安装完成，点击finish.。</p>
+<p><img src="image19.png" alt=""></p>
+<p>6、测试是否安装成功，在桌面鼠标右键，多出以下两个选项说明安装成功：</p>
+<p><img src="image20.png" alt=""></p>
+<p>7、如需要汉化可安装系统对应位数的汉化包即可：</p>
+<p><img src="image21.png" alt=""></p>
+<p>安装一路next即可，会自动找到上面svn客户端的安装位置：</p>
+<p>切换中文步骤：TortoiseSVN-->Settings-->General-->Language</p>
+<p><img src="image22.png" alt=""></p>
+<p><img src="image23.png" alt=""></p>
+<p>变成中文效果：</p>
+<p><img src="image24.png" alt=""></p>
+<hr>
+<h1 id="三、-部署单仓库"><a href="#三、-部署单仓库" class="headerlink" title="三、==部署单仓库=="></a>三、==部署单仓库==</h1><p>==注意:在svn服务器中，我们把存放代码的地方称之为 “仓库”。==</p>
+<h2 id="1、部署单仓库的步骤"><a href="#1、部署单仓库的步骤" class="headerlink" title="1、部署单仓库的步骤"></a>1、部署单仓库的步骤</h2><p>在svn中创建仓库的步骤总共有三步：</p>
+<p><strong>步骤1</strong>：建立项目目录 。如：<code>D:/app/blog</code></p>
+<p><img src="image25.png" alt=""></p>
+<p><strong>步骤2</strong>：把项目目录变为仓库。 命令为：<code>svnadmin create D:/app/blog</code>（项目目录绝对路径）</p>
+<p><img src="image26.png" alt=""></p>
+<p><strong>步骤3</strong>：开启监管仓库目录的服务。命令为：<code>svnserve -d -r D:/app/blog</code></p>
+<blockquote>
+<p>选项说明</p>
+<p>-d：作为后台服务运行。</p>
+<p>-r：监管的目录。</p>
+</blockquote>
+<p><img src="image27.png" alt=""></p>
+<p><strong>注</strong>：上面黑窗口正在监管仓库服务，不要关闭，否则导致后面连接不上。</p>
+<h2 id="2、svn中的三大指令的使用"><a href="#2、svn中的三大指令的使用" class="headerlink" title="2、svn中的三大指令的使用"></a>2、svn中的三大指令的使用</h2><ul>
+<li><p><strong>checkout</strong> ：检出指令，用于首次与svn服务器建立连接，获取代码到本地目录（第二次以后直接使用update更新指令获取代码。）</p>
+</li>
+<li><p><strong>commit</strong>：提交本地代码到svn服务器</p>
+</li>
+<li><p><strong>update</strong>：把svn服务器上面的最新代码更新下来</p>
+</li>
+</ul>
+<p>三大指令使用图解：</p>
+<p><img src="image28.png" alt=""></p>
+<p><strong>注意：</strong></p>
+<p>以后去公司上班，公司基本早就已经部署好svn服务端了，我们开发者只需要在自己的电脑中安装svn客户端即可，公司的相关人员会告诉我们svn仓库地址，且会给我们分配一个账号和密码进行连接svn服务器，然后checkout检出代码在本地进行开发。写完代码后使用commit进行提交。第二天使用update更新指令下载最新代码进行开发。</p>
+<h2 id="3、连接svn服务器"><a href="#3、连接svn服务器" class="headerlink" title="3、连接svn服务器"></a>3、连接svn服务器</h2><p><strong>步骤1</strong>：如在我们桌面中，建立一个项目检出目录myblog，用于存放检出的代码：</p>
+<p><img src="image29.png" alt=""></p>
+<p>==<strong>检出和版本库浏览器的区别：</strong>==</p>
+<p><strong>检出(checkout)</strong>：是把仓库所有的代码都检出到本地目录。</p>
+<p><strong>版本库浏览器</strong>：它可以浏览仓库中有哪些文件，有选择性的检出指定文件。</p>
+<p><strong>步骤2</strong>：输入我们svn服务器的地址，指定一个检出代码的本地目录</p>
+<p><img src="image30.png" alt=""></p>
+<p>检出成功之后，会在本地检出目录多出一个<code>.svn</code>的隐藏文件夹，==重要此文件夹下存储着和服务端仓库直接的关联信息，更改信息等，不能随意改动。==同时版本为0， 说明是一个新建立的仓库，之间没有任何的commit提交。</p>
+<p><img src="image31.png" alt=""></p>
+<h2 id="4、上传代码到svn仓库中"><a href="#4、上传代码到svn仓库中" class="headerlink" title="4、上传代码到svn仓库中"></a>4、上传代码到svn仓库中</h2><p><strong>步骤1</strong>：在检出的目录中，建立一些测试文件或目录，鼠标右键选择<strong>commit</strong>提交指令</p>
+<p><img src="image32.png" alt=""></p>
+<p><strong>步骤2</strong>：【重要】填写提交的备注，主要是用于后面代码的版本回退（代码找回）</p>
+<p><img src="image33.png" alt=""></p>
+<p>提交确定之后，提示无权限提交，</p>
+<p><img src="image34.png" alt=""></p>
+<p>因为默认新创建的仓库，只能更新或检出，但是不能commit提交,后面需要修改此仓库的配置文件，进行权限配置。</p>
+<h2 id="5、单仓库的权限配置-添加用户名和密码"><a href="#5、单仓库的权限配置-添加用户名和密码" class="headerlink" title="5、单仓库的权限配置(添加用户名和密码)"></a>5、单仓库的权限配置(添加用户名和密码)</h2><p>==权限可以细分两种：==</p>
+<ol>
+<li><p><strong>匿名用户提交</strong>（不需要用户名和密码也可以提交，但是不安全，个人测试使用较多）</p>
+</li>
+<li><p>【重点】<strong>允许授权用户提交</strong>（需要用户名和密码，安全一点，企业中使用都是需要密码账号的）</p>
+</li>
+</ol>
+<p>每个仓库的conf目录中，都会有以下三个配置文件：</p>
+<p><img src="image35.png" alt=""></p>
+<p><code>svnserve.conf</code> ：当前仓库的核心配置文件，可以开启某些文件的功能</p>
+<p><code>passwd</code>：给当前仓库的增加用户名和密码</p>
+<p><code>authz</code>：给当前仓库的用户设置一些权限1</p>
+<blockquote>
+<p>权限<br>w：write可更新可提交</p>
+<p>r：read 可更新不可提交</p>
+</blockquote>
+<p><strong>提示</strong>：后面学的linux中还有一种权限为x,代表可执行。</p>
+<h3 id="5-1、匿名用户提交"><a href="#5-1、匿名用户提交" class="headerlink" title="5.1、匿名用户提交"></a>5.1、匿名用户提交</h3><p>设置匿名用户访问，仅需修改<code>svnserve.conf</code>配置文件即可，把其中<code>anno-access = read</code>前面</p>
+<p>的#号给去掉，且把read改为write，如下：</p>
+<p><img src="image36.png" alt=""></p>
+<p>==注：最前面要顶格写，即不要留空格。只要保存配置文件会立刻生效，不需要重新监管仓库服务。==</p>
+<p>再次进行commit提交测试：成功了，提示版本1，说明此仓库成功提交过1次。</p>
+<p><img src="image37.png" alt=""></p>
+<p>尝试对检出目录的index.php文件进行如下修改测试：</p>
+<p><img src="image38.png" alt=""></p>
+<p>再次进行提交；</p>
+<p><img src="image39.png" alt=""></p>
+<h3 id="5-2、授权用户的权限配置【重点】"><a href="#5-2、授权用户的权限配置【重点】" class="headerlink" title="5.2、授权用户的权限配置【重点】"></a>5.2、授权用户的权限配置【重点】</h3><p>即，需要用户名和密码才可以进行代码的操作</p>
+<p>修改仓库<strong>conf</strong>目录中的三个配置文件：<code>svnserve.conf</code>、<code>passwd</code>、<code>authz</code></p>
+<p><strong>步骤1</strong>：修改svnserve.conf配置文件，开启passwd和authz文件的功能</p>
+<p><img src="image40.png" alt=""></p>
+<p>配置解释：</p>
+<p>19行：设置为none，代表匿名用户无访问权限。</p>
+<p>20行：设置为write，允许授权用户可更新也可提交。</p>
+<p>27行：代表开启passwd配置文件。</p>
+<p>36行：代表开启authz配置文件。</p>
+<p><strong>步骤2</strong>，修改passwd文件，给当前仓库增加一些用户名和密码</p>
+<p><img src="image41.png" alt=""></p>
+<p><strong>格式</strong>： <code>用户名 = 密码</code>（密码明文）</p>
+<p><strong>提醒</strong>：==以后在Linux中修改含有敏感的词汇，如密码，需要给这类文件设置严格的访问权限。这样更加安全。==</p>
+<p><strong>步骤3</strong>：修改authz文件，给当前仓库的用户名分配一些权限（rw）</p>
+<p><img src="image42.png" alt=""></p>
+<p>设置组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php_group = dashen</span><br><span class="line">cainiao_group = cainiao</span><br></pre></td></tr></table></figure>
+<p>==注：权限有<strong>r</strong>但未有<strong>w</strong>，表示只能更新代码到本地但不能提交。且目录后面不可以加斜杠/。==</p>
+<p><strong>控制权限形式：</strong></p>
+<p><code>[/目录/子目录/子子孙孙目录/....]</code></p>
+<p><code>[/]</code>对此单仓库的所有文件进行权限控制</p>
+<p><code>[/core]</code> 对此单仓库的core目录下面的文件进行权限控制，可覆盖根目录配置。</p>
+<p>再次进行commit提交，若出现一个输入密码的弹窗，说明配置授权用户访问成功：</p>
+<p><img src="image43.png" alt=""></p>
+<p>注意：如果没有<strong>w</strong>权限，提交的时候会提示<code>Access Denies</code>权限拒绝。</p>
+<hr>
+<h1 id="四、svn常见文件状态图标说明"><a href="#四、svn常见文件状态图标说明" class="headerlink" title="四、svn常见文件状态图标说明"></a>四、svn常见文件状态图标说明</h1><h2 id="1、图标异常的解决办法【了解】"><a href="#1、图标异常的解决办法【了解】" class="headerlink" title="1、图标异常的解决办法【了解】"></a>1、图标异常的解决办法【了解】</h2><ul>
+<li>win7解决办法：</li>
+</ul>
+<p>底部启动任务管理器-->进程-->找到进程名explorer.exe-->鼠标右键结束，然后再找到文件选项新建刚才结束的进程explorer.exe,如下图所示：</p>
+<p><img src="image44.png" alt=""></p>
+<ul>
+<li>win8，win10解决办法：</li>
+</ul>
+<p>修改如下注册表：按住win+r,输入regedit</p>
+<p><img src="image45.png" alt=""></p>
+<p>需要修改注册表中的某些选项，参考下面的图片：</p>
+<p><img src="image46.png" alt=""></p>
+<p>找到对应的注册表的值（Tortoise打头的），在前面加多空格，空格越多优先级越高：</p>
+<p><img src="image47.png" alt=""></p>
+<p>最后在底部任务栏管理器选中window资源管理器-->鼠标右键重新启动即可,再去看检出目录就可以看到图标了。</p>
+<p>这个svn图标不是特别重要，没有出现也没有关系，只是为了可以看到文件的状态，因为提交代码的时候，在文件变更列表中也是可以看看。</p>
+<h2 id="2、常见图标的认识"><a href="#2、常见图标的认识" class="headerlink" title="2、常见图标的认识"></a>2、常见图标的认识</h2><ul>
+<li><strong>常规(同步)</strong>图标：</li>
+</ul>
+<p><img src="image48.png" alt=""></p>
+<p>出现此图标，说明此文件中的内容与svn服务器中对应文件内容一样。</p>
+<ul>
+<li><strong>修改</strong>图标：</li>
+</ul>
+<p><img src="image49.png" alt=""></p>
+<p>当我们对本地的某个文件进行修改，导致与svn服务器上面的对应的文件的内容不一致就会出现此图标。</p>
+<ul>
+<li><strong>无版本控制</strong>图标</li>
+</ul>
+<p><img src="image50.png" alt=""></p>
+<p>说明此文件没有与svn服务器建立关联，说明没有被仓库管理过</p>
+<ul>
+<li><strong>忽略</strong>图标</li>
+</ul>
+<p><img src="image51.png" alt=""></p>
+<p>当我们有些文件不想提交到svn服务器或者没有必要提交，我们可以把这些文件设置为忽略即可，那么提交的时候这些文件就不会出现在提交的文件变更列表中。</p>
+<p><strong>忽略一般有两种：</strong></p>
+<p>忽略一个具体的文件：1.jpg</p>
+<p>忽略某一类的文件：*.jpg</p>
+<p>具体操作：选中要忽略的文件鼠标右键-->TortoiseSVN-->增加到忽略列表。如下：</p>
+<p><img src="image52.png" alt=""></p>
+<p>其中带<strong>recursively</strong>是递归的意思，多用于忽略目录中及其子目录中的所有的文件。</p>
+<ul>
+<li><strong>冲突</strong>的图标</li>
+</ul>
+<p><img src="image53.png" alt=""></p>
+<p>尤其是团队开发的时候，多个开发人员对同一个文件的相同行代码都进行了修改，那么后者提交的会覆盖前者提交的，但是svn不会进行覆盖，会提示我们解决冲突，把具有冲突的文件更新下来就是上面的黄色图标。</p>
+<hr>
+<h1 id="五、svn代码冲突的解决【重点】"><a href="#五、svn代码冲突的解决【重点】" class="headerlink" title="五、svn代码冲突的解决【重点】"></a>五、svn代码冲突的解决【重点】</h1><p><strong>说明</strong>：尤其是团队开发的时候，多个开发人员对同一个文件的相同行代码都进行了修改，那么后者提交的会覆盖前者提交的，但是svn不会覆盖，会提示我们解决冲突。</p>
+<p>下面就来演示造成冲突的场景以及怎么解决</p>
+<h2 id="1、造成冲突的场景"><a href="#1、造成冲突的场景" class="headerlink" title="1、造成冲突的场景"></a>1、造成冲突的场景</h2><p>这里以dashen用户和cainiao用户对blog仓库的index.php的文件进行操作。</p>
+<p>首先，他们两者都要把代码给更新下来，此时，两者的代码应该是完全一致的：</p>
+<p><img src="image54.png" alt=""></p>
+<p>先是cainiao用户对index.php文件进行修改：修改6-10行,并成功commit提交。</p>
+<p><img src="image55.png" alt=""></p>
+<p>成功提交之后，即svn仓库中index.php的文件的最新内容是cainiao用户提交的。</p>
+<p>随后dashen用户同样也对index.php文件进行修改6-9行。</p>
+<p><img src="image56.png" alt=""></p>
+<p>现在dashen用户commit提交代码出现如下的冲突提示：</p>
+<p><img src="image57.png" alt=""></p>
+<p>出现上面的提示，说明提交的文件的内容与svn仓库中的index.php文件内容有冲突部分。</p>
+<p><strong>产生冲突的原因：</strong></p>
+<p>cainiao用户：修改6-10行</p>
+<p>dashen用户：修改6-9行</p>
+<p>其中6-9都被两者修改过，导致仓库无法知道使用哪部分代码，所以后者提交失败，报冲突。</p>
+<h2 id="2、解决冲突"><a href="#2、解决冲突" class="headerlink" title="2、解决冲突"></a>2、解决冲突</h2><p><strong>步骤1</strong>：鼠标选中有冲突的文件，鼠标右键选择更新，</p>
+<p><img src="image58.png" alt=""></p>
+<p><img src="image59.png" alt=""></p>
+<p>可见，更新下来会多出三个<strong>辅助文件</strong>：</p>
+<p><strong>文件名(黄色标识)</strong> ：把服务器上面最新文件内容与即将提交的冲突内容进行一个融合。</p>
+<p><strong>文件名.mine</strong>  ： 当前用户即将要提交的文件内容。</p>
+<p><strong>文件名.r(前一版本)</strong>：所有用户提交之前，即文件冲突之前，仓库上最新的文件内容。</p>
+<p><strong>文件名.r(后一版本)</strong>：仓库上最新的文件内容。</p>
+<p>==解决办法：==</p>
+<p>把三个辅助文件都给删除，修改含有黄色感叹号的文件，进行代码整合修改，再次进行提交即可。</p>
+<p><strong>注：整合冲突代码的时候，千万不要覆盖人家代码，合并之前需要程序员之间彼此商量一下。</strong></p>
+<hr>
+<h1 id="六、-svn中的版本回退-【重点】"><a href="#六、-svn中的版本回退-【重点】" class="headerlink" title="六、==svn中的版本回退==【重点】"></a>六、==svn中的版本回退==【重点】</h1><p>使用到版本回退的场景：</p>
+<ul>
+<li>一般由于不小心误删文件或某段代码，并且提交了，这时候就可以通过svn提供的更新至版本来找回。</li>
+</ul>
+<p><strong>步骤1</strong>：选中要回退的文件，<code>更新至版本</code></p>
+<p><img src="image60.png" alt=""></p>
+<p>在通过之前提交的日志来找回：</p>
+<p><img src="image61.png" alt=""></p>
+<p>找到之前提交的日志信息，点击确定，即可回到之前的代码版本。</p>
+<p><img src="image62.png" alt=""></p>
+<p>注：</p>
+<p>1、检出目录，鼠标右键点击更新是更新最新的版本，如果需要回退到指定的版本，需要通过更新至版本来实现。</p>
+<p>2、如要要查看某个文件的版本，右键选中此文件更新至版本即可，可以查看当前文件所有的版本变化。</p>
+<p>3、若点击空白处，可以查看当前项目所有代码的版本</p>
+<p>以后上班，下班之前先commit提交代码。早上上班，开启电脑，先update更新最新代码版本，需要在最新的代码基础上进行开发。</p>
+<hr>
+<h1 id="七、-部署多仓库"><a href="#七、-部署多仓库" class="headerlink" title="七、==部署多仓库=="></a>七、==部署多仓库==</h1><p>因为一个公司会有多个项目同时进行，比如有java项目，android项目、php项目。其实也就对应着多个仓库，那么不同的开发人员其对应的svn仓库的连接地址也不同。</p>
+<p><strong>==实现步骤：==</strong></p>
+<p><strong>步骤1</strong>：如在app目录中建立多个项目文件夹（android、java）</p>
+<p><img src="image63.png" alt=""></p>
+<p><strong>步骤2</strong>：把上面的android和java目录变为项目仓库。</p>
+<p><img src="image64.png" alt=""></p>
+<p>注：blog已经是仓库了，不要重复创建。</p>
+<p><strong>步骤3</strong>：监管所有仓库的==父目录==（<code>D:/app</code>）,这样才可以访问到其中的某个仓库项目代码</p>
+<p><img src="image65.png" alt=""></p>
+<p><strong>==怎么访问多仓库中的某个项目仓库代码？==</strong></p>
+<p><strong>答</strong>：访问形式：<code>svn://ip/仓库名/目录/子孙目录/....</code></p>
+<p>如访问blog仓库，地址为：<code>svn://127.0.0.1/blog/</code></p>
+<p>如访问java仓库，地址为： <code>svn://127.0.0.1/java/</code></p>
+<p>如访问android仓库，地址为： <code>svn://127.0.0.1/android/</code></p>
+<p>如访问其中blog仓库项目：</p>
+<p><img src="image66.png" alt=""></p>
+<p><strong>==怎么访问单仓库中的某个仓库代码？==</strong></p>
+<p>答：访问形式： <code>svn://ip/目录</code></p>
+<p>注： svn://127.0.0.1 这种url访问形式只能对单仓库有效，多仓库的访问后面需加仓库名。</p>
+<hr>
+<h1 id="八、-多仓库的权限设置"><a href="#八、-多仓库的权限设置" class="headerlink" title="八、==多仓库的权限设置=="></a>八、==多仓库的权限设置==</h1><p>由于这里有三个仓库，这里以其中一个仓库<code>blog</code>为例，进行权限设置。</p>
+<p>还是修改三个文件：<strong>svnserve.conf</strong> 、<strong>passwd</strong>、<strong>authz</strong></p>
+<p>svnserve.conf配置和passwd配置和之前单仓库配置一样，不用变。</p>
+<p>仅需要改变authz配置文件即可：</p>
+<p><img src="image67.png" alt=""></p>
+<p><strong>单仓库和多仓库的authz权限文件配置区别：</strong></p>
+<p>单仓库：[/目录/子目录/子孙目录/.….]</p>
+<p>多仓库：[==当前仓库名==:/目录/子目录/子孙目录/.….]</p>
+<hr>
+<h1 id="九、SVN其他功能"><a href="#九、SVN其他功能" class="headerlink" title="九、SVN其他功能"></a>九、SVN其他功能</h1><h2 id="1、清除用户名和密码"><a href="#1、清除用户名和密码" class="headerlink" title="1、清除用户名和密码"></a>1、清除用户名和密码</h2><p>做法：鼠标右键TortoiseSVN-->Settings-->已保存数据-->清除全部-->确定</p>
+<p><img src="image68.png" alt=""></p>
+<h2 id="2、export导出指令"><a href="#2、export导出指令" class="headerlink" title="2、export导出指令"></a>2、export导出指令</h2><p>export指令：相当于拷贝项目,导出的代码不会含有隐藏文件.svn，即不受svn版本控制</p>
+<p><img src="image69.png" alt=""></p>
+<p>导出来如下所示：</p>
+<p><img src="image70.png" alt=""></p>
+<h2 id="3、更改svn服务器地址"><a href="#3、更改svn服务器地址" class="headerlink" title="3、更改svn服务器地址"></a>3、更改svn服务器地址</h2><p>做法：TortoiseSVN-->重新定位-->输入新的仓库地址即可</p>
+<p><img src="image71.png" alt=""></p>
+<p>重新输入新的仓库地址即可：</p>
+<p><img src="image72.png" alt=""></p>
+<hr>
+<h1 id="十、-svn监管服务注册成window系统服务"><a href="#十、-svn监管服务注册成window系统服务" class="headerlink" title="十、==svn监管服务注册成window系统服务=="></a>十、==svn监管服务注册成window系统服务==</h1><h2 id="1、创建SVN监管仓库服务"><a href="#1、创建SVN监管仓库服务" class="headerlink" title="1、创建SVN监管仓库服务"></a>1、创建SVN监管仓库服务</h2><p>快捷键win+r，输入cmd，以<strong>管理员</strong>的方式执行以下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc create SVNService binpath= \<span class="string">"D:\svn\server\bin\svnserve.exe --service -r D:\app\" start= auto</span></span><br></pre></td></tr></table></figure>
+<p>特别注意:</p>
+<p><code>binpath=</code>后面有个空格， <code>start=</code>后面有个空格（只能有一个空格），其中<code>SVNService</code> 是服务的名称，此服务名称可以自己自定义，只要不和系统其它服务名重名即可。</p>
+<p><img src="image73.png" alt=""></p>
+<p><img src="image74.png" alt=""></p>
+<p>注册成功之后会在系统服务面板中出现对应。</p>
+<p>查看：底部任务栏启动任务管理器-->服务-->找到所注册的服务</p>
+<p><img src="image75.png" alt=""></p>
+<p>设置为服务自动启动：服务名右键属性</p>
+<p><img src="image76.png" alt=""></p>
+<p><img src="image77.png" alt=""></p>
+<p>==注：如果是以之前黑窗口的形式监管服务，就不可以在使用window服务的形式进行监管。==</p>
+<h2 id="2、服务相关控制指令"><a href="#2、服务相关控制指令" class="headerlink" title="2、服务相关控制指令"></a>2、服务相关控制指令</h2><p>关闭、开启、重启服务:</p>
+<p>net stop|start|restart 服务名 （如开启svn服务：<code>net start SVNService</code>）</p>
+<p><img src="image78.png" alt=""></p>
+<p>删除服务:</p>
+<p>sc delete 服务名 （如删除svn服务：<code>sc delete SVNService</code>）</p>
+<p><img src="image79.png" alt=""></p>
+<h2 id="3、cmd命令的批处理"><a href="#3、cmd命令的批处理" class="headerlink" title="3、cmd命令的批处理"></a>3、cmd命令的批处理</h2><p>我们可以把之前在cmd中写的命令直接写在后缀名为bat的文件中，然后以管理员方式运行bat文件就相当于在cmd命令行中运行命令是一样的，这样操作起来更加方便。</p>
+<p><img src="image80.png" alt=""></p>
+<p>如其中关闭svn服务的批处理文件<code>stop_svn.bat</code>的内容如下：</p>
+<p><img src="image81.png" alt=""></p>
+<p>开启svn服务，<code>start_svn.bat</code>内容如下：</p>
+<p><img src="image82.png" alt=""></p>
+<hr>
+<h1 id="十一、-svn中的钩子程序"><a href="#十一、-svn中的钩子程序" class="headerlink" title="十一、==svn中的钩子程序=="></a>十一、==svn中的钩子程序==</h1><h2 id="1、钩子介绍"><a href="#1、钩子介绍" class="headerlink" title="1、钩子介绍"></a>1、钩子介绍</h2><p>抽象介绍：所谓钩子就是与一些版本库事件触发的程序，例如新修订版本的创建，或是未版本化属性的修改。每个钩子都会被告知足够多的信息，包括那是什么事件，所操作的对象，和触发事件的用户名。通过钩子的输出或返回状态，钩子程序能让工作继续、停止或是以某种方式挂起。</p>
+<p>说的简单点，我们可以利用钩子在提交前或者是提交后做一些操作。如:</p>
+<ul>
+<li><p>利用<strong>提交前的钩子</strong>让用户在提交代码前强制用户必须填写备注信息(了解)。</p>
+</li>
+<li><p>利用<strong>提交后的钩子</strong>把svn仓库代码实时同步到网站web目录（重点掌握，开发中使用较多）</p>
+</li>
+</ul>
+<p>前钩子和后钩子触发的顺序图解：</p>
+<p><img src="image83.png" alt=""></p>
+<p>==钩子的种类：==</p>
+<p>每个仓库目录中都会有个<strong>hooks</strong>目录，其中包含了所有的钩子模板代码。</p>
+<p>其中使用最多的有两个钩子：提交前的钩子、提交后的钩子（重点，开发中使用较多）</p>
+<p><img src="image84.png" alt=""></p>
+<h2 id="2、钩子实战"><a href="#2、钩子实战" class="headerlink" title="2、钩子实战"></a>2、钩子实战</h2><h3 id="2-1、后钩子实时同步仓库代码到web站点【重点】"><a href="#2-1、后钩子实时同步仓库代码到web站点【重点】" class="headerlink" title="2.1、后钩子实时同步仓库代码到web站点【重点】"></a>2.1、后钩子实时同步仓库代码到web站点【重点】</h3><ul>
+<li>利用<strong>提交后的钩子(post-commit)</strong>把svn仓库代码实时同步到网站web目录</li>
+</ul>
+<p>图解如下：</p>
+<p>web站点  <code>D:\local.com\blog</code></p>
+<p><strong>步骤1</strong>：==先确保web站点目录与相应的仓库要建立关联，只要含有其仓库的.svn隐藏文件夹即可==。在web站点目录检出就有了</p>
+<p><strong>步骤2</strong>：把blog仓库中的hooks的<code>post-commit.tmpl</code>复制一份在当前目录，并改名为<code>post-commit.bat</code></p>
+<p><img src="image85.png" alt=""></p>
+<p>post-commit.bat内容为：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SET</span> SVN="D:\svn\sever\bin\svn.exe"</span><br><span class="line"><span class="built_in">SET</span> <span class="built_in">DIR</span>="D:\local.com\blog"</span><br><span class="line">SVN update <span class="variable">%DIR%</span> --username  dashen --password dashen123</span><br></pre></td></tr></table></figure>
+<p>注意：要确保设置的用户有写入的权限。</p>
+<p>效果：</p>
+<p><img src="image86.png" alt=""></p>
+<h3 id="2-2、前钩子强制用户填写提交时备注信息【了解】"><a href="#2-2、前钩子强制用户填写提交时备注信息【了解】" class="headerlink" title="2.2、前钩子强制用户填写提交时备注信息【了解】"></a>2.2、前钩子强制用户填写提交时备注信息【了解】</h3><ul>
+<li>利用<strong>提交前的钩子</strong>让用户在提交代码前强制用户必须填写备注信息。</li>
+</ul>
+<p>第一步：打开blog仓库的hooks目录，把<code>pre-commit.tmpl</code>文件复制一份在当前目录，改名为<code>pre-commit.bat</code>,</p>
+<p><img src="image87.png" alt=""></p>
+<p>pre-commit.bat内容如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">::</span><br><span class="line">:: Stops commits that have empty log messages.</span><br><span class="line">:: 停止提交当记录信息为空时</span><br><span class="line">::</span><br><span class="line"></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> svnlook="D:\svn\server\bin\svnlook.exe"</span><br><span class="line"><span class="built_in">setlocal</span></span><br><span class="line"></span><br><span class="line">:: Subversion sends through the <span class="built_in">path</span> to the repository and transaction id</span><br><span class="line">::</span><br><span class="line"><span class="built_in">set</span> REPOS=%<span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> TXN=%<span class="number">2</span></span><br><span class="line"></span><br><span class="line">:: Check <span class="keyword">for</span> an empty log messages</span><br><span class="line">::</span><br><span class="line"><span class="variable">%svnlook%</span> log <span class="variable">%REPOS%</span> -t <span class="variable">%TXN%</span> | <span class="built_in">findstr</span> ....... &gt; null</span><br><span class="line"><span class="keyword">if</span> <span class="variable">%errorlevel%</span> <span class="keyword">gtr</span> <span class="number">0</span> (<span class="keyword">goto</span> err) <span class="keyword">else</span> <span class="keyword">exit</span> <span class="number">0</span> </span><br><span class="line"></span><br><span class="line">:err</span><br><span class="line"><span class="built_in">echo</span>. <span class="number">1</span>&gt;&amp;<span class="number">2</span></span><br><span class="line"><span class="built_in">echo</span> Your commit has been blocked because you didn't give any log message <span class="number">1</span>&gt;&amp;<span class="number">2</span></span><br><span class="line"><span class="keyword">exit</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><img src="image88.png" alt=""></p>
+<p>注：如需要中文提示，为防止乱码需要把<code>pre-commit.bat</code>文件的编码改为<strong>ANSI</strong>。英文提示则不需要</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li><p>创建单仓库（3个步骤）：</p>
+<ol>
+<li><p>创建项目目录（<code>D:/app/blog</code>）</p>
+</li>
+<li><p>把项目目录变为仓库 <code>svnadmin create D:/app/blog</code></p>
+</li>
+<li><p>监管仓库服务  <code>svnserve -d -r D:/app/blog</code></p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>访问单仓库项目：<code>svn://ip/目录</code></li>
+<li>单仓库的权限配置（<code>authz</code>）：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[groups]</span><br><span class="line">php_group = dashen</span><br><span class="line">cainiao_group=cainiao </span><br><span class="line"></span><br><span class="line">[/]</span><br><span class="line">@php_group = rw</span><br><span class="line">@cainiao_group = rw</span><br><span class="line">* =</span><br><span class="line"></span><br><span class="line">[/core]</span><br><span class="line">@php_group = rw</span><br><span class="line">@cainiao_group = rw</span><br><span class="line">admin = rw</span><br><span class="line">* =</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><p>创建多仓库（3个步骤）：</p>
+<p>1.创建项目目录（<code>D:/app/blog</code> 、<code>D:/app/java</code>）</p>
+<p>2.把项目目录都变为仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create D:/app/blog</span><br><span class="line">svnadmin create D:/app/java</span><br></pre></td></tr></table></figure>
+<p>3.监管仓库服务  <code>svnserve -d -r D:/app</code></p>
+</li>
+<li><p>访问多仓库项目：<code>svn://ip/仓库名/目录</code></p>
+</li>
+<li><p>多仓库的权限配置（<code>authz</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[blog:/]</span><br><span class="line">@php_group = rw</span><br><span class="line">@cainiao_group = rw</span><br><span class="line">admin = rw</span><br><span class="line">* =</span><br><span class="line"></span><br><span class="line">[blog:/core]</span><br><span class="line">@php_group = rw</span><br><span class="line">@cainiao_group = rw</span><br><span class="line">admin = rw</span><br><span class="line">* =</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>版本回退</strong></p>
+<p>鼠标右键->tortoiseSvn->更新至版本-->点击显示日志->通过对应的日志信息，回退到指定的版本</p>
+</li>
+<li><p><strong>解决冲突</strong></p>
+<ol>
+<li><p>先把具有冲突的文件拉取（<code>update</code>）</p>
+</li>
+<li><p>把三个辅助文件删掉，修改含有黄色感叹号的文件，进行代码整合。再次进行提交</p>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/3963543486/" title="SVN">http://blog.kuma8866.top/posts/3963543486/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/402189821/" rel="next" title="NoSQL之Memcache">
+                <i class="fa fa-chevron-left"></i> NoSQL之Memcache
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3355790013/" rel="prev" title="NoSql之Redis数据库">
+                NoSql之Redis数据库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、SVN概述"><span class="nav-text">一、SVN概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、传统团队合作开发项目的流程"><span class="nav-text">1、传统团队合作开发项目的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、SVN介绍"><span class="nav-text">2、SVN介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、-svn软件的安装"><span class="nav-text">二、==svn软件的安装==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、安装服务端"><span class="nav-text">1、安装服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、安装客户端"><span class="nav-text">2、安装客户端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、-部署单仓库"><span class="nav-text">三、==部署单仓库==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、部署单仓库的步骤"><span class="nav-text">1、部署单仓库的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、svn中的三大指令的使用"><span class="nav-text">2、svn中的三大指令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、连接svn服务器"><span class="nav-text">3、连接svn服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、上传代码到svn仓库中"><span class="nav-text">4、上传代码到svn仓库中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、单仓库的权限配置-添加用户名和密码"><span class="nav-text">5、单仓库的权限配置(添加用户名和密码)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1、匿名用户提交"><span class="nav-text">5.1、匿名用户提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2、授权用户的权限配置【重点】"><span class="nav-text">5.2、授权用户的权限配置【重点】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、svn常见文件状态图标说明"><span class="nav-text">四、svn常见文件状态图标说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、图标异常的解决办法【了解】"><span class="nav-text">1、图标异常的解决办法【了解】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、常见图标的认识"><span class="nav-text">2、常见图标的认识</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、svn代码冲突的解决【重点】"><span class="nav-text">五、svn代码冲突的解决【重点】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、造成冲突的场景"><span class="nav-text">1、造成冲突的场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、解决冲突"><span class="nav-text">2、解决冲突</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-svn中的版本回退-【重点】"><span class="nav-text">六、==svn中的版本回退==【重点】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、-部署多仓库"><span class="nav-text">七、==部署多仓库==</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、-多仓库的权限设置"><span class="nav-text">八、==多仓库的权限设置==</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、SVN其他功能"><span class="nav-text">九、SVN其他功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、清除用户名和密码"><span class="nav-text">1、清除用户名和密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、export导出指令"><span class="nav-text">2、export导出指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、更改svn服务器地址"><span class="nav-text">3、更改svn服务器地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十、-svn监管服务注册成window系统服务"><span class="nav-text">十、==svn监管服务注册成window系统服务==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、创建SVN监管仓库服务"><span class="nav-text">1、创建SVN监管仓库服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、服务相关控制指令"><span class="nav-text">2、服务相关控制指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、cmd命令的批处理"><span class="nav-text">3、cmd命令的批处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一、-svn中的钩子程序"><span class="nav-text">十一、==svn中的钩子程序==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、钩子介绍"><span class="nav-text">1、钩子介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、钩子实战"><span class="nav-text">2、钩子实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、后钩子实时同步仓库代码到web站点【重点】"><span class="nav-text">2.1、后钩子实时同步仓库代码到web站点【重点】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2、前钩子强制用户填写提交时备注信息【了解】"><span class="nav-text">2.2、前钩子强制用户填写提交时备注信息【了解】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

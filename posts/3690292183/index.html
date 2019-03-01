@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="linux软件安装管理简介在window下我们进行软件管理还是比较容易的，通过图形界面直接下一步下一步即可，但是在linux服务器下，都是命令行的界面，我们一般会安装一些软件服务，例如apache、mysql、ftp….等，则该如何处理呢？ 软件包类型简介在linux下软件包一般分为  使用c语言编写的源码包，一般来说被称为 tar包；示例：httpd-2.2.18.tar.gz 二进制rpm包，">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux操作系统3">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/3690292183/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="linux软件安装管理简介在window下我们进行软件管理还是比较容易的，通过图形界面直接下一步下一步即可，但是在linux服务器下，都是命令行的界面，我们一般会安装一些软件服务，例如apache、mysql、ftp….等，则该如何处理呢？ 软件包类型简介在linux下软件包一般分为  使用c语言编写的源码包，一般来说被称为 tar包；示例：httpd-2.2.18.tar.gz 二进制rpm包，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536286434100.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536289002270.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536306787321.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536291931321.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536311258735.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536311357128.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3690292183/1536313751040.png">
+<meta property="og:updated_time" content="2018-12-19T08:42:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux操作系统3">
+<meta name="twitter:description" content="linux软件安装管理简介在window下我们进行软件管理还是比较容易的，通过图形界面直接下一步下一步即可，但是在linux服务器下，都是命令行的界面，我们一般会安装一些软件服务，例如apache、mysql、ftp….等，则该如何处理呢？ 软件包类型简介在linux下软件包一般分为  使用c语言编写的源码包，一般来说被称为 tar包；示例：httpd-2.2.18.tar.gz 二进制rpm包，">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/3690292183/1536286434100.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/3690292183/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>linux操作系统3 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/3690292183/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">linux操作系统3
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-19 16:42:13" itemprop="dateCreated datePublished" datetime="2018-12-19T16:42:13+08:00">2018-12-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">21k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">19 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux软件安装管理"><a href="#linux软件安装管理" class="headerlink" title="linux软件安装管理"></a>linux软件安装管理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在window下我们进行软件管理还是比较容易的，通过图形界面直接下一步下一步即可，但是在linux服务器下，都是命令行的界面，我们一般会安装一些软件服务，例如apache、mysql、ftp….等，则该如何处理呢？</p>
+<h2 id="软件包类型简介"><a href="#软件包类型简介" class="headerlink" title="软件包类型简介"></a>软件包类型简介</h2><p>在linux下软件包一般分为</p>
+<ol>
+<li>使用c语言编写的<strong>源码包</strong>，一般来说被称为 tar包；示例：httpd-2.2.18.tar.gz</li>
+<li>二进制<strong>rpm</strong>包，一般来说的命名 vsftpd-2.12.3-el5.i386.rpm，一般就类似windows下的.exe文件包<ul>
+<li>红帽包管理用的是rpm包，debian是deb包</li>
+</ul>
+</li>
+</ol>
+<p>注意：有的时候我们还经常听到脚本安装包（例如：install.sh 这个是一个linux的shell脚本，通过执行该脚本可以进行某些软件的安装，一般被称为<strong>脚本安装包</strong>，在linux里面其实是没有脚本包，方便一些不太懂linux人进行软件的安装），脚本安装包只是linux下的一个shell脚本，脚本里面的内容还是使用源码或者rpm包进行安装的。</p>
+<p>【lamp / lnmp环境搭建一般来说都是使用的一键安装包，里面其实就是使用的 shell编写的脚本安装。】</p>
+<h3 id="源码包优缺点"><a href="#源码包优缺点" class="headerlink" title="源码包优缺点"></a>源码包优缺点</h3><p><strong>优点：</strong></p>
+<ol>
+<li><p>开源，自己可以修改里面的代码做定制化开发，一般遵循GPL、 apache、 MIT、lGPL….协议（代码可以自行修改，一般来说还要继续的开源）</p>
+</li>
+<li><p>在进行编译的时候，可以更加的灵活的配置，更适合自己的操作系统</p>
+</li>
+<li><p>卸载方便，注意：在linux下的源码包安装的软件，卸载特别方便，直接删除文件夹，不会产生任何的垃圾文件</p>
+</li>
+</ol>
+<p><strong>弊端：</strong></p>
+<ol>
+<li><p>安装的步骤比较多，容易出现问题，需要自行解决</p>
+</li>
+<li><p>编译时间比较长</p>
+</li>
+</ol>
+<p>如果只有源码包，对于初学者都不知道如何编译，阻碍了linux发展，则很多linux的发行商进行了思考，制作出了可以使用的二进制包，不需要在进行编译。</p>
+<h3 id="二进制包优缺点"><a href="#二进制包优缺点" class="headerlink" title="二进制包优缺点"></a>二进制包优缺点</h3><p>在centos相关的发行版里面使用的 rpm包(RedHat package manager) ；在以Debian系列(Ubuntu)的发行版里面的二进制包一般来说 deb包</p>
+<p><strong>优点</strong>： </p>
+<ol>
+<li><p>安装简单，不需要编译</p>
+</li>
+<li><p>安装速度快</p>
+</li>
+</ol>
+<p><strong>弊端：</strong></p>
+<ol>
+<li><p>不能看到源码</p>
+</li>
+<li><p>功能不够灵活</p>
+</li>
+<li><p>存在依赖性</p>
+</li>
+</ol>
+<h2 id="rpm包的管理"><a href="#rpm包的管理" class="headerlink" title="rpm包的管理"></a>rpm包的管理</h2><h3 id="rpm包的命名规则"><a href="#rpm包的命名规则" class="headerlink" title="rpm包的命名规则"></a>rpm包的命名规则</h3><p><strong>rpm包在哪里呢？</strong></p>
+<p>答：在系统光盘里面，或者是在国内的一些镜像网站，一般被称为yum源，163、搜狐、清华、阿里云….</p>
+<p><a href="http://mirrors.163.com/.help/centos.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/centos.html</a></p>
+<p>示例：vsftpd-2.0.5-16.el5_4.1.i386.rpm</p>
+<p>包名-主版本.次版本.修改版本-发布次数-linux发行版-适用平台(i386  i686 x86_64).扩展名</p>
+<p><strong>注意：</strong>一般一个完整的包被称为 <strong>包全名</strong> [vsftpd-2.0.5-16.el5_4.1.i386.rpm]</p>
+<p>一般来说包全名前面的部分被为 <strong>包名</strong></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>见到 i386 i686这些都是32位操作系统使用；</li>
+<li>还有 x86_64都是64位操作系统使用。</li>
+</ul>
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p><strong>如何使用光盘里面的内容呢？</strong></p>
+<p>答：挂载光盘。</p>
+<p>注意：由于我们的虚拟电脑并没有物理光驱，我们只能通过虚拟的光驱将镜像挂载到linux文件系统树上面。</p>
+<p>注意：<strong>什么是挂载？</strong></p>
+<p>答：将光驱里面的镜像文件和linux文件系统树产生一个关联。将物理光驱里面的内容放置在文件系统树的某个文件夹里面，文件夹被称为<code>挂载点</code>。当我们访问这个挂载点的时候，就相当于在访问这个镜像里面的内容。</p>
+<h3 id="挂载实操"><a href="#挂载实操" class="headerlink" title="挂载实操"></a>挂载实操</h3><ol>
+<li><p>将镜像访问在虚拟的光驱里面，进行连接</p>
+<p><img src="1536286434100.png" alt="1536286434100"></p>
+</li>
+<li><p>创建挂载点(/mnt/cdrom  约定俗成。 mnt代表的挂载的目录 ；cdrom代表的光驱)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /mnt/cdrom</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 mount 命令进行挂载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/cdrom /mnt/cdrom</span><br><span class="line"></span><br><span class="line">注意：/dev代表是linux下的设备文件夹</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看镜像里面的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /mnt/cdrom</span><br><span class="line"></span><br><span class="line"># ls</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="rpm包的依赖性问题"><a href="#rpm包的依赖性问题" class="headerlink" title="rpm包的依赖性问题"></a>rpm包的依赖性问题</h3><p>windows下装一些软件的时候需要 .netframkework4.0，这个被称为依赖(缺少 xxxx.dll文件  文件丢失)。</p>
+<p>windows下装一些软件的时候需要 kernerl.dll 动态链接库不存在，无法链接。</p>
+<p>一般在使用rpm包的时候，会产生一个依赖问题，主要包含如下三种依赖</p>
+<ol>
+<li><p>树形依赖 A-&gt;B-&gt;C</p>
+</li>
+<li><p>环形依赖 A-&gt;B-&gt;C-&gt;A</p>
+</li>
+<li><p>模块依赖、库文件依赖 lib.so.2 文件不存在，<a href="http://www.rpmfind.net查询解决" target="_blank" rel="noopener">www.rpmfind.net查询解决</a></p>
+</li>
+</ol>
+<h3 id="rpm相关操作"><a href="#rpm相关操作" class="headerlink" title="rpm相关操作"></a>rpm相关操作</h3><p>注意：在演示rpm包的时候的时候，必须确保自己的光盘已经被挂载，并且处于挂载点的CentOS目录下。</p>
+<ol>
+<li>例如现在使用rpm的安装vsftpd软件包，安装的时候，需要<code>包全名</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># cd /mnt/cdrom/CentOS</span><br><span class="line"></span><br><span class="line"># rpm -ivh vsftpd-2.0.5-16.el5_4.1.i386.rpm </span><br><span class="line"></span><br><span class="line">-i install的简写</span><br><span class="line">-v view 可视化【verbose】</span><br><span class="line">-h hash 显示进度条</span><br><span class="line">由于上面的包没有任何的依赖性，一下就装好了。</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>卸载软件包，只需要使用包名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># rpm -e vsftpd</span><br><span class="line">-e  卸载 erase</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>系统已安装的rpm包查看</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># rpm -qa</span><br><span class="line"></span><br><span class="line">-q query查询的意思</span><br><span class="line">-a all查询所有</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">额外的命令，查看操作系统里面是否安装了 xxx rpm包</span><br><span class="line"># rpm -qa | grep xxx</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>rpm包里面的内容查看，可以通过该命令查看该安装包到时候安装在哪里，配置文件在哪里等</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># rpm -qlp sound-juicer-2.16.0-3.el5</span><br><span class="line"></span><br><span class="line">-q query查询</span><br><span class="line">-l longtxt 详细信息</span><br><span class="line">-p package 显示包信息</span><br></pre></td></tr></table></figure>
+<h3 id="依赖演示"><a href="#依赖演示" class="headerlink" title="依赖演示"></a>依赖演示</h3><p>演示：rpm包的依赖问题，演示httpd软件的安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /mnt/cdrom/CentOS</span><br><span class="line"></span><br><span class="line"># ls | grep httpd</span><br></pre></td></tr></table></figure>
+<p>由于上面的http的包在安装的时候出现了依赖问题，不断的尝试去解决依赖，是不利于linux下的rpm包的软件的发展，所有官方进行进一步的升级，推出来一个在线软件安装的服务，叫做yum安装。</p>
+<h2 id="yum在线安装方式"><a href="#yum在线安装方式" class="headerlink" title="yum在线安装方式"></a>yum在线安装方式</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>由于rpm的依赖性，造成用户体验不好，则这个时候redhat公司开发了一个在线安装方式，在网上提供了一个软件仓库，通过一些命令就可以该仓库下载软件，进行安装，并解决依赖性问题。一般软件仓库被称为yum源，可以在linux操作系统的指定目录查看该配置信息。</p>
+<ol>
+<li><p>有点类似PHP里面的 composer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># composer create-project laravel/laravel=5.1.* local.laravel.com -vvv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nodejs里面 npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># npm install jquery@2.13.3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>前端里面的 bower 包管理器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># bower install bootstrap#2.3.4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入 <code>/etc/yum.repos.d</code> 目录，即可查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest yum.repos.d]# cd /etc/yum.repos.d/</span><br><span class="line"></span><br><span class="line">[root@dockerTest yum.repos.d]# pwd</span><br><span class="line">/etc/yum.repos.d</span><br><span class="line"></span><br><span class="line">[root@dockerTest yum.repos.d]# ls</span><br><span class="line">CentOS-Base.repo  epel.repo  epel.repo.rpmnew  epel-testing.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>CentOS-Base.repo</code>内容如下，里面记录了软件仓库的地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest yum.repos.d]# cat CentOS-Base.repo </span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever</span><br><span class="line">enabled=1</span><br><span class="line">failovermethod=priority</span><br><span class="line">baseurl=http://mirrors.cloud.aliyuncs.com/centos/$releasever/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-6</span><br><span class="line"></span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-$releasever</span><br><span class="line">enabled=1</span><br><span class="line">failovermethod=priority</span><br><span class="line">baseurl=http://mirrors.cloud.aliyuncs.com/centos/$releasever/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-6</span><br><span class="line"></span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever</span><br><span class="line">enabled=1</span><br><span class="line">failovermethod=priority</span><br><span class="line">baseurl=http://mirrors.cloud.aliyuncs.com/centos/$releasever/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-6[root@dockerTest yum.repos.d]#</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于软件仓库的服务器在国外，一般不稳定。则我们可以将yum更改为国内的yum源，例如阿里云、163、sohu都有提供相应的yum源 清华大学的yum源</p>
+<p><a href="https://www.cnblogs.com/zzsdream/p/7405083.html" target="_blank" rel="noopener">https://www.cnblogs.com/zzsdream/p/7405083.html</a></p>
+</li>
+</ol>
+<h3 id="yum相关操作"><a href="#yum相关操作" class="headerlink" title="yum相关操作"></a>yum相关操作</h3><p>注意：</p>
+<ol>
+<li><p>必须要联网才可以使用yum源</p>
+</li>
+<li><p>如果不是教室的这种环境（上网需要做认证），如果是家里，则我们的虚拟机使用桥接之后直接可以上网的。但是现在是在教室，有限制。</p>
+</li>
+<li><p>在给自己的虚拟机配置一个网卡（使用NAT服务进行转换）</p>
+</li>
+<li><p>注意：如果网络不通，建议修改下DNS</p>
+<p><img src="1536289002270.png" alt="1536289002270"></p>
+</li>
+</ol>
+<ol>
+<li><p>查看yum里面的所有包 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索某个rpm包 （httpd、Nginx、mysql、PHP）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum search packageName</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>yum安装某个包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># yum install packageName</span><br><span class="line">注意：一般都会加上 -y （yes）选项，全自动执行，不需要用户在做确认操作</span><br><span class="line"># yum install -y packageName</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>yum卸载某个包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum remove -y packageName</span><br></pre></td></tr></table></figure>
+<p>示例：使用yum安装vsftpd软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y vsftpd</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="yum源更新实操"><a href="#yum源更新实操" class="headerlink" title="yum源更新实操"></a>yum源更新实操</h3><p>如果大家使用就是阿里云的ECS服务器，则不需要更新yum源。</p>
+<p>由于centos5.5默认自带的yum源已经不再提供维护，则需要用户自己去配置yum源。</p>
+<ol>
+<li><p>备份之前的yum源配置文件【重视：以后在linux下做任何修改配置文件的操作，在改之前一定要备份】【修改apache、  nginx 、mysql等配置文件之前一定要备份】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件，增加如下信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the </span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">[base]  </span><br><span class="line">name=CentOS-$releasever - Base  </span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os  </span><br><span class="line">#baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/  </span><br><span class="line">baseurl=http://vault.centos.org/5.11/os/$basearch/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#released updates   </span><br><span class="line">[updates]  </span><br><span class="line">name=CentOS-$releasever - Updates  </span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates  </span><br><span class="line">#baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/  </span><br><span class="line">baseurl=http://vault.centos.org/5.11/updates/$basearch/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#additional packages that may be useful  </span><br><span class="line">[extras]  </span><br><span class="line">name=CentOS-$releasever - Extras  </span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras  </span><br><span class="line">#baseurl=http://mirror.centos.org/centos/$releasever/extras/$basearch/  </span><br><span class="line">baseurl=http://vault.centos.org/5.11/extras/$basearch/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#additional packages that extend functionality of existing packages  </span><br><span class="line">[centosplus]  </span><br><span class="line">name=CentOS-$releasever - Plus  </span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus  </span><br><span class="line">#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/  </span><br><span class="line">baseurl=http://vault.centos.org/5.11/centosplus/$basearch/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">enabled=0  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#contrib - packages by Centos Users  </span><br><span class="line">[contrib]  </span><br><span class="line">name=CentOS-$releasever - Contrib  </span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=contrib  </span><br><span class="line">#baseurl=http://mirror.centos.org/centos/$releasever/contrib/$basearch/  </span><br><span class="line">baseurl=http://vault.centos.org/5.11/contrib/$basearch/  </span><br><span class="line">gpgcheck=1  </span><br><span class="line">enabled=0  </span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum makecache</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看yum仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum list</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h2><h3 id="编译前的准备"><a href="#编译前的准备" class="headerlink" title="编译前的准备"></a>编译前的准备</h3><p>源代码就是编译安装c语言开发的代码程序。需要使用一定的编译器，一般使用的编译器：<strong>gcc编译</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">Target: x86_64-redhat-linux</span><br><span class="line">Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-languages=c,c++,objc,obj-c++,java,fortran,ada --enable-java-awt=gtk --disable-dssi --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-1.5.0.0/jre --enable-libgcj-multifile --enable-java-maintainer-mode --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --disable-libjava-multilib --with-ppl --with-cloog --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux</span><br><span class="line">Thread model: posix</span><br><span class="line">gcc version 4.4.7 20120313 (Red Hat 4.4.7-23) (GCC) </span><br><span class="line">[root@dockerTest ~]#</span><br></pre></td></tr></table></figure>
+<p>如果使用上面的命令后，看到不着这些信息，或者见到 <code>gcc command not  found</code>，则使用如下安装<code>gcc</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y gcc</span><br></pre></td></tr></table></figure>
+<p>时间同步【在编译的时候，要注意当前服务器的时间一定要是准确的时间】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ntpdate time.windows.com</span><br><span class="line"></span><br><span class="line">ntpdate 命令，是时间同步的</span><br><span class="line">在互联网上有一些服务器【 time.windows.com 】专门用来规范时间。</span><br></pre></td></tr></table></figure>
+<p><strong>小命令</strong>：如何把windows下的源码包传递到linux服务器，除了ftp，还有一个小工具 lrzsz命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y lrzsz</span><br></pre></td></tr></table></figure>
+<p>上传：在linux服务器输入rz之后，然后回车，在windows下选择需要上传的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rz</span><br></pre></td></tr></table></figure>
+<p>下载：在linux服务器下输入sz 待下载的文件，然后回车，将linux服务器下的文件下载到windows操作系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sz 待下载文件</span><br></pre></td></tr></table></figure>
+<h3 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h3><ol>
+<li><p>源码上传 (/usr/local/src 一般用于源码编译的时候，保存源码信息的目录)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rz</span><br></pre></td></tr></table></figure>
+<p><img src="1536306787321.png" alt="1536306787321"></p>
+</li>
+<li><p>解压源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf  httpd-2.2.11.tar.gz</span><br></pre></td></tr></table></figure>
+<p><code>-z</code>代表含义这个包使用的 gzip(互联网上常见的压缩算法)进行压缩</p>
+<p><code>-x</code>代表是抽取、提取 e<strong>x</strong>tract </p>
+<p><code>-v</code> view 代表显示视图</p>
+<p><code>-f</code> file 文件</p>
+</li>
+<li><p>进入解压目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd httpd-2.2.11</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>收集操作系统的相关信息，检测编译器是否存在，底层的函数库是否存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ./configure --prefix=/usr/local/apache2</span><br></pre></td></tr></table></figure>
+<p>注意：<code>--prefix=/usr/local/apache2</code> 指定软件安装的目录，一般用户自定义的软件安装在 <code>/usr/local</code>目录下</p>
+</li>
+<li><p>编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装，将编译后的二进制命令复制到指定的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /usr/local/apache2/bin/apachectl -k start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>源码包的软件，如果要卸载，直接删除安装目录即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rm -rf /usr/local/apache2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="linux服务管理"><a href="#linux服务管理" class="headerlink" title="linux服务管理"></a>linux服务管理</h1><h2 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h2><p>linux是一个专业做服务器的软件，在上面会运行一些服务，这个时候我们需要对应服务进行相应的管理，例如服务的查看，启动，关闭等。在Windows下也是可以查看系统里面的服务信息。</p>
+<p>在正式讲解服务之前，我们需要先了解一下linux的运行级别的概念，这个到服务时候会有相关联系，所以我们要先了解下linux的运行级别。</p>
+<ol>
+<li>命令行模式</li>
+<li>桌面模式</li>
+<li>单用户（windows下安全模式，修复）</li>
+<li>….</li>
+</ol>
+<h2 id="linux的运行级别简介"><a href="#linux的运行级别简介" class="headerlink" title="linux的运行级别简介"></a>linux的运行级别简介</h2><p>一般linux有7种运行模式，最常见的运行模式是 命令行模式 和 桌面模式，可以去 <code>/etc/inittab</code>文件查看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# cat /etc/inittab </span><br><span class="line"></span><br><span class="line"># inittab is only used by upstart for the default runlevel.</span><br><span class="line">#</span><br><span class="line"># ADDING OTHER CONFIGURATION HERE WILL HAVE NO EFFECT ON YOUR SYSTEM.</span><br><span class="line">#</span><br><span class="line"># System initialization is started by /etc/init/rcS.conf</span><br><span class="line">#</span><br><span class="line"># Individual runlevels are started by /etc/init/rc.conf</span><br><span class="line">#</span><br><span class="line"># Ctrl-Alt-Delete is handled by /etc/init/control-alt-delete.conf</span><br><span class="line">#</span><br><span class="line"># Terminal gettys are handled by /etc/init/tty.conf and /etc/init/serial.conf,</span><br><span class="line"># with configuration in /etc/sysconfig/init.</span><br><span class="line">#</span><br><span class="line"># For information on how to write upstart event handlers, or how</span><br><span class="line"># upstart works, see init(5), init(8), and initctl(8).</span><br><span class="line">#</span><br><span class="line"># Default runlevel. The runlevels used are:</span><br><span class="line">#   0 - halt (Do NOT set initdefault to this)</span><br><span class="line">#   1 - Single user mode</span><br><span class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</span><br><span class="line">#   3 - Full multiuser mode</span><br><span class="line">#   4 - unused</span><br><span class="line">#   5 - X11</span><br><span class="line">#   6 - reboot (Do NOT set initdefault to this)</span><br><span class="line"># </span><br><span class="line">id:3:initdefault:</span><br></pre></td></tr></table></figure>
+<p>0 代表：关机模式（此模式 linux是关机状态）</p>
+<p>1 代表：单用户模式（例如root的密码忘记了，可以在该模式下完成密码的找回）</p>
+<p>2 没有NFS网络共享的多用户模式（NFS：network file system）</p>
+<p>3 代表的是命令行模式（一般生产环境都是使用的该模式，该模式下没有桌面程序）</p>
+<p>4 暂时没有被使用（保留）</p>
+<p>5 代表的是 桌面模式（该模式是用户常见桌面操作， 常见的桌面程序有 gnome kde）</p>
+<p>6 代表重启</p>
+<h2 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h2><p>在root登录下 ，可以使用 init命令做模式的切换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># init 3(命令行模式)</span><br><span class="line"></span><br><span class="line"># init 5(图形化模式)</span><br><span class="line"></span><br><span class="line"># init 6(重启操作系统)</span><br><span class="line"></span><br><span class="line"># init 0(关机)</span><br></pre></td></tr></table></figure>
+<h2 id="默认模式"><a href="#默认模式" class="headerlink" title="默认模式"></a>默认模式</h2><p><code>id:3:initdefault:</code>代表linux默认的运行模式，为命令行模式，在生成环境使用该模式。</p>
+<h2 id="不同模式下程序行为"><a href="#不同模式下程序行为" class="headerlink" title="不同模式下程序行为"></a>不同模式下程序行为</h2><p>在不同的运行模式下，程序的行为表现是不一样的，例如apache在命令行模式下是默认是启动的，但是在图形化模式默认是关闭的。进入默认运行模式对应的<code>/etc/rc.d/rcN.d/</code>目录下，里面以<strong>K</strong>开头的代码默认不启动，以<strong>S</strong>开头的代表开机启动。</p>
+<p><img src="1536291931321.png" alt="1536291931321"></p>
+<h2 id="linux服务分类"><a href="#linux服务分类" class="headerlink" title="linux服务分类"></a>linux服务分类</h2><p>==【在运行模式3下的服务的管理】==</p>
+<p><strong>在linux下的服务主要分为两类：</strong></p>
+<ol>
+<li><p>rpm包安装的服务（yum）</p>
+</li>
+<li><p>源码包安装的服务</p>
+</li>
+</ol>
+<p>由于服务的安装方式不一样形成了<strong>两</strong>类服务，造成服务的管理方式不一样的。</p>
+<h2 id="查看已安装的服务"><a href="#查看已安装的服务" class="headerlink" title="查看已安装的服务"></a>查看已安装的服务</h2><p>rpm包安装的服务（yum本质还是 rpm包安装）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># chkconfig --list</span><br><span class="line"># chkconfig --list | grep 关键字 查看某个指定的服务的在某些级别下的状态</span><br></pre></td></tr></table></figure>
+<p>源码包安装的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一般在/usr/local/目录下查看</span><br><span class="line"># ls /usr/local</span><br></pre></td></tr></table></figure>
+<h2 id="服务状态查看"><a href="#服务状态查看" class="headerlink" title="服务状态查看"></a>服务状态查看</h2><p>在linux下的服务的状态查看主要通过如下两个方式：</p>
+<ol>
+<li><p>查看服务的进程，在linux下每当启动一个服务的时候，则会在linux操作系统里面创建对应的进程。可以通过查看进程的名称来得知服务是否在运行。</p>
+<p>例如apache就叫做 httpd ，Nginx叫做 nginx。 一般服务的名称都是启动的脚本命令  或者就是 服务名称+d  (damon后台守护进程的意义，24小时常驻内存，监听端口，接收请求)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ps axu | grep 进程名称</span><br></pre></td></tr></table></figure>
+<p>等价命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ps -ef | grep 进程名称</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看服务对应的端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># netstat -tunple  |  grep 端口  //如，80 、3306</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>测试: curl 发网络请求[百度一下 测试]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># curl localhost</span><br><span class="line"># curl -v localhost</span><br><span class="line"># curl -I localhost</span><br></pre></td></tr></table></figure>
+<h2 id="rpm服务-管理（yum）"><a href="#rpm服务-管理（yum）" class="headerlink" title="rpm服务-管理（yum）"></a>rpm服务-管理（yum）</h2><p>由于服务一般分为<strong>rpm</strong>包服务，源码包服务，则对应的启动方式是不一样的。对于rpm包安装的服务的启动脚本都在<code>/etc/init.d/</code> 目录下，通过<strong>service</strong>命令进行操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service httpd  start|stop|restart|status</span><br></pre></td></tr></table></figure>
+<p>httpd 这个名称是这个httpd服务的脚本文件，里面有httpd服务启动的命令。</p>
+<p>需要注意：service命令都是去查看/etc/init.d/对应的服务脚本进行启动，所以我们<strong>也</strong>可以通过绝对路径的方式来启动rpm包服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /etc/init.d/httpd start|stop|restart</span><br></pre></td></tr></table></figure>
+<p><strong>通过上面的命令我们可以对服务进行管理，如何实现服务的开机自启动呢？</strong></p>
+<p>方式一：通过<code>chkconfig</code>命令进行设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chkconfig --level 运行级别 服务名称 on|off</span><br></pre></td></tr></table></figure>
+<p>方式二：通过修改<code>/etc/rc.d/rc.local</code> 文件，加入启动的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/rc.d/rc.local</span><br><span class="line"></span><br><span class="line"> /etc/init.d/httpd start</span><br></pre></td></tr></table></figure>
+<p>但是需要注意：以上两种方式是<strong>互斥</strong>的，只能使用启动一种来管理对应的服务，不然就会造成服务的重复启动，会保错。</p>
+<p>rpm包管理总结：</p>
+<ol>
+<li><p>查看服务的状态</p>
+<p>a) ps axu | grep  服务进程名称</p>
+<p>b) netstat -tunple | 服务的端口</p>
+<p>c) service 服务的名称 status | start | stop</p>
+<p>d) /etc/init.d/服务的名称 start | status | stop</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>设置服务的自启动</p>
+<p>a) chkconfig –level  2345 服务名称 on | off</p>
+<p>b) /etc/rc.d/rc.local  里面定义服务的启动</p>
+</li>
+</ol>
+<h2 id="源码包服务-管理"><a href="#源码包服务-管理" class="headerlink" title="源码包服务-管理"></a>源码包服务-管理</h2><p>对于源码包安装的服务，需要通过绝对路径的方式进行管理，例如apache的管理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /usr/local/apache2/bin/apachectl -k start|stop</span><br></pre></td></tr></table></figure>
+<p>注意：源码包不能通过 service 服务的名称 start 进行启动，会报错，因为源码包里面的没有提供相应的服务器的启动的脚本放置在 /etc/init.d/服务启动脚本。</p>
+<h1 id="linux系统管理"><a href="#linux系统管理" class="headerlink" title="linux系统管理"></a>linux系统管理</h1><h2 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h2><p>linux下会运行很多的服务，当服务运行后，在系统里面的表现为一个进程，进程存在对应的进程信息，例如进程的id。对服务的管理，就是对该进程的管理。例如window下也可以查看进程的信息。</p>
+<p>那么在linux下如何查看进程信息呢？</p>
+<h2 id="进程查看"><a href="#进程查看" class="headerlink" title="进程查看"></a>进程查看</h2><p>方式一：bsd风格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ps aux</span><br></pre></td></tr></table></figure>
+<p>方式二：linux风格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ps -ef</span><br></pre></td></tr></table></figure>
+<h2 id="进程树查看"><a href="#进程树查看" class="headerlink" title="进程树查看"></a>进程树查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pstree</span><br></pre></td></tr></table></figure>
+<p>一般进程有主进程，父进程，子进程等。通过pstree可以查看进程相关的信息，系统运行的第一个进程为init进程。</p>
+<p>小命令：使用 <strong>tree</strong> 可以查看目录的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y tree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@localhost home]# tree  /home/</span><br><span class="line">/home/</span><br><span class="line">|-- andy</span><br><span class="line">|-- asion</span><br><span class="line">|-- caoyang</span><br><span class="line">|-- lilei</span><br><span class="line">|-- lily</span><br><span class="line">|   |-- a.txt</span><br><span class="line">|   `-- dir</span><br><span class="line">|       |-- a.txt</span><br><span class="line">|       |-- b.txt</span><br><span class="line">|       `-- demo.txt</span><br><span class="line">|-- mark</span><br><span class="line">|-- test</span><br><span class="line">`-- xiaoming</span><br><span class="line"></span><br><span class="line">9 directories, 4 files</span><br></pre></td></tr></table></figure>
+<h2 id="服务器负载查看"><a href="#服务器负载查看" class="headerlink" title="服务器负载查看"></a>服务器负载查看</h2><p>通过top命令可以查看当前服务器的状态，判断其健康状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># top</span><br></pre></td></tr></table></figure>
+<p>top每隔3s刷新一次，可以通过输入交互命令，例如按h显示帮助；按P则按照cpu使用进行排序，按M（shift+m）使用内存进行排序。按q进行退出。</p>
+<h2 id="杀死进程-不要随便用"><a href="#杀死进程-不要随便用" class="headerlink" title="杀死进程-[不要随便用]"></a>杀死进程-[不要随便用]</h2><p>查进程信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps axu | grep  关键字</span><br><span class="line">ps -ef | grep 关键字</span><br></pre></td></tr></table></figure>
+<p>一般当某个进程无法正常关闭的时候，可以通过如下的方式进行进程的强制关闭。</p>
+<ol>
+<li><p><code>kill</code>杀死单一进程</p>
+</li>
+<li><p><code>killall</code> 杀死全部进程(主进程负责协调、子进程干活， Nginx master\woker)</p>
+</li>
+<li><p><code>pkill</code> 杀死全部进程</p>
+</li>
+</ol>
+<p>一个进程运行中，表现形式就是一个数字，一般叫做pid。</p>
+<h2 id="信号量查看"><a href="#信号量查看" class="headerlink" title="信号量查看"></a>信号量查看</h2><p>在杀死进程的时候，一般都是通过命令然后传递一个进程信号进行处理，linux支持的进程信号有如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost home]# kill -l</span><br><span class="line"> 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL</span><br><span class="line"> 5) SIGTRAP	 6) SIGABRT	 7) SIGBUS	 8) SIGFPE</span><br><span class="line"> 9) SIGKILL	10) SIGUSR1	11) SIGSEGV	12) SIGUSR2</span><br><span class="line">13) SIGPIPE	14) SIGALRM	15) SIGTERM	16) SIGSTKFLT</span><br><span class="line">17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP</span><br><span class="line">21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU</span><br><span class="line">25) SIGXFSZ	26) SIGVTALRM	27) SIGPROF	28) SIGWINCH</span><br><span class="line">29) SIGIO	30) SIGPWR	31) SIGSYS	34) SIGRTMIN</span><br><span class="line">35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3	38) SIGRTMIN+4</span><br><span class="line">39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8</span><br><span class="line">43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12</span><br><span class="line">47) SIGRTMIN+13	48) SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14</span><br><span class="line">51) SIGRTMAX-13	52) SIGRTMAX-12	53) SIGRTMAX-11	54) SIGRTMAX-10</span><br><span class="line">55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7	58) SIGRTMAX-6</span><br><span class="line">59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2</span><br><span class="line">63) SIGRTMAX-1	64) SIGRTMAX</span><br></pre></td></tr></table></figure>
+<p>1 杀死某个单一进程，重新读取配置文件，重启</p>
+<p>5 全部干掉，可能造成数据丢失</p>
+<p>9 优雅的全部干掉</p>
+<h2 id="kill杀死单一进程"><a href="#kill杀死单一进程" class="headerlink" title="kill杀死单一进程"></a>kill杀死单一进程</h2><p>例一、通过kill命令传递HUP信号关闭httpd，重新读取配置文件，并重启进程</p>
+<p>查看httpd进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ps aux | grep httpd</span><br></pre></td></tr></table></figure>
+<p>方式一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># kill -1 httpd进程id</span><br></pre></td></tr></table></figure>
+<p><code>-1</code>：数字 1 不是字母</p>
+<p>方式二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># kill -HUP httpd进程id</span><br></pre></td></tr></table></figure>
+<p>注意：传递的HUP是通过 <code>kill -l</code>查询出来的信号量去掉SIG后的部分</p>
+<p>例二、通过kill命令传递KILL强制终止进程</p>
+<p>方式一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># kill -9 httpd进程id</span><br></pre></td></tr></table></figure>
+<p>方式二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># kill -KILL httpd进程id</span><br></pre></td></tr></table></figure>
+<h2 id="killall杀死全部进程"><a href="#killall杀死全部进程" class="headerlink" title="killall杀死全部进程"></a>killall杀死全部进程</h2><p>通过killall命令杀死全部进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># killall -9 进程名称</span><br></pre></td></tr></table></figure>
+<h2 id="pkill杀死全部进程"><a href="#pkill杀死全部进程" class="headerlink" title="pkill杀死全部进程"></a>pkill杀死全部进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pkill -9 进程名称</span><br></pre></td></tr></table></figure>
+<p>一般情况下不要尝试尝试杀死进行，因为服务的命令本身有提供开启、关闭、重启。杀掉进程有可能数据丢失。</p>
+<h1 id="linux后台作业"><a href="#linux后台作业" class="headerlink" title="linux后台作业"></a>linux后台作业</h1><h2 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h2><p>linux的后台作业，就是将某些操作放置后台进行处理，例如windows下的最小化操作，就是在后台操作。主要是为了多个任务进行操作，例如在当前终端复制一个比较大的文本，则会占据当前终端，例如mysql的服务器的启动，这些操作都要进行后台处理才合适。同时需要注意，当前操作的任务是和当前的终端进行绑定，如果当前终端关闭，则对应的操作会被关闭。</p>
+<h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h2><p><strong>如何将某个操作放入后台呢？</strong></p>
+<ol>
+<li><p>例如在后台压缩一个文件，在操作命令的后面加上 &amp; 符号，在后台是执行的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tar -zcf  etc.tar.gz  /ect  &amp;</span><br></pre></td></tr></table></figure>
+<p><code>-z</code> 代表使用的gzip算法进行压缩</p>
+<p><code>-c</code>  create 代表是要进行打包    <code>-x</code>代表是解压e<strong>x</strong>tract</p>
+<p><code>-f</code>  file 指定打包文件的名称【包名规范：名称.tar.gz    xxx.tar.bz   xxx.7z】</p>
+</li>
+<li><p>如果当前占据该终端，例如top命令，可以使用 ctrl + z 放入后台，进行暂停</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># top</span><br><span class="line"></span><br><span class="line"> ctrl + z</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何查看放在后台的任务呢?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># jobs</span><br><span class="line">[1]+  Stopped                 top</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何将后台暂停的任务恢复到前台执行呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">方式一</span><br><span class="line"># fg 工作信号id </span><br><span class="line">方式二</span><br><span class="line"># %工作信号id</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="linux定时任务"><a href="#linux定时任务" class="headerlink" title="linux定时任务"></a>linux定时任务</h1><h2 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h2><p>在linux服务器里面，一般来说我们都要定期的去做某些操作，例如数据库的备份【1. 全量备份，但是一般这个需要消耗很大的系统资源，一般周期长，一般选择在凌晨3-5点左右完成，不能在人多的时候完成。  2. 增量备份，最小化的备份】，但是由于服务器在白天的压力一般比较大，则对于数据库的备份一般来说都是在夜晚2-5点进行操作。这个时候就需要使用linux的系统定时任务来进行操作。例如让定时任务定期执行某个PHP脚本，来做一些操作，例如每周五下午五点统计该网站注册的的用户总人数发送给相关人员。周一的上午统计上个星期的业务总量，下了多少的订单，出了多少货；获取是定期生成静态页，定期让缓存失效，重新生成缓存。队列服务。订阅号</p>
+<h2 id="crontab定时任务参数解释"><a href="#crontab定时任务参数解释" class="headerlink" title="crontab定时任务参数解释"></a>crontab定时任务参数解释</h2><p><strong>如何编写定时任务呢</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># crontab -e</span><br><span class="line"></span><br><span class="line">* * * * * 执行程序，一般来说是一个shell脚本【shell编程】</span><br></pre></td></tr></table></figure>
+<p>其中这个五个星分别代表：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一个*</td>
+<td>一小时当中的第几分钟</td>
+<td>1-59</td>
+</tr>
+<tr>
+<td>第二个*</td>
+<td>一天中的第几个小时</td>
+<td>0-23</td>
+</tr>
+<tr>
+<td>第三个*</td>
+<td>一个月中的第几个天</td>
+<td>1-31</td>
+</tr>
+<tr>
+<td>第四个*</td>
+<td>一年中的第几个月</td>
+<td>1-12</td>
+</tr>
+<tr>
+<td>第五个*</td>
+<td>一个星期中的星期几</td>
+<td>0-7（0和7都代表星期天）</td>
+</tr>
+</tbody>
+</table>
+<p>对于前面的五个部分，有如下比较特殊符号需要讲解</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>代表任何时间，比如第一个*，代表一个小时里面的每分钟都执行一次命令</td>
+</tr>
+<tr>
+<td>,</td>
+<td>代表不连续的时间，比如  0     9,12              <em> </em> * ，代表每天的9点0分，12点0分执行一次命令</td>
+</tr>
+<tr>
+<td>-</td>
+<td>代表连续的范围，比如  0   10   <em> </em>     1-6 ，代表周一到周六的每天上午10点执行一次命令</td>
+</tr>
+<tr>
+<td>*/n</td>
+<td>代表每隔多久执行一次，比如 <em>/10 </em> <em> </em> *，代表每个10分钟执行一次命令</td>
+</tr>
+</tbody>
+</table>
+<p>解释如下的命令代表的含义</p>
+<p>15 10 <em> </em> * /user/local/data.sh</p>
+<p>每天的上午10点15分钟执行这个命令</p>
+<p>30 8 <em> </em> 1 /user/local/data.sh</p>
+<p>每周的周一的的上午8点30分钟执行这个命令</p>
+<p><em>/10  3 </em> <em> </em> /user/local/data.sh</p>
+<p>每天的凌晨3点到4点之间每隔10分钟执行一次</p>
+<p>0     10   1,15   *    2 /user/local/data.sh</p>
+<p>最大的坑 注意：每月的号最好不要和星期进行放在一起，因为linux操作系统默认是进行并集操作，不是执行与操作。</p>
+<p>相当于 每月的1号、15号，还有周二（只要是这个月的周二都要执行）的10点0分执行这个命令。</p>
+<h2 id="定时任务管理"><a href="#定时任务管理" class="headerlink" title="定时任务管理"></a>定时任务管理</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">简单示例演示，每一分钟在 /var/date.log文件里面记录下当前时间</span><br><span class="line"># crontab -e</span><br><span class="line">* * * * * date &gt;&gt; /var/date.log</span><br></pre></td></tr></table></figure>
+<p>每一分钟向 /var/date.log 写入当前的时间信息，追加</p>
+<p>注意：crontab -e 本质其实就是想往 /etc/crontab 文件里面写入上面的定时任务信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/crontab</span><br></pre></td></tr></table></figure>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># crontab -l</span><br></pre></td></tr></table></figure>
+<h3 id="清除"><a href="#清除" class="headerlink" title="清除"></a>清除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># crontab -r [注意：-r代表是删除所有的定时任务，没法删除单条的任务，如果删除单个直接vim进行编辑]</span><br></pre></td></tr></table></figure>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>注意：linux下的定时任务的最小的精度是在分钟，没有秒级别的定时任务。如何设置秒级别的定时任务？</p>
+<p><a href="https://www.cnblogs.com/adtuu/p/5213352.html" target="_blank" rel="noopener">https://www.cnblogs.com/adtuu/p/5213352.html</a></p>
+<p>注意：现在有这样需求，在每周五的下午五点统计该网站的这一周的注册会员的总数，发送给公司的XXX人员的 手机或者邮箱。</p>
+<ol>
+<li><p>定期的执行某个脚本</p>
+</li>
+<li><p>统计网站的会员注册信息</p>
+</li>
+<li><p>发送邮件或者手机短信</p>
+</li>
+</ol>
+<h1 id="lamp环境的搭建"><a href="#lamp环境的搭建" class="headerlink" title="lamp环境的搭建"></a>lamp环境的搭建</h1><h2 id="简介-6"><a href="#简介-6" class="headerlink" title="简介"></a>简介</h2><p>互联网上一般存在两种架构</p>
+<ol>
+<li><p><strong>lamp架构</strong></p>
+<p>a) linux</p>
+<p>b) apache</p>
+<p>c) mysql 或者MariaDB；</p>
+<ul>
+<li>MariaDB是mysql的另外的一个分支，mysql被Oracle收购了，有可能闭源，所以出现其他的分支版本，    MariaDB是原MySQL的作者之一进行主导开发，以他女儿名字命名。</li>
+</ul>
+<p>d) PHP或者Python</p>
+</li>
+<li><p>lnmp架构</p>
+<p>a) linux</p>
+<p>b) Nginx</p>
+<p>c) mysql或者MariaDB</p>
+<p>d) PHP或者Python</p>
+</li>
+</ol>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>关闭防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># iptables -L </span><br><span class="line"># iptables -F</span><br><span class="line"># service iptables stop</span><br><span class="line"># chkconfig --level 35 iptables off</span><br></pre></td></tr></table></figure>
+<p><code>-L</code>列出</p>
+<p><code>-F</code> 删除</p>
+<p><code>service iptables stop</code></p>
+<p>关闭selinux</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># setenforce 0</span><br><span class="line"></span><br><span class="line"># getenforce</span><br></pre></td></tr></table></figure>
+<p>时间同步(确保DNS的服务器需要正常)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ntpdate  time.windows.com</span><br></pre></td></tr></table></figure>
+<p>如果上面的服务无法正常使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# date -s &quot;2018-09-07 17:04:00&quot;</span><br><span class="line">2018年 09月 07日 星期五 17:04:00 CST</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# date </span><br><span class="line">2018年 09月 07日 星期五 17:04:01 CST</span><br></pre></td></tr></table></figure>
+<h2 id="ftp管理"><a href="#ftp管理" class="headerlink" title="ftp管理"></a>ftp管理</h2><p>使用一个ftp上传工具将源代码上传到服务器上。ftp也是linux下的一个服务，需要先安装对应的服务，启动服务后，通过客户端软件上传源代码。</p>
+<p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y vsftpd</span><br></pre></td></tr></table></figure>
+<p>启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service vsftpd   start | status | restart | stop</span><br></pre></td></tr></table></figure>
+<p>注意：ftp也是一个 c/s 架构，并且监听的是 21 号端口。</p>
+<h2 id="ftp客户端使用"><a href="#ftp客户端使用" class="headerlink" title="ftp客户端使用"></a>ftp客户端使用</h2><ol>
+<li>注意：这里不能使用root用户，需要使用普通用户andy进行ftp文件上传。一般来说，源码都会上传到 <code>/usr/local/src</code> 目录下。</li>
+</ol>
+<p><img src="1536311258735.png" alt="1536311258735"></p>
+<ol start="2">
+<li><p>修改 <code>/usr/local/src</code>的其他人权限，是的其他用户可以把源码上传到该目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost local]# chmod -R 757 /usr/local/src/</span><br><span class="line"></span><br><span class="line">[root@localhost local]# ls -ld /usr/local/src/</span><br><span class="line">drwxr-xrwx 5 root root 4096 09-07 17:29 /usr/local/src/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传操作</p>
+</li>
+</ol>
+<p><img src="1536311357128.png" alt="1536311357128"></p>
+<h2 id="apache安装"><a href="#apache安装" class="headerlink" title="apache安装"></a>apache安装</h2><ol>
+<li><p>解压Apache的tar包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src</span><br><span class="line"></span><br><span class="line"># tar -zxvf httpd-2.2.11.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入解压后的目录，然后使用 configure命令收集操作系统的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd httpd-2.2.11</span><br><span class="line"># ./configure --prefix=/usr/local/apache2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成功安装后，启动apache服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/apache2/bin/apachectl -k start</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a>mysql安装</h2><ol>
+<li><p>将mysql的压缩包解压到 <code>/usr/local</code> 目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src</span><br><span class="line"></span><br><span class="line">#  tar -zxvf msyql-5.5.38-linux2.6-i686.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
+<p><code>-C</code>代表：解压到指定目录</p>
+</li>
+<li><p>为mysql的解压的目录创建一个软连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local</span><br><span class="line"># ln -sv mysql-5.5.38-linux2.6-i686 mysql</span><br></pre></td></tr></table></figure>
+<p>ln： 代表创建一个符号链接，就是一个快捷键</p>
+</li>
+<li><p>进入mysql目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个mysql的用户，来使得它运行MySQL软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># useradd mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改mysql目录及其子目录以及文件的所有者和所属组为mysql和mysql组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chown  -R  mysql:mysql  .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行MySQL安装的脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ./scripts/mysql_install_db --user=mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制MySQL的配置文件到 <code>/etc/</code>目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cp support-files/my-small.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制mysqld脚本到系统服务目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cp support-files/mysql.server /etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入系统服务列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chkconfig --add mysqld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动mysql服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service mysqld start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录MySQL服务器，注意：此时root密码为空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># /usr/local/mysql/bin/mysql -uroot -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改MySQL服务器的root密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost htdocs]# /usr/local/mysql/bin/mysql -uroot -p</span><br><span class="line">Enter password: </span><br><span class="line"></span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 8</span><br><span class="line">Server version: 5.5.38 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">Database changed</span><br><span class="line"></span><br><span class="line">mysql&gt; update user set password=password(&quot;admin88&quot;) where user=&quot;root&quot;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">Rows matched: 4  Changed: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="php安装"><a href="#php安装" class="headerlink" title="php安装"></a>php安装</h2><ol>
+<li><p>解压PHP源码包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/src</span><br><span class="line"># tar -zxvf php-5.2.5.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入解压后的PHP目录，在configure的时候，特别注意：需要指定<strong>Apache</strong>和<strong>MySQL</strong>的安装目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd php-5.2.5</span><br><span class="line"># ./configure --prefix=/usr/local/php --with-mysql=/usr/local/mysql/ --with-apxs2=/usr/local/apache2/bin/apxs   --with-config-file-path=/usr/local/php</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制PHP配置文件到指定目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cp php.ini-dist /usr/local/php/lib/php.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置Apache的httpd.conf文件，增加如下信息，以后有.php结尾的文件都交给php模块处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost htdocs]# vim /usr/local/apache2/conf/httpd.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">AddType application/x-httpd-php .php</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启Apache</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pkill -9 httpd</span><br><span class="line"></span><br><span class="line"># /usr/local/apache2/bin/apachectl -k start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加PHP测试文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># vim /usr/local/httpd/htdocs/test.php</span><br><span class="line">	</span><br><span class="line">	phpinfo();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器访问</p>
+<p><img src="1536313751040.png" alt="1536313751040"></p>
+</li>
+</ol>
+<h1 id="扩展-1"><a href="#扩展-1" class="headerlink" title="扩展"></a>扩展</h1><h2 id="samba"><a href="#samba" class="headerlink" title="samba"></a>samba</h2><h3 id="简介-7"><a href="#简介-7" class="headerlink" title="简介"></a>简介</h3><p>有的时候在开发的环境中，是多种操作系统环境交叉使用，例如，Windows的电脑做开发，linux电脑做服务器，彼此之间需要相关的传递文件，共享信息。彼此沟通非常麻烦。这个时候可以使用一个叫做 Samba（作者和linux是同样有名）的软件完美的解决彼此之间的沟通。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li><p>使用yum安装Samba软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y samba</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加一个系统用户，等会配合Samba软件一起使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># useradd sambatest</span><br><span class="line"># passwd sambatest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加上一步的用户到Samba服务里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># smbpasswd  -a  sambatest(将系统用户加入Samba的配置文件中，并为该用户设置密码)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动Samba服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># service smb start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Windows连接Samba服务的服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window+r</span><br><span class="line"></span><br><span class="line">输入</span><br><span class="line">\\linux服务器IP地址</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Sudo"><a href="#Sudo" class="headerlink" title="Sudo"></a>Sudo</h2><h3 id="简介-8"><a href="#简介-8" class="headerlink" title="简介"></a>简介</h3><p>可以用<strong>root的身份</strong>去执行一个命令，主要是<strong>为辅助超级管理员</strong>完成一些超级管理员不能登录下的操作。因为在实际的生产环境，root一般是很少连接远程连接服务器的，root权限过大，一般来说都是以普通用户进行登录管理，但是有的时候普通用户也想执行一下root用户的权限（例如服务器重启），该怎么办呢？</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><ol>
+<li><p>查看sudo信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># visudo -V</span><br></pre></td></tr></table></figure>
+<p>如果不能显示上面的信息，使用如下方式进行安装</p>
+</li>
+<li><p>安装sudo软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y sudo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑配置文件，使得一个普通用户可以使用root的身份去执行一些root才能操作的命令（例如关机 shutdown、 useradd）修改的其实是<code>/etc/sudoers</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># visodu </span><br><span class="line"> caoyang ALL=(ALL) /sbin/shutdown</span><br><span class="line"> caoyang ALL=(ALL)  /usr/sbin/useradd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换成普通用户，执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># su - caoyang</span><br></pre></td></tr></table></figure>
+<p>注意：需要输入普通用户的密码</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/3690292183/" title="linux操作系统3">http://blog.kuma8866.top/posts/3690292183/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2780478422/" rel="next" title="JavaScript 冒泡事件">
+                <i class="fa fa-chevron-left"></i> JavaScript 冒泡事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/905642747/" rel="prev" title="linux操作系统1">
+                linux操作系统1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux软件安装管理"><span class="nav-text">linux软件安装管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件包类型简介"><span class="nav-text">软件包类型简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码包优缺点"><span class="nav-text">源码包优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制包优缺点"><span class="nav-text">二进制包优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rpm包的管理"><span class="nav-text">rpm包的管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rpm包的命名规则"><span class="nav-text">rpm包的命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载"><span class="nav-text">挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载实操"><span class="nav-text">挂载实操</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpm包的依赖性问题"><span class="nav-text">rpm包的依赖性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpm相关操作"><span class="nav-text">rpm相关操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖演示"><span class="nav-text">依赖演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yum在线安装方式"><span class="nav-text">yum在线安装方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-1"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum相关操作"><span class="nav-text">yum相关操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum源更新实操"><span class="nav-text">yum源更新实操</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码编译"><span class="nav-text">源码编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译前的准备"><span class="nav-text">编译前的准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实操"><span class="nav-text">实操</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux服务管理"><span class="nav-text">linux服务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-2"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux的运行级别简介"><span class="nav-text">linux的运行级别简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式切换"><span class="nav-text">模式切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认模式"><span class="nav-text">默认模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同模式下程序行为"><span class="nav-text">不同模式下程序行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux服务分类"><span class="nav-text">linux服务分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已安装的服务"><span class="nav-text">查看已安装的服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务状态查看"><span class="nav-text">服务状态查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rpm服务-管理（yum）"><span class="nav-text">rpm服务-管理（yum）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码包服务-管理"><span class="nav-text">源码包服务-管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux系统管理"><span class="nav-text">linux系统管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-3"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程查看"><span class="nav-text">进程查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程树查看"><span class="nav-text">进程树查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器负载查看"><span class="nav-text">服务器负载查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杀死进程-不要随便用"><span class="nav-text">杀死进程-[不要随便用]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号量查看"><span class="nav-text">信号量查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kill杀死单一进程"><span class="nav-text">kill杀死单一进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#killall杀死全部进程"><span class="nav-text">killall杀死全部进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pkill杀死全部进程"><span class="nav-text">pkill杀死全部进程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux后台作业"><span class="nav-text">linux后台作业</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-4"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关操作"><span class="nav-text">相关操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux定时任务"><span class="nav-text">linux定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-5"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#crontab定时任务参数解释"><span class="nav-text">crontab定时任务参数解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时任务管理"><span class="nav-text">定时任务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加"><span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除"><span class="nav-text">清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展"><span class="nav-text">扩展</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lamp环境的搭建"><span class="nav-text">lamp环境的搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-6"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp管理"><span class="nav-text">ftp管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ftp客户端使用"><span class="nav-text">ftp客户端使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apache安装"><span class="nav-text">apache安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql安装"><span class="nav-text">mysql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php安装"><span class="nav-text">php安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展-1"><span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#samba"><span class="nav-text">samba</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-7"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sudo"><span class="nav-text">Sudo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-8"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-text">使用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="==VI/VIM-linux下的编辑器== vim编辑器（linux下的一个文本编辑器）是vi的一个升级版，如果学会vim ，其实也就会了vi。 用户和用户组（linux一个非常重要概念）才能更好去掌握linux下的权限问题。（linux是一个多任务、多用户操作系统）【笔试：如何理解 755 或者 644 这个数字？】  简介现在我们掌握了linux的基本命令之后，我们可以通过命令来进行linux">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux操作系统2">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2901562177/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="==VI/VIM-linux下的编辑器== vim编辑器（linux下的一个文本编辑器）是vi的一个升级版，如果学会vim ，其实也就会了vi。 用户和用户组（linux一个非常重要概念）才能更好去掌握linux下的权限问题。（linux是一个多任务、多用户操作系统）【笔试：如何理解 755 或者 644 这个数字？】  简介现在我们掌握了linux的基本命令之后，我们可以通过命令来进行linux">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2901562177/1536155197372.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2901562177/1536114738118.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2901562177/1536115323997.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2901562177/1536135147397.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2901562177/1536136063816.png">
+<meta property="og:updated_time" content="2018-12-19T08:42:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux操作系统2">
+<meta name="twitter:description" content="==VI/VIM-linux下的编辑器== vim编辑器（linux下的一个文本编辑器）是vi的一个升级版，如果学会vim ，其实也就会了vi。 用户和用户组（linux一个非常重要概念）才能更好去掌握linux下的权限问题。（linux是一个多任务、多用户操作系统）【笔试：如何理解 755 或者 644 这个数字？】  简介现在我们掌握了linux的基本命令之后，我们可以通过命令来进行linux">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2901562177/1536155197372.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2901562177/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>linux操作系统2 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2901562177/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">linux操作系统2
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-19 16:42:13" itemprop="dateCreated datePublished" datetime="2018-12-19T16:42:13+08:00">2018-12-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">9.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">8 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="VI-VIM-linux下的编辑器"><a href="#VI-VIM-linux下的编辑器" class="headerlink" title="==VI/VIM-linux下的编辑器=="></a>==VI/VIM-linux下的编辑器==</h1><ol>
+<li>vim编辑器（linux下的一个文本编辑器）是vi的一个升级版，如果学会vim ，其实也就会了vi。</li>
+<li>用户和用户组（linux一个非常重要概念）才能更好去掌握linux下的权限问题。（linux是一个多任务、多用户操作系统）【笔试：如何理解 755 或者 644 这个数字？】</li>
+</ol>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>现在我们掌握了linux的基本命令之后，我们可以通过命令来进行linux的基本操作，现在假设我们要在<code>/var/www/html</code>目录下编写一个叫做phpinfo.php的文件？那么这时我们应该如何编写phpinfo.php这个文件呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim phpinfo.php</span><br></pre></td></tr></table></figure>
+<p>问题来了：在linux下没有<strong>sublime Text</strong>这样软件工具，那么我们如何在命令界面中编写phpinfo.php的代码呢？在Linux如果希望编辑文件我们可以使用vi或者vim来进行编辑操作。</p>
+<p>VI/VIM是一款编辑器，它们是Linux自带编辑器。VIM是VI的升级版。功能上VI和VIM都是一样的。</p>
+<p>VIM具有<strong>语法着色</strong>的功能而VI没有，所以人们会更加喜欢使用VIM。(vi vim是同一个东西)</p>
+<p><strong>linux下常见的编辑器有：</strong></p>
+<p><code>nano</code>最早的一个编辑器，很原始，不要学习</p>
+<p><code>vim</code> 只是vi编辑器的升级版（编辑器的神）（phpstorm 或sublime + vim插件 =&gt; 基本上可以完全脱离鼠标）</p>
+<p><code>emacs Unix</code>编辑器（神的编辑器）</p>
+<p>vim 是编辑器中的神，所有编辑器 vim 最好用，一般的类Unix操作系统里面都自带vi(后期yum进行升级 <code>yum install -y vim</code>)；emacs是神的编辑器，使用的人是最牛的，一般在Unix的操作系统使用。</p>
+<p><strong>注意</strong>：一般linux操作系统也叫作 <strong>类 Unix 操作系统，</strong>早期linux由来是与Unix密不可分的。</p>
+<h2 id="vim编辑器测试"><a href="#vim编辑器测试" class="headerlink" title="vim编辑器测试"></a>vim编辑器测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim</span></span><br><span class="line"></span><br><span class="line">当在命令行输入 vim 后，会打开如上的这个界面，代表vim可以正常使用，当输入 :q后（进来之后不要做任何的操作）可以实现vim的退出。</span><br></pre></td></tr></table></figure>
+<h2 id="vim打开文件的命令"><a href="#vim打开文件的命令" class="headerlink" title="vim打开文件的命令"></a>vim打开文件的命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim  fileName</span></span><br><span class="line">文件是可以存在的文件也可以是不存在的文件</span><br><span class="line">vim如果打开一个不存在的文件，那么会在底部显示一个新文件的标识。</span><br></pre></td></tr></table></figure>
+<h2 id="vim编辑器的三种模式【重要】"><a href="#vim编辑器的三种模式【重要】" class="headerlink" title="==vim编辑器的三种模式【重要】=="></a>==vim编辑器的三种模式【重要】==</h2><p><img src="1536155197372.png" alt="1536155197372"></p>
+<p>当使用vim编辑器对某个文件进行操作的时候，需要注意vim存在三种模式，每种模式都存在一些特点的操作，例如在编辑模式下修改文件里面的内容，末行模式下实现文件的保存。并且这三种模式是可以相互进行切换的，已达到不同的目的。（<code>esc</code> 退出当前这种模式<code>i</code>代表是insert插入的意思 <code>w</code> 代表写入 <code>q</code> 代表退出 quit）</p>
+<p>操作步骤</p>
+<ol>
+<li>vim fileName 打开一个文件，当打开一个文件后，默认处在命令模式</li>
+<li>按一下 i 键 可以对文件的内容做编辑，可以对文件最实质性的操作，往里面写东西</li>
+<li>按一下 esc 键 回到命令模式</li>
+<li>输入 <strong>:</strong>   ，然后在 输入 wq ，代表保存并退出</li>
+</ol>
+<h3 id="编辑模式-文件内容编写"><a href="#编辑模式-文件内容编写" class="headerlink" title="编辑模式-文件内容编写"></a>编辑模式-文件内容编写</h3><p>当vim在打开一个文件之后，其实vim处于一个命令模式的状态在等待<code>用户输入正确的指令</code>才能切换到编辑模式【插入模式】当中，如果你输入的是1111这的内容在vim的命令模式下看来这个不是一个正确的指令，所以vim什么都不会做，这时有些人认为当前是死机的状态，然而不是，这是一个等待命令输入的状态。</p>
+<ol>
+<li>输入表格中的命令就可以进入编辑模式</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>在光标之前插入内容</td>
+</tr>
+<tr>
+<td>I</td>
+<td>让光标回到行首输入内容</td>
+</tr>
+<tr>
+<td>o(小写字母o)</td>
+<td>在光标之下新起一行插入内容</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在光标之上新起一行插入内容</td>
+</tr>
+<tr>
+<td>a</td>
+<td>在光标之后插入内容</td>
+</tr>
+<tr>
+<td>A</td>
+<td>让光标去到行末输入内容</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li><p>退出编辑模式按esc键</p>
+</li>
+<li><p>输入 ：键，进入末行模式</p>
+</li>
+<li><p>输入 wq 保存并退出</p>
+</li>
+</ol>
+<h3 id="末行模式-文件保存退出查找"><a href="#末行模式-文件保存退出查找" class="headerlink" title="末行模式-文件保存退出查找"></a>末行模式-文件保存退出查找</h3><p>一般末行模式也叫作<strong>尾行模式。</strong>当打开文件后，默认是在命令模式，如果需要修改文件的内容，需要按<code>i</code>键 进入插入模式， 当文件修改完之后，需要 按<code>esc</code>键 回到 命令模式， 按一下<code>:</code>  键 回到末行模式，在输入 <code>wq</code>保存并退出。</p>
+<ol>
+<li>输入<code>:</code>就可以让vim进入末行模式，以下命令是末行模式的常用功能</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>w是write的意思，意思是写入内容。newFilename 时另存</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>quit退出vim</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td><strong>:x</strong></td>
+<td><strong>保存并退出，相当于是:wq的简写</strong></td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出   ! 表示强制</td>
+</tr>
+<tr>
+<td>:w!</td>
+<td>强制保存（写入）</td>
+</tr>
+<tr>
+<td>:wq!</td>
+<td>强制保存并退出（root去操作一些只读的文件）</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>设置行号nu（number）</td>
+</tr>
+<tr>
+<td>:set nonu</td>
+<td>取消行号</td>
+</tr>
+<tr>
+<td>:1</td>
+<td>回到行首</td>
+</tr>
+<tr>
+<td>:n</td>
+<td>去到第n行，如去到第21行</td>
+</tr>
+<tr>
+<td>: /关键字</td>
+<td>搜索关键字，如果有关键字，进行高亮</td>
+</tr>
+<tr>
+<td>:nohls</td>
+<td>去除高亮显示 【highlights，高亮】</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>使用两次esc键可以退出末行模式，进入命令模式</li>
+</ol>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.末行模式下设置行号</span><br><span class="line">: set nu</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2.如何取消</span><br><span class="line">: set nonu</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.文件的退出</span><br><span class="line">: q (文本没有修过的情况下，可以直接退出)</span><br><span class="line"></span><br><span class="line">问题：当文本内容本修改后，使用 :q 不能直接退出</span><br><span class="line">: q! (在文本内容被修改后，但是不希望文本里面的修改内容被保存下来)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4. 文件保存</span><br><span class="line">: w </span><br><span class="line"></span><br><span class="line">: w  newFileName(另存为)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5. 查找</span><br><span class="line">:/关键字</span><br><span class="line">注意：n 键 向下跳转 N键 向上跳转</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6.取消关键字的高亮(noh = no highlights高亮)</span><br><span class="line">: nohls</span><br></pre></td></tr></table></figure>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p>在命令模式下，主要是做做一些命令的操作，例如文本的复制，删除等。其主要操作如下</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td>去到末行</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>去到首行，相当于输入:1</td>
+</tr>
+<tr>
+<td>r</td>
+<td>replace的意思，替换光标选中的内容</td>
+</tr>
+<tr>
+<td>x</td>
+<td>删除光标选择中内容  extract</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销功能(undo)，相当于windows下的ctrl+z ，如果我们是切换到末行模式下可以输入: 3u 代表撤销三步</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制一行 注意如果 3yy 代表复制3行</td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴 如果是小写p则在光标所在下一行进行粘贴，如果要想在光标上一行粘贴，按  P(大写)</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除一行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>删除n行，3dd删除3行</td>
+</tr>
+</tbody>
+</table>
+<p><strong>思考：如何快速的删除所有的行？</strong></p>
+<p>答：从头删除到尾</p>
+<ol>
+<li>gg（文首）</li>
+<li>d （delete 删除）</li>
+<li>G （文末）</li>
+</ol>
+<p>总结：在命令模式下快速  ggdG</p>
+<h4 id="光标移动相关演示操作"><a href="#光标移动相关演示操作" class="headerlink" title="光标移动相关演示操作"></a>光标移动相关演示操作</h4><p>只要键入vim打开文件就处于命令行模式，在命令模式下，可以使用键盘的 <strong>上下左右</strong> 做移动，也可以使用 如下按键：</p>
+<p><code>h</code>  向左</p>
+<p><code>j</code>  向下</p>
+<p><code>k</code>  向上</p>
+<p><code>l</code>  向右</p>
+<ol>
+<li><p>光标级的移动</p>
+<p>答： h  j   k  l </p>
+</li>
+<li><p>单词级别的移动</p>
+<p>答：</p>
+<p>e 键：可以跳到当前单词的末尾，或者下一个单词的末尾（end）</p>
+<p>b 键：可以跳到当前单词的首部，或者上一个单词的首部（before）</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>行级别的跳动</p>
+<p>答：</p>
+<p>0：代表行首</p>
+<p>$：代表行尾</p>
+</li>
+<li><p>指定行数跳转</p>
+<p>答：NUMBER+G</p>
+<p>例如：从第一行跳到第18行</p>
+</li>
+<li><p>跳到文档的第一行首部</p>
+<p>答：gg</p>
+</li>
+<li><p>跳动文档的最后一行的首部或者尾部</p>
+<p>答：G</p>
+</li>
+</ol>
+<h4 id="文本内容删除"><a href="#文本内容删除" class="headerlink" title="文本内容删除"></a><strong>文本内容删除</strong></h4><ol>
+<li><p>删除一行</p>
+<p>答：dd    </p>
+</li>
+<li><p>删除单个字符</p>
+<p>答： x （使用 x 可以单个字符）</p>
+</li>
+<li><p>指定行数删除</p>
+<p>答：NUMBER  +  dd </p>
+</li>
+<li><p>删除当前光标到行尾的所有字符</p>
+<p>答：d$</p>
+</li>
+<li><p>删除当前光标到行首的所有字符</p>
+<p>答：d0</p>
+</li>
+</ol>
+<h4 id="复制操作"><a href="#复制操作" class="headerlink" title="复制操作"></a><strong>复制操作</strong></h4><ol>
+<li><p>复制单行</p>
+<p>答：在命令模式下使用 yy 复制一行，按 p 粘贴该行信息 （大写P： 当前光标的上一行粘贴）</p>
+</li>
+<li><p>复制多行</p>
+<p>答：NUMBER+yy</p>
+</li>
+</ol>
+<h2 id="vim常见开发技巧及问题"><a href="#vim常见开发技巧及问题" class="headerlink" title="vim常见开发技巧及问题"></a>vim常见开发技巧及问题</h2><h3 id="esc快捷键"><a href="#esc快捷键" class="headerlink" title="esc快捷键"></a>esc快捷键</h3><p>为什么在使用vim编辑器的时候，要使用esc键做模式的切换。</p>
+<p>答：早起的键盘的esc键是在Q旁边，非常方便小拇指的使用，现在的键盘esc键不方便使用。</p>
+<p><img src="1536114738118.png" alt="1536114738118"></p>
+<p><strong>如何解决手指无法触及 esc 键？</strong></p>
+<p>答：在用户家目录的 .vimrc 文件中定义一个快捷键来代替 esc 键 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> (备注：<span class="built_in">cd</span> 后面如果什么都不加，代表是回家，回到家目录 或者 <span class="built_in">cd</span> ~ ~代表的是家目录)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim .vimrc </span></span><br><span class="line"> imap jj &lt;Esc&gt;</span><br></pre></td></tr></table></figure>
+<p>当打开文件，按 i键 进入插入模式，书写完内容后，然后快速的 按 jj , 这个时候就回到了 命令模式，然后在输入 ： 回到末行模式 ，在输入 wq 保存退出。</p>
+<h3 id="默认行号"><a href="#默认行号" class="headerlink" title="默认行号"></a>默认行号</h3><p>使用 vim编辑器 打开文件默认有行号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span>  </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim .vimrc </span></span><br><span class="line">  set nu</span><br></pre></td></tr></table></figure>
+<h3 id="非法关闭文件"><a href="#非法关闭文件" class="headerlink" title="非法关闭文件"></a>非法关闭文件</h3><p>当文件非法关闭之后，无法正常使用，如何解决？</p>
+<p>答：删除该隐藏文件即可</p>
+<p><img src="1536115323997.png" alt="1536115323997"></p>
+<h3 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a>清屏</h3><p>有的时候 见到别人输入 cls 来清屏  （.bashrc  这个文件是当前<code>bash shell</code>的配置文件）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span>  </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim .bashrc </span></span><br><span class="line">alias cls="clear"</span><br></pre></td></tr></table></figure>
+<p>然后在执行如下重新读取配置<code>.bashrc</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">   .  .bashrc ( . 代表的含义是读取该配置文件 )</span></span><br></pre></td></tr></table></figure>
+<h3 id="解锁vim锁住"><a href="#解锁vim锁住" class="headerlink" title="解锁vim锁住"></a>解锁vim锁住</h3><p>当有的时候用户习惯按 <code>ctrl+s</code>在vim下实现文件的保存</p>
+<p>解决：可以使用<code>ctrl  +  q</code> 键 </p>
+<h3 id="编辑撤销"><a href="#编辑撤销" class="headerlink" title="编辑撤销"></a>编辑撤销</h3><p>文件编辑的撤销</p>
+<p>解决：在末行模式下输入<code>u</code>，也可以输入<code>NUMBER+u</code>  代表撤销NUMBER步操作</p>
+<hr>
+<h1 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="==用户和用户组=="></a>==用户和用户组==</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>linux是一个多用户 ：同一时间可以让多个用户登录到该操作系统、多任务：同一时刻可以完成多个任务，可以运行多个软件 的系统，Windows系统是多任务单用户的操作系统。</p>
+<p><strong>多任务</strong>：操作系统可以同时完成多个任务，例如听歌、操作word、看电影</p>
+<p><strong>多用户</strong>：同一时间，多个用户可以同时登录操作系统</p>
+<p><strong>单用户</strong>：同一时间，只有一个用户登录操作系统</p>
+<p>对于一个linux操作系统，是一个多用户的操作系统，那么不可避免的要添加用户，删除用户….</p>
+<p><strong>用户的管理curd</strong>：</p>
+<ol>
+<li>用户的添加</li>
+<li>用户的展示</li>
+<li>用户的修改</li>
+<li>用户的删除</li>
+</ol>
+<p>语法：user+ add|del</p>
+<h2 id="用户的管理（root）"><a href="#用户的管理（root）" class="headerlink" title="用户的管理（root）"></a>用户的管理（root）</h2><h3 id="用户添加"><a href="#用户添加" class="headerlink" title="用户添加"></a>用户添加</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> useradd userName</span></span><br></pre></td></tr></table></figure>
+<p><strong>添加的用户信息保存到哪里？</strong></p>
+<p>答：保存到<code>/etc/passwd</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# cat /etc/passwd</span><br><span class="line"></span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">...</span><br><span class="line">mysql:x:501:501::/home/mysql:/sbin/nologin</span><br><span class="line">asion:x:502:502::/home/asion:/bin/bash</span><br></pre></td></tr></table></figure>
+<p><strong>每一行代表一个用户信息，同时每行由七个部分组成：</strong></p>
+<ol>
+<li><strong>用户名</strong></li>
+<li><strong>密码位</strong>(该位只是用户密码的占位符，并不实际存放用户的密码，用户的实际密码保存在<code>/etc/shadow</code>[影子文件]文件里面)</li>
+<li><strong>UID</strong>  用户id（备注：500及之前的已经被linux操作系统默认保留使用的）</li>
+<li><strong>GID</strong>  用户组id，体现分类管理的思想，一个组下可以存在多个用户，通过划分小组，可以更好的管理linux下的用户</li>
+<li><strong>注释信息</strong>（有的时候在添加用户的时候给的备注信息）</li>
+<li><strong>用户的家目录</strong>（系统在添加用户的时候，默认会在<code>/home/</code>下用户名同名的目录） 默认情况下，用户在自己的家目录可以做任何事情。</li>
+<li><strong>用户能够使用的命令解释器</strong> (shell， 一般使用<code>/bin/bash</code>) <ul>
+<li><code>/sbin/nologin</code> 代表的含义：在linux下，当我们运行一个服务的时候，例如web服务，则这个服务需要一定的用户身份来启动 web服务的命令但不需要登录。如果分配的是这个 shell 则表示用户没权限登录到Linux系统。</li>
+</ul>
+</li>
+</ol>
+<h3 id="用户名修改"><a href="#用户名修改" class="headerlink" title="用户名修改"></a>用户名修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> usermod  -l  newName  oldName</span></span><br></pre></td></tr></table></figure>
+<p><code>-l</code>  ，小写字母L ，表示后边要修改的是登录名</p>
+<h3 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h3><ol>
+<li><p>超级管理员修改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> passwd  USERNAME</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改当前用户名的密码(后面不需用户名，直接回车)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> passwd</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="用户删除"><a href="#用户删除" class="headerlink" title="用户删除"></a>用户删除</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> userdel  USERNAME</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：当使用 userdel USERNAME 删除用户的时候，默认不会删除用户的家目录，需要加上一个参数<code>-r</code> 选项即可删除用户的同时也删除用户的家目录。</p>
+<h2 id="组的管理（root）"><a href="#组的管理（root）" class="headerlink" title="组的管理（root）"></a>组的管理（root）</h2><p><strong>为什么要设置组？</strong></p>
+<p>答：其主要的目的就是为了管理上的方便。管理一个组的成本远小于管理每个用户。</p>
+<p>例如：为某一个组设置了权限，那么相当于组内所有的用户全部拥有了该权限，方便设置管理。</p>
+<p><strong>主要操作是</strong></p>
+<p>添加、修改、删除、展示</p>
+<p>语法：group + add | del | mod</p>
+<h3 id="组添加"><a href="#组添加" class="headerlink" title="组添加"></a>组添加</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  groupadd superadmin</span></span><br></pre></td></tr></table></figure>
+<p>注意：当添加组信息之后，该信息被保存在<code>/etc/group</code>文件里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# cat /etc/group</span><br><span class="line">root:x:0:</span><br><span class="line">bin:x:1:bin,daemon</span><br><span class="line">daemon:x:2:bin,daemon</span><br><span class="line">sys:x:3:bin,adm</span><br><span class="line">adm:x:4:adm,daemon</span><br><span class="line">tty:x:5:</span><br><span class="line">disk:x:6:</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li>组名</li>
+<li>组密码的占位符（一般选择的linux操作系统不在使用组密码）</li>
+<li>组ID</li>
+<li>组成员，逗号分隔</li>
+</ol>
+<p>例如：添加用户的时候为用户指定组</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> useradd -g 505 lilei</span></span><br></pre></td></tr></table></figure>
+<p>可以在该用户登录后，使用  id 命令查看组信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# id</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br></pre></td></tr></table></figure>
+<p>注意：当我们在linux下使用root创建一个普通用户的时候，如果没有使用<code>-g</code>指定当前用户所属的组，则linux默认会自动生成一个和当前用户同名的小组，并且把当前用户加入到该组里面。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> useradd liyang</span></span><br></pre></td></tr></table></figure>
+<h3 id="组修改"><a href="#组修改" class="headerlink" title="组修改"></a>组修改</h3><p>修改组名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> groupmod -n newGroup oldGroup</span></span><br></pre></td></tr></table></figure>
+<h3 id="组删除"><a href="#组删除" class="headerlink" title="组删除"></a>组删除</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> groupdel groupName</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：当组内还有成员的时候，不允许删除</p>
+<h1 id="linux下的权限操作-【重点】"><a href="#linux下的权限操作-【重点】" class="headerlink" title="==linux下的权限操作==【重点】"></a>==linux下的权限操作==【重点】</h1><p>==【笔试题常见】== </p>
+<h2 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h2><p>由于linux是一个多用户的操作系统，在同一时刻可能存在多个用户登录操作系统，每个用户都存在各自属于自己的文件，则这个时候需要一个合理的权限机制来管理这些信息，不然就会出现混乱。</p>
+<ol>
+<li><p>在linux下的权限分为三个部分：<strong>可读(Read)</strong>、<strong>可写(Write)</strong>、<strong>可执行(eXecute)</strong> </p>
+</li>
+<li><p>同时按照用户将权限划分为三类</p>
+<p>文件的拥有者： 主人 （<strong>u</strong>）user</p>
+<p>文件所属组：所属组 （<strong>g</strong>）group</p>
+<p>除开前面两类的其他人：其他人( <strong>o</strong>) others </p>
+</li>
+</ol>
+<p>例如：可以使用  <code>ls -l fileName</code> 来查看文件的权限信息 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# ls -l a.txt </span><br><span class="line">-rw-r--r-- 1 root root 0 Aug 30 16:03 a.txt</span><br><span class="line"></span><br><span class="line">-（文件类型）   rw-(文件的拥有者的权限信息)  r--(所属组的权限信息)   r--(其他人的权限信息)</span><br><span class="line"></span><br><span class="line">文件的拥有者的权限信息：描述文件的拥有者的权限，谁创建了这个文件，谁就是文件的拥有者</span><br></pre></td></tr></table></figure>
+<p><strong>这个权限字符串有10个字符组成，其含义如下：</strong></p>
+<ul>
+<li>文件类型：-代表是普通文本文件，d代表目录，l代表符号链接(快捷键 link)</li>
+<li>后面的9个字符，每三个字符为一组，分别代表代表文件的拥有者、所属组、其他人</li>
+<li>每组中存在 r、w、 x、 - 这四个字符的组合，分别为 可读、可写、可执行、没有权限</li>
+</ul>
+<p><code>rw-</code>：此分为三个部分</p>
+<ol>
+<li><code>r</code>    代表可读，<code>-</code> 没有权限</li>
+<li><code>w</code>    代表可写 ，<code>-</code> 没有权限</li>
+<li><code>x</code>   代表执行权限，<code>-</code> 没有权限<ul>
+<li>代表没有执行的权限（如果是一个普通的文本 ascii ，如果里面使用  shell 编程，这里代码可以被执行，但需要执行的权限</li>
+</ul>
+</li>
+</ol>
+<h2 id="可读、可写、可执行解释"><a href="#可读、可写、可执行解释" class="headerlink" title="可读、可写、可执行解释"></a>可读、可写、可执行解释</h2><ol>
+<li><p><strong>如果是对普通文本文件的可读、可写、可执行操作是什么含义？</strong></p>
+<p>答：</p>
+<p> <strong>可读</strong>：可以查看文件里面的内容（cat、more、less、tail、head）</p>
+<p> <strong>可写</strong>：对文件的内容做编辑（vim、echo），<strong>但是不代表能删除该文件</strong>，如果要删除该文件，需要对该文件的目录有可写的权限才可以删除。</p>
+<p> <strong>可执行</strong>：linux有一种编程叫做 shell编程，对脚本文件有可执行权限，表示可以执行文本文件里面的代码 </p>
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>如果是对文件夹的可读、可写、可操作是什么含义？</strong></p>
+<p>答： </p>
+<p><strong>可读</strong>：查看文件夹内部的信息(ls)</p>
+<p><strong>可写</strong>：表示可以 <strong>删除</strong>文件夹<strong>内</strong>的文件 或者 <strong>修改</strong>文件夹里面的文件的名称(mv、cp、rm、touch)</p>
+<p><strong>可执行</strong>：对目录的可执行，是可以进入该目录里面。如果对文件夹没有<code>x</code>权限表示不能进入文件夹内部，一般在建立文件夹的时候默认都是会有<code>x</code>权限的。</p>
+</li>
+</ol>
+<h2 id="具体权限分配解释"><a href="#具体权限分配解释" class="headerlink" title="具体权限分配解释"></a>具体权限分配解释</h2><ol>
+<li>可以使用<code>chmod</code>来分配权限，分配的方式有两种：<ul>
+<li>字母法分配</li>
+<li>数字法分配【首选】</li>
+</ul>
+</li>
+<li>查看文件权限<code>ls  -l  fileName</code></li>
+<li>查看文件夹权限 <code>ls  -ld   directoryName</code></li>
+</ol>
+<h2 id="字母法设置权限"><a href="#字母法设置权限" class="headerlink" title="字母法设置权限"></a>字母法设置权限</h2><p>使用<code>+</code>、<code>-</code>  操作来个文件的拥有者、所属组、其他人进行权限的设置，例如：</p>
+<p>例一、给fileName的拥有者设置可执行的权限 （u代表文件的拥有者  g 代表所属组  o代表其他人）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> chmod u+x fileName</span></span><br></pre></td></tr></table></figure>
+<p>例二、给fileName的拥有者减去执行的权限，给其他人设置可写的权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> chmod u-x,o+w fileName</span></span><br></pre></td></tr></table></figure>
+<p>通过字母法进行权限的设置，需要知道原始的权限，然后还要写这么长的字符串，比较麻烦，一般使用都是数字法进行权限的设置。</p>
+<h2 id="数字法设置权限"><a href="#数字法设置权限" class="headerlink" title="数字法设置权限"></a>数字法设置权限</h2><p>可读 r   :  可以使用数字 <strong>4</strong> 表示</p>
+<p>可写 w  :  可以使用数字 <strong>2</strong> 表示</p>
+<p>可执行 x  :  可以使用数字 <strong>1</strong> 表示</p>
+<p><strong>例如</strong></p>
+<p>000 啥都没有  0</p>
+<p>001 有可执行的权限 1</p>
+<p>010 有可写的权限  2</p>
+<p>100 可读的权限   4</p>
+<p>110 可读可写，但是不可以执行 6</p>
+<p>例如：可读可写的权限如果用字母表示为rw，代表是用数字表示，只需要将对应的数字进行相加即可6。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-   rw-（6）   r--(4)    rw-(6)</span><br><span class="line"></span><br><span class="line">题目：如何理解 linux下的 一个 646 的数字字符串？</span><br><span class="line">答：代表linux下的一个权限信息，这个权限分为三个部分</span><br><span class="line">第一个整数 6 代表文件拥有者有 rw</span><br><span class="line">第二个整数 4  代表文件的所属组  r</span><br><span class="line">第三个整数 6 代表其他人 rw</span><br></pre></td></tr></table></figure>
+<p>一般常见的数字法权限为 7 7 7、755（文件夹）、644（文件）。例如这样的044权限信息是不可能在实际出现的，这个只是在教学演示中可能出现，为什么呢？</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -ld dir2</span><br><span class="line">drwxr-xr-x 2 root root 4096 09-05 15:52 dir2</span><br></pre></td></tr></table></figure>
+<h2 id="数字法权限操作"><a href="#数字法权限操作" class="headerlink" title="数字法权限操作"></a>数字法权限操作</h2><p><strong>语法格式</strong>：</p>
+<p><code>chmod  权限数字  文件或者文件夹</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost dir]# ls -l a.txt </span><br><span class="line">-rw-r--r-- 1 lucy lily 0 09-05 16:14 a.txt</span><br><span class="line"></span><br><span class="line">[root@localhost dir]# chmod 755 a.txt </span><br><span class="line"></span><br><span class="line">[root@localhost dir]# ls -l a.txt </span><br><span class="line">-rwxr-xr-x 1 lucy lily 0 09-05 16:14 a.txt</span><br></pre></td></tr></table></figure>
+<h2 id="权限的操作演示"><a href="#权限的操作演示" class="headerlink" title="权限的操作演示"></a>权限的操作演示</h2><p>在做权限测试的时候，由于超级管理员root是不受权限的控制的，则我们我们先建立一个lily的普通用户，用超级管理员来编辑权限，使用普通用户来测试权限。【保持文件和文件夹默认的权限即可】</p>
+<ol>
+<li><p>在lily家目录下使用root创建一个dir文件夹，文件夹下创建一个a.txt</p>
+</li>
+<li><p>由于该文件是有root创建，对应lily来说，属于其他人</p>
+</li>
+<li><p>先将文件夹的权限改为750，文件的权限改为640，代表其他人没有任何权限，接下来进行一步步的赋予权限，使用caoyang进行测试</p>
+</li>
+<li><p>先测试文件夹的可读754权限 (ls)</p>
+</li>
+<li><p>在测试文件夹的可执行755权限（r x 不可以在里面删除文件或者新建、移动文件）</p>
+</li>
+<li><p>测试文件的可读权限644</p>
+</li>
+<li><p>echo测试文件的可写权限646</p>
+</li>
+<li><p>测试文件是否可删除？【不要看当前文件的权限，要看当前文件所处文件夹的权限信息 w 权限】</p>
+</li>
+</ol>
+<p>学习：</p>
+<p><img src="1536135147397.png" alt="1536135147397"></p>
+<h2 id="其他的权限命令"><a href="#其他的权限命令" class="headerlink" title="其他的权限命令"></a>其他的权限命令</h2><p><code>chown</code>命令用来修改文件的所有者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> chown userName fileName</span></span><br></pre></td></tr></table></figure>
+<p><code>chgrp</code> 命令用来修改文件的所属组，需要注意，在linux下添加一个用户的时候，默认会创建一个和该用户同名的组，并将该用户加入到该组</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> chgrp groupName fileName</span></span><br></pre></td></tr></table></figure>
+<p>需要注意的，<code>chown</code>可以在修改文件的所有者的时候，可以同时设置文件的所属组</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> chown userName:groupName fileName</span></span><br></pre></td></tr></table></figure>
+<p>递归操作，一次性的把所有的文件信息都改掉 (<code>-R</code> 代表的 递归操作 )</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> chown -R  文件的拥有者:文件的所属组 dirName/</span></span><br></pre></td></tr></table></figure>
+<p>偷懒写法 (<code>.</code>代表当前文件夹)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> dirName</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> chown -R  文件的拥有者:文件的所属组  .</span></span><br></pre></td></tr></table></figure>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="管道"><a href="#管道" class="headerlink" title="管道  |"></a>管道  |</h2><p>将多个命令连接起来，让前一个命令的输出作为下一个命令的输入，类似smarty里面的变量调节器。 </p>
+<p>查找关键字并排序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim demo.txt</span></span><br><span class="line">	d.txt</span><br><span class="line">	b.txt</span><br><span class="line">	a.txt</span><br><span class="line">	c.txt</span><br><span class="line">	a.txt</span><br><span class="line">	this is a file</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span><span class="bash"> grep txt a.txt</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> grep txt a.txt | uniq</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> grep txt a.txt | sort</span></span><br></pre></td></tr></table></figure>
+<p>列出目录信息，并查找关键字</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls /bin/ | grep vi</span></span><br></pre></td></tr></table></figure>
+<h2 id="gvim"><a href="#gvim" class="headerlink" title="gvim"></a>gvim</h2><p>vim编辑器是linux下，==Windows==下也有对应的软件来实现vim的功能，叫做 <strong>gvim</strong>。</p>
+<p><img src="1536136063816.png" alt="1536136063816"></p>
+<p>百度：【sublime vim插件  phpstorm vim插件】</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2901562177/" title="linux操作系统2">http://blog.kuma8866.top/posts/2901562177/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/905642747/" rel="next" title="linux操作系统1">
+                <i class="fa fa-chevron-left"></i> linux操作系统1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/1102202885/" rel="prev" title="Index">
+                Index <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VI-VIM-linux下的编辑器"><span class="nav-text">==VI/VIM-linux下的编辑器==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim编辑器测试"><span class="nav-text">vim编辑器测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim打开文件的命令"><span class="nav-text">vim打开文件的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim编辑器的三种模式【重要】"><span class="nav-text">==vim编辑器的三种模式【重要】==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑模式-文件内容编写"><span class="nav-text">编辑模式-文件内容编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#末行模式-文件保存退出查找"><span class="nav-text">末行模式-文件保存退出查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式"><span class="nav-text">命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#光标移动相关演示操作"><span class="nav-text">光标移动相关演示操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本内容删除"><span class="nav-text">文本内容删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制操作"><span class="nav-text">复制操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim常见开发技巧及问题"><span class="nav-text">vim常见开发技巧及问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#esc快捷键"><span class="nav-text">esc快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认行号"><span class="nav-text">默认行号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非法关闭文件"><span class="nav-text">非法关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清屏"><span class="nav-text">清屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解锁vim锁住"><span class="nav-text">解锁vim锁住</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑撤销"><span class="nav-text">编辑撤销</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户和用户组"><span class="nav-text">==用户和用户组==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户的管理（root）"><span class="nav-text">用户的管理（root）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户添加"><span class="nav-text">用户添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户名修改"><span class="nav-text">用户名修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户删除"><span class="nav-text">用户删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组的管理（root）"><span class="nav-text">组的管理（root）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组添加"><span class="nav-text">组添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组修改"><span class="nav-text">组修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组删除"><span class="nav-text">组删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下的权限操作-【重点】"><span class="nav-text">==linux下的权限操作==【重点】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-2"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可读、可写、可执行解释"><span class="nav-text">可读、可写、可执行解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体权限分配解释"><span class="nav-text">具体权限分配解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字母法设置权限"><span class="nav-text">字母法设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字法设置权限"><span class="nav-text">数字法设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字法权限操作"><span class="nav-text">数字法权限操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限的操作演示"><span class="nav-text">权限的操作演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他的权限命令"><span class="nav-text">其他的权限命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他命令"><span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#管道"><span class="nav-text">管道  |</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gvim"><span class="nav-text">gvim</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

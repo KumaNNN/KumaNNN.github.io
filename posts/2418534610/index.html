@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="==表单传值==课前补充==提问==：  html后缀文件由谁进行解析？ php后缀文件又由谁进行解析? html后缀文件中如果包含php代码，访问该html文件，php代码是否会被解析执行？ php后缀文件中如果包含html代码，访问该php文件，html代码是否会被解析执行？  ==解答==：  html后缀文件的内容只会被浏览器解析； php后缀文件的内容只会被服务器的php模块解析； ph">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表单传值和文件上传">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2418534610/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="==表单传值==课前补充==提问==：  html后缀文件由谁进行解析？ php后缀文件又由谁进行解析? html后缀文件中如果包含php代码，访问该html文件，php代码是否会被解析执行？ php后缀文件中如果包含html代码，访问该php文件，html代码是否会被解析执行？  ==解答==：  html后缀文件的内容只会被浏览器解析； php后缀文件的内容只会被服务器的php模块解析； ph">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/2.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2418534610/3.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="表单传值和文件上传">
+<meta name="twitter:description" content="==表单传值==课前补充==提问==：  html后缀文件由谁进行解析？ php后缀文件又由谁进行解析? html后缀文件中如果包含php代码，访问该html文件，php代码是否会被解析执行？ php后缀文件中如果包含html代码，访问该php文件，html代码是否会被解析执行？  ==解答==：  html后缀文件的内容只会被浏览器解析； php后缀文件的内容只会被服务器的php模块解析； ph">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2418534610/4.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2418534610/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>表单传值和文件上传 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2418534610/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">表单传值和文件上传
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/表单传值和文件上传/" itemprop="url" rel="index"><span itemprop="name">表单传值和文件上传</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">27k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">25 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="表单传值"><a href="#表单传值" class="headerlink" title="==表单传值=="></a>==表单传值==</h1><h3 id="课前补充"><a href="#课前补充" class="headerlink" title="课前补充"></a>课前补充</h3><p>==<strong>提问</strong>==：</p>
+<ol>
+<li>html后缀文件由谁进行解析？</li>
+<li>php后缀文件又由谁进行解析?</li>
+<li>html后缀文件中如果包含php代码，访问该html文件，php代码是否会被解析执行？</li>
+<li>php后缀文件中如果包含html代码，访问该php文件，html代码是否会被解析执行？</li>
+</ol>
+<p><strong>==解答==</strong>：</p>
+<ol>
+<li>html后缀文件的内容只会被浏览器解析；</li>
+<li>php后缀文件的内容只会被服务器的php模块解析；</li>
+<li>php代码不会被解析，因为默认情况下，服务器会将html后缀文件的内容全部当成普通字符串返回给浏览器，而浏览器只会解析html的标签内容，不会解析php源代码，所以php内容不会被解析。</li>
+<li>html代码在服务器端不会被解析，只会原样返回给浏览器，但是返回给浏览器之后，将会被浏览器解析；</li>
+</ol>
+<p>==<strong>浏览器与服务交互流程分析</strong>==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">浏览器--&gt;服务器:请求\nhttp://www.xxx.com/a.html</span><br><span class="line">note right of 服务器: a.html&lt;?php \necho 123;\n?&gt;\n&lt;html&gt;\n&lt;body&gt;\nHow are u\n&lt;ahref=“http://www.xxx.com/b.php”&gt;\n跳转\n&lt;/a&gt;\n&lt;/body&gt;\n&lt;/html&gt;</span><br><span class="line">服务器--&gt;浏览器:响应\n&lt;?php echo 123;?&gt;\n&lt;html&gt;&lt;body&gt;\nHow are u\n&lt;a href=“http://www.xxx.com/b.php”&gt;\n跳转\n&lt;/a&gt;\n&lt;/body&gt;&lt;/html&gt;</span><br><span class="line">note left of 浏览器: &lt;?php echo 123;?&gt;\n&lt;html&gt;\n&lt;body&gt;\nHow are u\n&lt;a href=“http://www.xxx.com/b.php”&gt;\n跳转\n&lt;/a&gt;\n&lt;/body&gt;\n&lt;/html&gt;</span><br><span class="line">浏览器--&gt;服务器:点击a链接\n发出新的请求\nhttp://www.xxx.com/b.php</span><br><span class="line">note right of 服务器:b.php\n&lt;?php \necho 123;\n?&gt;\n&lt;html&gt;\n&lt;body&gt;\nHow are u\n&lt;/body&gt;\n&lt;/html&gt;</span><br><span class="line">服务器--&gt;浏览器:响应\n123\n&lt;html&gt;&lt;body&gt;\nHow are u\n&lt;/body&gt;&lt;/html&gt;</span><br><span class="line">note left of 浏览器:123\n&lt;html&gt;&lt;body&gt;\nHow are u\n&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="1-表单传值的概念"><a href="#1-表单传值的概念" class="headerlink" title="1. 表单传值的概念"></a>1. 表单传值的概念</h2><h3 id="为什么使用表单传值"><a href="#为什么使用表单传值" class="headerlink" title="为什么使用表单传值"></a>为什么使用表单传值</h3><p>绝大部分的网站几乎都拥有==登陆或注册==页面，并且也都拥有录入信息的后台。</p>
+<p>比如我们在网站的登陆页面或注册页面填写信息提交后，填写的信息之所以能够传递到服务器，就是因为网站的页面中使用了表单传值；</p>
+<h3 id="什么是表单传值"><a href="#什么是表单传值" class="headerlink" title="什么是表单传值"></a>什么是表单传值</h3><p>概念：表单传值指的是通过==表单==构建数据，传递给服务器。 </p>
+<h2 id="2-表单传值的方式"><a href="#2-表单传值的方式" class="headerlink" title="2. ==表单传值的方式=="></a>2. ==表单传值的方式==</h2><p>表单传值的方式包含两种：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> POST方式</li>
+<li style="list-style: none"><input type="checkbox"> GET方式</li>
+</ul>
+<h3 id="POST方式"><a href="#POST方式" class="headerlink" title="POST方式"></a>POST方式</h3><p><strong>==需求==</strong>：使用POST方式实现一个会员注册页面，包含帐号，密码两个填写项。</p>
+<p><strong>==解答==</strong>：构建一个名为code1.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>POST方式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 1. method必须指定为post才是POST方式 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 2. action是控制之后表单中填写的数据将会被提交到哪个指定的页面中去（必须项） --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 3. name属性的作用是指定之后程序页面接收该表单数据的名称（必须项） --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="GET方式"><a href="#GET方式" class="headerlink" title="GET方式"></a>GET方式</h3><p>==<strong>需求</strong>==：使用GET方式实现一个会员注册页面，包含帐号，密码两个填写项。</p>
+<p><strong>==解答==</strong>：构建一个名为code2.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>GET方式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 1. method必须指定为get才是GET方式 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 2. action是控制之后表单中填写的数据将会被提交到哪个指定的页面中去（必须项） --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 3. name属性的作用是指定之后程序页面接收该表单数据的名称（必须项） --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>表单传值的方式包括两种：1)POST方式；2）GET方式</p>
+<p>表单传值的方式指的是：表单传递数据的方法；</p>
+<p>==<strong>提问</strong>==：有传递就则必定有接收，通过表单传递方式传递出去的数据，在服务器端的PHP程序页面需要如何接收呢？</p>
+<h2 id="3-PHP接收数据的方式"><a href="#3-PHP接收数据的方式" class="headerlink" title="3. ==PHP接收数据的方式=="></a>3. ==PHP接收数据的方式==</h2><p>PHP接收数据的方式包含三种：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> $_POST方式</li>
+<li style="list-style: none"><input type="checkbox" checked> $_GET方式</li>
+<li style="list-style: none"><input type="checkbox" checked> $_REQUEST方式</li>
+</ul>
+<h3 id="POST方式-1"><a href="#POST方式-1" class="headerlink" title="$_POST方式"></a>$_POST方式</h3><p>$_POST作用：==只==接收POST方式传递的数据。</p>
+<p><strong>==需求==</strong>：使用POST方式实现一个会员注册表单页面，包含帐号，密码两个填写项，同时实现在程序页面中使用$_POST和$_GET接收并输出表单页面提交传递的数据。</p>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code3.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>$_POST接收数据<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code4.php"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code4.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出$_POST接收的数据</span></span><br><span class="line">var_dump( $_POST ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"><span class="comment">//输出$_GET接收的数据</span></span><br><span class="line">var_dump( $_GET );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code3.html页面，填写注册数据，</p>
+<p><img src="4.png" alt="1529633597332"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<p><img src="5.png" alt="1529633662124"></p>
+<p><strong>==小结==</strong>：</p>
+<p>$_POST只会接收POST方式传递过来的数据，不会接收GET方式传递过来的数据。</p>
+<h3 id="GET方式-1"><a href="#GET方式-1" class="headerlink" title="$_GET方式"></a>$_GET方式</h3><p>作用：==只==接收GET方式传递的数据。</p>
+<p><strong>==需求==</strong>：使用GET方式实现一个会员注册表单页面，包含帐号，密码两个填写项，同时实现在程序页面中使用$_GET和$_POST接收并输出表单页面提交传递的数据。</p>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code5.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>$_GET接收数据<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code6.php"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code6.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出$_POST接收的数据</span></span><br><span class="line">var_dump( $_POST ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"><span class="comment">//输出$_GET接收的数据</span></span><br><span class="line">var_dump( $_GET );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code5.html页面，填写注册数据，</p>
+<p><img src="6.png" alt="1529633851377"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<p><img src="7.png" alt="1529633891528"></p>
+<p><strong>==小结==</strong>：</p>
+<p>$_GET只会接收GET方式传递过来的数据，不会接收POST方式传递过来的数据。</p>
+<h4 id="表单传值GET方式的核心特征"><a href="#表单传值GET方式的核心特征" class="headerlink" title="表单传值GET方式的核心特征"></a>表单传值GET方式的核心特征</h4><p>使用GET方式传递数据时，提交后的链接地址的格式比较特殊，这个固定格式的链接地址就是GET方式提交数据的核心特征。</p>
+<p>==GET方式核心特征格式说明==：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">以如下链接地址为例：</span><br><span class="line">http://www.home.com/class/day1/code/code6.php?acc=lisi&amp;pwd=123aaa</span><br><span class="line"></span><br><span class="line">1. 该链接地址中 “http://www.home.com/class/day1/code/code6.php”是URL链接地址；</span><br><span class="line">2. “?acc=lisi&amp;pwd=123aaa”这个部分是get方式提交的表单数据;</span><br></pre></td></tr></table></figure>
+<p>在这个数据中==“?==”问号的作用是==专门用来分隔URL链接地址和get参数数据==的；</p>
+<p>在这个数据中==”&amp;”==符号的作用是==专门用来分隔get参数数据与数据==的；</p>
+<h3 id="REQUEST方式"><a href="#REQUEST方式" class="headerlink" title="$_REQUEST方式"></a>$_REQUEST方式</h3><p>作用：同时包含$_POST，$_GET和$_COOKIE的数据。</p>
+<p><strong>==需求==</strong>：</p>
+<ol>
+<li>在一个form表单中同时使用POST方式和GET方式实现表单传值，其中POST方式传递帐号和密码两个需要填写的数据，GET方式固定传递国籍country=china数据；</li>
+<li>实现在程序页面中使用$_GET、$_POST和$_REQUEST接收并输出表单页面提交传递的数据。</li>
+</ol>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code7.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>$_REQUEST接收数据<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 1. 指定method为post意味着之后在表单中填写的帐号和密码数据将会以POST方式进行提交和传递 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 2. 在URL链接地址后面使用”?country=china“这种方式意味着还将同时以GET方式传递一个country国籍数据，值为china --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code8.php?country=china"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code8.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出$_POST接收的数据</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_POST: &lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $_POST ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"><span class="comment">//输出$_GET接收的数据</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_GET: &lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $_GET ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"><span class="comment">//输出$_REQUEST接收的数据</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_REQUEST: &lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $_REQUEST );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code7.html页面，填写注册数据，</p>
+<p><img src="8.png" alt="1529634896220"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<p><img src="9.png" alt="1529634934372"></p>
+<p><strong>==小结==</strong>：</p>
+<p>$_REQUEST同时包含$_POST和$_GET的元素数据；</p>
+<p>==<strong>提问</strong>==：$_REQUEST即包含$_POST元素数据，又包含$_GET元素数据，那么当$_POST与$_GET存在下标同名的元素时，$_REQUET将会选择谁的数据作为最终值？</p>
+<p>解答：默认情况下，$_REQUEST将会采用$_POST的值作为冲突时的最终值；但是，我们还可以通过php的配置文件修改$_REUQEST最终采用谁的值。</p>
+<p>修改的方式和修改后的效果如下：</p>
+<p>第一步，打开php.ini配置文件，找到request_order配置项，如下图所示</p>
+<p><img src="10.png" alt="1529635585858"></p>
+<p>第二步，修改配置项的值为”PG”</p>
+<p><img src="11.png" alt="1529635627788"></p>
+<p>第三步，重启apache，再次进行测试</p>
+<p><img src="12.png" alt="1529635736512"></p>
+<p><img src="13.png" alt="1529635815366"></p>
+<h2 id="4-POST方式与GET方式的区别"><a href="#4-POST方式与GET方式的区别" class="headerlink" title="4. ==POST方式与GET方式的区别=="></a>4. ==POST方式与GET方式的区别==</h2><p>无论是POST方式，还是GET方式，都属于表单传值。而表单传值的最终目的就是构建数据传输给服务器，这也就意味着POST方式和GET方式都能用来==传输数据给服务器==。</p>
+<p>那么既然存在两种方式，我们在实际应用中应该如何来选择使用呢？</p>
+<p>为此，我们需要进一步学习POST方式与GET方式之间的区别。POST方式与GET方式主要区别有四点：</p>
+<ul>
+<li>GET方式具有可见性，而POST方式不具有可见性；</li>
+<li>基于第一点，POST方式在安全性上比GET方式要高一些；</li>
+<li>在传输的数据量上，POST方式==可能==比GET方式要大；</li>
+<li>在支持的数据类型上，==GET方式仅支持ASCII码==数据类型，POST方式无限制；</li>
+</ul>
+<p>以上四点主要区别，无一例外，都说明了理论上POST方式比GET方式好，而在实际的使用中，我们在构建form表单时，method通常都是被指定为post方式。</p>
+<p>==<strong>提问</strong>==：既然POST方式比GET方式优越，为什么还会有GET方式呢？</p>
+<h2 id="5-GET方式核心特征的应用"><a href="#5-GET方式核心特征的应用" class="headerlink" title="5. GET方式核心特征的应用"></a>5. GET方式核心特征的应用</h2><h4 id="指定a标签的href属性"><a href="#指定a标签的href属性" class="headerlink" title="指定a标签的href属性"></a>指定a标签的href属性</h4><p><strong>==需求==</strong>：构建分类列表页，实现点击每个分类都将跳转到同一个页面，但是最终将会输出与点击的分类相关的产品信息。</p>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code9.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>指定a标签的href属性<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 在URL链接地址后面使用GET方式的核心特征拼接携带get方式传递的参数数据type值 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.home.com/class/day1/code/code10.php?type=1"</span>&gt;</span>连衣裙<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.home.com/class/day1/code/code10.php?type=2"</span>&gt;</span>半身裙<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.home.com/class/day1/code/code10.php?type=3"</span>&gt;</span>xuyue裙<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code10.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">var_dump( $_GET ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">var_dump( $_GET[<span class="string">'type'</span>] ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据get方式传递的type值，判断究竟是哪一种分类，然后输出不同分类下的产品信息</span></span><br><span class="line"><span class="keyword">if</span>( $_GET[<span class="string">'type'</span>]==<span class="number">1</span> )&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;连衣裙1&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;连衣裙2&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;连衣裙3&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">&#125;<span class="keyword">elseif</span>( $_GET[<span class="string">'type'</span>]==<span class="number">2</span> )&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;半身裙1&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;半身裙2&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;半身裙3&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">&#125;<span class="keyword">elseif</span>( $_GET[<span class="string">'type'</span>]==<span class="number">3</span> )&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;xuyue裙1&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;xuyue裙2&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;span&gt;xuyue裙3&lt;/span&gt;&lt;br/&gt;'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code9.html，点击不同的分类，查看最终效果</p>
+<p>页面效果：</p>
+<p><img src="14.png" alt="1529637998785"></p>
+<p>点击连衣裙之后的效果：</p>
+<p><img src="15.png" alt="1529638039152"></p>
+<p>返回列表页，点击半身裙：</p>
+<p><img src="16.png" alt="1529638071190"></p>
+<h4 id="javascript中指定location对象的href属性"><a href="#javascript中指定location对象的href属性" class="headerlink" title="javascript中指定location对象的href属性"></a>javascript中指定location对象的href属性</h4><p><strong>==需求==</strong>：</p>
+<ol>
+<li>构建商品购买页面，假设商品库存为100个，要求有填写购买数量的输入框和立即购买按钮；</li>
+<li>在商品购买页面中需要实现当点击立即购买按钮时，会根据用户填写的商品购买数量进行判断，如果没有超出库存则允许购买，如果超出库存则给出提示且不允许购买；</li>
+</ol>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code11.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>javascript中指定location对象的href属性<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span>商品购买数量：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">'num'</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span>当前的库存为：100<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>立即购买<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> totalNum = <span class="number">100</span>;<span class="comment">//当前商品的库存数量</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> num = <span class="built_in">document</span>.getElementById(<span class="string">'num'</span>).value;<span class="comment">//获取用户填写的购买数量</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">if</span> ( num&gt;totalNum )&#123;<span class="comment">//给出提示，不进行跳转</span></span></span><br><span class="line"><span class="undefined">	</span></span><br><span class="line"><span class="javascript">		alert(<span class="string">'当前购买的数量超过了商品的库存数量，请重新输入购买数量！'</span>);</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span>&#123;<span class="comment">//跳转到目标程序页面，并且要携带上用户填写的购买数量</span></span></span><br><span class="line"><span class="undefined">	</span></span><br><span class="line"><span class="javascript">		<span class="comment">//通过location对象的href属性，跳转到一个指定的链接地址</span></span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.location.href = <span class="string">'http://www.home.com/class/day1/code/code12.php?num='</span>+num;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code12.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出接收到的get参数</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_GET: &lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $_GET );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code11.html，填写商品数量，测试使用效果，</p>
+<p>测试超出库存数量的情况：</p>
+<p><img src="17.png" alt="1529639091747"></p>
+<p>测试没有超出库存数量的情况：</p>
+<p>填写数量</p>
+<p><img src="18.png" alt="1529639133650"></p>
+<p>点击购买按钮后</p>
+<p><img src="19.png" alt="1529639159131"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>如果使用form表单，则最佳的传输方式为post方式，所以通常指定method为post；</li>
+<li>如果是通过链接跳转到另外一个页面的场景，或者是在跳转之前还需要做判断的场景，则利用GET方式的核心特征，使用a链接或者js代码的location对象href属性更佳；</li>
+</ol>
+<h2 id="6-单选按钮与复选框的处理"><a href="#6-单选按钮与复选框的处理" class="headerlink" title="6. 单选按钮与复选框的处理"></a>6. 单选按钮与复选框的处理</h2><p>在web项目中，我们经常会在表单页面构建一些统计选项，以便在后期实现对数据更加精准的定位。常用的统计选项如单选或多选，都是我们经常会用到的。</p>
+<p>在表单页面中单选使用的是单选按钮radio来实现的；多选使用的复选框checkbox来实现的。</p>
+<h3 id="表单页面中的单选按钮"><a href="#表单页面中的单选按钮" class="headerlink" title="表单页面中的单选按钮"></a>表单页面中的单选按钮</h3><p><strong>==需求==</strong>：实现一个会员注册表单页面，包含帐号，密码和性别三个项，同时实现在程序页面中接收并输出表单页面提交传递的数据。</p>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code13.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>表单页面中的单选按钮<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code14.php"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>性别：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- 如果要使用单选，则type值必须为radio，同时必须要设置name值和value值 --&gt;</span></span><br><span class="line">			男 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span> /&gt;</span></span><br><span class="line">			女 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span>/&gt;</span></span><br><span class="line">			保密 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"secret"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"立即注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code14.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出接收到的post参数</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_POST: &lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $_POST );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code13.html页面，填写注册数据，</p>
+<p><img src="20.png" alt="1529639961420"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<p><img src="21.png" alt="1529639979205"></p>
+<p><strong>==小结==</strong>：</p>
+<p>单选按钮type值必须为radio.</p>
+<h3 id="表单页面中的复选框"><a href="#表单页面中的复选框" class="headerlink" title="表单页面中的复选框"></a>表单页面中的复选框</h3><p><strong>==需求==</strong>：实现一个运动网站会员注册表单页面，包含帐号，密码和爱好三个项，其中爱好是多选选项，同时实现在程序页面中接收并输出表单页面提交传递的数据。</p>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code15.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>表单页面中的复选框<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code16.php"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>爱好：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 1.如果要指定为多选，则type值必须为checkbox --&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 2.name和value值必须要指定 --&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 3.必须在指定的name值后面加上中括号，否则提交的数据将会形成覆盖 --&gt;</span></span><br><span class="line">			足球 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobbies[]"</span> <span class="attr">value</span>=<span class="string">"football"</span> /&gt;</span></span><br><span class="line">			篮球 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobbies[]"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>/&gt;</span></span><br><span class="line">			乒乓球 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobbies[]"</span> <span class="attr">value</span>=<span class="string">"pingpang"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"立即注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code16.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出接收到的post参数</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_POST: &lt;br/&gt;'</span>; </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $_POST );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code15.html页面，填写注册数据，</p>
+<p><img src="22.png" alt="1529649688583"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<p><img src="23.png" alt="1529649737602"></p>
+<p><strong>==小结==</strong>：</p>
+<p>如果要构建复选框，则:</p>
+<ol>
+<li>type值必须为checkbox;</li>
+<li>name值和value值必须指定上；</li>
+<li>name值需要加上“[]”中括号这个符号，否则将会形成数据的覆盖；</li>
+</ol>
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="==文件上传=="></a>==文件上传==</h1><h3 id="文件上传的概念"><a href="#文件上传的概念" class="headerlink" title="文件上传的概念"></a>文件上传的概念</h3><h4 id="为什么使用文件上传"><a href="#为什么使用文件上传" class="headerlink" title="为什么使用文件上传"></a>为什么使用文件上传</h4><p>在web领域，文件上传的应用非常广泛。如上传头像，上传证件照，上传报表文件等，都需要用到文件上传技术。</p>
+<h4 id="什么是文件上传"><a href="#什么是文件上传" class="headerlink" title="什么是文件上传"></a>什么是文件上传</h4><p>概念：文件上传指的是将文件从本地传输到指定的服务器。</p>
+<p>==<strong>提问</strong>==：将文件从本地传输到服务器，从实现的角度来看是一个什么样的过程呢？</p>
+<h4 id="文件上传的实现思路"><a href="#文件上传的实现思路" class="headerlink" title="文件上传的实现思路"></a>文件上传的实现思路</h4><p><img src="24.png" alt="1529651142445"></p>
+<h3 id="文件上传核心步骤"><a href="#文件上传核心步骤" class="headerlink" title="文件上传核心步骤"></a>文件上传核心步骤</h3><p><strong>==需求==</strong>：根据文件上传的3步思路，实现注册页面头像图片上传页面及功能。</p>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code17.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>文件上传核心步骤<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 1. 如果要实现文件上传，method必须为post --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 2. form标签必须包含enctype属性，并且值必须固定为:multipart/form-data --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code18.php"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>头像：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 3. 文件上传域type值必须为file； --&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 4. 必须为文件上传域指定name属性值； --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"headimg"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"立即注册"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code17.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出接收到的post参数</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_POST: &lt;br/&gt;'</span>; </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $_POST );</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_FILES：&lt;br/&gt;'</span>;</span><br><span class="line">print_r( $_FILES ); </span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">var_dump( $_FILES[<span class="string">'headimg'</span>][<span class="string">'tmp_name'</span>] ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//转移临时文件到指定的目录中去</span></span><br><span class="line"><span class="comment">//参数一： 源文件，即 存储在临时目录中的文件全路径（包含文件路径部分和文件名部分）</span></span><br><span class="line"><span class="comment">//参数二： 目标文件，即 转移文件的目标目录路径位置，同时需要将新的文件名指定上</span></span><br><span class="line">$re = move_uploaded_file($_FILES[<span class="string">'headimg'</span>][<span class="string">'tmp_name'</span>], <span class="string">'./2.png'</span>);</span><br><span class="line">var_dump( $re );</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code17.html页面，选定图片文件，</p>
+<p><img src="25.png" alt="1529652806589"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">####输出到浏览器的内容</span><br><span class="line">$_POST: </span><br><span class="line">array(2) &#123;                 //post方式接收到的表单数据</span><br><span class="line">  [&quot;acc&quot;]=&gt;</span><br><span class="line">  string(8) &quot;zhangsan&quot;</span><br><span class="line">  [&quot;pwd&quot;]=&gt;</span><br><span class="line">  string(6) &quot;112233&quot;</span><br><span class="line">&#125;</span><br><span class="line">$_FILES：                 //接收到的表单文件数据</span><br><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [headimg] =&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [name] =&gt; 2.png           					//原始文件名</span><br><span class="line">            [type] =&gt; image/png							//文件所属格式类型</span><br><span class="line">            [tmp_name] =&gt; C:\Windows\Temp\php8DAB.tmp	//文件存储在临时目录中的全路径名</span><br><span class="line">            [error] =&gt; 0								//文件上传时的错误码值</span><br><span class="line">            [size] =&gt; 37143								//文件的大小，单位字节</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">string(27) &quot;C:\Windows\Temp\php8DAB.tmp&quot;	//提取的文件存储在临时目录中的全路径名</span><br><span class="line">bool(true)		//move_uploaded_file函数的返回值，为true,说明文件上传成功</span><br></pre></td></tr></table></figure>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>如果要实现文件上传，form的method属性必须为<strong>post</strong>；</li>
+<li>form标签必须包含enctype属性，并且值必须固定为:<strong>multipart/form-data</strong>；</li>
+<li>文件上传域type值必须为<strong>file</strong>；</li>
+<li>必须为文件上传域指定<strong>name属性值</strong>；</li>
+<li>在PHP程序中，由<strong>$_FILES</strong>负责接收上传的文件数据；</li>
+</ol>
+<p>==<strong>提问</strong>==：网站项目中，实现文件上传的页面只会支持上传一个文件吗？</p>
+<h4 id="多文件上传"><a href="#多文件上传" class="headerlink" title="多文件上传"></a>多文件上传</h4><p>在web项目中，实现文件上传的页面时常会包含多个文件。</p>
+<p>比如家装公司的效果图网站，一个房子内部的效果图不止一张，可能会包含多张，比如会分成客厅效果图，卧室效果图，玄关效果图，厨房效果图等等，那么，在上传文件时就需要支持多文件上传的功能了。</p>
+<p>在PHP中我们把多文件上传分成两类：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 不同名多文件的上传</li>
+<li style="list-style: none"><input type="checkbox" checked> 同名多文件的上传</li>
+</ul>
+<h5 id="不同名多文件的上传"><a href="#不同名多文件的上传" class="headerlink" title="不同名多文件的上传"></a>不同名多文件的上传</h5><p>我们以家装公司的效果图网站来举一个例子。</p>
+<p><strong>==需求==</strong>：</p>
+<ol>
+<li>实现一个家装公司效果图网站的图片上传表单页面，包含客厅效果图，卧室效果图两个文件上传域；</li>
+<li>实现文件上传的程序处理功能。</li>
+</ol>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code19.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>不同名多文件的上传<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code20.php"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>客厅效果图：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"keting"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>卧室效果图：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"woshi"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"立即提交"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code20.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出$_FILES</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_FILES：&lt;br/&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r( $_FILES ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//转移临时文件到指定的目录中去</span></span><br><span class="line"><span class="keyword">foreach</span>( $_FILES <span class="keyword">as</span> $file )&#123; <span class="comment">//遍历$_FILES，$_FILES有几个元素，就意味着上传了几个文件</span></span><br><span class="line">    var_dump( $file ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">    <span class="comment">//转移当前这个文件，从临时目录中转移到指定的目录中去，并且还要重命名</span></span><br><span class="line">    $newFileName = <span class="string">'./'</span> . $file[<span class="string">'name'</span>];<span class="comment">//为当前文件重命名，重命名为当前原始文件的名字</span></span><br><span class="line">    $re = move_uploaded_file($file[<span class="string">'tmp_name'</span>], $newFileName);</span><br><span class="line">    var_dump( $re );<span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code19.html页面，选定图片文件，</p>
+<p><img src="26.png" alt="1529654942403"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">####浏览器输出的信息如下</span><br><span class="line">$_FILES：</span><br><span class="line">Array            //$_FILES接收到的文件信息</span><br><span class="line">(</span><br><span class="line">    [keting] =&gt; Array     //第一个效果图客厅的图片文件信息</span><br><span class="line">        (</span><br><span class="line">            [name] =&gt; 27.jpg</span><br><span class="line">            [type] =&gt; image/jpeg</span><br><span class="line">            [tmp_name] =&gt; C:\Windows\Temp\php3FC5.tmp</span><br><span class="line">            [error] =&gt; 0</span><br><span class="line">            [size] =&gt; 459695</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    [woshi] =&gt; Array		//第二个效果图卧室的图片文件信息</span><br><span class="line">        (</span><br><span class="line">            [name] =&gt; 50ab616773400.jpg</span><br><span class="line">            [type] =&gt; image/jpeg</span><br><span class="line">            [tmp_name] =&gt; C:\Windows\Temp\php3FD5.tmp</span><br><span class="line">            [error] =&gt; 0</span><br><span class="line">            [size] =&gt; 211851</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">array(5) &#123;	//在foreach遍历中输出的第一个效果图客厅的图片文件信息</span><br><span class="line">  [&quot;name&quot;]=&gt;</span><br><span class="line">  string(6) &quot;27.jpg&quot;</span><br><span class="line">  [&quot;type&quot;]=&gt;</span><br><span class="line">  string(10) &quot;image/jpeg&quot;</span><br><span class="line">  [&quot;tmp_name&quot;]=&gt;</span><br><span class="line">  string(27) &quot;C:\Windows\Temp\php3FC5.tmp&quot;</span><br><span class="line">  [&quot;error&quot;]=&gt;</span><br><span class="line">  int(0)</span><br><span class="line">  [&quot;size&quot;]=&gt;</span><br><span class="line">  int(459695)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool(true)	//表示第一张图片文件上传成功</span><br><span class="line"></span><br><span class="line">array(5) &#123;//在foreach遍历中输出的第二个效果图卧室的图片文件信息</span><br><span class="line">  [&quot;name&quot;]=&gt;</span><br><span class="line">  string(17) &quot;50ab616773400.jpg&quot;</span><br><span class="line">  [&quot;type&quot;]=&gt;</span><br><span class="line">  string(10) &quot;image/jpeg&quot;</span><br><span class="line">  [&quot;tmp_name&quot;]=&gt;</span><br><span class="line">  string(27) &quot;C:\Windows\Temp\php3FD5.tmp&quot;</span><br><span class="line">  [&quot;error&quot;]=&gt;</span><br><span class="line">  int(0)</span><br><span class="line">  [&quot;size&quot;]=&gt;</span><br><span class="line">  int(211851)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool(true)	//表示第二张图片文件上传成功</span><br></pre></td></tr></table></figure>
+<p><strong>==小结==</strong>：</p>
+<p>不同名多文件上传时$_FILES的结构为如下所示，每个文件都固定包含5个元素的信息，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [headimg] =&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [name] =&gt; xx.xxxx           				//原始文件名</span><br><span class="line">            [type] =&gt; xxx/xxx							//文件所属格式类型</span><br><span class="line">            [tmp_name] =&gt; C:\Windows\Temp\xxx.tmp		//文件存储在临时目录中的全路径名</span><br><span class="line">            [error] =&gt; 整型数值							//文件上传时的错误码值</span><br><span class="line">            [size] =&gt; 整型数值							//文件的大小，单位字节</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h5 id="同名多文件的上传"><a href="#同名多文件的上传" class="headerlink" title="同名多文件的上传"></a>同名多文件的上传</h5><p>我们以证件审核网站来举一个例子。</p>
+<p><strong>==需求==</strong>：</p>
+<ol>
+<li>实现一个证件审核网站的身份证正反两面图片上传表单页面；</li>
+<li>实现文件上传的程序处理功能。</li>
+</ol>
+<p><strong>==解答==</strong>：</p>
+<p>第一步，构建一个名为code21.html的页面，代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>同名多文件的上传<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://www.home.com/class/day1/code/code22.php"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>身份证正面照：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 同名多文件上传的表单域同名name值后面必须加上"[]"中括号 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"idcard[]"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>身份证反面照：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"idcard[]"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"立即提交"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二步，构建名为code22.php的程序处理页面，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出$_FILES</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$_FILES：&lt;br/&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">print_r( $_FILES ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;<span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;<span class="comment">//输出$_FILES全部的信息</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//转移临时文件到指定的目录中去</span></span><br><span class="line"><span class="comment">//遍历name元素的值，name元素有两个值，第一个值下标为0，表示第一个文件的原始文件名信息；第二个值下标为1，表示第二个文件的原始文件名信息；</span></span><br><span class="line"><span class="keyword">foreach</span>( $_FILES[<span class="string">'idcard'</span>][<span class="string">'name'</span>] <span class="keyword">as</span> $name_key=&gt;$name )&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'name_key：'</span>; </span><br><span class="line">    var_dump( $name_key ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;<span class="comment">//输出name元素的下标值</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'name：'</span>; </span><br><span class="line">    var_dump( $name ); <span class="comment">//输出name元素下标对应的值信息</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'tmp_name：'</span>; </span><br><span class="line">    var_dump( $_FILES[<span class="string">'idcard'</span>][<span class="string">'tmp_name'</span>][$name_key] ); <span class="comment">//利用name和tmp_name元素下标通用的特性，取得tmp_name元素下标对应的值信息</span></span><br><span class="line"></span><br><span class="line">    $newFileName = <span class="string">'./'</span>.$name;<span class="comment">//构建新的文件名</span></span><br><span class="line">    $re = move_uploaded_file($_FILES[<span class="string">'idcard'</span>][<span class="string">'tmp_name'</span>][$name_key], $newFileName);<span class="comment">//转移当前文件到指定的位置</span></span><br><span class="line">    var_dump( $re );     <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，访问code21.html页面，选定图片文件，</p>
+<p><img src="27.png" alt="1529657040416"></p>
+<p>第四步，点击提交按钮，查看最终提交后的效果，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">####在浏览器中输出的信息</span><br><span class="line">$_FILES：</span><br><span class="line">Array		//$_FILES的信息</span><br><span class="line">(</span><br><span class="line">    [idcard] =&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [name] =&gt; Array</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; 50ab616773400.jpg</span><br><span class="line">                    [1] =&gt; 001.jpg</span><br><span class="line">                )</span><br><span class="line">            [type] =&gt; Array</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; image/jpeg</span><br><span class="line">                    [1] =&gt; image/jpeg</span><br><span class="line">                )</span><br><span class="line">            [tmp_name] =&gt; Array</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; C:\Windows\Temp\php6874.tmp</span><br><span class="line">                    [1] =&gt; C:\Windows\Temp\php6885.tmp</span><br><span class="line">                )</span><br><span class="line">            [error] =&gt; Array</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; 0</span><br><span class="line">                    [1] =&gt; 0</span><br><span class="line">                )</span><br><span class="line">            [size] =&gt; Array</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; 211851</span><br><span class="line">                    [1] =&gt; 109140</span><br><span class="line">                )</span><br><span class="line">        )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">name_key：int(0)	//遍历得到的第一个name元素的下标值</span><br><span class="line"></span><br><span class="line">name：string(17) &quot;50ab616773400.jpg&quot; 	//遍历得到的第一个name下标对应的值信息，即第一张图的原始文件名信息</span><br><span class="line">tmp_name：string(27) &quot;C:\Windows\Temp\php6874.tmp&quot;	//遍历得到的第一个tmp_name下标对应的值信息，即第一张图存储在临时目录的全路径信息</span><br><span class="line">bool(true)  //表示第一张图片上传成功</span><br><span class="line"></span><br><span class="line">name_key：int(1)	//遍历得到的第二个name元素的下标值</span><br><span class="line"></span><br><span class="line">name：string(7) &quot;001.jpg&quot;	//遍历得到的第二个name下标对应的值信息，即第二张图的原始文件名信息</span><br><span class="line">tmp_name：string(27) &quot;C:\Windows\Temp\php6885.tmp&quot;	//遍历得到的第二个tmp_name下标对应的值信息，即第二张图存储在临时目录的全路径信息</span><br><span class="line">bool(true)	//表示第二张图片上传成功</span><br></pre></td></tr></table></figure>
+<p><strong>==小结==</strong>：</p>
+<p>在同名多文件上传时，$_FILES结构如下图所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$_FILES：</span><br><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [idcard] =&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [name] =&gt; Array	//文件的原始名称信息</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; 50ab616773400.jpg	//第一个文件的原始文件name信息</span><br><span class="line">                    [1] =&gt; 001.jpg				//第二个文件的原始文件name信息</span><br><span class="line">                )</span><br><span class="line">            [type] =&gt; Array	//文件的格式类型信息</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; image/jpeg	//第一个文件的格式类型type信息</span><br><span class="line">                    [1] =&gt; image/jpeg	//第二个文件的格式类型type信息</span><br><span class="line">                )</span><br><span class="line">            [tmp_name] =&gt; Array	//文件存放在临时目录下的全路径信息</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; C:\Windows\Temp\php3CEC.tmp	//第一个文件存放在临时目录下的全路径tmp_name信息</span><br><span class="line">                    [1] =&gt; C:\Windows\Temp\php3CED.tmp	//第二个文件存放在临时目录下的全路径tmp_name信息</span><br><span class="line">                )</span><br><span class="line">            [error] =&gt; Array	//文件上传时的错误码值信息</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; 0	//第一个文件上传时的错误码值error信息</span><br><span class="line">                    [1] =&gt; 0	//第二个文件上传时的错误码值error信息</span><br><span class="line">                )</span><br><span class="line">            [size] =&gt; Array		//文件的大小信息</span><br><span class="line">                (</span><br><span class="line">                    [0] =&gt; 211851	//第一个文件的大小size信息</span><br><span class="line">                    [1] =&gt; 109140	//第二个文件的大小size信息</span><br><span class="line">                )</span><br><span class="line">        )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="案例：封装文件上传函数"><a href="#案例：封装文件上传函数" class="headerlink" title="案例：封装文件上传函数"></a>案例：封装文件上传函数</h4><p>在web网站中，文件上传功能不可或缺，但是并不是每一个页面都需要文件上传功能。所以我们会将文件上传功能封装成函数，以便以后在项目中随用随取，而不需要每次都重复写相同的功能代码。</p>
+<h5 id="error错误码值说明"><a href="#error错误码值说明" class="headerlink" title="error错误码值说明"></a>error错误码值说明</h5><p>在手册中的位置：</p>
+<p><img src="2.png" alt="1529565072550"><img src="3.png" alt="1529565094827"></p>
+<h5 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析"></a>功能分析</h5><ol>
+<li>检查系统级别错误；</li>
+<li>检查逻辑级别错误；</li>
+<li>构建绝对不重复的文件名；</li>
+<li>转移上传的文件到指定目录中；</li>
+</ol>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><p>以下是upfile.php封装的文件上传功能函数，具体的测试使用文件code23.html和code24.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 功能：文件上传</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  array   $file   上传文件包含的5个部分的信息</span></span><br><span class="line"><span class="comment">        包含:</span></span><br><span class="line"><span class="comment">        $file['name']             表示原始文件的文件名，如$file['name']='a.jpg';</span></span><br><span class="line"><span class="comment">        $file['type']             表示文件的格式类型，如：$file['type']='image/jpeg'</span></span><br><span class="line"><span class="comment">        $file['tmp_name']         表示文件存放在临时目录中的全路径，如：</span></span><br><span class="line"><span class="comment">                                  $file['tmp_name']='C:/xxx/xxx/xx/tmp/xx.tmp';</span></span><br><span class="line"><span class="comment">        $file['error']  表示文件上传时的错误码值，包含0，1，2，3，4，6，7</span></span><br><span class="line"><span class="comment">                    				0：表示没有任何错误</span></span><br><span class="line"><span class="comment">                    				1：表示上传的文件大小超过了系统的限定</span></span><br><span class="line"><span class="comment">                    				2：表示上传文件的大小超过了浏览器的限定</span></span><br><span class="line"><span class="comment">                    				3：表示只有部分文件被上传</span></span><br><span class="line"><span class="comment">                   					4：表示没有选择上传的文件</span></span><br><span class="line"><span class="comment">                    				6和7：表示服务器出现问题导致上传失败</span></span><br><span class="line"><span class="comment">        $file['size']   表示源文件的大小，单位是字节</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">upfile</span><span class="params">($file)</span></span>&#123; </span><br><span class="line">    <span class="comment">#1.检查系统错误</span></span><br><span class="line">    <span class="keyword">switch</span> ( $file[<span class="string">'error'</span>] )&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'上传的文件大小超过了系统的限定'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'上传文件的大小超过了浏览器的限定'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'只有部分文件被上传'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'没有选择上传的文件'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'服务器出现问题导致上传失败'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#2.检查逻辑错误</span></span><br><span class="line">    <span class="comment">//检查文件大小是否超出逻辑限定</span></span><br><span class="line">    $limitSize = <span class="number">200</span> * <span class="number">1024</span>;<span class="comment">//限定的大小为200KB</span></span><br><span class="line">    <span class="keyword">if</span>( $file[<span class="string">'size'</span>]&gt;$limitSize )&#123;<span class="comment">//超出了限定的大小</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'您上传的文件超过了限定的大小'</span>.($limitSize/<span class="number">1024</span>).<span class="string">'KB'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//检查文件的格式类型是否在允许的范围内</span></span><br><span class="line">    $limitType = [<span class="string">'image/jpeg'</span>, <span class="string">'image/png'</span>];</span><br><span class="line">    <span class="keyword">if</span>( !in_array($file[<span class="string">'type'</span>], $limitType) )&#123;<span class="comment">//上传的文件格式类型不在允许的范围内</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'您上传的文件格式类型不正确，请重新选择上传的文件！'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#3.构建绝对不重复的文件名</span></span><br><span class="line">    <span class="comment">//(strchr)strstr — 查找字符串的首次出现</span></span><br><span class="line">    <span class="comment">//返回 字符串中从指定字符 第一次出现的位置开始到结尾的字符串。 </span></span><br><span class="line">    $newFileName = uniqid(<span class="string">'img_'</span>) . date(<span class="string">'YmdHis'</span>) . mt_rand(<span class="number">0</span>, <span class="number">10000</span>) . strchr($file[<span class="string">'name'</span>], <span class="string">'.'</span>);<span class="comment">//构建绝对不重复的文件名，文件后缀保持和源文件名一致</span></span><br><span class="line">    $path = <span class="string">'./'</span>;<span class="comment">//定义文件的保存路径</span></span><br><span class="line">    $wholeFileName = $path . $newFileName;<span class="comment">//拼接完整的文件全路径</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#4.转移文件到指定的目录中</span></span><br><span class="line">    <span class="keyword">if</span>( move_uploaded_file($file[<span class="string">'tmp_name'</span>], $wholeFileName) )&#123;<span class="comment">//文件上传成功</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'文件上传成功！'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;<span class="comment">//文件上传失败</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'文件上传失败'</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-全天总结"><a href="#8-全天总结" class="headerlink" title="8. 全天总结"></a>8. 全天总结</h2><ol>
+<li><p>表单传值的方式：POST方式和GET方式；</p>
+</li>
+<li><p>PHP接收表单数据的方式：1）$_POST; 2)$_GET；3）$_REQUEST;</p>
+</li>
+<li><p>GET方式的核心特征：在URL链接地址后面可以通过固定的格式拼接GET参数数据，其中?是用来分隔链接地址和GET参数数据的，&amp;符号是用来分隔GET参数数据与数据的；</p>
+</li>
+<li><p>POST方式与GET方式的区别：</p>
+<p>a) GET方式具有可见性；</p>
+<p>b) POST方式比GET方式相对安全；</p>
+<p>c) POST方式传递的数据量==可能==比GET方式要大；</p>
+<p>d) GET方式只支持ASCII码数据类型，POST方式无限制；</p>
+</li>
+<li><p>文件上传核心三步</p>
+<p>a) 构建上传界面；</p>
+<p>b) $_FILES接收文件数据；</p>
+<p>c) move_uploaded_file函数转移文件</p>
+</li>
+<li><p>$_FILES保存的文件数据包含几个部分的内容：</p>
+<p>a) name表示源文件名</p>
+<p>b) type表示文件的格式类型</p>
+<p>c) tmp_name表示存储在临时目录下的文件全路径</p>
+<p>d) error表示上传时出现的错误码值</p>
+<p>e) size表示上传文件的大小</p>
+</li>
+<li><p>如果要构建一个表单的注册页面，包含帐号，密码，性别，爱好和头像文件上传域，则form表单应该如何构建</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"http://xxx.xx.com/xx.php"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>帐号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"acc"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>性别：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        男<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span> /&gt;</span></span><br><span class="line">        女<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>爱好：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        足球<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobbies[]"</span> <span class="attr">value</span>=<span class="string">"football"</span> /&gt;</span></span><br><span class="line">        篮球<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobbies[]"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>头像：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"img"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"立即注册"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="课后练习"><a href="#课后练习" class="headerlink" title="课后练习"></a>课后练习</h4><p>实现运动网站会员注册页面，要求：</p>
+<ol>
+<li>表单页面包含帐号，密码，性别（男，女，保密），爱好（足球，篮球，乒乓球），头像；</li>
+<li>程序页面输出表单页面提交传递的帐号，密码，性别，爱好信息；</li>
+<li>程序页面还需要实现头像图片的上传功能，要求实现检查上传时系统错误，图片不能大于50K，格式只允许为jpeg或png；</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2418534610/" title="表单传值和文件上传">http://blog.kuma8866.top/posts/2418534610/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3997252698/" rel="next" title="Smarty模板技术">
+                <i class="fa fa-chevron-left"></i> Smarty模板技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/12724151/" rel="prev" title="博客项目3">
+                博客项目3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表单传值"><span class="nav-text">==表单传值==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课前补充"><span class="nav-text">课前补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-表单传值的概念"><span class="nav-text">1. 表单传值的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用表单传值"><span class="nav-text">为什么使用表单传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是表单传值"><span class="nav-text">什么是表单传值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-表单传值的方式"><span class="nav-text">2. ==表单传值的方式==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#POST方式"><span class="nav-text">POST方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET方式"><span class="nav-text">GET方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-PHP接收数据的方式"><span class="nav-text">3. ==PHP接收数据的方式==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#POST方式-1"><span class="nav-text">$_POST方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET方式-1"><span class="nav-text">$_GET方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表单传值GET方式的核心特征"><span class="nav-text">表单传值GET方式的核心特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REQUEST方式"><span class="nav-text">$_REQUEST方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-POST方式与GET方式的区别"><span class="nav-text">4. ==POST方式与GET方式的区别==</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-GET方式核心特征的应用"><span class="nav-text">5. GET方式核心特征的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指定a标签的href属性"><span class="nav-text">指定a标签的href属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript中指定location对象的href属性"><span class="nav-text">javascript中指定location对象的href属性</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#6-单选按钮与复选框的处理"><span class="nav-text">6. 单选按钮与复选框的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单页面中的单选按钮"><span class="nav-text">表单页面中的单选按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单页面中的复选框"><span class="nav-text">表单页面中的复选框</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件上传"><span class="nav-text">==文件上传==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传的概念"><span class="nav-text">文件上传的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用文件上传"><span class="nav-text">为什么使用文件上传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是文件上传"><span class="nav-text">什么是文件上传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件上传的实现思路"><span class="nav-text">文件上传的实现思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传核心步骤"><span class="nav-text">文件上传核心步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多文件上传"><span class="nav-text">多文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不同名多文件的上传"><span class="nav-text">不同名多文件的上传</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#同名多文件的上传"><span class="nav-text">同名多文件的上传</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例：封装文件上传函数"><span class="nav-text">案例：封装文件上传函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#error错误码值说明"><span class="nav-text">error错误码值说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#功能分析"><span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码实现"><span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-全天总结"><span class="nav-text">8. 全天总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#课后练习"><span class="nav-text">课后练习</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kuma&#39;s Blog</title>
+  
+  <subtitle>Kuma桑の博客，Hexo强力驱动</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.kuma8866.top/"/>
+  <updated>2019-03-01T08:49:24.000Z</updated>
+  <id>http://blog.kuma8866.top/</id>
+  
+  <author>
+    <name>Kuma</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202885/"/>
+    <id>http://blog.kuma8866.top/posts/1102202885/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="GDͼ��������"><a href="#GDͼ��������" class="headerlink" title="GDͼ��������"></a>GDͼ��������</h2><p><a href="GDͼ��������.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/81311927/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/GD/GDͼ��������.md" target="_blank" rel="noopener">Github</a></p><ul><li>GDͼ����������ظ���</li><li>����GD��չ</li><li>GD��չ��ز���</li></ul><h2 id="GDͼ������������"><a href="#GDͼ������������" class="headerlink" title="GDͼ������������"></a>GDͼ������������</h2><p><a href="GDͼ������������.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2032372126/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/GD/GDͼ������������.md" target="_blank" rel="noopener">Github</a></p><ul><li>����ˮӡͼ</li><li>��������ͼ</li><li>������֤��</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;GDͼ��������&quot;&gt;&lt;a href=&quot;#GDͼ��������&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="GD" scheme="http://blog.kuma8866.top/categories/Dev/PHP/GD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202886/"/>
+    <id>http://blog.kuma8866.top/posts/1102202886/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Laravel���"><a href="#Laravel���" class="headerlink" title="Laravel���"></a>Laravel���</h1><h3 id="����֪ʶ"><a href="#����֪ʶ" class="headerlink" title="����֪ʶ"></a>����֪ʶ</h3><ul><li><a href="Laravel���-01.md">Laravel-����</a></li><li><a href="Laravel���-01.md">��װ</a></li><li><a href="Laravel���-01.md">Ŀ¼�ṹ</a></li><li><a href="Laravel���-01.md">����ָ��</a></li><li><a href="Laravel���-01.md">·��</a></li><li><a href="Laravel���-01.md">��ͼ</a></li><li><a href="Laravel���-01.md">blade(ģ��)�﷨</a></li></ul><ul><li><p><a href="Laravel���-02.md">HTTP���������Ӧ</a></p></li><li><p><a href="Laravel���-02.md">�Ự����</a></p></li><li><p><a href="Laravel���-02.md">���ݿ�</a></p><ul><li>�������ݿ�</li><li>���ݿ����</li></ul></li><li><p><a href="Laravel���-02.md">����</a></p></li><li><p><a href="Laravel���-02.md">DB��ѯ������</a></p><ul><li>��������</li><li>��ѯ����</li><li>ɾ������</li><li>�༭����</li><li>������ѯ</li></ul></li></ul><ul><li><p><a href="Laravel���-03.md">Eloquent ORMģ��</a></p><ul><li>ʲô��ORMģ��</li><li>����ģ��(ORMģ��)</li><li>��ѯ����</li><li>��������</li><li>��������</li><li>ɾ������</li><li>��ɾ��</li></ul></li><li><p><a href="Laravel���-03.md">����ģ��</a></p><ul><li>���</li><li>ʹ�ù���ģ�ͽ��ж������</li></ul></li><li><p><a href="Laravel���-03.md">ģ��̳�</a></p></li></ul><ul><li><a href="Laravel���-04.md">�ļ��ϴ�</a></li><li><a href="Laravel���-04.md">�������</a></li><li><a href="Laravel���-04.md">����Ǩ��</a></li></ul><h3 id="����"><a href="#����" class="headerlink" title="����"></a>����</h3><ul><li><a href="Laravel���-03.md">����������Ա����ģ��</a></li><li><a href="Laravel���-04.md">��������ɹ���Ա����</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Laravel���&quot;&gt;&lt;a href=&quot;#Laravel���&quot; class=&quot;headerlink&quot; title=&quot;Laravel���&quot;&gt;&lt;/a&gt;Laravel���&lt;/h1&gt;&lt;h3 id=&quot;����֪ʶ&quot;&gt;&lt;a href=&quot;#����֪ʶ&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="Laravel框架" scheme="http://blog.kuma8866.top/categories/Dev/PHP/Laravel%E6%A1%86%E6%9E%B6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202887/"/>
+    <id>http://blog.kuma8866.top/posts/1102202887/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p><a href="MVC.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2218208633/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MVC/MVC.md" target="_blank" rel="noopener">Github</a></p><ul><li>MVC��������</li><li>������ʹ��MVCʵ�����Ź���ϵͳ</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="MVC" scheme="http://blog.kuma8866.top/categories/Dev/PHP/MVC/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202888/"/>
+    <id>http://blog.kuma8866.top/posts/1102202888/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="MYSQLI��չ"><a href="#MYSQLI��չ" class="headerlink" title="MYSQLI��չ"></a>MYSQLI��չ</h2><p><a href="MYSQLI��չ.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/3495660076/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLI��չ.md" target="_blank" rel="noopener">Github</a></p><ul><li>MYSQLI�ĸ���</li><li>MYSQLI��չ��ʹ��</li></ul><h2 id="MYSQLI��չ����"><a href="#MYSQLI��չ����" class="headerlink" title="MYSQLI��չ����"></a>MYSQLI��չ����</h2><p><a href="MYSQLI��չ����.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2685337793/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLI��չ����.md" target="_blank" rel="noopener">Github</a></p><ul><li>MYSQLIʵ�ֺ�̨���Ź���ϵͳ</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;MYSQLI��չ&quot;&gt;&lt;a href=&quot;#MYSQLI��չ&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="MYSQLI" scheme="http://blog.kuma8866.top/categories/Dev/PHP/MYSQLI/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202889/"/>
+    <id>http://blog.kuma8866.top/posts/1102202889/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="PDO���쳣"><a href="#PDO���쳣" class="headerlink" title="PDO���쳣"></a>PDO���쳣</h2><p><a href="PDO���쳣.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/1712274088/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PDO/PDO���쳣.md" target="_blank" rel="noopener">Github</a></p><ul><li>PDO�Ļ�������</li><li>PDO�Ļ�������</li><li>PDO�е�����</li><li>PDO�е�Ԥ��������</li><li>PDO�е��쳣����</li></ul><h2 id="PDO���쳣����"><a href="#PDO���쳣����" class="headerlink" title="PDO���쳣����"></a>PDO���쳣����</h2><p><a href="PDO���쳣����.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2958378060/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PDO/PDO���쳣����.md" target="_blank" rel="noopener">Github</a></p><ul><li>��������װPDO������</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;PDO���쳣&quot;&gt;&lt;a href=&quot;#PDO���쳣&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="PDO" scheme="http://blog.kuma8866.top/categories/Dev/PHP/PDO/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202890/"/>
+    <id>http://blog.kuma8866.top/posts/1102202890/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="smartyg�弼��"><a href="#smartyg�弼��" class="headerlink" title="smartyģ�弼��"></a>smartyģ�弼��</h2><p><a href="smartyģ�弼��.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/3997252698/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHPģ������Smarty/smartyģ�弼��.md" target="_blank" rel="noopener">Github</a></p><ul><li>SMARTY��������</li><li>SMARTY����</li><li>SMARTY�������<ul><li>��������(����� Ŀ¼ ����)</li></ul></li><li>SMARTYģ�����<ul><li>SMARTYģ��ע��</li><li>SMARTYģ�����</li><li>SMARTYϵͳ����</li><li>SMARTY���ú���</li><li>SMARTY����������</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;smartyg�弼��&quot;&gt;&lt;a href=&quot;#smartyg�弼��&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="PHP模板引擎Smarty" scheme="http://blog.kuma8866.top/categories/Dev/PHP/PHP%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8ESmarty/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202891/"/>
+    <id>http://blog.kuma8866.top/posts/1102202891/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="�������1"><a href="#�������1" class="headerlink" title="�������1"></a>�������1</h2><p><a href="�������1.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/285029296/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHP���������/�������1.md" target="_blank" rel="noopener">Github</a></p><ul><li>�����������ظ���</li><li>PHP�е��������<ul><li>���Ա�Ķ���</li><li>���Ա�ĵ���</li><li>self�ؼ���</li><li>���췽��</li><li>����Ĵ�ֵ</li><li>����Ŀ�¡</li></ul></li></ul><h2 id="�������2"><a href="#�������2" class="headerlink" title="�������2"></a>�������2</h2><p><a href="�������2.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2314494474/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHP���������/�������2.md" target="_blank" rel="noopener">Github</a></p><ul><li>�Զ�����</li><li>��ļ̳�<ul><li>�̳е��﷨</li><li>parent�ؼ���</li><li>�����޶����η�</li><li>�̳е��ص�</li></ul></li><li>��д</li><li>final�ؼ���<ul><li>������</li><li>���շ���</li></ul></li><li>������</li></ul><h2 id="�������3"><a href="#�������3" class="headerlink" title="�������3"></a>�������3</h2><p><a href="�������3.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/4277359260/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHP���������/�������3.md" target="_blank" rel="noopener">Github</a></p><ul><li>PHP�еĽӿ�</li><li>PHP�е�����</li><li>����������������</li><li>���ֳ��������˼��<ul><li>����ģʽ</li><li>����ģʽ</li></ul></li></ul><h2 id="�������4"><a href="#�������4" class="headerlink" title="�������4"></a>�������4</h2><p><a href="�������4.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/1620559679/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHP���������/�������4.md" target="_blank" rel="noopener">Github</a></p><ul><li>����ı���</li><li>��������л��뷴���л�</li><li>�������</li><li>�����ռ�</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;�������1&quot;&gt;&lt;a href=&quot;#�������1&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="PHP面向对象编程" scheme="http://blog.kuma8866.top/categories/Dev/PHP/PHP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202892/"/>
+    <id>http://blog.kuma8866.top/posts/1102202892/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="PhalApi���"><a href="#PhalApi���" class="headerlink" title="PhalApi���"></a>PhalApi���</h2><p><a href="PhalApi���.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/745665408/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PhalApi���/PhalApi���.md" target="_blank" rel="noopener">Github</a></p><ul><li>�п��<ul><li>���</li><li>Ŀ¼�ṹ</li><li>���ʽӿ�</li><li>������֤</li><li>�ĵ�����</li><li>ģ��</li></ul></li></ul><ul><li>������ С�����ֲ�ͼ</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;PhalApi���&quot;&gt;&lt;a href=&quot;#PhalApi���&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="PhalApi框架" scheme="http://blog.kuma8866.top/categories/Dev/PHP/PhalApi%E6%A1%86%E6%9E%B6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202893/"/>
+    <id>http://blog.kuma8866.top/posts/1102202893/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="TP3���"><a href="#TP3���" class="headerlink" title="TP3���"></a>TP3���</h2><p><a href="TP3���.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/551416508/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/TP3���/TP3���.md" target="_blank" rel="noopener">Github</a></p><ul><li>���</li><li>���غͲ���</li><li>Ŀ¼�ṹ</li><li>������ѧϰ</li><li>��ͼѧϰ</li><li>ģ��ѧϰ</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;TP3���&quot;&gt;&lt;a href=&quot;#TP3���&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="TP3框架" scheme="http://blog.kuma8866.top/categories/Dev/PHP/TP3%E6%A1%86%E6%9E%B6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202898/"/>
+    <id>http://blog.kuma8866.top/posts/1102202898/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="ThinkPHP5��������"><a href="#ThinkPHP5��������" class="headerlink" title="ThinkPHP5��������"></a>ThinkPHP5��������</h2><p><a href="ThinkPHP5��������.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/1124976518/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ThinkPHP5���/ThinkPHP5��������.md" target="_blank" rel="noopener">Github</a></p><h2 id="ThinkPHP5��������-1"><a href="#ThinkPHP5��������-1" class="headerlink" title="ThinkPHP5��������"></a>ThinkPHP5��������</h2><p><a href="ThinkPHP5��������.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2849568870/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/ThinkPHP5���/ThinkPHP5��������.md" target="_blank" rel="noopener">Github</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;ThinkPHP5��������&quot;&gt;&lt;a href=&quot;#ThinkPHP5��������&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="ThinkPHP5框架" scheme="http://blog.kuma8866.top/categories/Dev/PHP/ThinkPHP5%E6%A1%86%E6%9E%B6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202894/"/>
+    <id>http://blog.kuma8866.top/posts/1102202894/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="httpЭ�����l����"><a href="#httpЭ�����l����" class="headerlink" title="httpЭ�����ļ����"></a>httpЭ�����ļ����</h2><p><a href="httpЭ�����ļ����.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/3647702629/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/httpЭ�����ļ����/httpЭ�����ļ����.md" target="_blank" rel="noopener">Github</a></p><ul><li>HTTPЭ��</li><li>�ļ����</li></ul><h2 id="httpЭ�����l���̰���"><a href="#httpЭ�����l���̰���" class="headerlink" title="httpЭ�����ļ���̰���"></a>httpЭ�����ļ���̰���</h2><p><a href="httpЭ�����ļ���̰���.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2991748426/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/httpЭ�����ļ����/httpЭ�����ļ���̰���.md" target="_blank" rel="noopener">Github</a></p><ul><li>�ļ�����</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;httpЭ�����l����&quot;&gt;&lt;a href=&quot;#httpЭ�����l����&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="http协议与文件编程" scheme="http://blog.kuma8866.top/categories/Dev/PHP/http%E5%8D%8F%E8%AE%AE%E4%B8%8E%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202895/"/>
+    <id>http://blog.kuma8866.top/posts/1102202895/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="�U����"><a href="#�U����" class="headerlink" title="�Ự����"></a>�Ự����</h2><p><a href="�Ự����.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/790821465/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/�Ự����/�Ự����.md" target="_blank" rel="noopener">Github</a></p><ul><li>�Ự������ظ���</li><li>COOKIE����</li><li>SESSION����</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;�U����&quot;&gt;&lt;a href=&quot;#�U����&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="会话技术" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202899/"/>
+    <id>http://blog.kuma8866.top/posts/1102202899/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="������L1"><a href="#������L1" class="headerlink" title="������Ŀ1"></a>������Ŀ1</h2><p><a href="������Ŀ1.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/4006364827/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/������Ŀ/������Ŀ1.md" target="_blank" rel="noopener">Github</a></p><h2 id="������L2"><a href="#������L2" class="headerlink" title="������Ŀ2"></a>������Ŀ2</h2><p><a href="������Ŀ2.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2009405217/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/������Ŀ/������Ŀ2.md" target="_blank" rel="noopener">Github</a></p><h2 id="������L3"><a href="#������L3" class="headerlink" title="������Ŀ3"></a>������Ŀ3</h2><p><a href="������Ŀ3.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/12724151/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/������Ŀ/������Ŀ3.md" target="_blank" rel="noopener">Github</a></p><h2 id="������L4"><a href="#������L4" class="headerlink" title="������Ŀ4"></a>������Ŀ4</h2><p><a href="������Ŀ4.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2661724692/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/������Ŀ/������Ŀ4.md" target="_blank" rel="noopener">Github</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;������L1&quot;&gt;&lt;a href=&quot;#������L1&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="博客项目" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202896/"/>
+    <id>http://blog.kuma8866.top/posts/1102202896/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><p><a href="php.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/1452351953/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/php.md" target="_blank" rel="noopener">Github</a></p><ul><li>php���</li><li>��װ������</li></ul><h2 id="PHP-����"><a href="#PHP-����" class="headerlink" title="PHP ����"></a>PHP ����</h2><p><a href="PHP_Array.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2612395477/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/PHP_Array.md" target="_blank" rel="noopener">Github</a></p><ul><li>������</li><li>�������</li><li>����ָ��</li><li>���麯��</li><li>�������� </li></ul><h2 id="php-�����﷨"><a href="#php-�����﷨" class="headerlink" title="php �����﷨"></a>php �����﷨</h2><p><a href="php_basic_syntax.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/3316045294/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/php_basic_syntax.md" target="_blank" rel="noopener">Github</a></p><h2 id="php������"><a href="#php������" class="headerlink" title="php������"></a>php������</h2><p><a href="php_error.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2553195674/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/php_error.md" target="_blank" rel="noopener">Github</a></p><h2 id="PHP-���̿���"><a href="#PHP-���̿���" class="headerlink" title="PHP ���̿���"></a>PHP ���̿���</h2><p><a href="PHP_FlowControl.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/1870348519/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/PHP_FlowControl.md" target="_blank" rel="noopener">Github</a></p><ul><li>ѡ��ṹif</li><li>ѭ���ṹwhile</li><li>ѭ���жϹؼ���</li></ul><h2 id="PHP����"><a href="#PHP����" class="headerlink" title="PHP����"></a>PHP����</h2><p><a href="PHP_function.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2375644162/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/PHP_function.md" target="_blank" rel="noopener">Github</a></p><ul><li>�������</li><li>�ɱ亯��</li><li>��������</li><li>�ַ�������</li><li>ʱ�����ں���</li><li>��ѧ����</li></ul><p>����������</p><p>������������ </p><h2 id="php�����"><a href="#php�����" class="headerlink" title="php�����"></a>php�����</h2><p><a href="php_operational_character.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2259325832/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/php_operational_character.md" target="_blank" rel="noopener">Github</a></p><h2 id="php����"><a href="#php����" class="headerlink" title="php����"></a>php����</h2><p><a href="php_other.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2709295124/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/php_other.md" target="_blank" rel="noopener">Github</a></p><ul><li>�ļ�����</li><li>����ת��</li><li>��ֹ�ű�ִ��</li><li>�ݹ�</li><li>ģ�����ݽṹ</li><li>�㷨</li></ul><h2 id="php��������"><a href="#php��������" class="headerlink" title="php��������"></a>php��������</h2><p><a href="php_variable_constant.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/327881324/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/����֪ʶ/php_variable_constant.md" target="_blank" rel="noopener">Github</a></p><ul><li>����</li><li>����</li><li>�����������ͼ�ת��</li><li>������صĺ��� </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;php&quot;&gt;&lt;a href=&quot;#php&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="基础知识" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Index</title>
+    <link href="http://blog.kuma8866.top/posts/1102202897/"/>
+    <id>http://blog.kuma8866.top/posts/1102202897/</id>
+    <published>2019-03-01T08:49:24.000Z</published>
+    <updated>2019-03-01T08:49:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><h2 id="������ֵ���l��ϴ�"><a href="#������ֵ���l��ϴ�" class="headerlink" title="������ֵ���ļ��ϴ�"></a>������ֵ���ļ��ϴ�</h2><p><a href="������ֵ���ļ��ϴ�.md">����Ԥ��</a>    <a href="http://blog.kuma8866.top/posts/2418534610/">Blog</a>     <a href="https://github.com/KumaDocCenter/PHP/blob/master/doc/md/������ֵ���ļ��ϴ�/������ֵ���ļ��ϴ�.md" target="_blank" rel="noopener">Github</a></p><ul><li>������ֵ�ĸ���</li><li>������ֵ�ķ�ʽ<ul><li>POST��ʽ</li><li>GET��ʽ</li></ul></li><li>PHP�������ݵķ�ʽ<ul><li>$_POST��ʽ</li><li>$_GET��ʽ</li><li>$_REQUEST��ʽ</li></ul></li><li>POST��ʽ��GET��ʽ������</li><li>�ļ��ϴ�</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h1&gt;&lt;h2 id=&quot;������ֵ���l��ϴ�&quot;&gt;&lt;a href=&quot;#������ֵ���l��ϴ�&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="表单传值和文件上传" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E8%A1%A8%E5%8D%95%E4%BC%A0%E5%80%BC%E5%92%8C%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PDO与异常案例</title>
+    <link href="http://blog.kuma8866.top/posts/2958378060/"/>
+    <id>http://blog.kuma8866.top/posts/2958378060/</id>
+    <published>2019-02-28T04:36:17.000Z</published>
+    <updated>2019-02-28T04:36:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PDO与异常"><a href="#PDO与异常" class="headerlink" title="PDO与异常"></a>PDO与异常</h1><h2 id="案例：封装PDO操作类"><a href="#案例：封装PDO操作类" class="headerlink" title="案例：封装PDO操作类"></a>案例：封装PDO操作类</h2><h3 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析"></a>功能分析</h3><ol><li>连库基本操作；</li><li>设置操作（增删改）；</li><li>查一条数据；</li><li>查多条数据；</li></ol><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>构建名为code18.php的程序，代码如下，</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * PDO操作类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PDOTool</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> $type;<span class="comment">//数据库的类型</span></span><br><span class="line">    <span class="keyword">private</span> $host;<span class="comment">//IP地址</span></span><br><span class="line">    <span class="keyword">private</span> $port;<span class="comment">//端口号</span></span><br><span class="line">    <span class="keyword">private</span> $charset;<span class="comment">//字符集</span></span><br><span class="line">    <span class="keyword">private</span> $dbname;<span class="comment">//默认选择的数据库</span></span><br><span class="line">    <span class="keyword">private</span> $acc;<span class="comment">//帐号</span></span><br><span class="line">    <span class="keyword">private</span> $pwd;<span class="comment">//密码</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> $pdo;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($type=<span class="string">'mysql'</span>, $host=<span class="string">'localhost'</span>, $port=<span class="number">3306</span>, $charset=<span class="string">'utf8'</span>, $dbname=<span class="string">'test'</span>, $acc=<span class="string">'root'</span>, $pwd=<span class="string">'123abc'</span>)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//初始化参数</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;type = $type;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;host = $host;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;port = $port;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;charset = $charset;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;dbname = $dbname;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;acc = $acc;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;pwd = $pwd;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//连库基本操作</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;connect();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置错误处理模式属性</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#连库基本操作</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">()</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        $dsn = <span class="string">"&#123;$this-&gt;type&#125;:host=&#123;$this-&gt;host&#125;;port=&#123;$this-&gt;port&#125;;charset=&#123;$this-&gt;charset&#125;;dbname=&#123;$this-&gt;dbname&#125;"</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;pdo = <span class="keyword">new</span> PDO($dsn, <span class="keyword">$this</span>-&gt;acc, <span class="keyword">$this</span>-&gt;pwd);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#设置操作</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setData</span><span class="params">($sql)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;pdo-&gt;exec($sql);<span class="comment">//监听执行增删改的操作</span></span><br><span class="line">        &#125;<span class="keyword">catch</span>(PDOException $err)&#123;</span><br><span class="line">            <span class="comment">//输出错误信息</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的代号：'</span> . $err-&gt;getCode() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的信息：'</span> . $err-&gt;getMessage() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的行号：'</span> . $err-&gt;getLine() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的文件：'</span> . $err-&gt;getFile(); </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#查一条数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRow</span><span class="params">($sql)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            $pdostatement = <span class="keyword">$this</span>-&gt;pdo-&gt;query($sql);<span class="comment">//监听执行增删改的操作</span></span><br><span class="line">        &#125;<span class="keyword">catch</span>(PDOException $err)&#123;</span><br><span class="line">            <span class="comment">//输出错误信息</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的代号：'</span> . $err-&gt;getCode() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的信息：'</span> . $err-&gt;getMessage() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的行号：'</span> . $err-&gt;getLine() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的文件：'</span> . $err-&gt;getFile(); </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $pdostatement-&gt;fetch(PDO::FETCH_ASSOC);<span class="comment">//返回解析得到的一条关联数组数据</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#查询多条数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getRows</span><span class="params">($sql)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            $pdostatement = <span class="keyword">$this</span>-&gt;pdo-&gt;query($sql);<span class="comment">//监听执行增删改的操作</span></span><br><span class="line">        &#125;<span class="keyword">catch</span>(PDOException $err)&#123;</span><br><span class="line">            <span class="comment">//输出错误信息</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的代号：'</span> . $err-&gt;getCode() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的信息：'</span> . $err-&gt;getMessage() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的行号：'</span> . $err-&gt;getLine() . <span class="string">'&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'错误的文件：'</span> . $err-&gt;getFile(); </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $pdostatement-&gt;fetchAll();<span class="comment">//返回解析得到的一条关联数组数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;PDO与异常&quot;&gt;&lt;a href=&quot;#PDO与异常&quot; class=&quot;headerlink&quot; title=&quot;PDO与异常&quot;&gt;&lt;/a&gt;PDO与异常&lt;/h1&gt;&lt;h2 id=&quot;案例：封装PDO操作类&quot;&gt;&lt;a href=&quot;#案例：封装PDO操作类&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="PDO" scheme="http://blog.kuma8866.top/categories/Dev/PHP/PDO/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>http协议与文件编程案例</title>
+    <link href="http://blog.kuma8866.top/posts/2991748426/"/>
+    <id>http://blog.kuma8866.top/posts/2991748426/</id>
+    <published>2019-02-28T04:36:17.000Z</published>
+    <updated>2019-02-28T04:36:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="案例：文件下载"><a href="#案例：文件下载" class="headerlink" title="案例：文件下载"></a>案例：文件下载</h2><p><strong>==操作需求==</strong>：实现文件下载功能，要求：</p><ol><li>通过下载页面可以下载code/dw目录中的txt文件和zip文件；</li><li>下载txt文件指定默认的新名字为a.txt；zip文件指定默认的新名字为b.zip；</li></ol><p><strong>==步骤==</strong>：</p><p>第一步，构建名为code13.php的程序页面，代码如下：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>文件下载<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.home.com/class/day3/code/code14.php?type=1"</span>&gt;</span>下载txt文件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.home.com/class/day3/code/code14.php?type=2"</span>&gt;</span>下载zip文件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">HTML</span>&gt;</span></span><br></pre></td></tr></table></figure><p>第二步，构建名为code14的程序处理页面，代码如下：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$type = $_GET[<span class="string">'type'</span>];<span class="comment">//接收type值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( $type==<span class="number">1</span> )&#123;<span class="comment">//表示下载的是txt文件</span></span><br><span class="line"></span><br><span class="line">    $newFileName = <span class="string">'a.txt'</span>;<span class="comment">//下载后默认的新名字</span></span><br><span class="line">    $oriFile = <span class="string">'./dw/article.txt'</span>;<span class="comment">//需要下载的txt文件的路径</span></span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">elseif</span>( $type==<span class="number">2</span> )&#123;<span class="comment">//表示下载zip文件</span></span><br><span class="line"></span><br><span class="line">    $newFileName = <span class="string">'b.zip'</span>;<span class="comment">//下载后默认的新名字</span></span><br><span class="line">    $oriFile = <span class="string">'./dw/fscp.zip'</span>;<span class="comment">//需要下载的zip文件的路径</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  表示 服务器告诉浏览器  服务器接下来响应的数据的内容类型是文件流类型的</span></span><br><span class="line">header(<span class="string">'Content-type:application/octet-stream'</span>);</span><br><span class="line"><span class="comment">//  表示  服务器告诉浏览器  服务器接下来返回的内容你浏览器应该当成附件的形式来处理，这个附件新名字叫filename所指定的名字</span></span><br><span class="line">header(<span class="string">'Content-disposition:attachment; filename='</span>.$newFileName);</span><br><span class="line"><span class="comment">//  将读取的文件内容响应给浏览器</span></span><br><span class="line"><span class="keyword">echo</span> file_get_contents($oriFile);</span><br></pre></td></tr></table></figure><p>第三步，测试使用效果：</p><p>访问code13.php，点击下载txt文件，</p><p><img src="23.png" alt="1529919943723"></p><p>点击之后，弹出上图所示下载框，新名字为a.txt，</p><p>然后选择下载路径，直接下载，</p><p><img src="24.png" alt="1529920013880"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;案例：文件下载&quot;&gt;&lt;a href=&quot;#案例：文件下载&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="http协议与文件编程" scheme="http://blog.kuma8866.top/categories/Dev/PHP/http%E5%8D%8F%E8%AE%AE%E4%B8%8E%E6%96%87%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PHP流程控制</title>
+    <link href="http://blog.kuma8866.top/posts/1870348519/"/>
+    <id>http://blog.kuma8866.top/posts/1870348519/</id>
+    <published>2019-02-28T04:36:17.000Z</published>
+    <updated>2019-02-28T04:36:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><p>顺序结构、分支结构、循环结构</p><h2 id="选择-分支-结构"><a href="#选择-分支-结构" class="headerlink" title="选择(分支)结构"></a>选择(分支)结构</h2><p>选择结构用于判断给定的条件，根据判断的结果来控制程序的流程</p><p>if语句、switch语句</p><h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><p><strong>单分支 </strong></p><p><strong>结构：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(条件语句)&#123;</span><br><span class="line"></span><br><span class="line">执行代码块</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结构说明：</p><p>条件语句它得到的是布尔值：true | false</p><p>如果条件表达式成立的话 就执行代码块！</p><p><img src="1536798148_image2.png" alt=""></p><p><strong>双分支</strong></p><p><strong>结构：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(条件表达式)&#123;</span><br><span class="line"></span><br><span class="line">执行代码块1</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">执行代码块2</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>说明：</p><p>如果条件表达式成立， 就执行代码块1， 否则就执行代码块2。</p><p><img src="1536798148_image3.png" alt=""></p><p><strong>多分支 多条件判断 </strong></p><p><strong>结构：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if(条件表达式1)&#123;</span><br><span class="line"></span><br><span class="line">执行代码块1</span><br><span class="line"></span><br><span class="line">&#125;elseif(条件表达式2)&#123;</span><br><span class="line"></span><br><span class="line">执行代码块2</span><br><span class="line"></span><br><span class="line">&#125;elseif(条件表达式n)&#123;</span><br><span class="line"></span><br><span class="line">执行代码块n</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">默认执行的代码块</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>说明：</p><p>先会判断条件表达式1是否成立 ，如果成立就执行代码块1 ，然后就结束if语句。</p><p>如果不成立，会判断条件表达式2是否成立， 如果成立就执行代码块2 ，然后就结束if语句； 如果不成立 ，会判断条件表达式n是否成立 ，如果成立就执行代码块n， 如果不成立 就会继续往下判断， 如果上面所有的条件表达式都没有成立， 并且写了else语句 ，就会执行else语句里面的代码块。</p><p><img src="1536798148_image6.png" alt=""></p><h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p><strong>格式：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">switch(变量名)&#123;</span><br><span class="line"></span><br><span class="line">case 值1:</span><br><span class="line"></span><br><span class="line">执行代码块1;</span><br><span class="line"></span><br><span class="line">break;</span><br><span class="line"></span><br><span class="line">case 值2:</span><br><span class="line"></span><br><span class="line">执行代码块2;</span><br><span class="line"></span><br><span class="line">break;</span><br><span class="line"></span><br><span class="line">case 值3:</span><br><span class="line"></span><br><span class="line">执行代码块3;</span><br><span class="line"></span><br><span class="line">break;</span><br><span class="line"></span><br><span class="line">case 值n:</span><br><span class="line"></span><br><span class="line">执行代码块n;</span><br><span class="line"></span><br><span class="line">break;</span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line"></span><br><span class="line">默认执行的代码块;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>说明：</p><p>得到变量的值与case后面值进行比较 如果返回的是true 就会执行对应的代码块 然后会判断是否有break关键字 如果有的话 switch马上结束 如果没有的话 就会将下一个代码块输出 然后再来判断是否有break关键字。直到找到break关键字为止 ！</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//输出今天星期几</span></span><br><span class="line"><span class="comment">//需要获取服务器的时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//string date ( string $format [, int $timestamp ] )</span></span><br><span class="line"><span class="comment">//我们需要设置时区  php.ini配置文件去修改</span></span><br><span class="line"><span class="comment">// date_default_timezone_set</span></span><br><span class="line"><span class="comment">//echo date_default_timezone_get(); //获取时区</span></span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Chongqing"</span>);</span><br><span class="line"><span class="comment">/*echo date('Y-m-d H:i:s');*/</span></span><br><span class="line">$week = date(<span class="string">"N"</span>); <span class="comment">//获取一周中的第几天 用数字表示  1~7</span></span><br><span class="line">$str = <span class="string">"今天星期"</span>;</span><br><span class="line"><span class="keyword">switch</span> ($week)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        $str .= <span class="string">"一"</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        $str .= <span class="string">"二"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        $str .= <span class="string">"三"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        $str .= <span class="string">"四"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        $str .= <span class="string">"五"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        $str .= <span class="string">"六"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        $str .= <span class="string">"天"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $str;</span><br></pre></td></tr></table></figure><p><img src="1536798148_image7.png" alt=""></p><p><strong>if语句与switch语句常用的地方：</strong></p><p>if语句一般用于判断范围的</p><p>switch语句一般用于固定值</p><h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>循环是程序设计语言中反复执行某些代码的一种计算机处理过程，常见的有<strong>按照次数循环</strong>和<strong>按照条件循环</strong>。</p><h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p><strong>结构</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while(条件表达式)&#123;</span><br><span class="line"></span><br><span class="line">循环体</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="1536798148_image8.png" alt=""></p><p><img src="1536798148_image9.png" alt=""></p><p><strong>流程图：</strong></p><p><img src="1536798148_1536750426978.png" alt="1536750426978"></p><h3 id="do…-while-循环"><a href="#do…-while-循环" class="headerlink" title="do….while 循环"></a>do….while 循环</h3><p><strong>结构</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">do&#123;</span><br><span class="line"></span><br><span class="line">循环体</span><br><span class="line"></span><br><span class="line">&#125;while(条件表达式);</span><br></pre></td></tr></table></figure><p>结构说明：</p><p>先会执行一次循环体，然后再来判断条件表达式是否成立！不管条件表达式是否成立 都会先执行一次循环体！</p><p><img src="1536798148_image11.png" alt=""></p><h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><p><strong>格式：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(定义变量;条件语句;变量更新)&#123;</span><br><span class="line"></span><br><span class="line">循环体</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结构说明：</p><p>第一步：对变量进行初始化 定义变量并赋值 只会执行一次</p><p>第二步：判断条件表达式是否成立 当条件表达式不成立 循环体就不会执行了 ！</p><p>第三步：在条件表达式成立的情况下 执行循环体</p><p>第四步：变量进行更新</p><p><img src="1536798148_image13.png" alt=""></p><h2 id="流程控制的替代语法"><a href="#流程控制的替代语法" class="headerlink" title="流程控制的替代语法"></a>流程控制的替代语法</h2><p>PHP 提供了一些流程控制的替代语法，包括 <em>if</em>，<em>while</em>，<em>for</em>，<strong><em>foreach</em></strong> 和 <em>switch</em>。替代语法的基本形式是把左花括号（{）换成冒号（:），把右花括号（}）分别换成 <em>endif;</em>，<em>endwhile;</em>，<em>endfor;</em>，<em>endforeach;</em> 以及 <em>endswitch;</em></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">if():</span><br><span class="line"></span><br><span class="line">endif;</span><br><span class="line"></span><br><span class="line">for():</span><br><span class="line"></span><br><span class="line">endfor;</span><br><span class="line"></span><br><span class="line">while():</span><br><span class="line"></span><br><span class="line">endwhile;</span><br><span class="line"></span><br><span class="line">foreach():</span><br><span class="line"></span><br><span class="line">endforeach;</span><br><span class="line"></span><br><span class="line">switch():</span><br><span class="line"></span><br><span class="line">endswitch;</span><br></pre></td></tr></table></figure><p><strong>注意：</strong></p><p>do…while是没有替代语法！</p><p><img src="1536798148_image14.png" alt=""> </p><p><img src="1536798148_image15.png" alt=""></p><h1 id="循环中断关键字"><a href="#循环中断关键字" class="headerlink" title="循环中断关键字"></a>循环中断关键字</h1><p>正常情况下循环什么情况才会中断：当条件表达式不满足</p><p><strong>意外中断：</strong>break，continue 一般是在循环语句里面使用， 使用的时候 一般会配合 if语句。</p><h2 id="break"><a href="#break" class="headerlink" title="break"></a>break</h2><p>在循环里面当遇到 break关键字会将整个循环结束 ！</p><h2 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h2><p>在循环体里面当遇到 continue关键字中断本次循环 然后继续执行下一次循环！</p><p><img src="1536798148_image16.png" alt=""></p><h2 id="中断的层次"><a href="#中断的层次" class="headerlink" title="中断的层次"></a>中断的层次</h2><p>一旦涉及到循环嵌套的时候 就有可以要考虑中断的层数的问题！</p><p>break关键字 ，它默认是中断一层循环。</p><p>break n; 它表示可以中断n层循环。</p><p>问：</p><p>现在我要打印99乘法表！</p><p>不输出当遇到乘积大于30</p><p><img src="1536798148_image17.png" alt=""></p><p>只要遇到了乘积大于30的数 下面都不要执行！</p><p><img src="1536798148_image18.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;流程控制&quot;&gt;&lt;a href=&quot;#流程控制&quot; class=&quot;headerlink&quot; title=&quot;流程控制&quot;&gt;&lt;/a&gt;流程控制&lt;/h1&gt;&lt;p&gt;顺序结构、分支结构、循环结构&lt;/p&gt;
+&lt;h2 id=&quot;选择-分支-结构&quot;&gt;&lt;a href=&quot;#选择-分支-结构&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="基础知识" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PHP基本语法</title>
+    <link href="http://blog.kuma8866.top/posts/3316045294/"/>
+    <id>http://blog.kuma8866.top/posts/3316045294/</id>
+    <published>2019-02-28T04:36:17.000Z</published>
+    <updated>2019-02-28T04:36:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PHP基本语法"><a href="#PHP基本语法" class="headerlink" title="PHP基本语法"></a>PHP基本语法</h1><hr><h2 id="PHP标签"><a href="#PHP标签" class="headerlink" title="PHP标签"></a>PHP标签</h2><p><strong>为什么要有PHP标签？</strong><br>PHP是可以嵌入到HTML代码中的！ </p><p><img src="php_basic_syntax_01.png" alt="img"></p><p><strong>注意：</strong>  </p><ul><li>如果当PHP与HTML代码进行混编时，当前的这个文件的扩展名一定要<strong>.php</strong>文件 而不是HTML文件。</li><li>PHP引擎在解析PHP代码时，它只会选择解析属于PHP标签的这一部分代码</li></ul><hr><h2 id="PHP支持2种标签"><a href="#PHP支持2种标签" class="headerlink" title="PHP支持2种标签"></a>PHP支持2种标签</h2><h3 id="lt-php-gt"><a href="#lt-php-gt" class="headerlink" title="&lt;?php   ?&gt;"></a>&lt;?php   ?&gt;</h3><p>最常见的标签 </p><p><img src="php_basic_syntax_02.png" alt="img"></p><h3 id="lt-gt"><a href="#lt-gt" class="headerlink" title="&lt;?   ?&gt;"></a>&lt;?   ?&gt;</h3><p>短标签 ，但是PHP默认不支持！需要在<code>php.ini</code>配置中开启   </p><p>第一步：需要在<code>php.ini</code>这个配置文件中 开启支持短标签的配置  </p><p><img src="php_basic_syntax_03.png" alt="img"></p><p>第二步：需要重启apache服务器  <code>httpd.exe -k restart</code>  </p><p>第三步：在02-PHP/code目录下 创建了一个叫demo03.php文件</p><p><img src="php_basic_syntax_04.png" alt=""></p><hr><h2 id="PHP的语句结束符号"><a href="#PHP的语句结束符号" class="headerlink" title="PHP的语句结束符号"></a>PHP的语句结束符号</h2><p>要求每一条PHP语句的后面都要加上一个英文状态下面的分号 ， 如果不加会出现语法错误！</p><p><img src="php_basic_syntax_05.png" alt="img"></p><p>在一个PHP文件中有一种情况不需要加分号<br>在整个PHP文件中的最后一条语句 不需要分号，因为在PHP的结束标签中它会默认有一个分号，但是建议大家每条语句都要加分号</p><hr><h2 id="PHP的注释"><a href="#PHP的注释" class="headerlink" title="PHP的注释"></a>PHP的注释</h2><p>注释分为两种：<strong>行注释</strong>和<strong>块注释</strong></p><h3 id="行注释"><a href="#行注释" class="headerlink" title="行注释"></a>行注释</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注释的内容 </span></span><br><span class="line"><span class="comment">#  注释的内容</span></span><br></pre></td></tr></table></figure><h3 id="块注释"><a href="#块注释" class="headerlink" title="块注释"></a>块注释</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">要注释的内容</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><p>块注释一般多用于函数中或者方法！  其实块注释也是有格式！这个格式它可以是PHPDocument这个工具提取到！因为当一个程序员看到当前的函数的注释的时候，就不用去看代码，已经可以明白这个函数是用来做什么的！</p><p><img src="php_basic_syntax_06.png" alt=""></p><hr><h2 id="几个常用的输出的方法"><a href="#几个常用的输出的方法" class="headerlink" title="几个常用的输出的方法"></a>几个常用的输出的方法</h2><h3 id="print"><a href="#print" class="headerlink" title="print"></a>print</h3><p>可以输出变量或者常量的值或者表达式的值！</p><p><img src="php_basic_syntax_07.png" alt=""> </p><h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><p>可以输出变量，常量 ，表达式的值！它可以一次输出多个 每一个之间使用逗号来分隔！</p><p><img src="php_basic_syntax_08.png" alt=""> </p><h3 id="var-dump"><a href="#var-dump" class="headerlink" title="var_dump"></a>var_dump</h3><p>它是我们以后在工作中<strong>使用的最多</strong>的 它可以输出变量、常量 、表达式的值 还可以输出其类型以及其它额外信息  并且还可以打印数组！它也可以一次输出多个每一个之间使用逗号来分隔！</p><p><img src="php_basic_syntax_09.png" alt=""> </p><p><strong>注意</strong>   </p><ul><li>布尔类型一定要使用var_dump来打印 </li><li>数组不能使用print和echo 语句来打印 </li></ul><h3 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h3><p>它比较擅长输出文本与变量的组合产物    </p><p>printf这个输出语句通常是由两部分组成！<br>前半部分是由引号括起来的字符串，后半部分是变量  如果前半部分有变量 需要使用一个变量的占位符来表示  变量的占位符通常是用%来表示的。它要与后面的变量一一对应！    </p><p><strong>常见的变量占位符</strong>      </p><ul><li><p><strong>%c</strong>：将后面的变量认为是一个整数，并显示为该整数对应的ASCII码字符    </p></li><li><p><strong>%d</strong>：将后面的变量认为是一个整数，并显示为有符号的十进制数</p></li><li><strong>%u</strong>：将后面的变量认为是一个整数，并显示为无符号的十进制数</li><li><strong>%o</strong>：将后面的变量认为是一个整数，并显示为无符号的八进制数</li><li><strong>%x</strong>：将后面的变量认为是一个整数，并显示为无符号的十六进制数</li><li><strong>%f</strong>：将后面的变量认为是一个浮点数，并显示为浮点数</li><li><strong>%s</strong>：将后面的变量认为是一个字符串，并显示为字符串</li></ul><p>有符号：表示有正负之分<br>无符号：只能表示正数       </p><p><img src="php_basic_syntax_10.png" alt=""> </p><h3 id="print-r"><a href="#print-r" class="headerlink" title="print_r"></a>print_r</h3><p>一般是用来打印数组，与var_dump的区别是，print_r只打印数组的元素的下标和元素的值，不输出其他的额外信息！  </p><p>常见的：<strong>echo</strong>、<strong>var_dump</strong>   </p><p><strong>数组只能使用var_dump与print_r来输出。</strong></p><p><img src="php_basic_syntax_11.png" alt=""> </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;PHP基本语法&quot;&gt;&lt;a href=&quot;#PHP基本语法&quot; class=&quot;headerlink&quot; title=&quot;PHP基本语法&quot;&gt;&lt;/a&gt;PHP基本语法&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;PHP标签&quot;&gt;&lt;a href=&quot;#PHP标签&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="基础知识" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PHP错误处理</title>
+    <link href="http://blog.kuma8866.top/posts/2553195674/"/>
+    <id>http://blog.kuma8866.top/posts/2553195674/</id>
+    <published>2019-02-28T04:36:17.000Z</published>
+    <updated>2019-02-28T04:36:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="三十三、错误处理"><a href="#三十三、错误处理" class="headerlink" title="三十三、错误处理"></a>三十三、错误处理</h1><h2 id="错误的分类"><a href="#错误的分类" class="headerlink" title="错误的分类"></a>错误的分类</h2><h3 id="初始化错误"><a href="#初始化错误" class="headerlink" title="初始化错误"></a>初始化错误</h3><ul><li>警告错误</li><li>致命错误</li></ul><h3 id="编译时错误"><a href="#编译时错误" class="headerlink" title="编译时错误"></a>编译时错误</h3><p>程序运行之前都要先编译。如果语法有错误，就会立即报错，且不会去执行程序。</p><ul><li><p>语法错误</p></li><li><p>警告错误</p></li><li><p>致命错误</p></li></ul><h3 id="运行时错误"><a href="#运行时错误" class="headerlink" title="运行时错误"></a>运行时错误</h3><p>就是在程序语法检查通过后，，开始运行程序并在此过程中遇到的错误。</p><ul><li>通知错误</li><li>警告错误</li><li>致命错误</li></ul><h3 id="用户自定义的错误"><a href="#用户自定义的错误" class="headerlink" title="用户自定义的错误"></a>用户自定义的错误</h3><ul><li>通知信息</li><li>警告信息</li><li>错误信息</li></ul><h2 id="错误的分级"><a href="#错误的分级" class="headerlink" title="错误的分级"></a>错误的分级</h2><p>php语言中，将各种错误进行了不同级别的分类归纳，并形成大约有10几个级别的错误，这就是技术层面的错误分级。</p><p>每一级别的错误，都有一个”代号”，这个代号其实也就是一个系统内部的”常量而已”。比如：</p><p><img src="1536809939_image48.png" alt=""></p><p><strong>系统常见错误：</strong></p><ul><li>E_ERROR： 致命错误</li><li>E_WARNING: 警告性错误</li><li>E_NOTICE: 提示性错误</li></ul><p><strong>用户可自定义的错误：</strong></p><ul><li><p>E_USER_ERROR： 自定义致命错误</p></li><li><p>E_USER_WARNING: 自定义警告性错误</p></li><li><p>E_USER_NOTICE: 自定义提示性错误</p></li></ul><p><strong>其他：</strong></p><ul><li><p>E_STRICT: 严谨性语法检查错误</p></li><li><p>E_ALL 代表”所有错误”。</p></li></ul><h2 id="错误的触发"><a href="#错误的触发" class="headerlink" title="错误的触发"></a>错误的触发</h2><p>错误的触发，就是让错误”发生”。</p><p>有两种方式会触发错误：</p><h3 id="系统触发"><a href="#系统触发" class="headerlink" title="系统触发"></a>系统触发</h3><p>程序运行到某行代码，确实出现了某种错误，此时系统就会报错——这就是触发了系统错误。</p><p>系统触发的典型错误有这3种：</p><p><strong>E_NOTICE: 提示性错误</strong>，会输出错误提示，并继续执行后续代码；</p><p>比如使用不存在的变量或常量：</p><p><img src="1536809939_image49.png" alt=""></p><p><strong>E_WARNING: 警告性错误</strong>，会输出错误提示，并继续执行后续代码（也可能看具体情况，比如require)</p><p>比如include载入一个不存在的文件：</p><p><img src="1536809939_image50.png" alt=""></p><p><strong>E_ERROR： 致命错误 </strong>  ，导致程序无法执行后续语句；</p><p>比如调用一个不存在的函数！</p><p><img src="1536809939_image51.png" alt=""></p><h3 id="自定义触发"><a href="#自定义触发" class="headerlink" title="自定义触发"></a>自定义触发</h3><p>当我们处理某些数据的时候，本来数据本身是没有错误的，但根据具体应用（业务）的需要，会要求数据满足某种条件，而该数据并不满足的时候，我们就可以在程序中”主动”去触发（创建）一个错误，以表明该数据的”非法性”。</p><p>语法形式：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trigger_error(<span class="string">"错误提示信息内容"</span>, <span class="number">3</span>中用户错误代号之一);</span><br></pre></td></tr></table></figure><p>其中触发了用户的致命错误(E_USER_ERROR）,也会终止程序的后续执行。</p><p><img src="1536809939_image52.png" alt=""></p><h2 id="错误报告的显示"><a href="#错误报告的显示" class="headerlink" title="错误报告的显示"></a>错误报告的显示</h2><p>所谓错误报告，就是显示在网页上的错误提示内容！</p><h4 id="是否显示错误报告-display-errors"><a href="#是否显示错误报告-display-errors" class="headerlink" title="是否显示错误报告(display_errors)"></a>是否显示错误报告(display_errors)</h4><p><strong>==有2种做法可以来设定是否显示：==</strong></p><p><strong>方法1：</strong></p><blockquote><p>在php.ini文件中，设定display_errors的值，为on（显示），或为off（不显示）</p></blockquote><p><strong>方法2：</strong></p><blockquote><p>直接在php的脚本文件中设使用函数ini_set()来对其进行设置：</p></blockquote><p><img src="1536809939_image53.png" alt=""></p><h4 id="显示哪些级别的错误报告-error-reporting"><a href="#显示哪些级别的错误报告-error-reporting" class="headerlink" title="显示哪些级别的错误报告(error_reporting)"></a>显示哪些级别的错误报告(error_reporting)</h4><p>显然，前提是”display_errors”要设置为On(或1），表示可以显示。</p><p><strong>==显示哪些级别的错误报告，也有2个做法：==</strong></p><p><strong>做法1：</strong></p><blockquote><p>在php.ini文件中配置</p></blockquote><p><strong>做法2：</strong></p><blockquote><p>在当前的脚本代码中配置</p></blockquote><p><strong>在当前脚本使用ini_set()函数来设置 </strong></p><p><img src="1536809939_image54.png" alt=""></p><h4 id="是否记录-log-errors"><a href="#是否记录-log-errors" class="headerlink" title="是否记录(log_errors)"></a>是否记录(log_errors)</h4><p><strong>php.ini中：</strong></p><blockquote><p>log_errors = On 或 Off</p></blockquote><p><strong>脚本中：</strong></p><blockquote><p>ini_set(“log_erros”, 1); 或 0</p></blockquote><p>补充一句：</p><p>1：ini_set(“php配置项”， 值)； //用于脚本中设置php.ini中是某项的值。</p><p>2：\$v1 = ini_get(“php配置项”)； //用于获取php.ini中是某项的值</p><h4 id="记录到哪里-error-log"><a href="#记录到哪里-error-log" class="headerlink" title="记录到哪里(error_log)"></a>记录到哪里(error_log)</h4><p>直接使用一个文件名，此时系统会自动在每个文件夹下都建立该文件名，并用其记录该文件夹下的所有网页文件发生的错误信息。</p><p><img src="1536809939_image55.png" alt="">  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;三十三、错误处理&quot;&gt;&lt;a href=&quot;#三十三、错误处理&quot; class=&quot;headerlink&quot; title=&quot;三十三、错误处理&quot;&gt;&lt;/a&gt;三十三、错误处理&lt;/h1&gt;&lt;h2 id=&quot;错误的分类&quot;&gt;&lt;a href=&quot;#错误的分类&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://blog.kuma8866.top/categories/Dev/"/>
+    
+      <category term="PHP" scheme="http://blog.kuma8866.top/categories/Dev/PHP/"/>
+    
+      <category term="基础知识" scheme="http://blog.kuma8866.top/categories/Dev/PHP/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+</feed>

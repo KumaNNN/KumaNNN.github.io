@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="linux发展历史wamp  w：windows a：apache  m：mysql数据库（Oracle 商业公司 ）   MariaDB（mysql分支 和mysql完全兼容） p: PHP 有可能是Python lamp：linux操作系统 lnmp ： l ： linux操作系统  n：Nginx web服务器（俄国人开发的， 解决互联网Web2.0 问题：C10k问题  ）  &amp;lt;1.">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux操作系统1">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/905642747/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="linux发展历史wamp  w：windows a：apache  m：mysql数据库（Oracle 商业公司 ）   MariaDB（mysql分支 和mysql完全兼容） p: PHP 有可能是Python lamp：linux操作系统 lnmp ： l ： linux操作系统  n：Nginx web服务器（俄国人开发的， 解决互联网Web2.0 问题：C10k问题  ）  &amp;lt;1.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1535705160418.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1535705188236.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1535705190337.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1535705279428.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1536139009673.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1536049721105.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1536049753827.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1536049797691.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1536049842498.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/905642747/1536044947959.png">
+<meta property="og:updated_time" content="2018-12-19T08:42:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux操作系统1">
+<meta name="twitter:description" content="linux发展历史wamp  w：windows a：apache  m：mysql数据库（Oracle 商业公司 ）   MariaDB（mysql分支 和mysql完全兼容） p: PHP 有可能是Python lamp：linux操作系统 lnmp ： l ： linux操作系统  n：Nginx web服务器（俄国人开发的， 解决互联网Web2.0 问题：C10k问题  ）  &amp;lt;1.">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/905642747/1535705160418.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/905642747/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>linux操作系统1 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/905642747/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">linux操作系统1
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-19 16:42:13" itemprop="dateCreated datePublished" datetime="2018-12-19T16:42:13+08:00">2018-12-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">12 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux发展历史"><a href="#linux发展历史" class="headerlink" title="linux发展历史"></a>linux发展历史</h1><p><strong>wamp</strong> </p>
+<p><strong>w</strong>：windows</p>
+<p><strong>a</strong>：apache </p>
+<p><strong>m</strong>：mysql数据库（Oracle 商业公司 ）   MariaDB（mysql分支 和mysql完全兼容）</p>
+<p><strong>p</strong>: PHP 有可能是Python</p>
+<p><strong>lamp</strong>：linux操作系统</p>
+<p><strong>lnmp</strong> ：</p>
+<p><strong>l</strong> ： linux操作系统 </p>
+<p><strong>n</strong>：Nginx web服务器（俄国人开发的， 解决互联网Web2.0 问题：C10k问题  ）</p>
+<ul>
+<li>&lt;1. 硬件升级 2. 集群架构 LB集群 负载均衡集群 3. 优秀web软件&gt;</li>
+</ul>
+<p>==<strong>注意：黄金搭档 慢慢的被取代了。PHP市场被分割的很厉害。</strong>==</p>
+<ol>
+<li>Python web领域 爬虫（以前PHP里面的数据采集 dedecms系统 火车头采集系统 PHP第三方采集库）</li>
+<li>golang web领域（不是太成熟、很有远景）</li>
+</ol>
+<h2 id="常见操作系统简介"><a href="#常见操作系统简介" class="headerlink" title="常见操作系统简介"></a>常见操作系统简介</h2><p>常见的操作系统，你知道的有哪些？</p>
+<ul>
+<li><p>Windows 操作系统（傻瓜操作系统）：常见的有xp（国企 1. 买版权 2. 习惯操作 3. 内部系统）、Vista（安全 但很慢）、window7（成功）、window8（过渡的）、window10（成功）等，该桌面版操作系统非常适合大众使用；同时也有windows server服务器端的操作系统，适合运行服务（周期性的死机，闭源操作系统）。</p>
+</li>
+<li><p>Ubuntu操作系统：中文叫做乌班图，是一个非常成熟的linux桌面版，非常的绚丽，这个操作系统下去一定要多了解，很多的公司使用的是该操作系统。( window &gt; mac &gt; linux（Ubuntu天生适合做开发） )</p>
+</li>
+<li><p>MacOS 操作系统：苹果公司出的操作系统，需要使用苹果的硬件才可以使用，但是目前也可以在普通的PC上使用，俗称<strong>黑苹果</strong>。该操作系统天生适合做开发，一般被程序员和<code>设计师</code>钟爱。</p>
+</li>
+</ul>
+<ul>
+<li><p>RedHat操作系统：俗称红帽，该操作系统一般被企业使用，当我们听到红帽子5、红帽子6、红帽子7 的时候，代表的就是该操作系统，一般来说这个操作系统是需要收取服务费，一年最基本大概10w左右。</p>
+</li>
+<li><p>CentOS操作系统：该操作系统为社区版操作系统，适合在互联网企业，是完全免费的，但是这个操作系统没有提供服务支持，当遇到问题需要自己解决。并且该操作系统是完全基于红帽的，规则如下：centos5.5基于红帽子5； centos6.5 ，centos6.8 基于红帽子6等。</p>
+</li>
+</ul>
+<p>==注意==：现在能接触到的都是 <strong>分时操作系统</strong>。</p>
+<ul>
+<li>即，<strong>多任务</strong>：同一时间可以运行多个任务（并行）。</li>
+<li>以前的是 <strong>批处理</strong>：一次只能做一件事 串行</li>
+</ul>
+<p>cpu 42亿次左右(1s)  1/60s-60个(单cpu 微观上还是串行) 宏观上并行。</p>
+<p>==注意==：<strong>实时操作系统</strong>。如，独享 ucosii 导航系统（导弹）。</p>
+<h2 id="linux发展史"><a href="#linux发展史" class="headerlink" title="linux发展史"></a>linux发展史</h2><p>参考【linux发展史】</p>
+<p><img src="1535705160418.png" alt="1535705160418"></p>
+<ol>
+<li>centos 和 reahat是完全一样的</li>
+<li>都是类 Unix操作系统（为什么叫类Unix操作系统？遵循 postfix规范 到时候操作系统的目录结构是基本一样的、命令也是基本相同、管理方式也是基本相同….）</li>
+</ol>
+<h2 id="linux含义"><a href="#linux含义" class="headerlink" title="linux含义"></a>linux含义</h2><p>linux狭义：指李纳斯开发的linux内核部分（3% ），最基本的内核代码，操作系统的核心，只负责最基本的设备管理（1. 内存管理 2. 硬件控制…）</p>
+<p>linux广义：指linux各个厂商基于linux内核研发的linux产品，例如红帽、Debian、Ubuntu等。我们常用的就是 Centos5 或者 Centos6 基于RedHat公司的产品进行开发。完全免费。</p>
+<p>注意：目前这个内核代码版本是在 4.x左右。</p>
+<p><a href="http://kernel.org/" target="_blank" rel="noopener">http://kernel.org/</a></p>
+<p>注意：虽说目前的最新的版本是4.x，但是在linux的发行版里面的使用的最多的还是<strong>2.6.x</strong>这个版本的内核。（因为从2.x之后的版本就不在由李纳斯本人开发维护，而是交给他的团队维护）。</p>
+<h2 id="CentOS简介"><a href="#CentOS简介" class="headerlink" title="CentOS简介"></a>CentOS简介</h2><p>CentOS（Community Enterprise Operating System：社区企业操作系统）是Linux发行版之一，它是来自于Red Hat Enterprise Linux依照开放源代码规定释出的源代码所编译而成。由于出自同样的源代码，因此有些要求高度稳定性的服务器以CentOS替代商业版的Red Hat Enterprise Linux使用。两者的不同，在于CentOS是完全免费的，而RedHat的使用需要收取服务费的。但是Centos目前也被RedHat收购了。</p>
+<p><strong>其主要的特点如下：</strong></p>
+<p>1、简单易用,安全性高,且支持图形操作界面,并且linux对硬件的要求是非常的低的。如果不安装图形化的界面，只要给一个128M都完成可以使用。（单片机 ARM 几M即可）</p>
+<p>2、其安装步骤支持全图形操作，且有中文包补丁 </p>
+<p>3、能够免费实现在线软件安装服务(yum包管理器) </p>
+<p>4、被誉为世界上最适合作为服务器的底层的Linux操作系统,其性能十分稳定 （web业务来说， 基本都是linux ，比如，Ubuntu server|desktop）</p>
+<p>5、有32位和64位两种操作系统安装镜像 </p>
+<p>6、多任务，多用户的操作系统。</p>
+<p><strong>其主要的版本有：</strong></p>
+<p>1、CentOS5.5</p>
+<p>2、CentOS6.5</p>
+<p>3、CentOS6.8</p>
+<p>4、CentOS7.0 (区别还是很明显的：服务器管理方式不一样， 基本的命令也有一些不同)</p>
+<p>5和6之间基本没有区别。</p>
+<p>理论上会某个linux发行版，其他的linux操作系统全部都会。其他的发行版只是在linux的内核上加入一些自己的软件或者是软件管理器。</p>
+<h1 id="CentOS安装"><a href="#CentOS安装" class="headerlink" title="CentOS安装"></a>CentOS安装</h1><ol>
+<li>下载操作系统镜像</li>
+<li>安装（1. 裸机   2. 虚拟机模拟一台电脑）</li>
+<li>购买阿里云的云服务</li>
+</ol>
+<h2 id="什么是虚拟机？"><a href="#什么是虚拟机？" class="headerlink" title="什么是虚拟机？"></a>什么是虚拟机？</h2><p>虚拟机实际上是一个虚拟PC的软件，它可以在现有的操作系统上虚拟出一个新的硬环境，相当于虚拟了一台新的计算机，从而实现了一台机器独立运行两个或者两个以上的操作系统。</p>
+<p>虚拟机软件：Vmware、VirtulBox</p>
+<h2 id="VMware软件安装"><a href="#VMware软件安装" class="headerlink" title="VMware软件安装"></a>VMware软件安装</h2><p>一般软件的安装方式，全程下一步即可。</p>
+<h2 id="虚拟电脑的创建"><a href="#虚拟电脑的创建" class="headerlink" title="虚拟电脑的创建"></a>虚拟电脑的创建</h2><p>参考【虚拟电脑创建和centos操作系统的安装.doc】</p>
+<p><img src="1535705188236.png" alt="1535705188236"></p>
+<h2 id="centos操作系统的安装"><a href="#centos操作系统的安装" class="headerlink" title="centos操作系统的安装"></a>centos操作系统的安装</h2><p>参考【虚拟电脑创建和centos操作系统的安装.doc】</p>
+<p> <img src="1535705190337.png" alt="1535705190337"></p>
+<h1 id="文件系统树"><a href="#文件系统树" class="headerlink" title="==文件系统树=="></a>==文件系统树==</h1><p>在正式学习linux之前，我们有必要了解下linux的文件系统树，linux的这种树形结构是规定好了的，不允许随便更改。其实在windows下也存在文件系统树（是从盘符开始 c:/windows/a.txt）</p>
+<p>在Windows里面是存在多个盘符，每个盘符下存在很多的文件和文件夹。但是这个东西如果是在linux下则不再成立，因为linux有自己的文件系统树。</p>
+<p>linux下没有那么多的盘符，linux下只存在一个盘符，叫做 根目录 （<code>/</code>），根下存在很多的目录，但是对于linux这些目录都是事先规定好，基本所有的发行版都是一样。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">/（c:/）</span><br><span class="line">├── bin</span><br><span class="line">│   ├── bash</span><br><span class="line">│   ├── ls</span><br><span class="line">│   ├── <span class="built_in">mkdir</span></span><br><span class="line">├── boot</span><br><span class="line">│   └── vmlinuz-<span class="number">2</span>.<span class="number">6</span>.<span class="number">32</span>-<span class="number">696</span>.<span class="number">6</span>.<span class="number">3</span>.el6.x86_64</span><br><span class="line">├── dev</span><br><span class="line">│   ├── block</span><br><span class="line">│   └── zero</span><br><span class="line">├── etc</span><br><span class="line">│   ├── yum.conf</span><br><span class="line">│   └── yum.repos.d</span><br><span class="line">├── home</span><br><span class="line">│   └── asion</span><br><span class="line">├── lib</span><br><span class="line">│   ├── libnss_dns.so.<span class="number">2</span> -&gt; libnss_dns-<span class="number">2</span>.<span class="number">12</span>.so</span><br><span class="line">├── lib64</span><br><span class="line">│   ├── device-mapper</span><br><span class="line">│   ├── libxtables.so.<span class="number">4</span> -&gt; /etc/alternatives/libxtables4.x86_64</span><br><span class="line">├── lost+found</span><br><span class="line">├── ls.txt</span><br><span class="line">├── media</span><br><span class="line">├── mnt</span><br><span class="line">├── opt</span><br><span class="line">├── patch</span><br><span class="line">│   └── libiconv-glibc-<span class="number">2</span>.<span class="number">16</span>.patch</span><br><span class="line">├── proc</span><br><span class="line">│   ├── vmallocinfo</span><br><span class="line">│   ├── vmstat</span><br><span class="line">│   └── zoneinfo</span><br><span class="line">├── root</span><br><span class="line">│   └── day1</span><br><span class="line">├── run</span><br><span class="line">│   └── cloud-init</span><br><span class="line">├── sbin</span><br><span class="line">│   ├── shutdown</span><br><span class="line">│   ├── wipefs</span><br><span class="line">│   └── xfs_repair</span><br><span class="line">├── selinux</span><br><span class="line">├── srv</span><br><span class="line">├── sys</span><br><span class="line">│   └── power</span><br><span class="line">├── tmp</span><br><span class="line">│   ├── Aegis-&lt;Guid(<span class="number">5</span>A2C30A2-A87D-<span class="number">490</span>A-<span class="number">9281</span>-<span class="number">6765</span>EDAD7CBA)&gt;</span><br><span class="line">│   └── test.pl</span><br><span class="line">├── usr</span><br><span class="line">│   ├── bin</span><br><span class="line">│   ├── src</span><br><span class="line">│   └── tmp -&gt; ../var/tmp</span><br><span class="line">├── var</span><br><span class="line">    ├── bt_apacheVersion.pl</span><br><span class="line">    ├── tmp</span><br><span class="line">    └── yp</span><br></pre></td></tr></table></figure>
+<h2 id="bin目录"><a href="#bin目录" class="headerlink" title="bin目录"></a>bin目录</h2><p>简介： <strong>binary</strong>  的简写， 主要存放linux下可以执行的==二进制命令==（如常见的ls），普通用户和超级管理员都可以使用的二进制命令。</p>
+<h2 id="sbin目录"><a href="#sbin目录" class="headerlink" title="sbin目录"></a>sbin目录</h2><p>简介：<strong>super bin</strong>，超级管理员可以执行的==二进制命令==，普通用户不可以执行。</p>
+<h2 id="home目录"><a href="#home目录" class="headerlink" title="home目录"></a>home目录</h2><p>简介：home ==用户的家目录==，每当在linux下创建一个登陆用户，就会在该目录下创建对应的文件，其用户可以在该目录下执行可读可写的操作。</p>
+<h2 id="root目录"><a href="#root目录" class="headerlink" title="root目录"></a>root目录</h2><p>简介：==root 超级管理员的家目录==。</p>
+<h2 id="etc-配置文件目录"><a href="#etc-配置文件目录" class="headerlink" title="etc 配置文件目录"></a>etc 配置文件目录</h2><p>简介：etc 该目录主要存放系统的==配置文件==信息，例如apache、mysql等服务的配置文件。</p>
+<h2 id="usr目录"><a href="#usr目录" class="headerlink" title="usr目录"></a>usr目录</h2><p>简介：usr 是<strong>Unix software resource</strong>的简写，表示Linux的==软件资源==目录主要是存放用户自定义安装软件的目录，lamp环境的 Apache MySQL php都会安装在这里，类型Windows下的Program Files。</p>
+<h2 id="var目录"><a href="#var目录" class="headerlink" title="var目录"></a>var目录</h2><p>简介：var是<strong>variable</strong>单词的简写，代表是可变的，到时候该目录主要存放系统的日志，以及网站的根目录等等。</p>
+<h2 id="Linux和Windows的区别（重要）"><a href="#Linux和Windows的区别（重要）" class="headerlink" title="Linux和Windows的区别（重要）"></a>Linux和Windows的区别（重要）</h2><ol>
+<li>Linux没有盘符，windows拥有盘符；在linux下一切都是从 根目录(<code>/</code>)开始的。</li>
+<li>Linux严格区分大小写，而windows不区分大小写，由于linux严格区分大小写，因此linux认为a.php和A.PHP是两个不同的文件，而在windows当中windows会认为这是2个相同的文件。</li>
+<li>windows大部分的工作是通过图形操作界面就能够完成，linux大部分的工作是通过命令行来完成</li>
+</ol>
+<h1 id="Shell"><a href="#Shell" class="headerlink" title="==Shell=="></a>==Shell==</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在linux使用的过程中，一般来说可以作为桌面系统进行使用，例如常见的Ubuntu操作系统，但是更多的是做为服务器进行使用。一般来说如果是在服务器模式下使用的话，这个时候是没有安装桌面的，这个时候我们就要一个人机交互的转换程序，这个工具一般被称为shell，也叫作cli（命令行接口）。现在由于我们是学习，所以安装了图像界面，在图形界面下，我们也是可以开启一个命令行终端的。除了常见的命令行shell，还有图形化的shell，一般简写为Gui，例如window操作系统。</p>
+<p><img src="1535705279428.png" alt="1535705279428"></p>
+<h2 id="常见的linux-shell分类"><a href="#常见的linux-shell分类" class="headerlink" title="常见的linux shell分类"></a>常见的linux shell分类</h2><p>常见的shell有==sh==、==bash== 、==csh==等，一般来说我们都是使用的bash，该shell解释器位于<code>/bin/bash</code>，是一个二进制的命令，可以帮我们去翻译用户的行为，并且在linux下是存在编程的，叫做shell编程。可以做linux下的自动备份，定时任务等(运维，现在来说一般也不错shell编程 。现在一般使用Python进行运维管理，实现自动化运维)。</p>
+<p>现在云服务器太方便。（阿里云支持弹性升级）（BPG IDC机房 郊区）（1. 游戏公司 不可能买云服务器 I/O 虚拟化 2. 银行 3. 大型企业 平安银行 不用电脑记账 手工记账 打算盘 纸张抄）</p>
+<p><strong>如何查看当前系统使用的shell呢？</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$SHELL</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>那么当前linux操作系统支持哪些shell呢？</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat /etc/shells</span></span><br></pre></td></tr></table></figure>
+<p><strong>如何使用sh呢？</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sh</span></span><br></pre></td></tr></table></figure>
+<p><strong>如何退出呢？</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">exit</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="命令符解释器"><a href="#命令符解释器" class="headerlink" title="命令符解释器"></a>命令符解释器</h2><p>当打开一个shell终端后，会出现一个光标在闪烁，被称为命令提示符：</p>
+<p><img src="1536139009673.png" alt="1536139009673"></p>
+<p><strong>注意</strong>：由于linux在服务器环境下，一般来说都是没有图形化的界面，都是通过命令行进行操作，所以必须要掌握好相关的命令。到时候可以在命令提示符下输入相关的命令，然后通过这些命令完成相关的任务。</p>
+<h2 id="命令格式讲解"><a href="#命令格式讲解" class="headerlink" title="命令格式讲解"></a>命令格式讲解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 命令  -选项  参数</span></span><br></pre></td></tr></table></figure>
+<p><strong>命令</strong>：是linux系统提供的二进制的命令（<code>/bin</code>  <code>/sbin/</code>    <code>/usr/bin</code>），一般分为超级管理员命令和普通用户的命令，超级管理员没有权限限制。</p>
+<p><strong>选项</strong>：选项是用来修饰命令的。</p>
+<p><strong>参数</strong>：参数是命令作用的主体，命令在谁的身上产生效果。</p>
+<p>例如ls是展示某个目录下的文件信息，但是如果需要展示全部的文件信息，可以加-a选项。</p>
+<p>如果是要查看root家目录下的文件信息，则需要使用 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls  -la </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls  -la  /root</span></span><br></pre></td></tr></table></figure>
+<h2 id="ls-列出文件命令"><a href="#ls-列出文件命令" class="headerlink" title="ls 列出文件命令"></a>ls 列出文件命令</h2><p>list： 列出目录里面的文件信息，在linux下有一个哲学，linux下一切皆文件，所以展示的既有文件，也包含文件夹。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls</span></span><br></pre></td></tr></table></figure></p>
+<p>以详细的方式展示文件信息 <code>-l</code> (longtext 以长格式，详细信息)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls -l</span></span><br></pre></td></tr></table></figure></p>
+<p>展示所有文件，包含隐藏文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls -la</span></span><br></pre></td></tr></table></figure></p>
+<p>列出指定文件夹下的文件信息<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls -l /</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="ll命令"><a href="#ll命令" class="headerlink" title="ll命令"></a>ll命令</h2><p>小写字母 <code>l</code>，这个命令其实就是<code>ls -l</code>指令的简写。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ll</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="clear-清屏"><a href="#clear-清屏" class="headerlink" title="clear 清屏"></a>clear 清屏</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> clear</span></span><br></pre></td></tr></table></figure>
+<h2 id="su-切换用户命令"><a href="#su-切换用户命令" class="headerlink" title="su 切换用户命令"></a>su 切换用户命令</h2><p><strong>su</strong>  :  全称 （switch user）</p>
+<p>如果当前是root用户切换为普通用户，那么是不需要输入任何密码的，因为root是超级管理员。如果当前的用户是一个普通的用户切换成为root，那么必须输入超级管理员的密码。同时需要注意，在输入密码的过程中，密码是没有回显的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> su - root</span></span><br></pre></td></tr></table></figure>
+<p>注意：如果直接使用 <code>su</code> 用户名进行切换，一般也不会自动回到用户的家目录，这个时候我们可以在su后面加上<code>-</code>选项，在做切换后即可回到用户的家目录。</p>
+<h2 id="shutdown-关机命令"><a href="#shutdown-关机命令" class="headerlink" title="shutdown 关机命令"></a>shutdown 关机命令</h2><p>需要注意：该命令只有<strong>root</strong>才可以执行。参见的选项如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-h: 关机  相当于 halt</span><br><span class="line">-r：重启  相当于 reboot</span><br><span class="line">时间：分钟为单位。0 和 now 都是立即执行</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="meta">#</span><span class="bash"> shutdown –h now</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> shutdown -h 5</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> shutdown –r  now</span></span><br></pre></td></tr></table></figure>
+<h2 id="halt-立刻关机命令"><a href="#halt-立刻关机命令" class="headerlink" title="halt 立刻关机命令"></a>halt 立刻关机命令</h2><p>需要注意：该命令只有<strong>root</strong>才可以执行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> halt</span></span><br></pre></td></tr></table></figure>
+<h2 id="reboot重启命令"><a href="#reboot重启命令" class="headerlink" title="reboot重启命令"></a>reboot重启命令</h2><p>需要注意：该命令只有<strong>root</strong>才可以执行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> reboot</span></span><br></pre></td></tr></table></figure>
+<h2 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h2><p>打印当前用户所处的位置(print working directory)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">pwd</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="cd-目录切换命令"><a href="#cd-目录切换命令" class="headerlink" title="cd  目录切换命令"></a>cd  目录切换命令</h2><p>在每个用户登录操作系统之后，默认是在其家目录里面，但是对于超级管理员和普通用户的家目录是不一样的。</p>
+<ol>
+<li>超级管理员root 是在<code>/root</code>目录 </li>
+<li>普通用户asion是在 <code>/home/asion</code>目录</li>
+</ol>
+<p><strong>问题：</strong>当超级管理员登录系统之后(/root—&gt;.. / –&gt; /home/asion)，要去到asion的家目录，如何去？</p>
+<p>答：</p>
+<ol>
+<li>使用<strong>绝对路径</strong>的方式：代表从根目录 (<code>/</code>) 开始到达指定位置的路程 <code>/home/asion</code></li>
+<li>使用<strong>相对路径</strong>的方式：参考点（当前的位置），然后经历的路程叫做相对路径 <code>../home/asion</code></li>
+</ol>
+<p>==linux三个比较特殊的目录==</p>
+<ol>
+<li>在linux里面<code>.</code> 和<code>./</code> 代表的含义当前目录</li>
+<li>在linux里面<code>..</code> 和<code>../</code>代表上级目录</li>
+<li><code>~</code>代表当前用户的家目录</li>
+</ol>
+<p>change directory改变当前的目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> /</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">pwd</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="远程连接linux操作系统"><a href="#远程连接linux操作系统" class="headerlink" title="==远程连接linux操作系统=="></a>==远程连接linux操作系统==</h1><p><strong>为什么要使用远程连接工具去操作？</strong></p>
+<p>答：</p>
+<ol>
+<li>实际生产环境里面的linux服务器都是没有桌面（CLI 命令行模式）</li>
+<li>服务器一般来说都是部署在郊区的机房或者购买阿里云的云服务器。</li>
+</ol>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>通过上面的学习，我们大致了解了linux的基本命令的使用方式，在实际的服务器使用过程中，一般来说都是购买的云服务器，这个时候云服务器的提供商会给我们提供一个服务器的公网IP（互联网是可以直接访问）地址和超级管理员的密码进行<strong>远程的链接</strong>管理。例如阿里云的服务器的管理如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Connecting to 47.52.65.14:22...</span><br><span class="line">Connection established.</span><br><span class="line">To escape to local shell, press &apos;Ctrl+Alt+]&apos;.</span><br><span class="line"></span><br><span class="line">Last login: Thu Aug 30 12:06:31 2018 from 157.122.54.188</span><br><span class="line">Welcome to Alibaba Cloud Elastic Compute Service !</span><br><span class="line">[root@dockerTest ~]#</span><br></pre></td></tr></table></figure>
+<h2 id="ssh简介"><a href="#ssh简介" class="headerlink" title="ssh简介"></a>ssh简介</h2><p>如果要进行远程连接，这个时候需要在linux上运行一个sshd服务(是一个c/s架构)，然后通过一个ssh客户端进行连接操作远程服务器。该服务默认使用的端口是22端口，使用的通信协议使用 ssh协议，并且ssh协议是<strong>加密传输的</strong>，可以保证信息的安全不被窃取。现代的服务器上默认都是会安装该服务的，并且该服务器也是处于监听状态的。</p>
+<p>通常提供：</p>
+<ol>
+<li>公网IP地址</li>
+<li>账号root和密码（1. 初始化密码  2. 初始化公钥和私钥）</li>
+</ol>
+<h2 id="ssh客户端简介"><a href="#ssh客户端简介" class="headerlink" title="ssh客户端简介"></a>ssh客户端简介</h2><p><strong>ssh的客户端比较多，常见的如下：</strong></p>
+<ol>
+<li><p><strong>putty</strong> 是最为最出名，最原始，最老牌的一款简洁工具 （功能非常简陋 瑞士军刀）</p>
+</li>
+<li><p><strong>xshell</strong> 是一款商业化工具，用户友好，提供免费的个人使用【首选 √】</p>
+</li>
+<li><p><strong>secureCRT</strong> 一款老牌工具</p>
+</li>
+<li><p><strong>ssh 命令工具</strong>，一般linux或者Mac自带(cmder： windows下加强版的命令行工具，可以模拟出来linux下常见命令)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> ssh root@129.12.34.34</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="ip地址查看"><a href="#ip地址查看" class="headerlink" title="ip地址查看"></a>ip地址查看</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ifconfig</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# ifconfig</span><br><span class="line">eth0      Link encap:Ethernet  HWaddr 00:16:3E:04:45:64  </span><br><span class="line">          inet addr:192.168.0.40  Bcast:192.168.0.255  Mask:255.255.255.0</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:14631 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:13924 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:13082659 (12.4 MiB)  TX bytes:3486380 (3.3 MiB)</span><br><span class="line"></span><br><span class="line">lo        Link encap:Local Loopback  </span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:608 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:608 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0 </span><br><span class="line">          RX bytes:199504 (194.8 KiB)  TX bytes:199504 (194.8 KiB)</span><br><span class="line"></span><br><span class="line">[root@dockerTest ~]#</span><br></pre></td></tr></table></figure>
+<h2 id="xshell使用"><a href="#xshell使用" class="headerlink" title="xshell使用"></a>xshell使用</h2><p>在成功安装后，配置IP地址和用户名以及密码后即可链接服务器。</p>
+<ol>
+<li><p>新建链接，输入服务器IP地址</p>
+<p><img src="1536049721105.png" alt="1536049721105"></p>
+</li>
+<li><p>输入用户名和密码</p>
+<p><img src="1536049753827.png" alt="1536049753827"></p>
+</li>
+<li><p>链接使用</p>
+<p><img src="1536049797691.png" alt="1536049797691"></p>
+</li>
+</ol>
+<h2 id="ssh命令使用"><a href="#ssh命令使用" class="headerlink" title="ssh命令使用"></a>ssh命令使用</h2><p>以 <code>root</code>用户登录到 IP为 <code>120.23.34.42</code>的主机：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ssh root@120.23.34.42</span></span><br></pre></td></tr></table></figure>
+<p>注意：在windows下的命令行需要使用特定的命令行工具cmder。</p>
+<p><img src="1536049842498.png" alt="1536049842498"></p>
+<h1 id="文件夹和文件相关命令"><a href="#文件夹和文件相关命令" class="headerlink" title="==文件夹和文件相关命令=="></a>==文件夹和文件相关命令==</h1><p>常见操作：<strong>增加</strong>、<strong>修改</strong>、<strong>删除</strong>、<strong>重命名</strong>、<strong>复制</strong>、<strong>移动</strong>，其注意的命令如下：</p>
+<ul>
+<li><p><code>touch</code> 创建文件（本身的功能是用于更新某个文件的文件信息 例如文件的修改时间戳信息）</p>
+</li>
+<li><p><code>mv</code>  移动或重命名文件（在相同位置时则重命名）</p>
+</li>
+<li><p><code>rm</code>  删除文件</p>
+</li>
+<li><p><code>cp</code>  复制文件</p>
+</li>
+<li><p><code>mkdir</code> 创建文件夹</p>
+</li>
+<li><p><code>file</code> 用于查看文件的类型（文件：不要单纯理解为文本文件，可以是一个文件夹。)</p>
+</li>
+</ul>
+<p>  ==一切皆文件== —-《linux/Unix哲学》</p>
+<h2 id="文件相关的命令"><a href="#文件相关的命令" class="headerlink" title="文件相关的命令"></a>文件相关的命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建文件的命令</span><br><span class="line"><span class="meta">#</span><span class="bash"> touch fileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">修改文件的名称(在相同位置)</span><br><span class="line"><span class="meta">#</span><span class="bash"> mv  OldFileName  NewFileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件删除的命令  -f 强制  -r 递归</span><br><span class="line"><span class="meta">#</span><span class="bash"> rm fileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">复制文件(源文件  目标文件)</span><br><span class="line"><span class="meta">#</span><span class="bash"> cp  sourcefileName  destFileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">移动文件到指定目录</span><br><span class="line"><span class="meta">#</span><span class="bash"> mv  fileName  directoryName</span></span><br></pre></td></tr></table></figure>
+<p>学习：(根据视频进行一步一步学习)</p>
+<p><img src="1536044947959.png" alt="1536044947959"></p>
+<h2 id="文件夹相关操作"><a href="#文件夹相关操作" class="headerlink" title="文件夹相关操作"></a>文件夹相关操作</h2><p>文件夹：新增，改名，删除，文件移动到文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件夹的创建</span><br><span class="line"><span class="meta">#</span><span class="bash"> mkdir  directoryName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">目录的名称修改</span><br><span class="line"><span class="meta">#</span><span class="bash"> mv  oldDirName  newDirName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件夹的删除</span><br><span class="line">注意：当删除文件夹的时候需要加上 -r 参数递归删除  -f 代表强制删除</span><br><span class="line"><span class="meta">#</span><span class="bash"> rm  -rf  dir1</span></span><br></pre></td></tr></table></figure>
+<p>解释：<code>-r</code>递归删除，如果文件夹下有文件，则先删除对应的文件，然后在删除文件夹， <code>-f</code>force代表强制删除，不做用户的交互提示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件夹的复制，需要加上 -r 参数 递归</span><br><span class="line"><span class="meta">#</span><span class="bash"> cp  -r  dir1  newDir2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件夹的移动，文件夹的移动的时候不需要加上 -r 选项</span><br><span class="line"><span class="meta">#</span><span class="bash"> mv dir1 dir2</span></span><br></pre></td></tr></table></figure>
+<h2 id="文件内容查看命令"><a href="#文件内容查看命令" class="headerlink" title="文件内容查看命令"></a>文件内容查看命令</h2><p>对于文件的内容查看，主要有如下命令：</p>
+<ul>
+<li><p><code>cat</code> 阅读文件内容【记住】</p>
+</li>
+<li><p><code>less</code> 翻页查看</p>
+</li>
+<li><p><code>more</code> 翻页查看</p>
+</li>
+<li><p><code>tail</code> 查看文件尾部 【记住】（实际开发不是拿它看单个文件内容，而是用于做日志输出的查看） <code>-f</code>代表不断的刷新日志内容</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> tail -f nginx.log</span></span><br><span class="line">1. 占据终端 取消 ctrl + c</span><br><span class="line">2. 如果 nginx.log 文件有内容被加入了，则会立马在屏幕显示，一般用于调试</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>head</code>  查看文件头部</p>
+</li>
+<li><p><code>file</code> 查看文件类型</p>
+</li>
+<li><p><code>echo</code> 输出字符串</p>
+</li>
+<li><p><code>&gt;、&gt;&gt;</code>  输出重定向</p>
+</li>
+<li><p><code>stat</code> 查看文件信息</p>
+</li>
+<li><p><code>date</code> 查看日期</p>
+</li>
+</ul>
+<p>复制一个文本文件，做演示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> cp /etc/password ./</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat fileName(cat 命令代表查看文件里面的内容)</span><br><span class="line"><span class="meta">#</span><span class="bash"> cat fileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo 为文件追加内容 </span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> hi </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> hi &gt; a.txt</span></span><br><span class="line">注意：</span><br><span class="line">  1. &gt; 代表的是覆盖</span><br><span class="line">  2. &gt;&gt; 代表的是追加</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">less 也是查看文件内容的命令</span><br><span class="line"><span class="meta">#</span><span class="bash"> less fileName</span></span><br><span class="line">注意：</span><br><span class="line">1. 需要使用 q 退出</span><br><span class="line">2. less命令在文本信息过多的情况下，可以做翻页查看，使用上下键来翻页</span><br><span class="line">3. 查找，查找该文本里面是否包含自己需要的内容 输入 /关键字 可以实现查找</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">more 命令也可以实现翻页[使用空格键做翻页]</span><br><span class="line"><span class="meta">#</span><span class="bash"> more fileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">head 代表查看文件的头部行数</span><br><span class="line"><span class="meta">#</span><span class="bash"> head fileName</span></span><br><span class="line">注意：</span><br><span class="line">	-n Number head命令默认取出前10行的内容，如果使用 -n 则代表取出指定行数的内容。</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail 查看文件尾部的行数</span><br><span class="line"><span class="meta">#</span><span class="bash"> tail fileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file 命令 查看文件的类型</span><br><span class="line"><span class="meta">#</span><span class="bash"> file fileName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stat 命名 查看文件时间戳信息</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">stat</span> fileName</span></span><br></pre></td></tr></table></figure>
+<h1 id="linux常用使用技巧"><a href="#linux常用使用技巧" class="headerlink" title="==linux常用使用技巧=="></a>==linux常用使用技巧==</h1><h2 id="终止操作"><a href="#终止操作" class="headerlink" title="终止操作"></a>终止操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">终止操作 【ctrl+c】</span><br><span class="line"><span class="meta">#</span><span class="bash"> ls /</span></span><br></pre></td></tr></table></figure>
+<h2 id="定位行首"><a href="#定位行首" class="headerlink" title="定位行首"></a>定位行首</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">光标定位 快速的从命令的尾部切换首部(ctrl+a)</span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -la /root</span></span><br></pre></td></tr></table></figure>
+<h2 id="定位行尾"><a href="#定位行尾" class="headerlink" title="定位行尾"></a>定位行尾</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">快速的从命令的首部切换尾部(ctrl+e)</span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -la /root</span></span><br></pre></td></tr></table></figure>
+<h2 id="历史命令查看"><a href="#历史命令查看" class="headerlink" title="历史命令查看"></a>历史命令查看</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用键盘的上下键可以查看曾经输入过的命令</span><br><span class="line"><span class="meta">#</span><span class="bash"> ls</span></span><br></pre></td></tr></table></figure>
+<h2 id="历史命令查看-1"><a href="#历史命令查看-1" class="headerlink" title="历史命令查看"></a>历史命令查看</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">也可以使用history命令来显示之前执行的过的命令，可以通过 !数字 来执行之前的命令</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">history</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="tab键补齐"><a href="#tab键补齐" class="headerlink" title="tab键补齐"></a>tab键补齐</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tab补齐，可以使用 tab 键 快速的补齐命令 或者 文件 已经 文件夹的名称</span><br></pre></td></tr></table></figure>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">重定向</span><br><span class="line">有的时候可能希望将某些命令的输出保存起来，保存到一个文本文件里面</span><br><span class="line">例如：希望将 date 命令输出的日期保存到 date.txt文件里面</span><br><span class="line"><span class="meta">#</span><span class="bash"> date &gt; a.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> cat a.txt</span></span><br></pre></td></tr></table></figure>
+<h2 id="linux下的帮助"><a href="#linux下的帮助" class="headerlink" title="linux下的帮助"></a>linux下的帮助</h2><p>如果在linux下对于有些命令记不清参数是什么了，这个时候可以通过如下的方式进行解决</p>
+<ol>
+<li>百度</li>
+<li><p>查看系统的帮助（英文）</p>
+<ul>
+<li>在命令的后面加上 –help</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@dockerTest ~]# ls --help</span><br><span class="line">Usage: ls [OPTION]... [FILE]...</span><br><span class="line">List information about the FILEs (the current directory by default).</span><br><span class="line">Sort entries alphabetically if none of -cftuvSUX nor --sort.</span><br><span class="line"></span><br><span class="line">Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line">  -a, --all                  do not ignore entries starting with .</span><br><span class="line">  -A, --almost-all           do not list implied . and ..</span><br><span class="line">      --author               with -l, print the author of each file</span><br><span class="line">  -b, --escape               print octal escapes for nongraphic characters</span><br><span class="line">      --block-size=SIZE      use SIZE-byte blocks.  See SIZE format below</span><br><span class="line">  -B, --ignore-backups       do not list implied entries ending with ~</span><br><span class="line">  -c                         with -lt: sort by, and show, ctime (time of last</span><br><span class="line">                               modification of file status information)</span><br><span class="line">                               with -l: show ctime and sort by name</span><br><span class="line">                               otherwise: sort by ctime</span><br><span class="line">  -C                         list entries by columns</span><br><span class="line">      --color[=WHEN]         colorize the output.  WHEN defaults to `always&apos;</span><br><span class="line">                               or can be `never&apos; or `auto&apos;.  More info below</span><br><span class="line">  -d, --directory            list directory entries instead of contents,</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>在命令的前面加上 man，使用空格翻页，q键退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># man ls</span><br><span class="line"></span><br><span class="line">LS(1)                            User Commands                           LS(1)</span><br><span class="line"></span><br><span class="line">NAME</span><br><span class="line">       ls - list directory contents</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       ls [OPTION]... [FILE]...</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       List information about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX nor --sort.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line"></span><br><span class="line">       -a, --all</span><br><span class="line">              do not ignore entries starting with .</span><br><span class="line"></span><br><span class="line">       -A, --almost-all</span><br><span class="line">              do not list implied . and ..</span><br><span class="line"></span><br><span class="line">       --author</span><br><span class="line">              with -l, print the author of each file</span><br><span class="line"></span><br><span class="line">       -b, --escape</span><br><span class="line">              print octal escapes for nongraphic characters</span><br><span class="line"></span><br><span class="line">       --block-size=SIZE</span><br><span class="line">              use SIZE-byte blocks.  See SIZE format below</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/905642747/" title="linux操作系统1">http://blog.kuma8866.top/posts/905642747/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3690292183/" rel="next" title="linux操作系统3">
+                <i class="fa fa-chevron-left"></i> linux操作系统3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2901562177/" rel="prev" title="linux操作系统2">
+                linux操作系统2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux发展历史"><span class="nav-text">linux发展历史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见操作系统简介"><span class="nav-text">常见操作系统简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux发展史"><span class="nav-text">linux发展史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux含义"><span class="nav-text">linux含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS简介"><span class="nav-text">CentOS简介</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS安装"><span class="nav-text">CentOS安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是虚拟机？"><span class="nav-text">什么是虚拟机？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VMware软件安装"><span class="nav-text">VMware软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟电脑的创建"><span class="nav-text">虚拟电脑的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#centos操作系统的安装"><span class="nav-text">centos操作系统的安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件系统树"><span class="nav-text">==文件系统树==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bin目录"><span class="nav-text">bin目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sbin目录"><span class="nav-text">sbin目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#home目录"><span class="nav-text">home目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#root目录"><span class="nav-text">root目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#etc-配置文件目录"><span class="nav-text">etc 配置文件目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usr目录"><span class="nav-text">usr目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var目录"><span class="nav-text">var目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux和Windows的区别（重要）"><span class="nav-text">Linux和Windows的区别（重要）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-text">==Shell==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的linux-shell分类"><span class="nav-text">常见的linux shell分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令符解释器"><span class="nav-text">命令符解释器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令格式讲解"><span class="nav-text">命令格式讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-列出文件命令"><span class="nav-text">ls 列出文件命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ll命令"><span class="nav-text">ll命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clear-清屏"><span class="nav-text">clear 清屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#su-切换用户命令"><span class="nav-text">su 切换用户命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shutdown-关机命令"><span class="nav-text">shutdown 关机命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#halt-立刻关机命令"><span class="nav-text">halt 立刻关机命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reboot重启命令"><span class="nav-text">reboot重启命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwd命令"><span class="nav-text">pwd命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd-目录切换命令"><span class="nav-text">cd  目录切换命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程连接linux操作系统"><span class="nav-text">==远程连接linux操作系统==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh简介"><span class="nav-text">ssh简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh客户端简介"><span class="nav-text">ssh客户端简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ip地址查看"><span class="nav-text">ip地址查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xshell使用"><span class="nav-text">xshell使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh命令使用"><span class="nav-text">ssh命令使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件夹和文件相关命令"><span class="nav-text">==文件夹和文件相关命令==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件相关的命令"><span class="nav-text">文件相关的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件夹相关操作"><span class="nav-text">文件夹相关操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件内容查看命令"><span class="nav-text">文件内容查看命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux常用使用技巧"><span class="nav-text">==linux常用使用技巧==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#终止操作"><span class="nav-text">终止操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位行首"><span class="nav-text">定位行首</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位行尾"><span class="nav-text">定位行尾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史命令查看"><span class="nav-text">历史命令查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史命令查看-1"><span class="nav-text">历史命令查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tab键补齐"><span class="nav-text">tab键补齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向"><span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux下的帮助"><span class="nav-text">linux下的帮助</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

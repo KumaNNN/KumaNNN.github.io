@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="十二、案例：省市县三级联动1、数据表的关系 省表：province 市表：city 区县：areacounty 对应关系： ​    province表中的==Pcode==字段和city表中的==ProvinceCode==对应 ​    city表中的==Ccode==和areacounty表中的==CityCode==对应 查询所有的省：select * from province 查询广东">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax和JSON案例">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2669275496/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="十二、案例：省市县三级联动1、数据表的关系 省表：province 市表：city 区县：areacounty 对应关系： ​    province表中的==Pcode==字段和city表中的==ProvinceCode==对应 ​    city表中的==Ccode==和areacounty表中的==CityCode==对应 查询所有的省：select * from province 查询广东">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2669275496/1533199284315.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2669275496/1533199930967.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2669275496/1533200880147.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2669275496/1533202243022.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2669275496/1533260844528.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2669275496/1533264032807.png">
+<meta property="og:updated_time" content="2018-12-18T09:59:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax和JSON案例">
+<meta name="twitter:description" content="十二、案例：省市县三级联动1、数据表的关系 省表：province 市表：city 区县：areacounty 对应关系： ​    province表中的==Pcode==字段和city表中的==ProvinceCode==对应 ​    city表中的==Ccode==和areacounty表中的==CityCode==对应 查询所有的省：select * from province 查询广东">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2669275496/1533199284315.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2669275496/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ajax和JSON案例 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2669275496/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Ajax和JSON案例
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 17:59:18" itemprop="dateCreated datePublished" datetime="2018-12-18T17:59:18+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/Ajax/" itemprop="url" rel="index"><span itemprop="name">Ajax</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">12k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">11 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="十二、案例：省市县三级联动"><a href="#十二、案例：省市县三级联动" class="headerlink" title="十二、案例：省市县三级联动"></a>十二、案例：省市县三级联动</h1><h2 id="1、数据表的关系"><a href="#1、数据表的关系" class="headerlink" title="1、数据表的关系"></a>1、数据表的关系</h2><p><img src="1533199284315.png" alt="1533199284315"></p>
+<p>省表：<code>province</code></p>
+<p>市表：<code>city</code></p>
+<p>区县：<code>areacounty</code></p>
+<p>对应关系：</p>
+<p>​    province表中的==Pcode==字段和city表中的==ProvinceCode==对应</p>
+<p>​    city表中的==Ccode==和areacounty表中的==CityCode==对应</p>
+<p>查询所有的省：<code>select * from province</code></p>
+<p>查询广东省下面的市：<code>select * from city where ProvinceCode=440000</code> //440000是广东省的Pcode</p>
+<p>查询广州市下面的区县：<code>select * from areacounty where CityCode=440100</code> //440100是广州市的Ccode</p>
+<h2 id="2、制作html页面"><a href="#2、制作html页面" class="headerlink" title="2、制作html页面"></a>2、制作html页面</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>--请选择省--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>北京市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>广西省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"c"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>--请选择市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>--请选择区县--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="1533199930967.png" alt="1533199930967"></p>
+<h2 id="3、页面加载，先获取所有的省"><a href="#3、页面加载，先获取所有的省" class="headerlink" title="3、页面加载，先获取所有的省"></a>3、页面加载，先获取所有的省</h2><p>通过js，发送ajax请求到07city.php，然后获取所有的省。</p>
+<p>约定用type区分，此次请求要取什么数据。</p>
+<p>先写<code>07city.php</code>，获取所有的省：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$pdo = <span class="keyword">new</span> PDO(<span class="string">'mysql:host=localhost; dbname=test; charset=utf8'</span>, <span class="string">'root'</span>, <span class="string">'123'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 约定请求会有一个区分取什么数据的参数type， type=p 表示获取省，type=c 表示获取市，type=a 表示获取区县</span></span><br><span class="line">$type = $_GET[<span class="string">'type'</span>];</span><br><span class="line"><span class="keyword">if</span>($type == <span class="string">'p'</span>)&#123;</span><br><span class="line">    $sql = <span class="string">"select * from province"</span>;</span><br><span class="line">    $stmt = $pdo-&gt;prepare($sql);</span><br><span class="line">    $stmt-&gt;execute();</span><br><span class="line">    $data = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);</span><br><span class="line">    <span class="keyword">echo</span> json_encode($data); <span class="comment">//将获取的数据转换成json，返回给浏览器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4、html页面发送ajax请求，把所有的省获取"><a href="#4、html页面发送ajax请求，把所有的省获取" class="headerlink" title="4、html页面发送ajax请求，把所有的省获取"></a>4、html页面发送ajax请求，把所有的省获取</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//先获取所有的省</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//接收所有的省</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> str = xhr.responseText;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//把str转换成js数组</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> arr = <span class="built_in">JSON</span>.parse(str);</span></span><br><span class="line"><span class="javascript">            <span class="comment">//console.log(arr);</span></span></span><br><span class="line"><span class="xml">            var res = '<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>--请选择省--<span class="tag">&lt;/<span class="name">option</span>&gt;</span>';</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span></span><br><span class="line"><span class="javascript">                res += <span class="string">'&lt;option value="'</span>+ arr[i].Pcode +<span class="string">'"&gt;'</span>+ arr[i].Pname +<span class="string">'&lt;/option&gt;'</span>;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).innerHTML = res;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    xhr.open(<span class="string">'get'</span>, <span class="string">'07city.php?type=p'</span>);</span></span><br><span class="line"><span class="javascript">    xhr.send(<span class="literal">null</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="1533200880147.png" alt="1533200880147"></p>
+<h2 id="5、当省切换的时候获取对应的市"><a href="#5、当省切换的时候获取对应的市" class="headerlink" title="5、当省切换的时候获取对应的市"></a>5、当省切换的时候获取对应的市</h2><p>js代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/************************ 获取市的代码 *******************************/</span></span><br><span class="line">   <span class="comment">//当省的内容改变的时候，获取对应的市</span></span><br><span class="line">   <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">			<span class="comment">//这里要处理服务器返回的数据</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       <span class="keyword">var</span> Pcode = <span class="keyword">this</span>.value; <span class="comment">//切换的省的Pcode值</span></span><br><span class="line">       xhr.open(<span class="string">'get'</span>, <span class="string">'07city.php?type=c&amp;Pcode='</span>+Pcode);</span><br><span class="line">       xhr.send(<span class="literal">null</span>);</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+<p>PHP代码：获取对应的市</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$pdo = <span class="keyword">new</span> PDO(<span class="string">'mysql:host=localhost; dbname=test; charset=utf8'</span>, <span class="string">'root'</span>, <span class="string">'123'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 约定请求会有一个区分取什么数据的参数type， type=p 表示获取省，type=c 表示获取市，type=a 表示获取区县</span></span><br><span class="line">$type = $_GET[<span class="string">'type'</span>];</span><br><span class="line"><span class="keyword">if</span>($type == <span class="string">'p'</span>)&#123;</span><br><span class="line">    $sql = <span class="string">"select * from province"</span>;</span><br><span class="line">    $stmt = $pdo-&gt;prepare($sql);</span><br><span class="line">    $stmt-&gt;execute();</span><br><span class="line">    $data = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);</span><br><span class="line">    <span class="keyword">echo</span> json_encode($data); <span class="comment">//将获取的数据转换成json，返回给浏览器</span></span><br><span class="line">&#125;<span class="keyword">elseif</span> ($type == <span class="string">'c'</span>)&#123;</span><br><span class="line">    <span class="comment">/**************************** 获取对应的市  *******************************/</span></span><br><span class="line">    $sql = <span class="string">"select * from city where ProvinceCode = ?"</span>;</span><br><span class="line">    $stmt = $pdo-&gt;prepare($sql);</span><br><span class="line">    $stmt-&gt;bindValue(<span class="number">1</span>, $_GET[<span class="string">'Pcode'</span>]);</span><br><span class="line">    $stmt-&gt;execute();</span><br><span class="line">    $data = $stmt-&gt;fetchAll(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">echo</span> json_encode($data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>js处理服务器返回的市的数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当省的内容改变的时候，获取对应的市</span></span><br><span class="line">   <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">               <span class="comment">//复制处理省的代码，修改一下即可</span></span><br><span class="line">               <span class="keyword">var</span> str = xhr.responseText;</span><br><span class="line">               <span class="comment">//把str转换成js数组</span></span><br><span class="line">               <span class="keyword">var</span> arr = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">               <span class="comment">//console.log(arr);</span></span><br><span class="line">               <span class="keyword">var</span> res = <span class="string">'&lt;option value="0"&gt;--请选择市--&lt;/option&gt;'</span>;</span><br><span class="line">               <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">                   res += <span class="string">'&lt;option value="'</span>+ arr[i].Ccode +<span class="string">'"&gt;'</span>+ arr[i].Cname +<span class="string">'&lt;/option&gt;'</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="built_in">document</span>.getElementById(<span class="string">'c'</span>).innerHTML = res;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       <span class="keyword">var</span> Pcode = <span class="keyword">this</span>.value; <span class="comment">//切换的省的Pcode值</span></span><br><span class="line">       xhr.open(<span class="string">'get'</span>, <span class="string">'07city.php?type=c&amp;Pcode='</span>+Pcode);</span><br><span class="line">       xhr.send(<span class="literal">null</span>);</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="6、当市切换的时候，获取对应的区县"><a href="#6、当市切换的时候，获取对应的区县" class="headerlink" title="6、当市切换的时候，获取对应的区县"></a>6、当市切换的时候，获取对应的区县</h2><p>复制获取市的代码，然后修改：</p>
+<p>js代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'c'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">                <span class="keyword">var</span> str = xhr.responseText;</span><br><span class="line">                <span class="comment">//把str转换成js数组</span></span><br><span class="line">                <span class="keyword">var</span> arr = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">                <span class="comment">//console.log(arr);</span></span><br><span class="line">                <span class="keyword">var</span> res = <span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">                    res += <span class="string">'&lt;option value="'</span>+ arr[i].Acode +<span class="string">'"&gt;'</span>+ arr[i].Aname +<span class="string">'&lt;/option&gt;'</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">document</span>.getElementById(<span class="string">'a'</span>).innerHTML = res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">var</span> Ccode = <span class="keyword">this</span>.value; <span class="comment">//切换的市的时候，获取Ccode值</span></span><br><span class="line">        xhr.open(<span class="string">'get'</span>, <span class="string">'07city.php?type=a&amp;Ccode='</span>+Ccode);</span><br><span class="line">        xhr.send(<span class="literal">null</span>);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>PHP代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line">&#125;<span class="keyword">elseif</span> ($type == <span class="string">'a'</span>)&#123;</span><br><span class="line">    $sql = <span class="string">"select * from areacounty where CityCode = ?"</span>;</span><br><span class="line">    $stmt = $pdo-&gt;prepare($sql);</span><br><span class="line">    $stmt-&gt;bindValue(<span class="number">1</span>, $_GET[<span class="string">'Ccode'</span>]);</span><br><span class="line">    $stmt-&gt;execute();</span><br><span class="line">    $data = $stmt-&gt;fetchAll(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">echo</span> json_encode($data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>切换省的时候，把区县重置：</p>
+<p><img src="1533202243022.png" alt="1533202243022"></p>
+<h2 id="7、细节处理"><a href="#7、细节处理" class="headerlink" title="7、细节处理"></a>7、细节处理</h2><ol>
+<li>切换省份时，区县要重置</li>
+<li><p>省份重置时，市和区县都要重置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//省份对象事件：改变</span></span><br><span class="line">gById(<span class="string">'p'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//--------------------细节处理-----------------------//</span></span><br><span class="line">    <span class="comment">//切换省份时，区县要重置</span></span><br><span class="line">    gById(<span class="string">'a'</span>).innerHTML=<span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//省份重置时，市和区县都要重置</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.value==<span class="number">0</span>)&#123;</span><br><span class="line">        gById(<span class="string">'c'</span>).innerHTML=<span class="string">'&lt;option value="0"&gt;--请选择市--&lt;/option&gt;'</span>;</span><br><span class="line">        gById(<span class="string">'a'</span>).innerHTML=<span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//--------------------细节处理-----------------------//</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>市重置时，区县需要重置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//市对象事件：改变</span></span><br><span class="line">   gById(<span class="string">'c'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   </span><br><span class="line">       <span class="comment">//--------------------细节处理-----------------------//</span></span><br><span class="line">       <span class="comment">//市重置时，区县要重置</span></span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.value==<span class="number">0</span>)&#123;</span><br><span class="line">           gById(<span class="string">'a'</span>).innerHTML=<span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//--------------------细节处理-----------------------//</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h1 id="十三、案例：省市县三级联动另一种思路"><a href="#十三、案例：省市县三级联动另一种思路" class="headerlink" title="十三、案例：省市县三级联动另一种思路"></a>十三、案例：省市县三级联动另一种思路</h1><h2 id="1、对于不经常变换的数据，可以用文件存储"><a href="#1、对于不经常变换的数据，可以用文件存储" class="headerlink" title="1、对于不经常变换的数据，可以用文件存储"></a>1、对于不经常变换的数据，可以用文件存储</h2><p>全国的省、市、区县可能很多年都不会发生变化，对于这种数据，就可以不用放到数据库中，直接使用文件存储，效果很好。不但可以加快查询速度，还能减轻数据库服务器的压力。</p>
+<p><img src="1533260844528.png" alt="1533260844528"></p>
+<h2 id="2、获取省"><a href="#2、获取省" class="headerlink" title="2、获取省"></a>2、获取省</h2><p>首先创建<code>01city.php</code>，里面读取<code>0.json</code>，直接返回读取的json数据。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回所有的省</span></span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">'./city/0.json'</span>);</span><br></pre></td></tr></table></figure>
+<p>创建<code>01city.html</code> ，里面先写html布局</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>--请选择省--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"c"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>--请选择市--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>--请选择区县--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后js封装一个get方法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//封装一个get请求</span></span></span><br><span class="line"><span class="undefined">    /**</span></span><br><span class="line"><span class="undefined">     * @param url 请求的地址</span></span><br><span class="line"><span class="undefined">     * @param fn  回调函数，用fn来处理服务器返回的数据</span></span><br><span class="line"><span class="undefined">     */</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">url, fn</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="undefined">                fn(xhr.responseText);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, url);</span></span><br><span class="line"><span class="javascript">        xhr.send(<span class="literal">null</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后调用get方法，获取所有的省，并处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**************************** 首先加载所有的省 *****************************/</span></span><br><span class="line">    get(<span class="string">'01city.php'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">        <span class="keyword">var</span> res = <span class="string">'&lt;option value="0"&gt;--请选择省--&lt;/option&gt;'</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">            res += <span class="string">'&lt;option value="'</span>+ arr[i].id +<span class="string">'"&gt;'</span>+ arr[i].cn_name +<span class="string">'&lt;/option&gt;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//把连接好的option放到id为p的select中</span></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).innerHTML = res;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>整体的图示：</p>
+<p><img src="1533264032807.png" alt="1533264032807"></p>
+<h2 id="3、获取市"><a href="#3、获取市" class="headerlink" title="3、获取市"></a>3、获取市</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/********************* 获取市，省切换的时候 **************************/</span></span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//省切换的时候，重置区县</span></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'a'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">        <span class="comment">//this.value指的是 option的value值</span></span><br><span class="line">        <span class="keyword">var</span> v = <span class="keyword">this</span>.value;</span><br><span class="line">        <span class="keyword">if</span>(v == <span class="number">0</span>)&#123; <span class="comment">//表示用户点击了 --请选择省--</span></span><br><span class="line">            <span class="comment">//重置市，区县</span></span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">'c'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择市--&lt;/option&gt;'</span>;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">'a'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">            <span class="keyword">return</span>; <span class="comment">//终止函数执行</span></span><br><span class="line">        &#125;</span><br><span class="line">        get(<span class="string">'01city.php?filename='</span>+v, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            <span class="comment">//形参data就是服务器返回的数据</span></span><br><span class="line">            <span class="keyword">var</span> arr = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">            <span class="keyword">var</span> res = <span class="string">'&lt;option value="0"&gt;--请选择市--&lt;/option&gt;'</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">                res += <span class="string">'&lt;option value="'</span>+ arr[i].id +<span class="string">'"&gt;'</span>+ arr[i].cn_name +<span class="string">'&lt;/option&gt;'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//把连接好的option放到id为c的select中</span></span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">'c'</span>).innerHTML = res;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p><code>01city.php</code>获取地址栏的filename，根据filename来获取对应的json文件：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取地址栏的参数 filename</span></span><br><span class="line">$filename = $_GET[<span class="string">'filename'</span>] ?? <span class="number">0</span>;</span><br><span class="line"><span class="comment">//返回所有的省</span></span><br><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">'./city/'</span>. $filename .<span class="string">'.json'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="4、细节处理"><a href="#4、细节处理" class="headerlink" title="4、细节处理"></a>4、细节处理</h2><p>上面的代码已包含。</p>
+<ol>
+<li><p>切换省份时，区县要重置</p>
+</li>
+<li><p>省份重置时，市和区县都要重置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//省份对象事件：改变</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'p'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//--------------------细节处理-----------------------//</span></span><br><span class="line">    <span class="comment">//切换省份时，区县要重置</span></span><br><span class="line">    gById(<span class="string">'a'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//省份重置时，市和区县都要重置</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="number">0</span>) &#123;</span><br><span class="line">        gById(<span class="string">'c'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择市--&lt;/option&gt;'</span>;</span><br><span class="line">        gById(<span class="string">'a'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">//终止函数往下执行</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//--------------------细节处理-----------------------//</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>市重置时，区县需要重置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//市对象事件：改变</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'c'</span>).onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//--------------------细节处理-----------------------//</span></span><br><span class="line">    <span class="comment">//市重置时，区县要重置</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="number">0</span>) &#123;</span><br><span class="line">        gById(<span class="string">'a'</span>).innerHTML = <span class="string">'&lt;option value="0"&gt;--请选择区县--&lt;/option&gt;'</span>;</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">//终止函数往下执行</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//--------------------细节处理-----------------------//</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h1 id="案例—Ajax跨域获取天气信息"><a href="#案例—Ajax跨域获取天气信息" class="headerlink" title="案例—Ajax跨域获取天气信息"></a>案例—Ajax跨域获取天气信息</h1><p>接口地址1：<a href="http://wthrcdn.etouch.cn/weather_mini?citykey=101010100" target="_blank" rel="noopener">http://wthrcdn.etouch.cn/weather_mini?citykey=101010100</a></p>
+<p>==Ajax可以直接请求==，推断出对方网站肯定设置 <code>header(&#39;Access-Control-Allow-Origin:*&#39;);</code>。</p>
+<p>下面是<code>08weather.html</code> 代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"请求"</span> <span class="attr">id</span>=<span class="string">"btn"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//点击btn的时候，发送ajax请求</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//console.log(xhr.responseText);</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(xhr.responseText);</span></span><br><span class="line"><span class="javascript">                <span class="comment">//console.log(obj);</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(obj.data.city + <span class="string">' '</span> + obj.data.wendu + <span class="string">' '</span> + obj.data.ganmao);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, <span class="string">'http://wthrcdn.etouch.cn/weather_mini?citykey=101010100'</span>);</span></span><br><span class="line"><span class="undefined">        xhr.send();</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接口地址2：<a href="http://www.weather.com.cn/data/sk/101010100.html" target="_blank" rel="noopener">http://www.weather.com.cn/data/sk/101010100.html</a></p>
+<p>==Ajax不可以直接请求。==</p>
+<p>下面是<code>09weather.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"请求"</span> <span class="attr">id</span>=<span class="string">"btn"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//点击btn的时候，发送ajax请求</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status==<span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//console.log(xhr.responseText);</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(xhr.responseText);</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(obj);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;;</span></span><br><span class="line"><span class="javascript">        xhr.open(<span class="string">'get'</span>, <span class="string">'09weather.php'</span>);</span></span><br><span class="line"><span class="undefined">        xhr.send();</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>09weather.php</code>代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> file_get_contents(<span class="string">'http://www.weather.com.cn/data/sk/101010100.html'</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="七、案例-–-Ajax无刷新分页"><a href="#七、案例-–-Ajax无刷新分页" class="headerlink" title="七、案例 – Ajax无刷新分页"></a>七、案例 – Ajax无刷新分页</h1><h2 id="7-1、分页原理"><a href="#7-1、分页原理" class="headerlink" title="7.1、分页原理"></a>7.1、分页原理</h2><p>比如，我的 areacounty 表有3125条数据。要求每页显示10条。那么共有多少页？</p>
+<p>$count = 3125;</p>
+<p>$pageSize = 10;<br> $maxPage = ceil($count / $pageSize);</p>
+<p>获取第1页数据的SQL：<code>select * from areacounty order by AID limit 0,10;</code></p>
+<p>获取第2页数据的SQL：<code>select * from areacounty order by AID limit 10,10;</code></p>
+<p>获取第3页数据的SQL：<code>select * from areacounty order by AID limit 20,10;</code></p>
+<p>获取第$p页的数据的SQL：<code>select * from areacounty order by AID limit ($p-1)*$pageSize, $pageSize;</code></p>
+<h2 id="7-2、传统的分页"><a href="#7-2、传统的分页" class="headerlink" title="7.2、传统的分页"></a>7.2、传统的分页</h2><p>TODO</p>
+<h2 id="7-3、异步请求数据，完成无刷新分页"><a href="#7-3、异步请求数据，完成无刷新分页" class="headerlink" title="7.3、异步请求数据，完成无刷新分页"></a>7.3、异步请求数据，完成无刷新分页</h2><p>TODO</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2669275496/" title="Ajax和JSON案例">http://blog.kuma8866.top/posts/2669275496/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/738503265/" rel="next" title="Ajax高级">
+                <i class="fa fa-chevron-left"></i> Ajax高级
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3588426178/" rel="prev" title="Apache">
+                Apache <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#十二、案例：省市县三级联动"><span class="nav-text">十二、案例：省市县三级联动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、数据表的关系"><span class="nav-text">1、数据表的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、制作html页面"><span class="nav-text">2、制作html页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、页面加载，先获取所有的省"><span class="nav-text">3、页面加载，先获取所有的省</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、html页面发送ajax请求，把所有的省获取"><span class="nav-text">4、html页面发送ajax请求，把所有的省获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、当省切换的时候获取对应的市"><span class="nav-text">5、当省切换的时候获取对应的市</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、当市切换的时候，获取对应的区县"><span class="nav-text">6、当市切换的时候，获取对应的区县</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、细节处理"><span class="nav-text">7、细节处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十三、案例：省市县三级联动另一种思路"><span class="nav-text">十三、案例：省市县三级联动另一种思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、对于不经常变换的数据，可以用文件存储"><span class="nav-text">1、对于不经常变换的数据，可以用文件存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、获取省"><span class="nav-text">2、获取省</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、获取市"><span class="nav-text">3、获取市</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、细节处理"><span class="nav-text">4、细节处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例—Ajax跨域获取天气信息"><span class="nav-text">案例—Ajax跨域获取天气信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、案例-–-Ajax无刷新分页"><span class="nav-text">七、案例 – Ajax无刷新分页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1、分页原理"><span class="nav-text">7.1、分页原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2、传统的分页"><span class="nav-text">7.2、传统的分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3、异步请求数据，完成无刷新分页"><span class="nav-text">7.3、异步请求数据，完成无刷新分页</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

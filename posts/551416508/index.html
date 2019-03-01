@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="tp3简介在国内的thinkPHP是一个非常不错的框架，很多的PHP程序员入门的第一个框架就是thinkPHP，俗称tp框架。并且这个框架也是最好掌握MVC开发思想的框架，学习起来的成本也是很低的。 目前这个框架存在两个大的版本：  tp3 tp5  注意：tp5是不兼容tp3，也就是说之前使用的tp3开发的项目是没有直接升级到tp5。并且tp5是完全参照laravel框架进行了编写的。 一般来说">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TP3框架">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/551416508/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="tp3简介在国内的thinkPHP是一个非常不错的框架，很多的PHP程序员入门的第一个框架就是thinkPHP，俗称tp框架。并且这个框架也是最好掌握MVC开发思想的框架，学习起来的成本也是很低的。 目前这个框架存在两个大的版本：  tp3 tp5  注意：tp5是不兼容tp3，也就是说之前使用的tp3开发的项目是没有直接升级到tp5。并且tp5是完全参照laravel框架进行了编写的。 一般来说">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010465082.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010508360.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010556138.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010650440.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010679084.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010829654.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538010987946.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538011138270.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538011266130.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538011360788.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538011637459.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538011845165.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012029890.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538011955347.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012154947.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012286641.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012615686.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012683145.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012817867.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012851547.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012971866.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538012949236.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014240033.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014301739.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014387548.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014441046.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014458341.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014908212.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014927897.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538014935189.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015132314.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015322910.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015376299.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015446287.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015634239.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015958799.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538015982388.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538018425283.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538018674611.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538018878618.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/551416508/1538019116624.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TP3框架">
+<meta name="twitter:description" content="tp3简介在国内的thinkPHP是一个非常不错的框架，很多的PHP程序员入门的第一个框架就是thinkPHP，俗称tp框架。并且这个框架也是最好掌握MVC开发思想的框架，学习起来的成本也是很低的。 目前这个框架存在两个大的版本：  tp3 tp5  注意：tp5是不兼容tp3，也就是说之前使用的tp3开发的项目是没有直接升级到tp5。并且tp5是完全参照laravel框架进行了编写的。 一般来说">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/551416508/1538010465082.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/551416508/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>TP3框架 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/551416508/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">TP3框架
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/TP3框架/" itemprop="url" rel="index"><span itemprop="name">TP3框架</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="tp3简介"><a href="#tp3简介" class="headerlink" title="tp3简介"></a>tp3简介</h1><p>在国内的thinkPHP是一个非常不错的框架，很多的PHP程序员入门的第一个框架就是thinkPHP，俗称<strong>tp</strong>框架。并且这个框架也是最好掌握MVC开发思想的框架，学习起来的成本也是很低的。</p>
+<p><strong>目前这个框架存在两个大的版本：</strong></p>
+<ul>
+<li>tp3</li>
+<li>tp5</li>
+</ul>
+<p>注意：tp5是不兼容tp3，也就是说之前使用的tp3开发的项目是没有直接升级到tp5。并且tp5是完全参照laravel框架进行了编写的。</p>
+<p>一般来说如果去企业上班新的项目肯定都是tp5，但是一些老的项目还是tp3，并且目前情况说tp3还会存活很长一段时间。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><a href="http://www.thinkphp.cn/down/611.html" target="_blank" rel="noopener">ThinkPHP3.2.3核心版</a> </p>
+<p><a href="http://www.thinkphp.cn/down/610.html" target="_blank" rel="noopener">ThinkPHP3.2.3完整版</a> </p>
+<p><img src="1538010465082.png" alt="1538010465082"></p>
+<p>下载后</p>
+<p><img src="1538010508360.png" alt="1538010508360"></p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>注意：tp3不能在PHP7下运行。</p>
+<p>创建虚拟主机</p>
+<p><img src="1538010556138.png" alt="1538010556138"></p>
+<p><img src="1538010650440.png" alt="1538010650440"></p>
+<p>浏览器访问</p>
+<p><img src="1538010679084.png" alt="1538010679084"></p>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><h2 id="整体规划"><a href="#整体规划" class="headerlink" title="整体规划"></a>整体规划</h2><p><img src="1538010829654.png" alt="1538010829654"></p>
+<h2 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h2><p><img src="1538010987946.png" alt="1538010987946"></p>
+<h2 id="应用目录"><a href="#应用目录" class="headerlink" title="应用目录"></a>应用目录</h2><p><img src="1538011138270.png" alt="1538011138270"></p>
+<h2 id="公共文件"><a href="#公共文件" class="headerlink" title="公共文件"></a>公共文件</h2><p><img src="1538011266130.png" alt="1538011266130"></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p><img src="1538011360788.png" alt="1538011360788"></p>
+<p>后期我们写代码的时候，基本上都只在模块里面进行书写，如果出于业务考虑，可以在增加一些模块。</p>
+<h1 id="控制器学习"><a href="#控制器学习" class="headerlink" title="控制器学习"></a>控制器学习</h1><p>我们学习的是一个MVC的产品，那么在学习的时候，学习的顺序是有讲究：</p>
+<p><strong>用户能够直接访问的是MVC里面的哪一个呢？</strong></p>
+<p>答：只能接触到的C，控制器。V是由控制器里面的业务代码决定是否载入。</p>
+<p>开始从控制器学习，学习之后还要做一件事，如何调用控制器里面的方法？</p>
+<h2 id="如何调用控制器里面的方法？"><a href="#如何调用控制器里面的方法？" class="headerlink" title="如何调用控制器里面的方法？"></a>如何调用控制器里面的方法？</h2><p>为什么可以看到tp3的笑脸？</p>
+<p><img src="1538011637459.png" alt="1538011637459"></p>
+<p>原理就是这样对上了。需要对访问规则做一个抽象。</p>
+<p>在tp3里面的对于控制器下的方法访问有很==四种url模式== :  <strong>普通模式、PATHINFO、REWRITE和兼容模式</strong></p>
+<ol>
+<li><p><strong>PATHINFO模式</strong>是系统的默认URL模式，提供了最好的SEO支持，系统内部已经做了环境的兼容处理，所以能够支持大多数的主机环境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">域名/入口文件/模块的名称/控制器名称/方法名称?get传参</span><br></pre></td></tr></table></figure>
+<p>这种模式其实对于搜索引擎来说是最喜欢。</p>
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>普通模式</strong>， 一种使用的比较多的模式，也就是传统的GET传参方式来指定当前访问的模块和操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">域名/index.php?m=Home&amp;c=Index&amp;a=index</span><br></pre></td></tr></table></figure>
+<p><code>m</code>代表的是模块，传递一个模块的名称</p>
+<p><code>c</code>代表的是控制器，传递一个控制器的名称</p>
+<p><code>a</code>代表的动词(action)，传递一个控制器里面的方法的名称</p>
+<p><img src="1538011845165.png" alt="1538011845165"></p>
+</li>
+<li><p><strong>REWRITE模式</strong>是在PATHINFO模式的基础上添加了重写规则的支持，可以去掉URL地址里面的入口文件index.php，但是需要额外配置WEB服务器的重写规则。</p>
+<p>如果是Apache则需要在入口文件的同级添加.htaccess文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt; </span><br><span class="line">    RewriteEngine on RewriteCond %&#123;REQUEST_FILENAME&#125; !-d </span><br><span class="line">    RewriteCond %&#123;REQUEST_FILENAME&#125; !-f </span><br><span class="line">    RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>接下来，就可以用下面的URL地址访问了： <code>http://localhost/home/user/login/var/value</code></p>
+</li>
+</ol>
+<ol start="4">
+<li><p><strong>兼容模式</strong>是用于不支持PATHINFO的特殊环境，URL地址是：  </p>
+<p><code>http://localhost/?s=/home/user/login/var/value</code></p>
+<p>可以更改兼容模式变量的名称定义，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;VAR_PATHINFO&apos;  =&gt;  &apos;pathinfo&apos;</span><br></pre></td></tr></table></figure>
+<p>PATHINFO参数分隔符对兼容模式依然有效，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 更改PATHINFO参数分隔符</span><br><span class="line">&apos;URL_PATHINFO_DEPR&apos;=&gt;&apos;-&apos;,</span><br></pre></td></tr></table></figure>
+<p>使用以上配置的话，URL访问地址可以变成：  <code>http://localhost/?s=/home-user-login-var-value</code></p>
+</li>
+</ol>
+<h3 id="方法调用的演示"><a href="#方法调用的演示" class="headerlink" title="方法调用的演示"></a>方法调用的演示</h3><p>快速入门测试，我们在Home模块的IndexController控制器文件增加一个test方法，然后在浏览器进行访问调用。</p>
+<p><img src="1538012029890.png" alt="1538012029890"></p>
+<p>效果</p>
+<p><img src="1538011955347.png" alt="1538011955347"></p>
+<h2 id="控制器规范"><a href="#控制器规范" class="headerlink" title="控制器规范"></a>控制器规范</h2><p>思考：</p>
+<ol>
+<li>控制器写在哪里？</li>
+<li>控制器的文件如何命名？</li>
+<li>控制器里面的代码如何书写？</li>
+<li>控制器的如何被调用？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li><p>控制器写在哪里？</p>
+<p><img src="1538012154947.png" alt="1538012154947"></p>
+</li>
+<li><p>控制器的文件如何命名？</p>
+<p><strong>规则</strong></p>
+<p><code>控制器名</code>  ： 首字母大写</p>
+<p><code>Controller</code> ： 控制器后缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">控制器名 + Controller.class.php</span><br></pre></td></tr></table></figure>
+<p><img src="1538012286641.png" alt="1538012286641"></p>
+</li>
+<li><p>控制器里面的代码如何书写？</p>
+<p><img src="1538012615686.png" alt="1538012615686"></p>
+</li>
+</ol>
+<ol start="4">
+<li><p>控制器的如何被调用？</p>
+<ol>
+<li><p>域名/index.php?m=Home&amp;c=User&amp;a=index</p>
+</li>
+<li><p>域名/index.php/Home/User/index</p>
+<p><img src="1538012683145.png" alt="1538012683145"></p>
+</li>
+</ol>
+</li>
+</ol>
+<p>思考：我们现在是在Home这个模块写的控制器，如果处于业务需要，现在需要增加一个Admin模块，需要做一个后台首页的功能。则需要一个后台模块，一个后台的首页控制器。</p>
+<ol>
+<li><p>建立一个Admin后台模块</p>
+<p><img src="1538012817867.png" alt="1538012817867"></p>
+</li>
+<li><p>建立一个IndexController.class.php文件</p>
+<p><img src="1538012851547.png" alt="1538012851547"></p>
+<p>注意：这里的内容我们需要修改</p>
+<p><img src="1538012971866.png" alt="1538012971866"></p>
+</li>
+<li><p>在该控制器里面增加一个index方法，然后浏览器访问</p>
+<p><img src="1538012949236.png" alt="1538012949236"></p>
+</li>
+</ol>
+<h1 id="视图学习"><a href="#视图学习" class="headerlink" title="视图学习"></a>视图学习</h1><h3 id="视图规范"><a href="#视图规范" class="headerlink" title="视图规范"></a>视图规范</h3><p>思考：</p>
+<ol>
+<li>视图写在哪里？</li>
+<li>视图文件如何命名？</li>
+<li>视图里面的该写什么？</li>
+<li>视图如何被载入？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li><p>视图写在哪里？</p>
+<p><img src="1538014240033.png" alt="1538014240033"></p>
+</li>
+<li><p>视图文件如何命名？</p>
+<p><img src="1538014301739.png" alt="1538014301739"></p>
+</li>
+<li><p>视图里面的该写什么？</p>
+<ol>
+<li><p>html标签</p>
+</li>
+<li><p>可以PHP代码</p>
+</li>
+<li><p>也可以使用PHP的内置的标签</p>
+<p><img src="1538014387548.png" alt="1538014387548"></p>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><p>视图如何被载入？</p>
+<p><img src="1538014441046.png" alt="1538014441046"></p>
+<p>效果</p>
+<p><img src="1538014458341.png" alt="1538014458341"></p>
+</li>
+</ol>
+<h3 id="分配变量到视图"><a href="#分配变量到视图" class="headerlink" title="分配变量到视图"></a>分配变量到视图</h3><p>思考：如何在视图中控制器方法里面的变量？</p>
+<p><img src="1538014908212.png" alt="1538014908212"></p>
+<p>视图代码：</p>
+<p><img src="1538014927897.png" alt="1538014927897"></p>
+<p>效果：</p>
+<p><img src="1538014935189.png" alt="1538014935189"></p>
+<h1 id="模型学习"><a href="#模型学习" class="headerlink" title="模型学习"></a>模型学习</h1><h2 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h2><p>思考：</p>
+<p><strong>模型是和数据库打交道的，那么模型和哪个数据库打交道？</strong></p>
+<p>答：我们先在框架完成数据库的配置。</p>
+<p><img src="1538015132314.png" alt="1538015132314"></p>
+<p>我们希望TP3和上面的数据库打交道。</p>
+<p><img src="1538015322910.png" alt="1538015322910"></p>
+<h2 id="模型规范"><a href="#模型规范" class="headerlink" title="模型规范"></a>模型规范</h2><p>当我们配置完成之后，在考虑模型的事？</p>
+<ol>
+<li>模型写在哪里？</li>
+<li>模型文件如何命名？</li>
+<li>模型里面的内容如何编写？</li>
+<li>模型如何被实例化？</li>
+</ol>
+<ol>
+<li><p>模型写在哪里？</p>
+<p><img src="1538015376299.png" alt="1538015376299"></p>
+</li>
+<li><p>模型文件如何命名？</p>
+<p><img src="1538015446287.png" alt="1538015446287"></p>
+</li>
+<li><p>模型里面的内容如何编写？</p>
+<p><img src="1538015634239.png" alt="1538015634239"></p>
+</li>
+<li><p>模型如何被实例化，调用模型的方法，获取数据</p>
+<p><img src="1538015958799.png" alt="1538015958799"></p>
+</li>
+<li><p>效果</p>
+<p><img src="1538015982388.png" alt="1538015982388"></p>
+</li>
+</ol>
+<h2 id="模型常见方法"><a href="#模型常见方法" class="headerlink" title="模型常见方法"></a>模型常见方法</h2><ol>
+<li>select方法：该方法是用于获取所有的记录信息</li>
+<li>field方法：获取指定的字段信息</li>
+<li>find方法：获取单条记录信息</li>
+</ol>
+<p>建议看一下手册：</p>
+<p><img src="1538018425283.png" alt="1538018425283"></p>
+<h2 id="模型简洁调用"><a href="#模型简洁调用" class="headerlink" title="模型简洁调用"></a>模型简洁调用</h2><h3 id="D方法"><a href="#D方法" class="headerlink" title="D方法"></a>D方法</h3><p>用于数据模型的实例化操作</p>
+<p><img src="1538018674611.png" alt="1538018674611"></p>
+<h3 id="M方法"><a href="#M方法" class="headerlink" title="M方法"></a>M方法</h3><p>用于数据模型的实例化操作，由于不需要加载具体的模型类，所以性能会更高。</p>
+<p><img src="1538018878618.png" alt="1538018878618"></p>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>这里的M函数得到实例对象其实是系统Model.class.php类的实例。</p>
+</li>
+<li><p>在我们实例D或者M的时候，其实没有严格的要求，一般M实例化系统的Model，D实例化的我们自定义的模型。但是需要注意的是，D也可以实例化系统模型。</p>
+<p><img src="1538019116624.png" alt="1538019116624"></p>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>通过上面的学习，我们学会了Tp3里面的MVC这种开发思想。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/551416508/" title="TP3框架">http://blog.kuma8866.top/posts/551416508/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/4006364827/" rel="next" title="博客项目1">
+                <i class="fa fa-chevron-left"></i> 博客项目1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/745665408/" rel="prev" title="PhalApi框架">
+                PhalApi框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tp3简介"><span class="nav-text">tp3简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载"><span class="nav-text">下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-text">部署</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-text">目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整体规划"><span class="nav-text">整体规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入口文件"><span class="nav-text">入口文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用目录"><span class="nav-text">应用目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共文件"><span class="nav-text">公共文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-text">模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制器学习"><span class="nav-text">控制器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何调用控制器里面的方法？"><span class="nav-text">如何调用控制器里面的方法？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调用的演示"><span class="nav-text">方法调用的演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器规范"><span class="nav-text">控制器规范</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视图学习"><span class="nav-text">视图学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#视图规范"><span class="nav-text">视图规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分配变量到视图"><span class="nav-text">分配变量到视图</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#模型学习"><span class="nav-text">模型学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库配置"><span class="nav-text">数据库配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型规范"><span class="nav-text">模型规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型常见方法"><span class="nav-text">模型常见方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型简洁调用"><span class="nav-text">模型简洁调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#D方法"><span class="nav-text">D方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#M方法"><span class="nav-text">M方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="运算符 什么叫运算符？可以进行运算的符号  运算符的优先级！    有括号先算括号里面的，然后再乘除再加减！ 需要提升某一个运算符的优先级是，加括号。  结合性什么是结合性，当一个表达式中运算符的优先级相同时 就要考虑结合性。结合性分为左结合和右结合！左结合 运算的规则就从左往右进行运算  右结合 从右往左进行运算！ 关于运算符的分类     一元运算符：当前的运算符它操作数只能一个   二元运算">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP运算符">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2259325832/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="运算符 什么叫运算符？可以进行运算的符号  运算符的优先级！    有括号先算括号里面的，然后再乘除再加减！ 需要提升某一个运算符的优先级是，加括号。  结合性什么是结合性，当一个表达式中运算符的优先级相同时 就要考虑结合性。结合性分为左结合和右结合！左结合 运算的规则就从左往右进行运算  右结合 从右往左进行运算！ 关于运算符的分类     一元运算符：当前的运算符它操作数只能一个   二元运算">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_01.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_02.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_03.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_04.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_05.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_06.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_07.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_09.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_08.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP运算符">
+<meta name="twitter:description" content="运算符 什么叫运算符？可以进行运算的符号  运算符的优先级！    有括号先算括号里面的，然后再乘除再加减！ 需要提升某一个运算符的优先级是，加括号。  结合性什么是结合性，当一个表达式中运算符的优先级相同时 就要考虑结合性。结合性分为左结合和右结合！左结合 运算的规则就从左往右进行运算  右结合 从右往左进行运算！ 关于运算符的分类     一元运算符：当前的运算符它操作数只能一个   二元运算">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2259325832/php_operational_character_01.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2259325832/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PHP运算符 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2259325832/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP运算符
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/基础知识/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><hr>
+<p><strong>什么叫运算符？</strong><br>可以进行运算的符号 </p>
+<p><strong>运算符的优先级！</strong>  </p>
+<ul>
+<li>有括号先算括号里面的，然后再乘除再加减！</li>
+<li>需要提升某一个运算符的优先级是，加括号。</li>
+</ul>
+<p><strong>结合性</strong><br>什么是结合性，当一个表达式中运算符的优先级相同时 就要考虑结合性。结合性分为左结合和右结合！左结合 运算的规则就从左往右进行运算  右结合 从右往左进行运算！</p>
+<p><strong>关于运算符的分类</strong>   </p>
+<ul>
+<li><strong>一元运算符：</strong>当前的运算符它操作数只能一个  </li>
+<li><strong>二元运算符：</strong>当前的运算符它操作的数有两个  </li>
+<li><strong>三元运算符：</strong>当前的运算符它操作的数有三个</li>
+</ul>
+<p><img src="php_operational_character_01.png" alt=""></p>
+<hr>
+<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><table>
+<thead>
+<tr>
+<th><strong>运算符</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>例子</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td>$x + $y</td>
+<td>$x 与 $y 求和</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td>$x - $y</td>
+<td>$x 与 $y 的差数</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>$x * $y</td>
+<td>$x 与 $y 的乘积</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法</td>
+<td>$x / $y</td>
+<td>$x 与 $y 的商数</td>
+</tr>
+<tr>
+<td>%</td>
+<td>模数</td>
+<td>$x % $y</td>
+<td>$x 除 $y 的余数</td>
+</tr>
+<tr>
+<td>++</td>
+<td>加加</td>
+<td>$x++ 或者 ++$x</td>
+<td></td>
+</tr>
+<tr>
+<td>–</td>
+<td>减减</td>
+<td>$x–  或者 –$x</td>
+</tr>
+</tbody>
+</table>
+<p><code>++</code>  运算符<br>它不管前置加加还是后置加加反正它最终都是自加1<br>它分为前置++和后置++   </p>
+<ul>
+<li><strong>前置++</strong>：先加1，再赋值    ++在前变量在后 </li>
+<li><strong>后置++</strong>：先赋值后再自加1</li>
+</ul>
+<p><code>--</code>  运算符<br>它不管前置减减还是后置减减反正它最终都是自减1<br>它分为前置–和后置–   </p>
+<ul>
+<li><strong>前置–</strong>：先自减1，再赋值 </li>
+<li><strong>后置–</strong>：先赋值后再自减1</li>
+</ul>
+<hr>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><table>
+<thead>
+<tr>
+<th><strong>赋值</strong></th>
+<th><strong>等同于</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x = $y</td>
+<td>$x = $y</td>
+<td>右侧表达式为左侧运算数设置值。</td>
+</tr>
+<tr>
+<td>$x += $y</td>
+<td>$x = $x + $y</td>
+<td>相加</td>
+</tr>
+<tr>
+<td>$x -= $y</td>
+<td>$x = $x - $y</td>
+<td>相减</td>
+</tr>
+<tr>
+<td>$x *= $y</td>
+<td>$x = $x * $y</td>
+<td>相乘</td>
+</tr>
+<tr>
+<td>$x /= $y</td>
+<td>$x = $x / $y</td>
+<td>相除</td>
+</tr>
+<tr>
+<td>$x %= $y</td>
+<td>$x = $x % $y</td>
+<td>相取余（模）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="字符串连接运算符"><a href="#字符串连接运算符" class="headerlink" title="字符串连接运算符"></a>字符串连接运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>串接</td>
+<td>$txt1 = “Hello”  $txt2 = $txt1 . “ world!”</td>
+<td>现在 $txt2 包含 “Hello world!”</td>
+</tr>
+<tr>
+<td>.=</td>
+<td>串接赋值</td>
+<td>$txt1 = “Hello”  $txt1 .= “ world!”</td>
+<td>现在 $txt1 包含 “Hello world!”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p><strong>注意：比较运算符它返回布尔类型的数据  true</strong> <strong>和false</strong> </p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>等于</td>
+<td>$x == $y</td>
+<td>如果 $x 等于 $y，则返回 true。</td>
+</tr>
+<tr>
+<td>===</td>
+<td>全等（完全相同）</td>
+<td>$x === $y</td>
+<td>如果 $x 等于 $y，且它们类型相同，则返回 true。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+<td>$x != $y</td>
+<td>如果 $x 不等于 $y，则返回 true。</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等于</td>
+<td>$x &lt;&gt; $y</td>
+<td>如果 $x 不等于 $y，则返回 true。</td>
+</tr>
+<tr>
+<td>!==</td>
+<td>不全等（完全不同）</td>
+<td>$x !== $y</td>
+<td>如果 $x 不等于 $y，或它们类型不相同，则返回 true。</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>$x &gt; $y</td>
+<td>如果 $x 大于 $y，则返回 true。</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>大于</td>
+<td>$x &lt; $y</td>
+<td>如果 $x 小于 $y，则返回 true。</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于或等于</td>
+<td>$x &gt;= $y</td>
+<td>如果 $x 大于或者等于 $y，则返回 true.</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于或等于</td>
+<td>$x &lt;= $y</td>
+<td>如果 $x 小于或者等于 $y，则返回 true。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h2><p><strong>语法：</strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">条件语句 ? 代码<span class="number">1</span> :代码<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong><br>问号前面的位置是判断的条件，判断结果为boolean型，为true时执行代码1，为false时执行代码2。<br>如果为真执行第一个，否则执行第二个。”</p>
+<hr>
+<h2 id="合并运算符"><a href="#合并运算符" class="headerlink" title="合并运算符"></a>合并运算符</h2><p>运算符号：<code>??</code></p>
+<p>合并运算符就是三目运算符和isset语句的简写。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//如果 ?? 前面的变量未定义，则使用后面的，否则使用??前面的    </span></span><br><span class="line">$v1=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">echo</span> $v1 ?? <span class="number">10</span>;  <span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and 或 &amp;&amp;</td>
+<td>与</td>
+<td>$x and $y或 $x &amp;&amp; $y</td>
+<td>如果 $x 和 $y 都为 true，则返回 true</td>
+</tr>
+<tr>
+<td>or 或 \</td>
+<td>\</td>
+<td></td>
+<td>或</td>
+<td>$x or $y 或 $x \</td>
+<td>\</td>
+<td>$y</td>
+<td>如果 $x 和 $y 只要有一个为 true，则返回 true</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>异或</td>
+<td>$x xor $y</td>
+<td>如果 $x 和 $y 有且仅有一个为 true，则返回 true</td>
+</tr>
+<tr>
+<td>!</td>
+<td>非</td>
+<td>!$x</td>
+<td>如果 $x 为 true，则返回 false，$x为false，则返回true</td>
+</tr>
+</tbody>
+</table>
+<p><strong>短路运算</strong><br>我们一般使用逻辑与来实现短路运算！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">true</span> &amp;&amp; $v1++;</span><br><span class="line"><span class="keyword">echo</span> $v1; <span class="comment">//11</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="位运算-bit"><a href="#位运算-bit" class="headerlink" title="位运算  bit"></a>位运算  bit</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$a  &amp; $b</td>
+<td>按位与</td>
+<td>把 <em>$a</em> 和 <em>$b</em> 中都为 1 的位设为 1，其余位置设为0</td>
+</tr>
+<tr>
+<td>$a \</td>
+<td>$b</td>
+<td>按位或</td>
+<td>把 <em>$a</em> 和 <em>$b</em> 中都为 0 的位设为0，其余位置设为1</td>
+</tr>
+<tr>
+<td>$a  ^  $b</td>
+<td>按位异或</td>
+<td>把 <em>$a</em> 和 <em>$b</em> 中一个为 1 另一个为 0 的位设为 1，其余设为0</td>
+</tr>
+<tr>
+<td>~  $a</td>
+<td>按位取反</td>
+<td><em>$a</em> 中为 0 的位设为 1，为1的位设为0</td>
+</tr>
+<tr>
+<td>$a  &lt;&lt;  $b</td>
+<td>左移</td>
+<td><em>$a</em> 中的位向左移动 <em>$b</em> 次</td>
+</tr>
+<tr>
+<td>$a  &gt;&gt;  $b</td>
+<td>右移</td>
+<td><em>$a</em> 中的位向右移动 <em>$b</em> 次</td>
+</tr>
+</tbody>
+</table>
+<p>使用二进制来参与运算！将一个数转换比特位然后再来参与运算！  </p>
+<p><strong>位运算一般是针对于整型数据来进行操作！</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~</td>
+<td>按位取反  如果是0的话就变成1  如果1的话就变成0</td>
+</tr>
+</tbody>
+</table>
+<p><img src="php_operational_character_02.png" alt=""></p>
+<p><strong>原码、反码、补码</strong><br>将一个整型数据转换二进制， 在我们计算机叫(补码计算机)<br>在计算机中二进制其实是以补码的形式存在的！<br>但是在展示给用户看的时候是原码。 </p>
+<p><strong>正数的原码、反码、补码都一样</strong><br>将一个数转换为二进制以后：最高位用于表示符号位  </p>
+<ul>
+<li>0表示正数 </li>
+<li>1表示负数 </li>
+</ul>
+<h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><p><img src="php_operational_character_03.png" alt=""></p>
+<p><img src="php_operational_character_04.png" alt=""></p>
+<h3 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h3><p><strong>正数的原码反码补码都一样</strong></p>
+<p><img src="php_operational_character_05.png" alt=""></p>
+<p>负数的反码， 除了最高位不变 ， 其它的位 取反！将0变成1  将1变成0</p>
+<p><img src="php_operational_character_06.png" alt=""></p>
+<h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><p>正数的原码反码补码都一样  \\</p>
+<p>负数的补码是其反码的基础上进行加1 </p>
+<p><img src="php_operational_character_07.png" alt=""></p>
+<h3 id="按位与-amp"><a href="#按位与-amp" class="headerlink" title="按位与  &amp;"></a>按位与  &amp;</h3><p>它的运算规则与逻辑与是一样  只不过它是拿每一个位进行与操作 同时为1才为1 其它的情况都为0 </p>
+<p><img src="php_operational_character_12.png" alt=""></p>
+<h3 id="按位或"><a href="#按位或" class="headerlink" title="按位或   |"></a>按位或   |</h3><p>它的运算规则与逻辑或是一样  只不过它是拿每一个位进行或操作 只要有一个位为1 就为1 </p>
+<p><img src="php_operational_character_11.png" alt=""></p>
+<h3 id="按位异或"><a href="#按位异或" class="headerlink" title="按位异或   ^"></a>按位异或   ^</h3><p>它的运算规则与逻辑异或是一样  只不过它是拿每一个位进行异或操作 只有一个为0一个为1的情况才为1 </p>
+<p><img src="php_operational_character_10.png" alt=""></p>
+<h3 id="按位右移-gt-gt"><a href="#按位右移-gt-gt" class="headerlink" title="按位右移 &gt;&gt;"></a>按位右移 &gt;&gt;</h3><p><img src="php_operational_character_09.png" alt=""></p>
+<h3 id="按拉左移-lt-lt"><a href="#按拉左移-lt-lt" class="headerlink" title="按拉左移 &lt;&lt;"></a>按拉左移 &lt;&lt;</h3><p><img src="php_operational_character_08.png" alt=""></p>
+<hr>
+<h2 id="飞船运算符"><a href="#飞船运算符" class="headerlink" title="飞船运算符"></a>飞船运算符</h2><p>php7之后新增的运算符，也是用于比较运算。<br>运算符号：<code>&lt;=&gt;</code>    它是用于比较两个表达式。当第一个表达式比第二个表达式，分别小于，等于或大于时它返回-1，0或1。</p>
+<hr>
+<h2 id="错误抑制符"><a href="#错误抑制符" class="headerlink" title="错误抑制符"></a>错误抑制符</h2><p><strong>@</strong>  用于抑制错误！ 只能抑制错误级别低：notice   warning </p>
+<p>主要是用于数据库连接的时候    </p>
+<p>使用一个没有定义的变量，也可以使用错误抑制符。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2259325832/" title="PHP运算符">http://blog.kuma8866.top/posts/2259325832/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2709295124/" rel="next" title="PHP其它">
+                <i class="fa fa-chevron-left"></i> PHP其它
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/1452351953/" rel="prev" title="php">
+                php <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术运算符"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值运算符"><span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串连接运算符"><span class="nav-text">字符串连接运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三目运算符"><span class="nav-text">三目运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并运算符"><span class="nav-text">合并运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算-bit"><span class="nav-text">位运算  bit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原码"><span class="nav-text">原码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反码"><span class="nav-text">反码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补码"><span class="nav-text">补码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按位与-amp"><span class="nav-text">按位与  &amp;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按位或"><span class="nav-text">按位或   |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按位异或"><span class="nav-text">按位异或   ^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按位右移-gt-gt"><span class="nav-text">按位右移 &gt;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按拉左移-lt-lt"><span class="nav-text">按拉左移 &lt;&lt;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#飞船运算符"><span class="nav-text">飞船运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误抑制符"><span class="nav-text">错误抑制符</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

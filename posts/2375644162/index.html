@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="函数什么是函数？为了使用其个功能的代码段！ 函数的主要目的 代码重用  模块化编程   函数的定义1234567function 函数名([形参列表])&amp;#123;函数体;return;&amp;#125; 结构说明： function 是定义函数的关键字 函数名的命名规则、不区分大小写， 它的命名规则与变量一样。 函数的调用函数名();  函数的参数形式参数 Parameter在定义函数的时候写的参数">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP函数">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2375644162/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="函数什么是函数？为了使用其个功能的代码段！ 函数的主要目的 代码重用  模块化编程   函数的定义1234567function 函数名([形参列表])&amp;#123;函数体;return;&amp;#125; 结构说明： function 是定义函数的关键字 函数名的命名规则、不区分大小写， 它的命名规则与变量一样。 函数的调用函数名();  函数的参数形式参数 Parameter在定义函数的时候写的参数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image31.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image32.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image33.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image34.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image35.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image36.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image37.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image38.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image39.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image1.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image31.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image32.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image33.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image34.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image35.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image36.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image37.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image38.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image39.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image41.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image42.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image43.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image44.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image45.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image46.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536809939_image47.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2375644162/1536809939_image11.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP函数">
+<meta name="twitter:description" content="函数什么是函数？为了使用其个功能的代码段！ 函数的主要目的 代码重用  模块化编程   函数的定义1234567function 函数名([形参列表])&amp;#123;函数体;return;&amp;#125; 结构说明： function 是定义函数的关键字 函数名的命名规则、不区分大小写， 它的命名规则与变量一样。 函数的调用函数名();  函数的参数形式参数 Parameter在定义函数的时候写的参数">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2375644162/1536798148_image23.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2375644162/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PHP函数 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2375644162/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PHP函数
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/基础知识/" itemprop="url" rel="index"><span itemprop="name">基础知识</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="什么是函数？"><a href="#什么是函数？" class="headerlink" title="什么是函数？"></a>什么是函数？</h2><p>为了使用其个功能的代码段！</p>
+<h2 id="函数的主要目的"><a href="#函数的主要目的" class="headerlink" title="函数的主要目的"></a>函数的主要目的</h2><ul>
+<li><p>代码重用</p>
+</li>
+<li><p>模块化编程</p>
+</li>
+</ul>
+<h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名<span class="params">([形参列表])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">函数体;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结构说明：</p>
+<p><strong>function</strong> 是定义函数的关键字</p>
+<p>函数名的命名规则、不区分大小写， 它的命名规则与变量一样。</p>
+<h2 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h2><p><code>函数名();</code></p>
+<p><img src="1536798148_image23.png" alt=""></p>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><h3 id="形式参数-Parameter"><a href="#形式参数-Parameter" class="headerlink" title="形式参数 Parameter"></a>形式参数 Parameter</h3><p>在定义函数的时候写的参数 我们称之为形式参数 简称”形参”。</p>
+<h3 id="实际参数-argument"><a href="#实际参数-argument" class="headerlink" title="实际参数 argument"></a>实际参数 argument</h3><p>在调用函数的时候传递的参数 我们称之为实际参数 简称”实参”。</p>
+<p><img src="1536798148_image24.png" alt=""></p>
+<h3 id="函数参数的传递方式"><a href="#函数参数的传递方式" class="headerlink" title="函数参数的传递方式"></a>函数参数的传递方式</h3><h4 id="按值传递"><a href="#按值传递" class="headerlink" title="按值传递"></a>按值传递</h4><p><img src="1536798148_image25.png" alt=""></p>
+<h4 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h4><p>记得在形参的前面加一个&amp;求地址运算符</p>
+<p><img src="1536798148_image26.png" alt=""></p>
+<p><img src="1536798148_image27.png" alt=""></p>
+<p>问：如果使用引用传递的时候 ，是否能够将实参使用具体的值而不是使用变量来传递</p>
+<p>答：不行，只能变量才可以使用引用传递。</p>
+<p><img src="1536798148_image28.png" alt=""></p>
+<p><img src="1536798148_image29.png" alt=""></p>
+<h2 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a>可变函数</h2><p>一个函数的名恰好是一个变量的值</p>
+<p>语法：</p>
+<p><code>变量名(); //就可以调用函数</code></p>
+<p><img src="1536798148_image30.png" alt=""></p>
+<p>进制转换的作业 就可以使用到可变函数来实现</p>
+<p><img src="1536798148_image31.png" alt=""></p>
+<h2 id="函数形参的类型限定"><a href="#函数形参的类型限定" class="headerlink" title="函数形参的类型限定"></a>函数形参的类型限定</h2><p>在PHP7.0以后,支持了标量类型数据限定。</p>
+<ul>
+<li>标量有四种：字符串（string）、布尔值（bool）、整型（int）和浮点型（float）</li>
+</ul>
+<p>语法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">function_name</span><span class="params">(类型限定 $val)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="1536798148_image32.png" alt=""></p>
+<p>上图所示的代码：需要的是整型数据， 但是传递不是整型数据 ，函数的内部进行了类型的自动转换功能。</p>
+<h2 id="函数形参数类型严格模式"><a href="#函数形参数类型严格模式" class="headerlink" title="函数形参数类型严格模式"></a>函数形参数类型严格模式</h2><p>开启类型严格模式语句：<code>declare(strict_types=1);</code></p>
+<p><img src="1536798148_image33.png" alt=""></p>
+<h2 id="函数形参的默认值"><a href="#函数形参的默认值" class="headerlink" title="函数形参的默认值"></a>函数形参的默认值</h2><p><strong>参数为什么需要有默认值？</strong></p>
+<p>假设一个函数它是用来实现的功能比较固定！</p>
+<p><img src="1536798148_image34.png" alt=""></p>
+<p><img src="1536798148_image35.png" alt=""></p>
+<h2 id="函数的参数的个数不定"><a href="#函数的参数的个数不定" class="headerlink" title="函数的参数的个数不定"></a>函数的参数的个数不定</h2><p><strong>指的形参与实参个数之间的关系！</strong></p>
+<p><strong>实参：</strong>在函数在运行中所传递的数据！</p>
+<p><strong>形参：</strong>函数在运行中所依赖的数据！</p>
+<h3 id="形参个数大于实参个数"><a href="#形参个数大于实参个数" class="headerlink" title="形参个数大于实参个数"></a>形参个数大于实参个数</h3><p>会报错 “Fatal error”</p>
+<h3 id="形参个数等于实参个数"><a href="#形参个数等于实参个数" class="headerlink" title="形参个数等于实参个数"></a>形参个数等于实参个数</h3><p>没有错</p>
+<h3 id="形参个数小于实参个数"><a href="#形参个数小于实参个数" class="headerlink" title="形参个数小于实参个数"></a>形参个数小于实参个数</h3><p>没有错</p>
+<p>func_get_args() ：获取函数实参的个数 返回是一个数组</p>
+<p><img src="1536798148_image36.png" alt=""></p>
+<p>count(\$arr) 用于获取数组的长度</p>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p><strong>return 关键字 </strong></p>
+<p>1、当函数体里面遇到return关键字会将当前的函数停止运行</p>
+<p><img src="1536798148_image37.png" alt=""></p>
+<p>2、向函数的调用者返回数据！</p>
+<p><img src="1536798148_image38.png" alt=""></p>
+<p>问题：如果调用一个没有返回值的函数 会得到?</p>
+<p><img src="1536798148_image39.png" alt=""></p>
+<h2 id="函数返回值的类型"><a href="#函数返回值的类型" class="headerlink" title="函数返回值的类型"></a>函数返回值的类型</h2><p>类型严格模式对于返回值的类型限定同样起作用，使用类型严格模式的时候要注意，必须保证声明语句在最开始位置，否则报错！</p>
+<p>格式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名<span class="params">()</span>:返回值的类型</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> 指定的类型</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="1536798148_image40.png" alt=""></p>
+<hr>
+<h1 id="二十五、匿名函数"><a href="#二十五、匿名函数" class="headerlink" title="二十五、匿名函数"></a>二十五、匿名函数</h1><p>一个函数没有名称 ，需要将这个函数赋值给一个变量！</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image1.png" alt=""></p>
+<h1 id="三十、字符串函数"><a href="#三十、字符串函数" class="headerlink" title="三十、字符串函数"></a>三十、字符串函数</h1><h2 id="Strlen"><a href="#Strlen" class="headerlink" title="Strlen"></a>Strlen</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strlen ( string $string )</span><br></pre></td></tr></table></figure>
+<p>返回的是指定字符串的字节的长度！</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image17.png" alt=""></p>
+<h2 id="Substr"><a href="#Substr" class="headerlink" title="Substr"></a>Substr</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string substr ( string $string , int $start [, int $length ] )</span><br></pre></td></tr></table></figure>
+<p>作用：截取字符串</p>
+<p>string \$string：字符串变量</p>
+<p>int \$start：开始下标</p>
+<p>int \$length：可缺省的参数 表示截取的长度 如果不写表示截取到字符串的末尾 如果有些 表示截取到指定的长度</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image18.png" alt=""></p>
+<h2 id="Strtolower"><a href="#Strtolower" class="headerlink" title="Strtolower"></a>Strtolower</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string strtolower ( string $string )</span><br></pre></td></tr></table></figure>
+<p>将大写字母转换为小写</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image19.png" alt=""></p>
+<h2 id="Strtoupper"><a href="#Strtoupper" class="headerlink" title="Strtoupper"></a>Strtoupper</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string strtoupper ( string $string )</span><br></pre></td></tr></table></figure>
+<p>将小写字母转换为大写</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image20.png" alt=""></p>
+<h2 id="mb-strlen"><a href="#mb-strlen" class="headerlink" title="mb_strlen"></a>mb_strlen</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed mb_strlen ( string $str [, string $encoding = mb_internal_encoding() ] )</span><br></pre></td></tr></table></figure>
+<p>作用：获取字符的个数！</p>
+<p>如果要使用这个函数需要 在PHP.INI中开启下面的扩展 <strong>php_mbstring</strong> 这个扩展</p>
+<p>开启扩展</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image21.png" alt=""></p>
+<p>告诉PHP去哪个目录下面找扩展文件</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image22.png" alt=""></p>
+<p>重启Apache<code>httpd.exe -k restart</code></p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image23.png" alt=""></p>
+<h2 id="Ucfirst"><a href="#Ucfirst" class="headerlink" title="Ucfirst"></a>Ucfirst</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string ucfirst ( string $str )</span><br></pre></td></tr></table></figure>
+<p>将字符串的首字母转换为大写</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image24.png" alt=""></p>
+<h2 id="Strpos"><a href="#Strpos" class="headerlink" title="Strpos"></a>Strpos</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed strpos ( string $haystack , mixed $needle [, int $offset = <span class="number">0</span> ] )</span><br></pre></td></tr></table></figure>
+<p>查找子字符在原字符串首次出来的位置， 如果找的到就返回其下标，如果找不到返回false</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image25.png" alt=""></p>
+<h2 id="strrpos"><a href="#strrpos" class="headerlink" title="strrpos"></a>strrpos</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed strrpos ( string $haystack , string $needle [, int $offset = <span class="number">0</span> ] )</span><br></pre></td></tr></table></figure>
+<p>查找子字符在原字符串最后次出来的位置， 如果找的到就返回其下标，如果找不到返回false</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image26.png" alt=""></p>
+<h2 id="strrev"><a href="#strrev" class="headerlink" title="strrev"></a>strrev</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string strrev ( string $string )</span><br></pre></td></tr></table></figure>
+<p>将字符串进行翻转</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image27.png" alt=""></p>
+<h2 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string trim ( string $str [, string $character_mask = <span class="string">" \t\n\r\0\x0B"</span> ] )</span><br></pre></td></tr></table></figure>
+<p>用于去除字符串的首尾的空白字符</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image28.png" alt=""></p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image29.png" alt=""></p>
+<h2 id="explode"><a href="#explode" class="headerlink" title="explode"></a>explode</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span> explode ( string $delimiter , string $string [, int $limit ] )</span><br></pre></td></tr></table></figure>
+<p>使用指定的分隔符将一个字符串分隔为数组</p>
+<p>参数说明：</p>
+<p>string \$delimiter：分隔符</p>
+<p>string \$string：要分割字符串</p>
+<p><strong>implode</strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string implode ( string $glue , <span class="keyword">array</span> $pieces )</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<p>string \$glue：拼接符号</p>
+<p>array \$pieces：要拼接的数组</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image30.png" alt=""></p>
+<h1 id="三十一、时间日期函数"><a href="#三十一、时间日期函数" class="headerlink" title="三十一、时间日期函数"></a>三十一、时间日期函数</h1><h2 id="date-default-timezone-set"><a href="#date-default-timezone-set" class="headerlink" title="date_default_timezone_set"></a>date_default_timezone_set</h2><p>设置时区三种方法</p>
+<ul>
+<li>date_default_timezone_set() 函数</li>
+<li>修改 php.ini 配置文件</li>
+<li>使用ini_set() 这个函数</li>
+</ul>
+<p>第一种方法： date_default_timezone_set()</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image31.png" alt=""></p>
+<p>第二种方法：修改php.ini配置文件</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image32.png" alt=""></p>
+<p>第三种方法：使用ini_set()函数， 修改php的配置文件配置</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image33.png" alt=""></p>
+<h2 id="date-default-timezone-get"><a href="#date-default-timezone-get" class="headerlink" title="date_default_timezone_get"></a>date_default_timezone_get</h2><p>获取到设置的时区</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image34.png" alt=""></p>
+<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>获取一个UNIX时间戳 是1970年1月1日0时0分0秒时间的秒数</p>
+<p><code>int time ( void )</code></p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image35.png" alt=""></p>
+<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string date ( string $format [, int $timestamp ] )</span><br></pre></td></tr></table></figure>
+<p>将一个时间戳格式化为一个本地的时间</p>
+<p>第二个参数如果不写表示当前的时间戳</p>
+<hr>
+<p>  <strong>格式</strong>   <strong>说明</strong><br>  Y          4 位数字完整表示的年份<br>  m          数字表示的月份，有前导零 取值01~12<br>  d          月份中的第几天，有前导零的 返回值：01~31<br>  H          小时，24 小时格式，有前导零 返回值：01~23<br>  i          有前导零的分钟数 00~59<br>  s          秒数，有前导零 00~59<br>  w          星期中的第几天，数字表示 <em>0</em>（表示星期天）到 <em>6</em>（表示星期六）<br>  N          星期中的第几天 数字表示 <em>1</em>（表示星期一）到 <em>7</em>（表示星期天）<br>  a          小写的上午和下午值 <em>am</em> 或 <em>pm</em><br>  A          大写的上午和下午值 <em>AM</em> 或 <em>PM</em></p>
+<hr>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image36.png" alt=""></p>
+<h2 id="strtotime"><a href="#strtotime" class="headerlink" title="strtotime"></a>strtotime</h2><p>将任何英文文本的日期时间描述解析为 Unix 时间戳</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int strtotime ( string $time [, int $now = time() ] )</span><br></pre></td></tr></table></figure>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image37.png" alt=""></p>
+<h2 id="microtime"><a href="#microtime" class="headerlink" title="microtime"></a>microtime</h2><p>返回当前 Unix 时间戳和微秒数</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image38.png" alt=""></p>
+<p>这个函数有一个缺省的参数 ，这个参数是一个布尔型</p>
+<p>如果将这个值设置为<strong>true</strong>返回是一个浮点数！时间戳和微秒数合起来的数</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image39.png" alt=""></p>
+<p>如果没有指定参数 那么返回是两部分：时间戳和微秒。 这是一个字符串 ，将这个字符串以空格分割为数组</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image40.png" alt=""></p>
+<h1 id="三十二、数学函数"><a href="#三十二、数学函数" class="headerlink" title="三十二、数学函数"></a>三十二、数学函数</h1><h2 id="abs"><a href="#abs" class="headerlink" title="abs"></a>abs</h2><p>返回一个数的绝对值</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image41.png" alt=""></p>
+<h2 id="sqrt"><a href="#sqrt" class="headerlink" title="sqrt"></a>sqrt</h2><p>返回一个数的平方根</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image42.png" alt=""></p>
+<h2 id="pow"><a href="#pow" class="headerlink" title="pow"></a>pow</h2><p>pow(x,y) 返回一个x的y次幂</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image43.png" alt=""></p>
+<h2 id="ceil"><a href="#ceil" class="headerlink" title="ceil"></a>ceil</h2><p>向上取整 得到一个比当前数要大的最小的整数</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image44.png" alt=""></p>
+<h2 id="floor"><a href="#floor" class="headerlink" title="floor"></a>floor</h2><p>向下取整 得到一个比当前数要大的最大的整数</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image45.png" alt=""></p>
+<h2 id="round"><a href="#round" class="headerlink" title="round"></a>round</h2><p>对一个数进行四舍五入</p>
+<p>第一个参数：表示一个数</p>
+<p>第二个参数：可选的 如果没有写表示 不保留小数位 如果有写就表示保留几位小数</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image46.png" alt=""></p>
+<h2 id="rand和mt-rand"><a href="#rand和mt-rand" class="headerlink" title="rand和mt_rand"></a>rand和mt_rand</h2><p>返回一个闭合区间的随机整数</p>
+<p>rand和mt_rand它们有两个参数</p>
+<p>第一个参数：表示最小的整数</p>
+<p>第二个参数：表示最大的整数</p>
+<p>这两个函数之间的区别在于：mt_rand的速度比rand的速度快4倍！</p>
+<p><img src="1536809939_image47.png" alt=""></p>
+<hr>
+<h1 id="二十七、变量的作用域"><a href="#二十七、变量的作用域" class="headerlink" title="二十七、变量的作用域"></a>二十七、变量的作用域</h1><p><strong>变量的作用域：</strong>表示变量在什么区域里面有效！</p>
+<p><strong>变量的作用域分为两种：</strong>==全局作用域==、==局部作用域==</p>
+<p>凡是变量的作用域都是跟<strong>函数</strong>有关系！</p>
+<p>在函数外面定义的变量称之<strong>全局变量</strong> 它的作用域是全局的</p>
+<p>在函数里面定义的变量称之<strong>局部变量</strong> 它的作用域是局部的，也就是在当前的函数内起作用！</p>
+<p><strong>注意：</strong></p>
+<p>PHP中的变量的作用域是不叠加的！全局不能访问局部的，局部的也不能访问全局的！全局变量只能在全局访问内访问，局部量只能在函数内访问！，在函数内是不能访问函数外定义的变量的！</p>
+<p><strong>在函数里面是无法访问函数外面定义的变量</strong></p>
+<p><strong>在函数外面无法访问函数里面定义的变量</strong></p>
+<p><strong>问：</strong>在函数里面访问函数外面定义的变量！</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image5.png" alt=""></p>
+<p>使用<code>$_GET</code>这个超全局变量 可以使用在函数内部访问函数外面定义的变量，但是<code>$_GET</code>它本身是用来获取get方式提交的数据！</p>
+<p>在PHP中还有一种变量 称之<strong>超全局变量</strong> ，但是超全局变量不能人为的进行定义！只能使用PHP系统内置的！这里的超全局变量的作用域可以理解为与JS中的全局作用域一样！</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image6.png" alt=""></p>
+<p>虽然说<code>$_GET</code>可以使用实现在函数里面也能够被访问， 但是它不是专业做这个的！</p>
+<p><strong>注意：</strong></p>
+<p><strong>只有超全局变量才可以在函数外面和函数里面能够访问！</strong></p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image7.png" alt=""></p>
+<p> <a href="mk:@MSITStore:F:\手册\php_manual_zh.chm::/res/reserved.variables.globals.html" target="_blank" rel="noopener">\$GLOBALS</a></p>
+<p><code>$GLOBALS</code>它就是专门实现将一个数据进行超全局化！超全局化以后在全局作用域与局部作用域都可以使用。</p>
+<p><strong>注意：</strong></p>
+<p>1)  \$GLOBALS这个超全局数组变量中的数组元素它是与全局变量一一对应！只要我们创建了一个全局变量 就是相当于往这个超全局数组变量中添加一个对应的数组元素！变量名就是数组元素的下标 ，变量的值就是这个数组元素的值！</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image8.png" alt=""></p>
+<p>2)  反过来说， 只是我们往\$GLOBALS这个超全局数组中添加一个数组元素， 就相当于会创建一个同名的全局变量！</p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image9.png" alt=""></p>
+<p><img src="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/note/1536809939_image10.png" alt=""></p>
+<p><strong>注意：</strong></p>
+<p>全局变量与<code>$GLOBALS</code>这个超全局数组的对应的数组元素它们之间的关系是同生同死！</p>
+<h1 id="二十八、变量的生命周期"><a href="#二十八、变量的生命周期" class="headerlink" title="二十八、变量的生命周期"></a>二十八、变量的生命周期</h1><p><strong>变量生命周期：</strong>指的当前这个变量什么时候诞生、什么时候消失！</p>
+<p>变量什么时候诞生？</p>
+<p>一个变量被定义的时候</p>
+<p>变量什么时候消失：</p>
+<ol>
+<li>当变量被unset掉以后</li>
+<li>当当前的脚本程序运行结束！</li>
+</ol>
+<p>我们这里讨论是<strong>局部变量的生命周期！</strong></p>
+<p>什么是局部变量？</p>
+<p>是指在函数里面定义的变量</p>
+<p><strong>问：</strong>如何让局部变量的生命活的久一点！</p>
+<p>使用静态变量可以让其活的久一点， 只要当前的PHP程序在运行 ，当前的静态局部变量那么就一直活着！</p>
+<p><strong>如何定义一个静态变量：</strong></p>
+<p>在PHP中有一个<strong>static</strong>关键字 ，可以用来定义一个静态的局部变量！</p>
+<p><strong>用法：</strong></p>
+<p>将<strong>static</strong>放置在局部变量的前面， 那么这个局部变量就会被定义为静态局部变量！</p>
+<p>无限级分类 ----static关键字</p>
+<p><img src="1536809939_image11.png" alt=""></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2375644162/" title="PHP函数">http://blog.kuma8866.top/posts/2375644162/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/1452351953/" rel="next" title="php">
+                <i class="fa fa-chevron-left"></i> php
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2612395477/" rel="prev" title="PHP数组基础">
+                PHP数组基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是函数？"><span class="nav-text">什么是函数？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的主要目的"><span class="nav-text">函数的主要目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的定义"><span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的调用"><span class="nav-text">函数的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的参数"><span class="nav-text">函数的参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形式参数-Parameter"><span class="nav-text">形式参数 Parameter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际参数-argument"><span class="nav-text">实际参数 argument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的传递方式"><span class="nav-text">函数参数的传递方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按值传递"><span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用传递"><span class="nav-text">引用传递</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可变函数"><span class="nav-text">可变函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数形参的类型限定"><span class="nav-text">函数形参的类型限定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数形参数类型严格模式"><span class="nav-text">函数形参数类型严格模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数形参的默认值"><span class="nav-text">函数形参的默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的参数的个数不定"><span class="nav-text">函数的参数的个数不定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#形参个数大于实参个数"><span class="nav-text">形参个数大于实参个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#形参个数等于实参个数"><span class="nav-text">形参个数等于实参个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#形参个数小于实参个数"><span class="nav-text">形参个数小于实参个数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的返回值"><span class="nav-text">函数的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数返回值的类型"><span class="nav-text">函数返回值的类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二十五、匿名函数"><span class="nav-text">二十五、匿名函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三十、字符串函数"><span class="nav-text">三十、字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Strlen"><span class="nav-text">Strlen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Substr"><span class="nav-text">Substr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strtolower"><span class="nav-text">Strtolower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strtoupper"><span class="nav-text">Strtoupper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mb-strlen"><span class="nav-text">mb_strlen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ucfirst"><span class="nav-text">Ucfirst</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strpos"><span class="nav-text">Strpos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strrpos"><span class="nav-text">strrpos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strrev"><span class="nav-text">strrev</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#trim"><span class="nav-text">trim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#explode"><span class="nav-text">explode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三十一、时间日期函数"><span class="nav-text">三十一、时间日期函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#date-default-timezone-set"><span class="nav-text">date_default_timezone_set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date-default-timezone-get"><span class="nav-text">date_default_timezone_get</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#time"><span class="nav-text">time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date"><span class="nav-text">date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strtotime"><span class="nav-text">strtotime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#microtime"><span class="nav-text">microtime</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三十二、数学函数"><span class="nav-text">三十二、数学函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abs"><span class="nav-text">abs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqrt"><span class="nav-text">sqrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pow"><span class="nav-text">pow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ceil"><span class="nav-text">ceil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#floor"><span class="nav-text">floor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round"><span class="nav-text">round</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rand和mt-rand"><span class="nav-text">rand和mt_rand</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二十七、变量的作用域"><span class="nav-text">二十七、变量的作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二十八、变量的生命周期"><span class="nav-text">二十八、变量的生命周期</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

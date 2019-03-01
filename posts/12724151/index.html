@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、昨日回顾1. 知识回顾 mvc的三大组件是什么？ M：model     模型 V：view          视图 C：Controller     控制器  mvc的三大组件分别代表什么意思？ M：专门用来操作数据表的 V：专门用来展示视图模板的 C：专门用来处理业务逻辑，比如说什么时候该调用模型操作数据，什么时候该调用视图展示模板，都是由控制器里来处理。   2. 昨日反馈 二、知识路径">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客项目3">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/12724151/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="一、昨日回顾1. 知识回顾 mvc的三大组件是什么？ M：model     模型 V：view          视图 C：Controller     控制器  mvc的三大组件分别代表什么意思？ M：专门用来操作数据表的 V：专门用来展示视图模板的 C：专门用来处理业务逻辑，比如说什么时候该调用模型操作数据，什么时候该调用视图展示模板，都是由控制器里来处理。   2. 昨日反馈 二、知识路径">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/114">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/1">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/2">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/3">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/4">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/5">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/6">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/7">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/8">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/9">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/10">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/11">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/12">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/13">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/14">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/15">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/16">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/17">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/18">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/19">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/20">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/21">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/22">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/23">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/24">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/25">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/26">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/27">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/28">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/29">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/30">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/31">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/32">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/33">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/34">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/35">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/36">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/37">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/38">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/39">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/40">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/41">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/42">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/50">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/51">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/52">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/53">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/54">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/55">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/56">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/43">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/44">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/45">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/46">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/57">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/58">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/59">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/60">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/61">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/62">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/63">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/64">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/65">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/66">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/47">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/46">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/67">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/68">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/69">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/70">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/71">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/49">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/48">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/72">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/73">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/74">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/75">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/76">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/77">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/78">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/81">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/79">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/80">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/82">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/83.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/83">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/84">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/85">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/86">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/87">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/88">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/90">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/91">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/92">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/93">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/94">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/95">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/96">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/97">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/98">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/99">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/100">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/101">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/102">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/103">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/104">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/105">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/106">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/107">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/108">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/109">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/110">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/111">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/115">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/116">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/117">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/118">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/119">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/125">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/128">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/127">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/126">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/129">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/89">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/120">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/121">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/122">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/124">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/123">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/130">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/131">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/132">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/133">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/134">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/135">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/136">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/139">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/137">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/138">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/140">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/141">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/142">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/143">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/145">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/146">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/12724151/147">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客项目3">
+<meta name="twitter:description" content="一、昨日回顾1. 知识回顾 mvc的三大组件是什么？ M：model     模型 V：view          视图 C：Controller     控制器  mvc的三大组件分别代表什么意思？ M：专门用来操作数据表的 V：专门用来展示视图模板的 C：专门用来处理业务逻辑，比如说什么时候该调用模型操作数据，什么时候该调用视图展示模板，都是由控制器里来处理。   2. 昨日反馈 二、知识路径">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/12724151/114">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/12724151/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>博客项目3 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/12724151/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">博客项目3
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/博客项目/" itemprop="url" rel="index"><span itemprop="name">博客项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">21k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">19 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、昨日回顾"><a href="#一、昨日回顾" class="headerlink" title="一、昨日回顾"></a>一、昨日回顾</h1><h2 id="1-知识回顾"><a href="#1-知识回顾" class="headerlink" title="1. 知识回顾"></a>1. 知识回顾</h2><ol>
+<li><p>mvc的三大组件是什么？</p>
+<p>M：model     模型</p>
+<p>V：view          视图</p>
+<p>C：Controller     控制器</p>
+</li>
+<li><p>mvc的三大组件分别代表什么意思？</p>
+<p>M：专门用来操作数据表的</p>
+<p>V：专门用来展示视图模板的</p>
+<p>C：专门用来处理业务逻辑，比如说什么时候该调用模型操作数据，什么时候该调用视图展示模板，都是由控制器里来处理。</p>
+</li>
+</ol>
+<h2 id="2-昨日反馈"><a href="#2-昨日反馈" class="headerlink" title="2. 昨日反馈"></a>2. 昨日反馈</h2><p><img src="114" alt="1531270551320"></p>
+<h1 id="二、知识路径"><a href="#二、知识路径" class="headerlink" title="二、知识路径"></a>二、知识路径</h1><ul>
+<li><p>web项目开发流程介绍</p>
+</li>
+<li><p>需求分析</p>
+<p>​    功能分析</p>
+<p>​    ER图设计</p>
+</li>
+<li><p>表设计</p>
+</li>
+<li><p>项目部署</p>
+</li>
+<li><p>项目实现</p>
+<p>​    实现后台用户管理系统</p>
+<p>​    封装验证码工具类</p>
+</li>
+</ul>
+<p>==目标：能够设计项目所需的表、能够部署自主框架、能够实现后台用户管理系统==</p>
+<h1 id="三、今日课程内容：博客项目"><a href="#三、今日课程内容：博客项目" class="headerlink" title="三、今日课程内容：博客项目"></a>三、今日课程内容：博客项目</h1><h2 id="1-web项目开发流程介绍"><a href="#1-web项目开发流程介绍" class="headerlink" title="1. web项目开发流程介绍"></a>1. web项目开发流程介绍</h2><p>1)制定计划：博客项目(blog31)  开发周期：4天</p>
+<p>2)需求分析：功能分析  ER图设计</p>
+<p>3)软件设计：项目环境  表设计</p>
+<p>4)程序编写</p>
+<p>5)软件测试</p>
+<p>6)运行维护</p>
+<h2 id="2-需求分析"><a href="#2-需求分析" class="headerlink" title="2. 需求分析"></a>2. 需求分析</h2><h3 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li>后台用户管理系统；</li>
+<li>后台分类管理系统；</li>
+<li>后台博文管理系统；</li>
+<li>评论管理系统；</li>
+<li>后台登陆和七天免登录；</li>
+<li>前台首页；</li>
+<li>前台注册和登陆功能；</li>
+<li>前台博客文章详情页；</li>
+</ol>
+<h3 id="ER图设计"><a href="#ER图设计" class="headerlink" title="ER图设计"></a>ER图设计</h3><p>E-R图也称实体-联系图(Entity Relationship Diagram)，提供了表示实体类型、属性和联系的方法，用来描述现实世界的概念模型。它是描述现实世界概念结构模型的有效方法。是表示概念模型的一种方式，用矩形表示实体型，矩形框内写明实体名；用椭圆表示实体的属性，并用无向边将其与相应的实体型连接起来；用菱形表示实体型之间的联系，在菱形框内写明联系名，并用无向边分别与有关实体型连接起来，同时在无向边旁标上联系的类型（1:1,1:n或m:n）。</p>
+<p>专业的ER图工具：Viso和Power Designer</p>
+<p>==实体== ==》表：矩形表示</p>
+<p>==属性== ==》表字段：椭圆</p>
+<p>==关系== ==》表与表的关系：菱形（1:1表示1对1关系；1:n表示1对多关系；m:n表示多对多关系）</p>
+<p>博客项目的ER关系图如下： </p>
+<p><img src="1" alt="1531279764230"></p>
+<h2 id="3-表设计"><a href="#3-表设计" class="headerlink" title="3. 表设计"></a>3. 表设计</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">drop database blog31;</span><br><span class="line">create database blog31;</span><br><span class="line"></span><br><span class="line">#############用户表：</span><br><span class="line">CREATE TABLE `bg_user` (</span><br><span class="line">  `id` int unsigned auto_increment,</span><br><span class="line">  `acc` varchar(50) not null default &apos;&apos; COMMENT &apos;帐号&apos;,</span><br><span class="line">  `nickname` varchar(30) not null default &apos;&apos; COMMENT &apos;昵称&apos;,</span><br><span class="line">  `pwd` char(32) not null default &apos;&apos; COMMENT &apos;密码&apos;,</span><br><span class="line">  `cell` varchar(15) not null default &apos;&apos; COMMENT &apos;手机号&apos;,</span><br><span class="line">  `regtime` int unsigned default 0 COMMENT &apos;注册时间&apos;,</span><br><span class="line">  `type` tinyint unsigned not null default 0 COMMENT &apos;用户类型 0:普通用户 1:管理员&apos;,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=MyISAM CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">#############博客文章表：</span><br><span class="line">CREATE TABLE `bg_article` (</span><br><span class="line">  `id` int(11) unsigned AUTO_INCREMENT,</span><br><span class="line">  `title` varchar(100) not null default &apos;&apos; COMMENT &apos;文章标题&apos;,</span><br><span class="line">  `intro` varchar(255) not null default &apos;&apos; COMMENT &apos;文章简介&apos;,</span><br><span class="line">  `content` text not null,</span><br><span class="line">  `post_date` int unsigned not null default 0 COMMENT &apos;发布时间&apos;,</span><br><span class="line">  `user_id` int unsigned not null default 0 COMMENT &apos;发布管理员id&apos;,</span><br><span class="line">  `user_nickname` varchar(30) not null default &apos;&apos; COMMENT &apos;发布管理员昵称&apos;,</span><br><span class="line">  `comment_num` smallint unsigned not null default 0 COMMENT &apos;评论数量&apos;,</span><br><span class="line">  `cat_id` int unsigned not null default 0 COMMENT &apos;所属分类id&apos;,</span><br><span class="line">  `cat_name` varchar(30) not null default &apos;&apos; COMMENT &apos;所属分类名称&apos;,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=MyISAM CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">#############博客文章分类表：</span><br><span class="line">CREATE TABLE `bg_category` (</span><br><span class="line">  `id` int unsigned AUTO_INCREMENT,</span><br><span class="line">  `name` varchar(30) not null COMMENT &apos;分类名称&apos;,</span><br><span class="line">  `parent_id` int unsigned not null default &apos;0&apos; COMMENT &apos;上级分类ID，0表示顶级分类&apos;,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=MyISAM CHARSET=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#############评论表：</span><br><span class="line">CREATE TABLE `bg_comment` (</span><br><span class="line">  `id` int unsigned AUTO_INCREMENT,</span><br><span class="line">  `content` text not null,</span><br><span class="line">  `post_date` int unsigned not null default 0 COMMENT &apos;评论时间&apos;,</span><br><span class="line">  `article_id` int unsigned not null default 0 COMMENT &apos;所属文章ID&apos;,</span><br><span class="line">  `article_title` varchar(50)  not null default &apos;&apos; COMMENT &apos;所属文章标题&apos;,</span><br><span class="line">  `user_id` int unsigned not null default 0 COMMENT &apos;用户ID&apos;,</span><br><span class="line">  `user_nickname` varchar(30)  not null default &apos;&apos; COMMENT &apos;用户昵称&apos;,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=MyISAM CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+<h2 id="4-项目部署"><a href="#4-项目部署" class="headerlink" title="4. 项目部署"></a>4. 项目部署</h2><ol>
+<li><p>将code/mvc目录改名为blog31，</p>
+<p>下图这个mvc目录：</p>
+<p><img src="2" alt="1531291206947"></p>
+<p>改名为blog31:</p>
+<p><img src="3" alt="1531291235746"></p>
+</li>
+<li><p>配置一个基于域名虚拟主机，域名为<a href="http://www.blog31.com" target="_blank" rel="noopener">www.blog31.com</a></p>
+<p>在httpd-vhosts.conf文件中增加如下图所示的虚拟主机配置项：</p>
+<p><img src="4" alt="1531291311545"></p>
+<p>修改hosts文件，</p>
+<p><img src="5" alt="1531291371313"></p>
+</li>
+<li><p>重启apache，测试访问效果：</p>
+<p><img src="6" alt="1531291456736"></p>
+<p>访问效果为：</p>
+<p><img src="7" alt="1531291515331"></p>
+<p>能够看到上图，则说明部署成功。</p>
+</li>
+</ol>
+<h2 id="5-项目实现"><a href="#5-项目实现" class="headerlink" title="5. 项目实现"></a>5. 项目实现</h2><h3 id="实现后台用户管理系统"><a href="#实现后台用户管理系统" class="headerlink" title="实现后台用户管理系统"></a>实现后台用户管理系统</h3><h4 id="实现列表页"><a href="#实现列表页" class="headerlink" title="实现列表页"></a>实现列表页</h4><ol>
+<li><p>将code/templates/admin目录中如下图所示的目录复制一份，</p>
+<p><img src="8" alt="1531291763786"></p>
+<p>转移拷贝到code/blog31/app/admin/view目录中，</p>
+<p><img src="9" alt="1531291818821"></p>
+</li>
+<li><p>在blog31/app/admin/controller目录中创建一个名为UserController.class.php的文件，</p>
+<p><img src="10" alt="1531291945355"></p>
+</li>
+<li><p>在blog31/app/admin/controller/UserController.class.php中构建如下代码，展示三个页面，</p>
+<p><img src="11" alt="1531292339989"></p>
+</li>
+<li><p>测试访问后台用户管理系统列表页</p>
+<p><img src="12" alt="1531292433660"></p>
+</li>
+<li><p>进一步做调整，将后台模板使用到的资源文件全部转移进项目中，</p>
+<p>在blog31/public目录中创建一个名为admin的目录，专门保存后台的资源文件，</p>
+<p><img src="13" alt="1531292599939"></p>
+<p>复制code/templates/admin/libs目录下的所有文件，如下图所示，</p>
+<p><img src="14" alt="1531292644972"></p>
+<p>转移拷贝到blog31/public/admin目录中，</p>
+<p><img src="15" alt="1531292690333"></p>
+</li>
+<li><p>调整blog31/app/admin/view/User/userIndex.html中引入资源文件的路径，</p>
+<p>在blog31/conf/conf.php中增加本网站域名配置项，</p>
+<p><img src="16" alt="1531293146377"></p>
+<p>然后在blog31/app/admin/view/User/userIndex.html使用配置项URL的值来引入配置文件，</p>
+<p><img src="17" alt="1531293430682"></p>
+<p><img src="18" alt="1531293486446"></p>
+<p>上图中替换的是所有图片文件引入路径，截取不全，实际替换的内容以blog31/app/admin/view/User/userIndex.html中的为准。</p>
+</li>
+<li><p>再次测试访问后台新闻管理系统列表页，</p>
+<p><img src="19" alt="1531293567621"></p>
+</li>
+<li><p>在blog31/app/model目录中创建UserModel.class.php文件，</p>
+<p><img src="20" alt="1531293712684"></p>
+<p>内容如下：</p>
+<p><img src="21" alt="1531293731152"></p>
+<p>调整blog31/conf/conf.php中PDO配置项的默认选择的数据库名，</p>
+<p><img src="22" alt="1531294133397"></p>
+</li>
+<li><p>在blog31/app/admin/controller/UserController.class.php中showIndex方法里渲染模板之前调用模型查询数据，</p>
+<p><img src="23" alt="1531294688749"></p>
+<p>然后在blog31/app/admin/view/User/userIndex.html中回显查询得到的用户数据，</p>
+<p><img src="24" alt="1531294782348"></p>
+<p>测试访问后台用户管理系统列表页：</p>
+<p><img src="25" alt="1531294828901"></p>
+</li>
+</ol>
+<h4 id="实现添加页"><a href="#实现添加页" class="headerlink" title="实现添加页"></a>实现添加页</h4><ol>
+<li><p>访问后台用户管理系统添加页，</p>
+<p><img src="26" alt="1531295330114"></p>
+</li>
+<li><p>调整blog31/app/admin/view/User/userAdd.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="27" alt="1531295483768"></p>
+</li>
+<li><p>调整blog31/app/admin/view/User/userAdd.html中的form表单域各项的值，</p>
+<p><img src="28" alt="1531295777460"></p>
+</li>
+<li><p>在blog31/app/admin/controller/UserController.class.php中创建一个处理添加用户的方法，adh方法，</p>
+<p><img src="29" alt="1531296464355"></p>
+</li>
+<li><p>测试添加用户使用效果：</p>
+<p>在添加表单页面构建数据，点击提交，</p>
+<p><img src="30" alt="1531296568559"><br>提交后的效果：</p>
+<p><img src="31" alt="1531296591547"></p>
+<p>效果为添加成功，说明功能实现OK。</p>
+</li>
+</ol>
+<h4 id="实现编辑页"><a href="#实现编辑页" class="headerlink" title="实现编辑页"></a>实现编辑页</h4><ol>
+<li><p>访问后台新闻管理系统编辑页：</p>
+<p><img src="32" alt="1531296743041"></p>
+</li>
+<li><p>修改blog31/app/admin/view/User/userIndex.html中编辑按钮的链接：</p>
+<p><img src="33" alt="1531296871382"></p>
+</li>
+<li><p>调整blog31/app/admin/view/User/userEdit.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="34" alt="1531296956168"></p>
+</li>
+<li><p>调整blog31/app/admin/view/User/userEdit.html中form表单里的代码，</p>
+<p><img src="35" alt="1531297468408"></p>
+</li>
+<li><p>在blog31/app/admin/controller/UserController.class.php中创建updh方法，代码如下：</p>
+<p><img src="36" alt="1531301022079"></p>
+</li>
+<li><p>测试使用效果：</p>
+<p>点击进入编辑也，如下图所示：</p>
+<p><img src="37" alt="1531301120317"></p>
+<p>修改数据，</p>
+<p><img src="38" alt="1531301172674"></p>
+<p>点击更新，</p>
+<p><img src="39" alt="1531301192522"></p>
+<p>跳回到更新页面：</p>
+<p><img src="40" alt="1531301213845"></p>
+<p>密码也是被改变了的，如下图所示：</p>
+<p><img src="41" alt="1531301252698"></p>
+<p>说明编辑功能实现OK。</p>
+</li>
+</ol>
+<h2 id="6-全天总结"><a href="#6-全天总结" class="headerlink" title="6. 全天总结"></a>6. 全天总结</h2><ol>
+<li><p>项目中的建表部分：</p>
+<p>如果某字段是需要保存时间，一般在PHP的项目中给int数据类型；</p>
+<p>如果某字段需要保存状态类型的值，使用tinyint会更加好；</p>
+<p>如果某字段保存的数据，我们可以预期的很准确，比如说手机号码，通常就是11位，但是我们在项目中一般会采取宁大不小的原则，给11位以上的值，比如给varchar(15)；</p>
+<p>在构建字段的时候，我们一般都会给字段设置default默认值，如果不设置默认值，则今后这个字段无论是否需要添加数据，都必须指定上值。</p>
+</li>
+<li><p>项目开发部分：</p>
+<p>我们使用框架进行开发，一般程序开发人员从模板入手，先尝试展示出模板页面的效果，然后再考虑是否需要调用模型操作数据库的问题，所以我们通常在MVC框架中，1）首先会将模板页面转移进项目目录；2）然后会创建控制器类，构建方法调用视图展示模板页面；3）调试模板页面展示的效果；4）以上都成功之后，如果没有模型则需要创建模型，如果有模型则直接去考虑调用模型操作数据；</p>
+</li>
+</ol>
+<h1 id="四、昨日回顾"><a href="#四、昨日回顾" class="headerlink" title="四、昨日回顾"></a>四、昨日回顾</h1><h2 id="1-知识回顾-1"><a href="#1-知识回顾-1" class="headerlink" title="1. 知识回顾"></a>1. 知识回顾</h2><ol>
+<li><p>建表注意事项：</p>
+<p>如果在项目中要保存一个时间的数据，则我们一般选择使用int类型来保存；</p>
+<p>如果在项目中要保存一个状态或类型这样的数据时，我们一般选择使用tinyint类型来保存；</p>
+<p>如果在项目中能够明确要保存的数据需要占多少个字节时，我们一般采用的做法是宁大不小，比如，保存手机号码一般是11位，但是我们通常会选择给varchar(15)</p>
+<p>如果在项目中构建字段时，通常我们会给字段指定一个默认值，一方面方便程序的默认操作，比如注册时，如果给用户类型指定了默认值为0表示普通会员，则构建注册功能的代码就无需给这个字段设置值，MYSQL会直接给这个字段用上默认值；另外一方面可以避免在添加数据操作时，如果没给这个字段指定值，将会报错的情况。</p>
+</li>
+<li><p>在项目代码开发中的基本流程是：</p>
+<p>1）从模板文件入手，创建相关的控制器类和该类中的相应方法，渲染模板展示到浏览器；</p>
+<p>2）在方法中渲染模板之前调用模型操作数据，比如我们之前开发的后台用户管理系统列表页，在渲染列表页模板之前，我们需要调用模型把列表页需要展示的数据查询出来；如果没有模型，则需要创建模型，如果有，则直接使用；</p>
+<p>3）在方法中构建逻辑处理代码，生成相关功能；</p>
+</li>
+</ol>
+<h2 id="2-昨日反馈-1"><a href="#2-昨日反馈-1" class="headerlink" title="2. 昨日反馈"></a>2. 昨日反馈</h2><p><img src="42" alt="1531406278112"></p>
+<h1 id="五、知识路径"><a href="#五、知识路径" class="headerlink" title="五、知识路径"></a>五、知识路径</h1><h1 id="六、今日课程内容：博客项目"><a href="#六、今日课程内容：博客项目" class="headerlink" title="六、今日课程内容：博客项目"></a>六、今日课程内容：博客项目</h1><h2 id="1-封装验证码工具类"><a href="#1-封装验证码工具类" class="headerlink" title="1. 封装验证码工具类"></a>1. 封装验证码工具类</h2><ol>
+<li><p>在blog31/plugins目录下创建CaptchaTool.class.php的文件，</p>
+<p><img src="50" alt="1531449474729"></p>
+<p>构建的代码如下，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">plugins</span>;<span class="comment">//创建一个   全局空间  下的  plugins空间</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CaptchaTool</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> $_w;<span class="comment">//画布的宽度</span></span><br><span class="line">    <span class="keyword">private</span> $_h;<span class="comment">//画布的高度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> $_img;<span class="comment">//画布资源</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($w=<span class="number">200</span>, $h=<span class="number">80</span>)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">#初始化参数</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;_w = $w;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_h = $h;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">$this</span>-&gt;_img = imagecreatetruecolor(<span class="keyword">$this</span>-&gt;_w, <span class="keyword">$this</span>-&gt;_h);<span class="comment">//创建画布</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#填充背景色</span></span><br><span class="line">        $color = <span class="keyword">$this</span>-&gt;color();<span class="comment">//获得随机色</span></span><br><span class="line">        imagefill(<span class="keyword">$this</span>-&gt;_img, <span class="number">0</span>, <span class="number">0</span>, $color);<span class="comment">//填充背景色</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#写字</span></span><br><span class="line">        $randStr = <span class="keyword">$this</span>-&gt;randStr();<span class="comment">//构建4个随机字</span></span><br><span class="line">        $color = <span class="keyword">$this</span>-&gt;color();<span class="comment">//获得随机色</span></span><br><span class="line">        $fontPath = PUBLIC_PATH . <span class="string">'/fonts/font1.ttf'</span>;<span class="comment">//字体文件所在路径</span></span><br><span class="line">        $bx = <span class="keyword">$this</span>-&gt;_w/<span class="number">4</span>;<span class="comment">//左下角起点x坐标</span></span><br><span class="line">        $by = <span class="keyword">$this</span>-&gt;_h*<span class="number">3</span>/<span class="number">4</span>;<span class="comment">//左下角起点y坐标</span></span><br><span class="line">        $fontSize = <span class="keyword">$this</span>-&gt;_h *<span class="number">37</span>/<span class="number">80</span>;<span class="comment">//字体大小，高度尺寸的37/80</span></span><br><span class="line"></span><br><span class="line">        imagettftext(<span class="keyword">$this</span>-&gt;_img, $fontSize, <span class="number">0</span>, $bx, $by, $color, $fontPath, $randStr);<span class="comment">//写字</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#设置干扰元素</span></span><br><span class="line">        <span class="comment">//设置干扰点</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;setPoint(<span class="number">180</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置干扰线</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;setLine(<span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#画干扰线</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">setLine</span><span class="params">($num)</span></span>&#123; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$num; $i++ )&#123; <span class="comment">//画$num个点</span></span><br><span class="line">            $color = <span class="keyword">$this</span>-&gt;color();<span class="comment">//获得随机色</span></span><br><span class="line"></span><br><span class="line">            $bx = mt_rand(<span class="number">0</span>, <span class="keyword">$this</span>-&gt;_w/<span class="number">2</span>);<span class="comment">//起点x坐标</span></span><br><span class="line">            $by = mt_rand(<span class="number">0</span>, <span class="keyword">$this</span>-&gt;_h);<span class="comment">//起点y坐标</span></span><br><span class="line">            $ex = mt_rand(<span class="keyword">$this</span>-&gt;_w/<span class="number">2</span>, <span class="keyword">$this</span>-&gt;_w);<span class="comment">//终点x坐标</span></span><br><span class="line">            $ey = mt_rand(<span class="number">0</span>, <span class="keyword">$this</span>-&gt;_h);<span class="comment">//终点y坐标</span></span><br><span class="line"></span><br><span class="line">            imageline(<span class="keyword">$this</span>-&gt;_img, $bx, $by, $ex, $ey, $color);<span class="comment">//画点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#画干扰点</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">setPoint</span><span class="params">($num)</span></span>&#123; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$num; $i++ )&#123; <span class="comment">//画$num个点</span></span><br><span class="line">            $color = <span class="keyword">$this</span>-&gt;color();<span class="comment">//获得随机色</span></span><br><span class="line"></span><br><span class="line">            $bx = mt_rand(<span class="number">0</span>, <span class="keyword">$this</span>-&gt;_w);<span class="comment">//起点x坐标</span></span><br><span class="line">            $by = mt_rand(<span class="number">0</span>, <span class="keyword">$this</span>-&gt;_h);<span class="comment">//起点y坐标</span></span><br><span class="line">            $ex = mt_rand($bx<span class="number">-2</span>, $bx+<span class="number">2</span>);<span class="comment">//终点x坐标</span></span><br><span class="line">            $ey = mt_rand($by<span class="number">-2</span>, $by+<span class="number">2</span>);<span class="comment">//终点y坐标</span></span><br><span class="line"></span><br><span class="line">            imageline(<span class="keyword">$this</span>-&gt;_img, $bx, $by, $ex, $ey, $color);<span class="comment">//画点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#构建随机字</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">randStr</span><span class="params">($num=<span class="number">4</span>)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        $mixedArr = array_merge(range(<span class="string">'a'</span>, <span class="string">'z'</span>), range(<span class="string">'A'</span>, <span class="string">'Z'</span>), range(<span class="number">0</span>, <span class="number">9</span>));<span class="comment">//构建随机字采集库</span></span><br><span class="line"></span><br><span class="line">        $str = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;$num; $i++ )&#123; <span class="comment">//采集$num次</span></span><br><span class="line">            </span><br><span class="line">            $key = mt_rand(<span class="number">0</span>, count($mixedArr)<span class="number">-1</span>);<span class="comment">//取得当前随机字符对应的元素下标</span></span><br><span class="line">            $str .= $mixedArr[$key];<span class="comment">//从字库中取得下标为$key的元素值拼接给$str</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $str;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#分配颜色</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">color</span><span class="params">($r=<span class="string">''</span>, $g=<span class="string">''</span>, $b=<span class="string">''</span>)</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//初始化三原色</span></span><br><span class="line">        $r = ($r===<span class="string">''</span>) ? mt_rand(<span class="number">0</span>, <span class="number">255</span>) : $r;<span class="comment">//红</span></span><br><span class="line">        $g = ($g===<span class="string">''</span>) ? mt_rand(<span class="number">0</span>, <span class="number">255</span>) : $g;<span class="comment">//绿</span></span><br><span class="line">        $b = ($b===<span class="string">''</span>) ? mt_rand(<span class="number">0</span>, <span class="number">255</span>) : $b;<span class="comment">//蓝</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//分配颜色</span></span><br><span class="line">        <span class="keyword">return</span> imagecolorallocate(<span class="keyword">$this</span>-&gt;_img, $r, $g, $b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#输出图像的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">output</span><span class="params">()</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">        header(<span class="string">'Content-type:image/jpeg'</span>);<span class="comment">//指定一个响应协议项</span></span><br><span class="line"></span><br><span class="line">        imagejpeg(<span class="keyword">$this</span>-&gt;_img);<span class="comment">//直接将图像输出到浏览器</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在blog31/public下创建fonts目录，</p>
+<p><img src="51" alt="1531449570234"></p>
+<p>将F:\home\class\day15\source\font1.ttf复制转移到blog31/public/fonts目录中，</p>
+<p><img src="52" alt="1531449634142"></p>
+</li>
+<li><p>在blog31/conf/define.php中定义一个目录常量，</p>
+<p><img src="53" alt="1531449686817"></p>
+</li>
+<li><p>在blog31/core/App.class.php中的autoload方法中实现对工具类的自动加载，</p>
+<p><img src="54" alt="1531449747232"></p>
+</li>
+<li><p>测试使用工具类，</p>
+<p>在blog31/app/admin/controller/UserController.class.php中构建测试方法test，代码如下：</p>
+<p><img src="55" alt="1531449796360"></p>
+<p>访问test方法，</p>
+<p><img src="56" alt="1531449846347"></p>
+<p>验证码制作成功。</p>
+</li>
+</ol>
+<h2 id="2-实现后台分类管理系统"><a href="#2-实现后台分类管理系统" class="headerlink" title="2. 实现后台分类管理系统"></a>2. 实现后台分类管理系统</h2><p>在blog31/app/admin/controller中创建名为CatController.class.php文件，专门用于操作后台分类管理系统各程序，</p>
+<p><img src="43" alt="1531406458061"></p>
+<p>代码如下：</p>
+<p><img src="44" alt="1531406531563"></p>
+<h3 id="实现列表页-1"><a href="#实现列表页-1" class="headerlink" title="实现列表页"></a>实现列表页</h3><ol>
+<li><p>在blog31/app/admin/controller/CatController.class.php中创建名为showList的方法，渲染后台分类列表页模板，</p>
+<p><img src="45" alt="1531406637793"></p>
+</li>
+<li><p>通过<a href="http://www.blog31.com/index.php?p=admin&amp;m=cat&amp;a=showIndex访问后台分类管理系统列表页，发现页面虽然能够展示，但是样式乱了，" target="_blank" rel="noopener">http://www.blog31.com/index.php?p=admin&amp;m=cat&amp;a=showIndex访问后台分类管理系统列表页，发现页面虽然能够展示，但是样式乱了，</a></p>
+<p>于是进一步调整blog31/app/admin/view/Category/categoryIndex.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="46" alt="1531406850800"></p>
+</li>
+<li><p>在blog31/app/model目录下创建CatModel.class.php的文件，</p>
+<p><img src="57" alt="1531450315893"></p>
+<p>代码如下：</p>
+<p><img src="58" alt="1531450340259"></p>
+</li>
+<li><p>在blog31/app/admin/controller/CatController.class.php文件showList方法中构建如下代码，</p>
+<p><img src="59" alt="1531451514806"></p>
+<p>调整模板文件回显查询的数据blog31/app/admin/view/Category/categoryIndex.html：</p>
+<p><img src="60" alt="1531451572387"></p>
+</li>
+<li><p>访问后台分类管理系统列表页：</p>
+<p><img src="61" alt="1531451726375"></p>
+</li>
+</ol>
+<p>我们进一步调整程序，将所有分类数据进行整理，</p>
+<h4 id="实现无限级递归分类"><a href="#实现无限级递归分类" class="headerlink" title="实现无限级递归分类"></a>实现无限级递归分类</h4><ol>
+<li><p>在blog31/app/admin/controller/CatController.class.php文件中创建两个方法，代码和作用如下图所示：</p>
+<p><img src="62" alt="1531465269865"></p>
+<p><img src="63" alt="1531465303880"></p>
+</li>
+<li><p>然后在blog31/app/admin/controller/CatController.class.php文件中的showList方法里调整获得所有分类数据的代码，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="64" alt="1531465362917"></p>
+</li>
+<li><p>调整模板页面中的代码，在输出分类名称之前还需要输出缩进符，</p>
+<p><img src="65" alt="1531465455827"></p>
+</li>
+<li><p>测试最终效果：</p>
+<p>访问后台分类管理系统列表页</p>
+<p><img src="66" alt="1531465510155"></p>
+</li>
+</ol>
+<h3 id="实现添加页-1"><a href="#实现添加页-1" class="headerlink" title="实现添加页"></a>实现添加页</h3><ol>
+<li><p>在blog31/app/controller/CatController.class.php中创建名为showAd的方法，渲染后台分类添加页模板，</p>
+<p><img src="47" alt="1531407090431"></p>
+</li>
+<li><p>通过<a href="http://www.blog31.com/index.php?p=admin&amp;m=cat&amp;a=showAd访问后台分类管理系统添加页，发现页面虽然能够展示，但是样式乱了，" target="_blank" rel="noopener">http://www.blog31.com/index.php?p=admin&amp;m=cat&amp;a=showAd访问后台分类管理系统添加页，发现页面虽然能够展示，但是样式乱了，</a></p>
+<p>于是进一步调整blog31/app/admin/view/Category/categoryAdd.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="46" alt="1531406850800"></p>
+</li>
+<li></li>
+</ol>
+<h3 id="实现编辑页-1"><a href="#实现编辑页-1" class="headerlink" title="实现编辑页"></a>实现编辑页</h3><ol>
+<li><p>调整blog31/app/admin/view/Category/categoryIndex.html中的编辑按钮链接，</p>
+<p><img src="67" alt="1531465870984"></p>
+</li>
+<li><p>在blog31/app/admin/controller/CatController.class.php中创建名为showUpd的方法，渲染后台分类编辑页模板，</p>
+<p><img src="68" alt="1531465965417"></p>
+</li>
+<li><p>通过从后台分类列表页点击编辑按钮访问后台分类管理系统编辑页，发现页面虽然能够展示，但是样式乱了，</p>
+<p>于是进一步调整blog31/app/admin/view/Category/categoryEdit.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="69" alt="1531466023359"></p>
+</li>
+<li><p>在blog31/app/admin/controller/CatController.class.php中的showUpd方法里构建相应的程序功能代码，如下图所示：</p>
+<p><img src="70" alt="1531466996992"></p>
+</li>
+<li><p>调整blog31/app/admin/view/Category/categoryEdit.html中需要回显数据的部分及表单域的相关属性值，</p>
+<p><img src="71" alt="1531467078936"></p>
+</li>
+<li><p>在blog31/app/admin/controller/CatController.class.php构建updh方法，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编辑处理方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">updh</span><span class="params">()</span></span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//接收表单提交的数据</span></span><br><span class="line">    $id = $_GET[<span class="string">'id'</span>];</span><br><span class="line"></span><br><span class="line">    $name = trim($_POST[<span class="string">'name'</span>]);<span class="comment">//新的分类名称</span></span><br><span class="line">    $old_name = trim($_POST[<span class="string">'old_name'</span>]);<span class="comment">//老的分类名称</span></span><br><span class="line">    $parent_id = trim($_POST[<span class="string">'parent_id'</span>]);<span class="comment">//新的父级id</span></span><br><span class="line">    $old_parent_id = trim($_POST[<span class="string">'old_parent_id'</span>]);<span class="comment">//老的父级id</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//检查是否有数据真的被修改了</span></span><br><span class="line">    $target = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $name!=$old_name &amp;&amp; $name!=<span class="string">''</span> )&#123;<span class="comment">//如果新的名称不等于老的名称并且新的名称不为空，则需要修改name值</span></span><br><span class="line">        $target[] = <span class="string">"name='&#123;$name&#125;'"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $parent_id!=$old_parent_id )&#123;<span class="comment">//如果新的父级id不等于老的父级id</span></span><br><span class="line">        $target[] = <span class="string">"parent_id=&#123;$parent_id&#125;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( !<span class="keyword">empty</span>($target) )&#123;<span class="comment">//如果$target不为空，说明有数据需要被更新</span></span><br><span class="line"></span><br><span class="line">        $strTarget = implode(<span class="string">', '</span>, $target);<span class="comment">//  $strTarget="name='xxxx', parent_id=xxxx";</span></span><br><span class="line">        $sql = <span class="string">"update bg_category set &#123;$strTarget&#125; where id=&#123;$id&#125;"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用模型执行更新操作</span></span><br><span class="line">        $model = \core\App::single(<span class="string">'\model\CatModel'</span>);</span><br><span class="line">        $re = $model-&gt;setData($sql);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( $re )&#123;<span class="comment">//更新成功</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'嘿嘿嘿，运气不错，更新成功咯～'</span>; </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//更新失败</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'哈哈哈，你更新失败了！'</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;<span class="comment">//否则给出提示没有数据被更新</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'您当前还没有更新数据哟～'</span>; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2秒之后跳转回编辑页</span></span><br><span class="line">    $url = C(<span class="string">'URL'</span>) . <span class="string">'/index.php?p=admin&amp;m=cat&amp;a=showUpd&amp;id='</span>.$id;</span><br><span class="line">    header(<span class="string">'Refresh:2; url='</span>.$url);</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试使用效果，效果OK，功能成功。</p>
+</li>
+</ol>
+<h3 id="实现删除功能"><a href="#实现删除功能" class="headerlink" title="实现删除功能"></a>实现删除功能</h3><h2 id="3-实现后台博文管理系统"><a href="#3-实现后台博文管理系统" class="headerlink" title="3. 实现后台博文管理系统"></a>3. 实现后台博文管理系统</h2><p>在blog31/app/admin/controller中创建名为ArticleController.class.php文件，专门用于操作后台博文管理系统各程序，</p>
+<p><img src="49" alt="1531407704334"></p>
+<p>代码如下：</p>
+<p><img src="48" alt="1531407665958"></p>
+<h3 id="实现添加页-2"><a href="#实现添加页-2" class="headerlink" title="实现添加页"></a>实现添加页</h3><ol>
+<li><p>在blog31/app/controller/ArticleController.class.php中创建名为showAd的方法，渲染后台博文添加页模板，</p>
+<p><img src="72" alt="1531468943273"></p>
+</li>
+<li><p>通过<a href="http://www.blog31.com/index.php?p=admin&amp;m=article&amp;a=showAd访问后台博文管理系统添加页，发现页面虽然能够展示，但是样式乱了，" target="_blank" rel="noopener">http://www.blog31.com/index.php?p=admin&amp;m=article&amp;a=showAd访问后台博文管理系统添加页，发现页面虽然能够展示，但是样式乱了，</a></p>
+<p>于是进一步调整blog31/app/admin/view/Article/articleAdd.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="73" alt="1531469128676"></p>
+</li>
+<li><p>调整无限级递归分类方法的归属</p>
+<p>将blog31/app/admin/controller/CatController.class.php文件中如下图所示的方法剪切下来，</p>
+<p><img src="74" alt="1531470492230"></p>
+<p>将剪切下来的代码全部粘贴到blog31/app/model/CatModel.class.php的类中，</p>
+<p><img src="75" alt="1531470605131"></p>
+<p>再调整blog31/app/model/CatModel.class.php内的代码，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="76" alt="1531470734590"></p>
+<p>将blog31/app/admin/controller/CatController.class.php中的showUpd和showList方法调用无限级递归分类方法的方式进行调整，如下图中将蓝框部分改为红框部分：</p>
+<p><img src="77" alt="1531470829870"></p>
+<p><img src="78" alt="1531470912888"></p>
+<p>在blog31/app/controller/ArticleController.class.php中showAd方法里添加如下代码：</p>
+<p><img src="81" alt="1531472987997"></p>
+</li>
+<li><p>调整blog31/app/admin/view/Article/articleAdd.html中的表单各成员代码：</p>
+<p><img src="79" alt="1531472047225"></p>
+</li>
+<li><p>在blog31/app/model下创建ArticleModel.class.php的文件，如下图所示：</p>
+<p><img src="80" alt="1531472247204"></p>
+</li>
+<li><p>在blog31/app/controller/ArticleController.class.php中添加adh方法，处理添加功能，</p>
+<p><img src="82" alt="1531473089893"></p>
+</li>
+<li><p>测试使用效果：</p>
+<p>在添加页构建如下内容，</p>
+<p><img src="83.png" alt="1531473145850"></p>
+<p>点击添加按钮，效果为：</p>
+<p><img src="83" alt="1531473185491"></p>
+<p>说明添加功能OK。</p>
+</li>
+</ol>
+<h3 id="实现列表页-2"><a href="#实现列表页-2" class="headerlink" title="实现列表页"></a>实现列表页</h3><ol>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中创建名为showIndex的方法，渲染后台博文列表页模板，</p>
+<p><img src="84" alt="1531473364554"></p>
+</li>
+<li><p>通过<a href="http://www.blog31.com/index.php?p=admin&amp;m=article&amp;a=showIndex访问后台博文管理系统列表页，发现页面虽然能够展示，但是样式乱了，" target="_blank" rel="noopener">http://www.blog31.com/index.php?p=admin&amp;m=article&amp;a=showIndex访问后台博文管理系统列表页，发现页面虽然能够展示，但是样式乱了，</a></p>
+<p>于是进一步调整blog31/app/admin/view/Article/articleIndex.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="85" alt="1531473422417"></p>
+</li>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中的showList方法里在渲染模板之前查询数据，</p>
+<p><img src="86" alt="1531473884257"></p>
+</li>
+<li><p>将查得的数据在blog31/app/admin/view/Article/articleIndex.html中回显，</p>
+<p><img src="87" alt="1531473945005"></p>
+</li>
+<li><p>测试访问效果：</p>
+<p><img src="88" alt="1531473996556"></p>
+</li>
+</ol>
+<h4 id="实现列表页分页"><a href="#实现列表页分页" class="headerlink" title="实现列表页分页"></a>实现列表页分页</h4><ol>
+<li><p>将day16/source/page.php中的函数全部复制拷贝一份，</p>
+<p><img src="90" alt="1531531410027"></p>
+<p>将上图拷贝的函数转移粘贴到blog31/core/Func.php中，</p>
+<p><img src="91" alt="1531531489801"></p>
+</li>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中的showList方法里计算分页所需各种参数，并且调整查询数据的SQL语句，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="92" alt="1531533560360"></p>
+<p>调整blog31/app/admin/view/Article/articleIndex.html中展示分页HTML部分的代码，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="93" alt="1531533622150"></p>
+</li>
+<li><p>测试访问效果：</p>
+<p><img src="94" alt="1531533682781"></p>
+</li>
+</ol>
+<h4 id="实现列表页序号"><a href="#实现列表页序号" class="headerlink" title="实现列表页序号"></a>实现列表页序号</h4><ol>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中showList方法里计算当前页第一条记录的序号，</p>
+<p><img src="95" alt="1531535268048"></p>
+</li>
+<li><p>然后在模板文件blog31/app/admin/view/Article/articleIndex.html中构建每一条记录的序号，</p>
+<p><img src="96" alt="1531535321745"></p>
+</li>
+<li><p>测试访问效果：</p>
+<p><img src="97" alt="1531535366848"></p>
+</li>
+</ol>
+<h4 id="实现搜索功能"><a href="#实现搜索功能" class="headerlink" title="实现搜索功能"></a>实现搜索功能</h4><ol>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中的showList方法里查询出所有的管理员和所有的分类数据，</p>
+<p><img src="98" alt="1531536538080"></p>
+<p>将上图中查得的数据回显到blog31/app/admin/view/Article/articleIndex.html中，</p>
+<p><img src="99" alt="1531541167632"></p>
+</li>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中的showList方法里接收搜索表单提交的数据，检查搜索表单提交的数据并且根据搜索表单提交的数据构建查询条件，</p>
+<p><img src="100" alt="1531540808004"></p>
+<p><img src="101" alt="1531540883427"></p>
+</li>
+<li><p>测试使用效果：</p>
+<p><img src="102" alt="1531541088045"></p>
+</li>
+</ol>
+<h3 id="实现编辑页-2"><a href="#实现编辑页-2" class="headerlink" title="实现编辑页"></a>实现编辑页</h3><ol>
+<li><p>调整blog31/app/admin/view/Category/articleIndex.html中的编辑按钮链接，</p>
+<p><img src="103" alt="1531549925587"></p>
+</li>
+<li><p>在blog31/app/controller/ArticleController.class.php中创建名为showUpd的方法，渲染后台博文编辑页模板，</p>
+<p><img src="104" alt="1531550022313"></p>
+</li>
+<li><p>通过从后台博文列表页点击编辑按钮访问后台博文管理系统编辑页，发现页面虽然能够展示，但是样式乱了，</p>
+<p>于是进一步调整blog31/app/admin/view/Category/articleEdit.html中引入资源文件的路径，将”../libs”全部替换为”{C(‘URL’)}/public/admin”，如下图所示，代码截取不全，以实际文件中的代码为准，</p>
+<p><img src="105" alt="1531550157823"></p>
+</li>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中的showUpd方法里查找该页面需要的相关数据，</p>
+<p><img src="106" alt="1531551056713"></p>
+<p>在blog31/app/admin/view/Article/articleEdit.html中调整form表单中的各表单域并且回显本条博文数据，</p>
+<p><img src="107" alt="1531551191790"></p>
+<p><img src="108" alt="1531551212303"></p>
+</li>
+<li><p>在blog31/app/admin/controller/ArticleController.class.php中构建updh方法，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">updh</span><span class="params">()</span></span>&#123; </span><br><span class="line">        </span><br><span class="line">    <span class="comment">//接收表单传递的数据</span></span><br><span class="line">    <span class="comment">//GET传递的</span></span><br><span class="line">    $id = $_GET[<span class="string">'id'</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//POST传递的</span></span><br><span class="line">    $new_title = trim($_POST[<span class="string">'title'</span>]);</span><br><span class="line">    $new_intro = trim($_POST[<span class="string">'intro'</span>]);</span><br><span class="line"></span><br><span class="line">    $cat = $_POST[<span class="string">'cat'</span>];</span><br><span class="line">    $catArr = explode(<span class="string">'|'</span>, $cat);<span class="comment">//处理接收到的分类数据</span></span><br><span class="line">    $new_cat_id = $catArr[<span class="number">0</span>];</span><br><span class="line">    $new_cat_name = $catArr[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    $new_content = trim($_POST[<span class="string">'content'</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//检查哪些数据真的被修改了</span></span><br><span class="line">    @session_start();</span><br><span class="line">    $target = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $new_title!=$_SESSION[<span class="string">'old_article'</span>][<span class="string">'title'</span>]&amp;&amp;!<span class="keyword">empty</span>($new_title) )&#123;<span class="comment">//如果新的标题数据和老的标题数据不一样，则说明标题确实被修改了</span></span><br><span class="line">        $target[] = <span class="string">"title='&#123;$new_title&#125;'"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $new_intro!=$_SESSION[<span class="string">'old_article'</span>][<span class="string">'intro'</span>]&amp;&amp;!<span class="keyword">empty</span>($new_intro) )&#123;<span class="comment">//如果新的简介数据和老的简介数据不一样，则说明简介确实被修改了</span></span><br><span class="line">        $target[]  = <span class="string">"intro='&#123;$new_intro&#125;'"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $new_cat_id!=$_SESSION[<span class="string">'old_article'</span>][<span class="string">'cat_id'</span>] )&#123;<span class="comment">//如果新的分类id数据和老的分类id数据不一样，则说明分类确实被修改了</span></span><br><span class="line">        <span class="comment">//                 cat_id=xxx, cat_name="xxx"</span></span><br><span class="line">        $target[] = <span class="string">"cat_id=&#123;$new_cat_id&#125;, cat_name='&#123;$new_cat_name&#125;'"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( $new_content!=$_SESSION[<span class="string">'old_article'</span>][<span class="string">'content'</span>]&amp;&amp;!<span class="keyword">empty</span>($new_content) )&#123;<span class="comment">//如果新的内容数据和老的内容数据不一样，则说明内容确实被修改了</span></span><br><span class="line">        $target[]  = <span class="string">"content='&#123;$new_content&#125;'"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据检查的结果判断是否需要真的执行更新操作</span></span><br><span class="line">    <span class="keyword">if</span>( !<span class="keyword">empty</span>($target) )&#123;<span class="comment">//$target不为空，则说明确实有数据被修改了</span></span><br><span class="line"></span><br><span class="line">        $strTarget = implode(<span class="string">','</span>, $target);</span><br><span class="line"></span><br><span class="line">        $model = \core\App::single(<span class="string">'\model\ArticleModel'</span>);</span><br><span class="line">        $sql = <span class="string">"update bg_article set &#123;$strTarget&#125; where id=&#123;$id&#125;"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( $model-&gt;setData($sql) )&#123;<span class="comment">//执行成功</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'修改成功！'</span>; </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//执行失败</span></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'修改失败，请联系超级管理员！'</span>; </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;<span class="comment">//否则，则说明没有数据需要被更新</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'您还没有修改数据呐～'</span>;     </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2秒之后跳回编辑页</span></span><br><span class="line">    $url = C(<span class="string">'URL'</span>) . <span class="string">'/index.php?p=admin&amp;m=article&amp;a=showUpd&amp;id='</span>.$id;</span><br><span class="line">    header(<span class="string">'Refresh:2; url='</span>.$url);</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试使用效果：</p>
+<p><img src="109" alt="1531554638642"></p>
+<p>点击提交：</p>
+<p><img src="110" alt="1531554660616"></p>
+</li>
+</ol>
+<p>编辑成功，说明功能制作OK。</p>
+<h3 id="实现删除功能-1"><a href="#实现删除功能-1" class="headerlink" title="实现删除功能"></a>实现删除功能</h3><h2 id="4-整理模板文件"><a href="#4-整理模板文件" class="headerlink" title="4. 整理模板文件"></a>4. 整理模板文件</h2><ol>
+<li><p>将blog31/app/admin/view/Article/articleEdit.html中的head部分提取出来，剪切转移到blog31//app/admin/view中新创建出来的Common目录中的head.html文件，</p>
+<p>剪切下图所示代码：</p>
+<p><img src="111" alt="1531556484467"></p>
+<p>转移到Common/head.html中，</p>
+<p><img src="115" alt="1531556565304"></p>
+</li>
+<li><p>将blog31/app/admin/view/Article/articleEdit.html中的页头部分提取出来，剪切转移到blog31//app/admin/view中Common目录中的bodyhead.html文件，</p>
+<p>剪切如下代码：</p>
+<p><img src="116" alt="1531556772556"></p>
+<p>转移到Common/bodyhead.html中，</p>
+<p><img src="117" alt="1531556873608"></p>
+</li>
+<li><p>将blog31/app/admin/view/Article/articleEdit.html中的sidebar部分提取出来，剪切转移到blog31//app/admin/view中Common目录中的sidebar.html文件，</p>
+<p>剪切如下代码：</p>
+<p><img src="118" alt="1531557000111"></p>
+<p>转移到Common/sidebar.html中，</p>
+<p><img src="119" alt="1531557131143"></p>
+</li>
+<li><p>然后将blog31/app/admin/view/Article/articleEdit.html中所有用到公共代码的部分，换成引入公共文件的操作：</p>
+<p><img src="125" alt="1531561162334"></p>
+<p>将blog31/app/admin/view/Article/articleAdd.html中所有用到公共代码的部分，换成引入公共文件的操作：</p>
+<p><img src="128" alt="1531561333905"></p>
+<p>将blog31/app/admin/view/Article/articleIndex.html中所有用到公共代码的部分，换成引入公共文件的操作：</p>
+<p><img src="127" alt="1531561319749"></p>
+</li>
+<li><p>修改blog31/app/admin/view/Common/sidebar.html进入博文管理系统各页面的链接地址：</p>
+<p><img src="126" alt="1531561252847"></p>
+<p>再次访问后台博文管理系统编辑页：</p>
+<p><img src="129" alt="1531561403077"></p>
+</li>
+</ol>
+<h2 id="5-全天总结"><a href="#5-全天总结" class="headerlink" title="5. 全天总结"></a>5. 全天总结</h2><ol>
+<li><p>制作的页面和功能：</p>
+<p>封装验证码工具类</p>
+<p>实现后台分类管理系统的列表页和编辑页</p>
+<p>实现无限级递归分类</p>
+<p>实现博客文章管理系统添加页</p>
+<p>实现博客文章管理系统列表页基础功能</p>
+</li>
+</ol>
+<h1 id="七、昨日回顾"><a href="#七、昨日回顾" class="headerlink" title="七、昨日回顾"></a>七、昨日回顾</h1><h2 id="1-知识回顾-2"><a href="#1-知识回顾-2" class="headerlink" title="1. 知识回顾"></a>1. 知识回顾</h2><ol>
+<li>实现后台分类管理系统的列表页和编辑页</li>
+<li>实现博客文章管理系统添加页</li>
+<li>实现博客文章管理系统列表页基础功能</li>
+</ol>
+<h2 id="2-昨日反馈-2"><a href="#2-昨日反馈-2" class="headerlink" title="2. 昨日反馈"></a>2. 昨日反馈</h2><p><img src="89" alt="1531530276586"></p>
+<h1 id="八、知识路径"><a href="#八、知识路径" class="headerlink" title="八、知识路径"></a>八、知识路径</h1><ul>
+<li><p>[ ] XSS攻击</p>
+</li>
+<li><p>[ ] 实现后台登陆页面和功能</p>
+<p>​    防翻墙功能</p>
+<p>​    7天免登录功能</p>
+</li>
+<li><p>[ ] 实现后台退出功能</p>
+<p>==目标：能够防范XSS攻击，能够实现后台登陆退出功能==</p>
+</li>
+</ul>
+<h1 id="九、今日课程内容：博客项目"><a href="#九、今日课程内容：博客项目" class="headerlink" title="九、今日课程内容：博客项目"></a>九、今日课程内容：博客项目</h1><h2 id="1-XSS攻击"><a href="#1-XSS攻击" class="headerlink" title="1. XSS攻击"></a>1. XSS攻击</h2><p>通常用户在表单界面输入的内容是不确定的，用户可以输入任何想要输入的内容进行提交，如果输入的是一些代码，并且我们在程序文件中还没有对用户输入提交的数据进行任何的过滤处理的话，那么，将会面临一定风险。 </p>
+<p>XSS的概念：Cross Site Scripting    全称   跨站脚本攻击，是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。</p>
+<p><strong>==XSS攻击的案例==</strong>：</p>
+<p>在用户输入区域构建script内容，如下图所示：</p>
+<p><img src="120" alt="1531558956738"></p>
+<p>点击提交，效果为：</p>
+<p>先弹出了提示框，</p>
+<p><img src="121" alt="1531558988674"></p>
+<p>然后跳转到了一个大网站：</p>
+<p><img src="122" alt="1531559026220"></p>
+<p><strong>==小结==</strong>：</p>
+<p>XSS攻击其实就是用户在表单输入区域构建了客户端或浏览器能够解析的代码内容，以此来改变其他用户在访问当前这个页面的效果。</p>
+<p>==如何防？==</p>
+<ol>
+<li><p>通过htmlspecialchars函数来进行过滤处理（主要用来处理富文本编辑器中的内容）；</p>
+<p><img src="124" alt="1531560056083"></p>
+</li>
+<li><p>通过addslashes函数来进行过滤处理（主要用来处理非富文本编辑器的其他输入区域的内容）；<br><img src="123" alt="1531559577623"></p>
+<p>addslashes可以将内容中的具有特殊意义的符号进行转义，如上图中将双引号转义了，这样一来，双引号将不再是包裹script代码标签信息的符号，而是普通的字符而已，这样就导致了script代码失效。</p>
+</li>
+<li><p>通过字符串替换或正则匹配的方式进行再过滤处理；</p>
+</li>
+</ol>
+<h2 id="2-实现后台登陆页面和功能"><a href="#2-实现后台登陆页面和功能" class="headerlink" title="2. 实现后台登陆页面和功能"></a>2. 实现后台登陆页面和功能</h2><ol>
+<li><p>在blog31/app/admin/controller目录中创建LoginController.class.php，</p>
+<p><img src="130" alt="1531567007068"></p>
+<p>在LoginController.class.php中创建相应的代码，如下图所示：</p>
+<p><img src="131" alt="1531567088054"></p>
+<p>访问登陆页面，</p>
+<p><img src="132" alt="1531567136935"></p>
+</li>
+<li><p>调整登陆模板页面blog31/app/admin/view/Privilege/login.html的代码，</p>
+<p><img src="133" alt="1531567350030"></p>
+<p>再次访问，</p>
+<p><img src="134" alt="1531567382848"></p>
+</li>
+<li><p>在blog31/app/admin/controller/LoginController.class.php中创建captcha方法，专门输出验证码，</p>
+<p><img src="135" alt="1531567829511"></p>
+<p>调整blog31/app/admin/view/Privilege/login.html回显验证码，并且实现局部刷新</p>
+<p><img src="136" alt="1531567872097"></p>
+<p>调整blog31/plugins/CaptchaTool.class.php中生成验证码字符串后的数据，将其记录到SESSION中，</p>
+<p><img src="139" alt="1531571893188"></p>
+</li>
+<li><p>在blog31/app/admin/controller/LoginController.class.php创建loginh方法，代码如下，专门处理登陆验证功能：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//登陆验证方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">loginh</span><span class="params">()</span></span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//接收表单提交的数据</span></span><br><span class="line">    $acc = trim($_POST[<span class="string">'acc'</span>]);<span class="comment">//帐号</span></span><br><span class="line">    $pwd = md5(addslashes(trim($_POST[<span class="string">'pwd'</span>])));<span class="comment">//密码</span></span><br><span class="line">    $captcha = addslashes(trim($_POST[<span class="string">'captcha'</span>]));<span class="comment">//验证码</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//检查验证码是否填写正确</span></span><br><span class="line">    @session_start();</span><br><span class="line">    <span class="keyword">if</span>( $captcha!==$_SESSION[<span class="string">'captchaStr'</span>] )&#123;<span class="comment">//用户填写的验证码和生成的验证码不相等，则说明用户输入的验证码是错误的</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'你好棒棒哟，竟然写错了哟！～'</span>; </span><br><span class="line">        $url = C(<span class="string">'URL'</span>) . <span class="string">'/index.php?p=admin&amp;m=login&amp;a=showLogin'</span>;</span><br><span class="line">        header(<span class="string">'Refresh:2; url='</span>.$url);</span><br><span class="line">        <span class="keyword">exit</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//检查帐号和密码是否正确</span></span><br><span class="line">    $userModel = \core\App::single(<span class="string">'\model\UserModel'</span>);</span><br><span class="line">    $sql = <span class="string">"select * from bg_user where acc='&#123;$acc&#125;' and pwd='&#123;$pwd&#125;'"</span>;</span><br><span class="line">    $row = $userModel-&gt;getRow($sql);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( !<span class="keyword">empty</span>($row) )&#123;<span class="comment">//帐号密码填写正确</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'客官，您又来了吖～'</span>; </span><br><span class="line">        $url = C(<span class="string">'URL'</span>) . <span class="string">'/index.php?p=admin&amp;m=article&amp;a=showList'</span>;</span><br><span class="line">        header(<span class="string">'Refresh:2; url='</span>.$url);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;<span class="comment">//否则至少有一个填写错误</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'帐号或密码填写错误，请重新填写！'</span>; </span><br><span class="line">        $url = C(<span class="string">'URL'</span>) . <span class="string">'/index.php?p=admin&amp;m=login&amp;a=showLogin'</span>;</span><br><span class="line">        header(<span class="string">'Refresh:2; url='</span>.$url);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试使用效果：</p>
+<p>访问登陆页面，输入帐号密码，</p>
+<p><img src="137" alt="1531571702986"></p>
+<p>点击登录，</p>
+<p><img src="138" alt="1531571821435"></p>
+</li>
+<li><p>我们打开一个新的浏览器，在浏览器地址栏中直接手动输入后台博文管理系统列表页链接地址，发现，在没有登录的情况下都能直接访问，</p>
+<p><img src="140" alt="1531571967694"></p>
+<p>这种效果就是翻墙效果。</p>
+</li>
+</ol>
+<p>那么，如何实现防翻墙呢？</p>
+<h3 id="防翻墙功能"><a href="#防翻墙功能" class="headerlink" title="防翻墙功能"></a>防翻墙功能</h3><ol>
+<li><p>在blog31/app/admin/controller/LoginController.class.php中的loginh方法里，登陆成功时记录下登陆用户的完整信息，</p>
+<p><img src="141" alt="1531572176835"></p>
+</li>
+<li><p>在父类控制器blog31/core/Controller.class.php中的构造方法里，进行防翻墙检查，</p>
+<p><img src="142" alt="1531572269068"></p>
+</li>
+<li><p>测试防翻墙效果：</p>
+<p>首先在未登录的情况下直接访问后台博文列表页，经过防翻墙处理，已经不能直接访问进去了：</p>
+<p><img src="143" alt="1531572402694"></p>
+<p>然后使用帐号密码登录后台，</p>
+<p><img src="145" alt="1531572604535"></p>
+<p>登陆成功后提示：</p>
+<p><img src="146" alt="1531572625978"></p>
+<p>登陆成功后再同一个浏览器中打开一个新的浏览器选项卡，直接在地址栏中输入后台博文管理系统列表页链接地址，</p>
+<p><img src="147" alt="1531572685648"></p>
+</li>
+</ol>
+<h3 id="7天免登录"><a href="#7天免登录" class="headerlink" title="7天免登录"></a>7天免登录</h3><h2 id="3-实现后台退出功能"><a href="#3-实现后台退出功能" class="headerlink" title="3. 实现后台退出功能"></a>3. 实现后台退出功能</h2><h2 id="4-全天总结"><a href="#4-全天总结" class="headerlink" title="4. 全天总结"></a>4. 全天总结</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/12724151/" title="博客项目3">http://blog.kuma8866.top/posts/12724151/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2418534610/" rel="next" title="表单传值和文件上传">
+                <i class="fa fa-chevron-left"></i> 表单传值和文件上传
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2009405217/" rel="prev" title="博客项目2">
+                博客项目2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、昨日回顾"><span class="nav-text">一、昨日回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-知识回顾"><span class="nav-text">1. 知识回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-昨日反馈"><span class="nav-text">2. 昨日反馈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、知识路径"><span class="nav-text">二、知识路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、今日课程内容：博客项目"><span class="nav-text">三、今日课程内容：博客项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-web项目开发流程介绍"><span class="nav-text">1. web项目开发流程介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-需求分析"><span class="nav-text">2. 需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析"><span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ER图设计"><span class="nav-text">ER图设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-表设计"><span class="nav-text">3. 表设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-项目部署"><span class="nav-text">4. 项目部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-项目实现"><span class="nav-text">5. 项目实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现后台用户管理系统"><span class="nav-text">实现后台用户管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现列表页"><span class="nav-text">实现列表页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现添加页"><span class="nav-text">实现添加页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现编辑页"><span class="nav-text">实现编辑页</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-全天总结"><span class="nav-text">6. 全天总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、昨日回顾"><span class="nav-text">四、昨日回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-知识回顾-1"><span class="nav-text">1. 知识回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-昨日反馈-1"><span class="nav-text">2. 昨日反馈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、知识路径"><span class="nav-text">五、知识路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、今日课程内容：博客项目"><span class="nav-text">六、今日课程内容：博客项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-封装验证码工具类"><span class="nav-text">1. 封装验证码工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实现后台分类管理系统"><span class="nav-text">2. 实现后台分类管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现列表页-1"><span class="nav-text">实现列表页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现无限级递归分类"><span class="nav-text">实现无限级递归分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现添加页-1"><span class="nav-text">实现添加页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现编辑页-1"><span class="nav-text">实现编辑页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现删除功能"><span class="nav-text">实现删除功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现后台博文管理系统"><span class="nav-text">3. 实现后台博文管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现添加页-2"><span class="nav-text">实现添加页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现列表页-2"><span class="nav-text">实现列表页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现列表页分页"><span class="nav-text">实现列表页分页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现列表页序号"><span class="nav-text">实现列表页序号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现搜索功能"><span class="nav-text">实现搜索功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现编辑页-2"><span class="nav-text">实现编辑页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现删除功能-1"><span class="nav-text">实现删除功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-整理模板文件"><span class="nav-text">4. 整理模板文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-全天总结"><span class="nav-text">5. 全天总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、昨日回顾"><span class="nav-text">七、昨日回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-知识回顾-2"><span class="nav-text">1. 知识回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-昨日反馈-2"><span class="nav-text">2. 昨日反馈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、知识路径"><span class="nav-text">八、知识路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、今日课程内容：博客项目"><span class="nav-text">九、今日课程内容：博客项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-XSS攻击"><span class="nav-text">1. XSS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实现后台登陆页面和功能"><span class="nav-text">2. 实现后台登陆页面和功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#防翻墙功能"><span class="nav-text">防翻墙功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7天免登录"><span class="nav-text">7天免登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现后台退出功能"><span class="nav-text">3. 实现后台退出功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-全天总结"><span class="nav-text">4. 全天总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="会话技术1. 会话技术相关概念为什么使用会话技术1)我们访问网站走的是HTTP协议，协议具有无连接无状态的特性，对事物的处理不具有记忆能力； 2)我们在web项目中，很多时候需要将会话数据记忆存储，以便后续的程序能够随时调用和使用； 在web项目中我们可以通过会话技术解决以上问题。 什么是会话技术通俗的讲：会话技术就是浏览器和服务器“唠嗑”。 ==概念==：在web页面访问过程中，使访问过程中产生">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="会话技术">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/790821465/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="会话技术1. 会话技术相关概念为什么使用会话技术1)我们访问网站走的是HTTP协议，协议具有无连接无状态的特性，对事物的处理不具有记忆能力； 2)我们在web项目中，很多时候需要将会话数据记忆存储，以便后续的程序能够随时调用和使用； 在web项目中我们可以通过会话技术解决以上问题。 什么是会话技术通俗的讲：会话技术就是浏览器和服务器“唠嗑”。 ==概念==：在web页面访问过程中，使访问过程中产生">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/2.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/3.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/31.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/32.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/33.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/790821465/34.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="会话技术">
+<meta name="twitter:description" content="会话技术1. 会话技术相关概念为什么使用会话技术1)我们访问网站走的是HTTP协议，协议具有无连接无状态的特性，对事物的处理不具有记忆能力； 2)我们在web项目中，很多时候需要将会话数据记忆存储，以便后续的程序能够随时调用和使用； 在web项目中我们可以通过会话技术解决以上问题。 什么是会话技术通俗的讲：会话技术就是浏览器和服务器“唠嗑”。 ==概念==：在web页面访问过程中，使访问过程中产生">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/790821465/2.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/790821465/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>会话技术 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/790821465/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">会话技术
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/会话技术/" itemprop="url" rel="index"><span itemprop="name">会话技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">11k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h1><h2 id="1-会话技术相关概念"><a href="#1-会话技术相关概念" class="headerlink" title="1. 会话技术相关概念"></a>1. 会话技术相关概念</h2><h3 id="为什么使用会话技术"><a href="#为什么使用会话技术" class="headerlink" title="为什么使用会话技术"></a>为什么使用会话技术</h3><p>1)我们访问网站走的是HTTP协议，协议具有无连接无状态的特性，对事物的处理不具有记忆能力；</p>
+<p>2)我们在web项目中，很多时候需要将会话数据记忆存储，以便后续的程序能够随时调用和使用；</p>
+<p>在web项目中我们可以通过会话技术解决以上问题。</p>
+<h3 id="什么是会话技术"><a href="#什么是会话技术" class="headerlink" title="什么是会话技术"></a>什么是会话技术</h3><p>通俗的讲：会话技术就是浏览器和服务器“唠嗑”。</p>
+<p><strong>==概念==</strong>：在web页面访问过程中，使访问过程中产生的数据==持久化存储==的一种技术。</p>
+<h2 id="2-会话技术的分类"><a href="#2-会话技术的分类" class="headerlink" title="2. 会话技术的分类"></a>2. 会话技术的分类</h2><p>会话技术按==照数据存储的位置==划分，分为两类：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> COOKIE技术；</li>
+<li style="list-style: none"><input type="checkbox" checked> SESSION技术；</li>
+</ul>
+<h2 id="3-COOKIE技术"><a href="#3-COOKIE技术" class="headerlink" title="3. ==COOKIE技术=="></a>3. ==COOKIE技术==</h2><p>==<strong>概念</strong>==：将数据持久化存储在==浏览器端==，并且能够==使数据标识服务器==的一种技术。</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="设置操作（增删改）"><a href="#设置操作（增删改）" class="headerlink" title="设置操作（增删改）"></a>设置操作（增删改）</h4><p>涉及的函数：</p>
+<blockquote>
+<p><strong>setcookie</strong>(名,  值)       设置COOKIE数据</p>
+</blockquote>
+<p><strong>==需求==</strong>：分别实现增、删、改COOKIE数据的操作，要求</p>
+<ol>
+<li>访问code1.php文件，实现新增一条COOKIE数据，名为：name，值为：zhangsan；</li>
+<li>访问code2.php文件，实现修改”1”中新增的COOKIE数据，新值为：lisi；</li>
+<li>访问code3.php文件，实现删除COOKIE数据name；</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code1.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#新增COOKIE数据</span></span><br><span class="line">setcookie(<span class="string">'name'</span>, <span class="string">'zhangsan'</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code1.php后新增COOKIE数据的效果为：</p>
+<p><img src="2.png" alt="1529978044769"></p>
+<p>构建名为code2.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#修改COOKIE数据，名不变，值改变</span></span><br><span class="line">setcookie(<span class="string">'name'</span>, <span class="string">'lisi'</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code2.php后修改COOKIE数据的效果为：原来为zhangsan，现在为lisi</p>
+<p><img src="3.png" alt="1529978156853"></p>
+<p>构建名为code3.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#删除COOKIE数据，名不变，值变为空字符串</span></span><br><span class="line">setcookie(<span class="string">'name'</span>, <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code3.php后删除COOKIE数据的效果为：原来有name=lisi数据，现在被删除了</p>
+<p><img src="4.png" alt="1529978258153"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>setcookie函数可以实现增，删，改COOKIE数据的操作。</li>
+</ol>
+<h4 id="查看操作"><a href="#查看操作" class="headerlink" title="查看操作"></a>查看操作</h4><p><strong>==需求==</strong>：分别查看COOKIE数据的操作，要求</p>
+<ol>
+<li>访问code4.php文件，实现新增两条COOKIE数据，第一条名为：name，值为：wangwu，第二条名为：age，值为：16；</li>
+<li>访问code5.php文件，实现新增一条COOKIE数据名为：height，值为：1.78，同时查看并打印所有的COOKIE数据；</li>
+<li>访问code6.php文件，查看并打印出所有的COOKIE数据；</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code4.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#新增两条COOKIE数据</span></span><br><span class="line">setcookie(<span class="string">'name'</span>, <span class="string">'wangwu'</span>);</span><br><span class="line">setcookie(<span class="string">'age'</span>, <span class="string">'16'</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code4.php后新增COOKIE数据的效果为：</p>
+<p><img src="5.png" alt="1529979097450"></p>
+<p>构建名为code5.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//再新增一条COOKIE数据</span></span><br><span class="line">setcookie(<span class="string">'height'</span>, <span class="number">1.78</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印目前所有的COOKIE数据</span></span><br><span class="line">var_dump( $_COOKIE );</span><br></pre></td></tr></table></figure>
+<p>访问code5.php后打印效果为：</p>
+<p><img src="6.png" alt="1529979341453"></p>
+<p>构建名为code6.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打印目前所有的COOKIE数据</span></span><br><span class="line">var_dump( $_COOKIE );</span><br></pre></td></tr></table></figure>
+<p>访问code6.php后打印效果为：</p>
+<p><img src="7.png" alt="1529979415024"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>查询操作只需要使用$_COOKIE超全局预定义数组变量就可以办到。</li>
+</ol>
+<p><strong>==提问==</strong>：在访问code4.php时首先生成了两条COOKIE数据，然后再访问code5.php时在程序中又新增了一条COOKIE数据，按道理来说一共现在有3条COOKIE数据，但是访问code5.php时只打印出了code4.php中生成的2条，然而，再访问新的文件code6.php时却能够打印三条，为什么呢？</p>
+<h3 id="COOKIE技术的基本原理"><a href="#COOKIE技术的基本原理" class="headerlink" title="COOKIE技术的基本原理"></a>COOKIE技术的基本原理</h3><p><strong>==原理图==</strong>：</p>
+<p><img src="8.png" alt="1529980095166"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>COOKIE数据时存储在浏览器端的；</li>
+<li>每当请求服务器时，只要存在该服务器的COOKIE数据，则会随着本次请求将<strong>==所有==</strong>的COOKIE数据全部携带上，一起去到服务器；</li>
+</ol>
+<h3 id="setcookie与-COOKIE变量之间的关系"><a href="#setcookie与-COOKIE变量之间的关系" class="headerlink" title="setcookie与$_COOKIE变量之间的关系"></a>setcookie与$_COOKIE变量之间的关系</h3><p><strong>==关系图==</strong>：</p>
+<p><img src="9.png" alt="1529980979714"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>setcookie函数只负责一件事情，在接下来响应浏览器的时候，告诉浏览其应该去设置一条什么样的COOKIE；</li>
+<li>$_COOKIE只有在程序编译阶段才被PHP执行初始化操作，执行setcookie函数不会直接操作到$_COOKIE;</li>
+</ol>
+<h3 id="COOKIE数据的属性设置"><a href="#COOKIE数据的属性设置" class="headerlink" title="COOKIE数据的属性设置"></a>COOKIE数据的属性设置</h3><p>setcookie除了前两个参数表示名和值之外，还有五个属性相关的参数，分别是： </p>
+<blockquote>
+<p><strong>setcookie</strong>(名, 值, ==有效期==，==有效路径==，==有效域==，==是否安全传输==，==httponly==);</p>
+</blockquote>
+<h4 id="有效期"><a href="#有效期" class="headerlink" title="有效期"></a>有效期</h4><p>通过setcookie函数的第三个参数来进行设置的；</p>
+<p>==不设置==或==设置为0==表示==默认==情况，为一个会话周期；</p>
+<p>默认情况一个会话周期为从新增该条COOKIE到浏览器关闭为止。</p>
+<p><strong>==需求==</strong>：新增一条COOKIE数据，名为：name1，值为：zhaoliu；同时设置这条COOKIE数据的有效期为当前时间过3秒失效。</p>
+<p><strong>==解答==</strong>：构建名为code7.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//        设置有效期为当前时间3秒后失效</span></span><br><span class="line">setcookie(<span class="string">'name1'</span>, <span class="string">'zhaoliu'</span>, time()+<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code7.php，观察监控面板效果：</p>
+<p>访问时，生成的COOKIE数据</p>
+<p><img src="10.png" alt="1529981567302"></p>
+<p>3秒后，刷新监控面板，发现被浏览器自动清除了，说明有效期生效</p>
+<p><img src="11.png" alt="1529981595490"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>有效期能够控制COOKIE数据存活的生命周期；</li>
+<li>我们时常利用COOKIE数据的有效期来设置一个过期的时间，以达到删除某条COOKIE数据的效果；</li>
+</ol>
+<h4 id="有效路径"><a href="#有效路径" class="headerlink" title="有效路径"></a>有效路径</h4><p>通过setcookie函数的第四个参数来进行设置的；</p>
+<p>==不设置==或==设置为空字符串==表示默认情况；</p>
+<p>默认情况表示当前程序所在目录及其子目录有效。</p>
+<p><strong>==需求==</strong>：在code目录中创建名为code9.php的程序文件，新增2条COOKIE数据，</p>
+<ol>
+<li>第一条名为：name2，值为：zhaoliu2，不设置其他属性；第二条名为：name3，值为：zhaoliu3，要求这条COOKIE数据的有效路径为”/“；</li>
+<li>在当前目录中新建一个新目录demo1，在新目录中创建一个新的程序文件code_demo.php，打印出所有能够获得的COOKIE数据；</li>
+<li>在code目录的上级目录中创建一个新的程序文件code_up.php，打印出所有能够获得的COOKIE数据；</li>
+</ol>
+<p><strong>==解答==</strong>：在code目录下构建名为code9.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//设置了一条普通的COOKIE数据</span></span><br><span class="line">setcookie(<span class="string">'name2'</span>, <span class="string">'zhaoliu2'</span>);</span><br><span class="line"><span class="comment">//下面这条COOKIE数据的有效路径被设置成了“/”,表示网站的根目录及其子孙目录全有效</span></span><br><span class="line">setcookie(<span class="string">'name3'</span>, <span class="string">'zhaoliu3'</span>, <span class="number">0</span>, <span class="string">'/'</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code9.php，观察监控面板效果：</p>
+<p><img src="12.png" alt="1529983381869"></p>
+<p>在code新建一个新目录demo1，并且在新目录中创建一个新的程序文件code_demo.php，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $_COOKIE );</span><br></pre></td></tr></table></figure>
+<p>访问code_demo.php文件，观察打印效果：</p>
+<p><img src="13.png" alt="1529983466465"></p>
+<p>在code目录的上级目录创建一个新的程序文件code_up.php，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $_COOKIE );</span><br></pre></td></tr></table></figure>
+<p>访问code_up.php文件，观察打印效果：</p>
+<p><img src="14.png" alt="1529983592804"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>我们可以通过setcookie第四个参数设置COOKIE数据的有效路径；</li>
+<li>所能设置的最大有效路径，只能到网站的根目录，网站根目录用”/“表示；</li>
+</ol>
+<h4 id="有效域"><a href="#有效域" class="headerlink" title="有效域"></a>有效域</h4><p>通过setcookie函数的第五个参数来进行设置的；</p>
+<p>==不设置==或==设置为空字符串==表示默认情况；</p>
+<p>默认情况表示当前域名及其子域名有效。</p>
+<p><strong>==需求==</strong>：完成以下要求：</p>
+<ol>
+<li>配置一个新的域名”test.home.com”和已有的<a href="http://www.home.com域名指向相同的目录；" target="_blank" rel="noopener">www.home.com域名指向相同的目录；</a></li>
+<li>构建名为code10.php的程序文件，使用<a href="http://www.home.com域名访问，实现新增两条COOKIE数据，第一条名为：name4，值为：zhaoliu4，不设置其他属性；第二条名为：name5，值为：zhaoliu5，要求这条COOKIE数据的有效域为&quot;home.com&quot;；" target="_blank" rel="noopener">www.home.com域名访问，实现新增两条COOKIE数据，第一条名为：name4，值为：zhaoliu4，不设置其他属性；第二条名为：name5，值为：zhaoliu5，要求这条COOKIE数据的有效域为&quot;home.com&quot;；</a></li>
+<li>构建code11.php文件，在文件中实现打印所有COOKIE数据操作，观察使用<a href="http://www.home.com访问时的效果和test.home.com访问时的效果；" target="_blank" rel="noopener">www.home.com访问时的效果和test.home.com访问时的效果；</a></li>
+</ol>
+<p><strong>==解答==</strong>：</p>
+<p>首先打开apache的虚拟主机配置文件，新增test.home.com虚拟主机域名配置项，参照<a href="http://www.home.com的配置，如下图所示，" target="_blank" rel="noopener">www.home.com的配置，如下图所示，</a></p>
+<p><img src="15.png" alt="1529984401422"></p>
+<p>构建名为code10.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//设置了一条普通的COOKIE数据</span></span><br><span class="line">setcookie(<span class="string">'name4'</span>, <span class="string">'zhaoliu4'</span>);</span><br><span class="line"><span class="comment">//设置第五个参数为顶级域名home.com</span></span><br><span class="line">setcookie(<span class="string">'name5'</span>, <span class="string">'zhaoliu5'</span>, <span class="number">0</span>, <span class="string">''</span>, <span class="string">'home.com'</span>);</span><br></pre></td></tr></table></figure>
+<p>访问code10.php，观察监控面板效果：</p>
+<p><img src="16.png" alt="1529984763148"></p>
+<p>构建名为code11.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $_COOKIE );</span><br></pre></td></tr></table></figure>
+<p>使用<a href="http://www.home.com访问，效果为：" target="_blank" rel="noopener">www.home.com访问，效果为：</a></p>
+<p><img src="17.png" alt="1529985065407"></p>
+<p>使用test.home.com访问，效果为：</p>
+<p><img src="18.png" alt="1529985121137"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>默认情况下，普通的COOKIE数据在当前域名及其子域名有效；</li>
+<li>可以通过第五个参数进行修改，但是最大的域名只能设置成顶级域名；</li>
+</ol>
+<h4 id="是否安全传输"><a href="#是否安全传输" class="headerlink" title="是否安全传输"></a>是否安全传输</h4><p>通过setcookie函数的第六个参数来进行设置的；</p>
+<p>==不设置==或==设置为false==表示默认情况；</p>
+<p>默认情况表示http或https下都有效，如果将值设置为true,则表示只有在https下才有效（包括增删改查）。</p>
+<p><strong>==需求==</strong>：完成以下要求：</p>
+<ol>
+<li>在day4/code/code13.php新增1条COOKIE数据，名为：name6，值为：zhaoliu6，将是否安全传输出行设置为true，使用<a href="http://www.home.com域名访问，查看执行效果；" target="_blank" rel="noopener">http://www.home.com域名访问，查看执行效果；</a></li>
+<li>在day3/code/code_day4.php新增1条COOKIE数据，名为：name6，值为：zhaoliu6，将是否安全传输出行设置为true，使用<a href="https://www.t1.com域名访问，查看执行效果；" target="_blank" rel="noopener">https://www.t1.com域名访问，查看执行效果；</a></li>
+</ol>
+<p><strong>==解答==</strong>：在day4/code构建名为code13.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//将第六个是否安全传输参数设置为true</span></span><br><span class="line">setcookie(<span class="string">'name6'</span>, <span class="string">'zhaoliu6'</span>, <span class="number">0</span>, <span class="string">''</span>, <span class="string">''</span>, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>使用<a href="http://www.home.com域名访问code13.php，观察监控面板效果：" target="_blank" rel="noopener">http://www.home.com域名访问code13.php，观察监控面板效果：</a></p>
+<p><img src="19.png" alt="1529985676277"></p>
+<p>在day3/code构建名为code_day4.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//将第六个是否安全传输参数设置为true</span></span><br><span class="line">setcookie(<span class="string">'name6'</span>, <span class="string">'zhaoliu6'</span>, <span class="number">0</span>, <span class="string">''</span>, <span class="string">''</span>, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>使用<a href="https://www.t1.com域名访问code_day4.php，观察监控面板效果：" target="_blank" rel="noopener">https://www.t1.com域名访问code_day4.php，观察监控面板效果：</a></p>
+<p><img src="20.png" alt="1529985721393"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>如果要想在https下专门设置COOKIE数据成功，则必须指定第六个参数为true;</li>
+</ol>
+<h4 id="httponly"><a href="#httponly" class="headerlink" title="httponly"></a>httponly</h4><p>通过setcookie函数的第七个参数来进行设置的；</p>
+<p>==不设置==或==设置为false==表示默认情况；</p>
+<p>默认情况表示除了能够使用原程序脚本代码访问以外，还能够通过其他脚本语言访问到COOKIE数据。如果设置为true，则表示==只==允许原程序脚本代码进行操作。</p>
+<p><strong>==需求==</strong>：实现如下操作，要求：</p>
+<ol>
+<li>构建code14.php程序文件，新增三条COOKIE数据，第一条数据名为：name，值为：zhangsan；第二条数据名为：age，值为：16；第三条数据名为：name1，值为：zhaoliu1，要求第三条数据设置httponly属性为true；</li>
+<li>构建code15.php程序文件，使用PHP打印出所有的COOKIE数据；同时使用javascript代码也打印能够获取的COOKIE数据；</li>
+</ol>
+<p><strong>==解答==</strong>：构建code14.php，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">setcookie(&apos;name&apos;, &apos;zhangsan&apos;);</span><br><span class="line">setcookie(&apos;age&apos;, 16);</span><br><span class="line">//设置第七个参数为true，表示httponly属性开启</span><br><span class="line">setcookie(&apos;name1&apos;, &apos;zhaoliu1&apos;, 0, &apos;&apos;, &apos;&apos;, false, true);</span><br></pre></td></tr></table></figure>
+<p>访问code14.php，监控面板观察新增的COOKIE数据如下：</p>
+<p><img src="25.png" alt="1529998614350"></p>
+<p>构建code15.php，代码如下：    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">var_dump( $_COOKIE ); </span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">alert(document.cookie);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>访问code15.php，观察效果：</p>
+<p>javascript输出内容为：</p>
+<p><img src="26.png" alt="1529998707791"></p>
+<p>php输出内容为：</p>
+<p><img src="27.png" alt="1529998736539"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>httponly属性如果设置为true，则表示只允许源程序脚本语言进行操作；</li>
+</ol>
+<h3 id="COOKIE技术的局限"><a href="#COOKIE技术的局限" class="headerlink" title="COOKIE技术的局限"></a>COOKIE技术的局限</h3><p>1)COOKIE数据保存在浏览器端（用户机器上），不可控因素高，安全性相对比较低。</p>
+<p>2)每次请求都会携带所有的COOKIE数据，如果数据量大，将会占用大量的带宽，降低网站加载效率。</p>
+<p>正因为以上局限性，SESSION技术应运而生！</p>
+<h2 id="4-SESSION技术"><a href="#4-SESSION技术" class="headerlink" title="4. ==SESSION技术=="></a>4. ==SESSION技术==</h2><p><strong>==概念==</strong>：将数据==持久化存储==在==服务器端==，并且还要==使数据能够区分不同的浏览器==的一种技术。 </p>
+<h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><p>对SESSION数据的基本操作包括：设置操作（==增删改==）和查询操作。</p>
+<p><strong>==需求==</strong>：分别实现增、删、改、查SESSION数据的操作，要求</p>
+<ol>
+<li>访问code16.php文件，实现新增一条SESSION数据，名为：name，值为：zhangsan；</li>
+<li>访问code17.php文件，实现修改”1”中新增的SESSION数据，新值为：lisi；</li>
+<li>访问code18.php文件，实现删除SESSION数据name；</li>
+<li>以上操作实现完成后，都通过访问code19.php文件来进行查看操作；</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code19.php的程序文件，本文件中实现只输出SESSION数据操作，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 打印出所有的SESSION数据</span></span><br><span class="line">var_dump( $_SESSION );</span><br></pre></td></tr></table></figure>
+<p>构建名为code16.php程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 新增一条SESSION数据，直接往$_SESSION数组中添加一个元素</span></span><br><span class="line">$_SESSION[<span class="string">'name'</span>] = <span class="string">'zhangsan'</span>;</span><br></pre></td></tr></table></figure>
+<p>先访问code16.php，然后再访问code19.php，输出内容效果如下：</p>
+<p><img src="21.png" alt="1529997065186"></p>
+<p>构建名为code17.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 修改名为name的SESSION数据</span></span><br><span class="line">$_SESSION[<span class="string">'name'</span>] = <span class="string">'lisi'</span>;</span><br></pre></td></tr></table></figure>
+<p>先访问code17.php，然后再访问code19.php，输出内容效果如下：</p>
+<p><img src="22.png" alt="1529997190732"></p>
+<p>构建名为code18.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 删除指定的SESSION数据</span></span><br><span class="line"><span class="keyword">unset</span>($_SESSION[<span class="string">'name'</span>]);</span><br></pre></td></tr></table></figure>
+<p>先访问code18.php，然后再访问code19.php，输出内容效果如下：</p>
+<p><img src="23.png" alt="1529997377687"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>在操作SESSION数据之前，必须先开启SESSION机制，方法是：session_start()函数；</li>
+<li>SESSION数据的增删改查操作其实就是对$_SESSION这个数组进行元素的增删改查操作；</li>
+</ol>
+<h3 id="SESSION技术的基本原理"><a href="#SESSION技术的基本原理" class="headerlink" title="SESSION技术的基本原理"></a>SESSION技术的基本原理</h3><p><strong>==原理图==</strong>：</p>
+<p><img src="24.png" alt="1529998140298"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>SESSION数据是存储在服务器端；</li>
+<li>实现SESSION技术的本质其实是依赖于COOKIE技术，因为能够标识出存储SESSION数据空间的标识就是以COOKIE数据的形态来存在的；</li>
+</ol>
+<h3 id="SESSION与SESSION会话数据区的关系"><a href="#SESSION与SESSION会话数据区的关系" class="headerlink" title="$_SESSION与SESSION会话数据区的关系"></a>$_SESSION与SESSION会话数据区的关系</h3><p><strong>==关系图==</strong>：</p>
+<p><img src="28.png" alt="1530000015767"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>session_start时，如果之前没有开辟过SESSION会话数据区，则重新开辟一个，然后将$_SESSION赋值为空数组；如果已经存在SESSION会话数据区，则直接找到这个数据区，然后将数据区中所有的数据赋值给$_SESSION作为$_SESSION的数组元素；</li>
+<li>在程序执行的过程中，对$_SESSION变量的任何操作都不会直接操作到SESSION会话数据区；</li>
+<li>整个程序执行的过程中只有两个时机会操作到SESSION会话数据区，一个是session_start时，一个是程序执行结束时，程序执行结束时，将会把$_SESSION数组变量中的所有数据全部覆盖存储进SESSION会话数据区；</li>
+</ol>
+<h3 id="销毁SESSION数据（区）"><a href="#销毁SESSION数据（区）" class="headerlink" title="销毁SESSION数据（区）"></a>销毁SESSION数据（区）</h3><p>涉及的函数：</p>
+<blockquote>
+<p>session_destroy()    销毁SESSION会话数据（区）</p>
+</blockquote>
+<p><strong>==需求==</strong>：分别实现如下操作</p>
+<ol>
+<li>访问code22.php文件，实现新增2条SESSION数据，第一条名为：name，值为：zhangsan；第二条名为：age，值为12；</li>
+<li>访问code23.php文件，先打印出所有的SESSION数据，然后再执行销毁SESSION数据区的操作，接着再次打印所有的SESSION数据；</li>
+<li>访问code24.php文件，打印出所有的SESSION数据；</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code22.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">var_dump( $_SESSION ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"><span class="comment">//新增两条SESSION数据</span></span><br><span class="line">$_SESSION[<span class="string">'name'</span>] = <span class="string">'zhangsan'</span>;</span><br><span class="line">$_SESSION[<span class="string">'age'</span>] = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">var_dump( $_SESSION );</span><br></pre></td></tr></table></figure>
+<p>访问code22.php，然后再构建名为code23.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">var_dump( $_SESSION ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;<span class="comment">//第一次输出</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁SESSION数据（区）</span></span><br><span class="line">session_destroy();</span><br><span class="line"></span><br><span class="line">var_dump( $_SESSION ); <span class="comment">//第二次输出</span></span><br></pre></td></tr></table></figure>
+<p>访问code23.php后，输出的内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array(2) &#123; [&quot;name&quot;]=&gt; string(8) &quot;zhangsan&quot; [&quot;age&quot;]=&gt; int(12) &#125;//第一次输出</span><br><span class="line">array(2) &#123; [&quot;name&quot;]=&gt; string(8) &quot;zhangsan&quot; [&quot;age&quot;]=&gt; int(12) &#125;//第二次输出</span><br></pre></td></tr></table></figure>
+<p>构建code24.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">var_dump( $_SESSION );</span><br></pre></td></tr></table></figure>
+<p>访问code24.php，输出的内容如下：</p>
+<p><img src="29.png" alt="1530001165966"></p>
+<p><strong>==小结==</strong>：</p>
+<p>session_destroy函数只负责销毁SESSION会话数据区，其他任何事情都不负责处理。</p>
+<h3 id="SESSION的属性控制"><a href="#SESSION的属性控制" class="headerlink" title="SESSION的属性控制"></a>SESSION的属性控制</h3><p>SESSION技术的实现，本质上是依赖于COOKIE技术的，在做SESSION操作的时候，PHP会自动生成一个名为PHPSESSID的COOKIE数据。</p>
+<p>既然PHPSESSID是一条COOKIE数据，那么，COOKIE数据所具有的属性PHPSESSID也同样拥有。但是，因为PHPSESSID不是我们通过setcookie函数来新增的，而是PHP帮我们增加的，所以，如果我们要控制PHPSESSID这条特殊的COOKIE数据的属性的话，就必须通过配置php.ini相应的配置项来控制。</p>
+<h4 id="有效期-1"><a href="#有效期-1" class="headerlink" title="有效期"></a>有效期</h4><p>和普通的COOKIE数据==相同==。</p>
+<p>默认情况下也是一个会话周期。</p>
+<p>一个会话周期表示生成这个COOKIE数据开始到浏览器关闭为止。</p>
+<h4 id="有效路径-1"><a href="#有效路径-1" class="headerlink" title="有效路径"></a>有效路径</h4><p>和普通COOKIE数据==不同==。</p>
+<p>默认情况下是网站的==根目录及其子孙目录==下都有效。</p>
+<h4 id="有效域-1"><a href="#有效域-1" class="headerlink" title="有效域"></a>有效域</h4><p>和普通的COOKIE数据==相同==。</p>
+<p>都是当前域名及其子域名下有效。</p>
+<h4 id="是否安全传输-1"><a href="#是否安全传输-1" class="headerlink" title="是否安全传输"></a>是否安全传输</h4><p>和普通的COOKIE数据==相同==。</p>
+<p>默认情况为http和https都能使用。</p>
+<h4 id="httponly-1"><a href="#httponly-1" class="headerlink" title="httponly"></a>httponly</h4><p>这个属性对于SESSION无意义。</p>
+<h4 id="在php-ini中的对应配置项"><a href="#在php-ini中的对应配置项" class="headerlink" title="在php.ini中的对应配置项"></a>在php.ini中的对应配置项</h4><p><img src="30.png" alt="1530001822134"></p>
+<p><img src="31.png" alt="1530001847896"></p>
+<h4 id="SESSION的属性设置"><a href="#SESSION的属性设置" class="headerlink" title="SESSION的属性设置"></a>SESSION的属性设置</h4><p>涉及的函数：</p>
+<blockquote>
+<p><strong>session_set_cookie_params</strong>(有效期[,  有效路径[,  有效域[,  是否安全传输[,  httponly]]]])</p>
+</blockquote>
+<p><strong>==案例==</strong>：通过session_set_cookie_params设定有效期，观察效果。</p>
+<p><strong>==实现==</strong>：构建名为code25.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在开启SESSION机制之前设置接下来要生成的PHPSESSID的属性</span></span><br><span class="line">session_set_cookie_params(<span class="number">10</span>, <span class="string">'/'</span>, <span class="string">'home.com'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 开启SESSION机制</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">$_SESSION[<span class="string">'name'</span>] = <span class="string">'zhangsan'</span>;</span><br><span class="line">var_dump( $_SESSION );</span><br></pre></td></tr></table></figure>
+<p>访问code25.php观察有效期效果：</p>
+<p><img src="32.png" alt="1530003062729"></p>
+<p>有效期10秒后，再刷新监控面板，</p>
+<p><img src="33.png" alt="1530003115266"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>虽然SESSION的属性（PHPSESSID的属性）可以通过php.ini来控制，但是我们在项目中并不会采取这种方式，原因是服务器中环境是唯一的，但是项目可能有多个，如果改变环境的配置，则会影响所有的项目，包括不是你的项目；所以我们的使用策略是，什么时候需要，就什么是有设置；</li>
+<li>所以我们可以在程序session_start开启SESSION机制之前使用session_set_cookie_params来进行设置；</li>
+</ol>
+<h3 id="SESSION的垃圾回收机制"><a href="#SESSION的垃圾回收机制" class="headerlink" title="SESSION的垃圾回收机制"></a>SESSION的垃圾回收机制</h3><p>PHP中存在一种针对SESSION会话数据区的垃圾回收机制，如果PHP发现，在==一定的时间内==，==某个SESSION会话数据区没有被使用==，则在下一次访问时，将会==自动==以==一定的概率清除==这个被认为是无效的垃圾SESSION会话数据区。 </p>
+<p>涉及到php.ini中的几个配置项：</p>
+<p><img src="34.png" alt="1530003933106"></p>
+<p>PHP对于SESSION数据区是否是一个垃圾数据区的判定方法是：如果发现在session.gc_maxlifetime秒数内，如果还没有任何程序访问这个数据区，则会认为这数据区==可能==是一个垃圾数据区；接着会以session.gc_probability除以session.gc_divisor得到的概率来进行清除；</p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>如果在一定的时间内，PHP发现SESSION数据区没有被任何程序访问，则会认为这个数据区==可能==是一个垃圾会话数据区，则会以php.ini中配置参数形成的概率进行删除这个会话数据区。</li>
+</ol>
+<h2 id="8-全天总结"><a href="#8-全天总结" class="headerlink" title="8. 全天总结"></a>8. 全天总结</h2><ol>
+<li><p>COOKIE技术 指的是  将数据持久化存储在浏览器端，并且使数据能够区分服务器的一门技术；</p>
+</li>
+<li><p>SEESION技术  指的是 将数据持久化存储在服务器端，并且使数据能够区分浏览器的一门技术；</p>
+</li>
+<li><p>COOKIE数据的设置（增删改）操作：使用setcookie函数进行操作；查询操作：使用$_COOKIE变量进行操作；</p>
+</li>
+<li><p>SESSION数据的增删改查操作：1)必须session_start开启SESSION机制；2）然后使用$_SESSION进行增删改查操作，操作的方法就像操作普通数组一样操作；</p>
+</li>
+<li><p>COOKIE技术实现的基本原理：</p>
+<p>1）COOKIE数据存储在浏览器端的；</p>
+<p>2）如果浏览器存在某个服务器的COOKIE数据，则当访问服务器时将会把所有有关该服务器的COOKIE数据全部携带上；</p>
+</li>
+<li><p>setcookie函数与$_COOKIE变量之间的关系：</p>
+<p>1）setcookie函数只是负责在服务器响应浏览器时，告诉浏览器接下来需要去设置一条什么样的COOKIE数据；</p>
+<p>2）$_COOKIE是只负责接收请求时传递过来的COOKIE数据的，setcookie函数执行时并不会直接操作到$_COOKIE变量；</p>
+</li>
+<li><p>SESSION技术实现的基本原理：</p>
+<p>1）SESSION数据存储在服务器端的；</p>
+<p>2）SESSION技术本质是依赖于COOKIE技术的，因为如果开辟SESSION会话数据区，将会产生与之对应的PHPSESSID，PHPSESSID是以COOKIE数据的形态存在的；</p>
+</li>
+<li><p>$_SESSION与SESSION会话数据区的关系</p>
+<p>1）session_start时，如果之前没有SESSION数据区，则会开辟一个新的SESSION数据区，同时会将$_SESSION初始化成空数组；如果之前有SESSION数据区，则会直接找到该数据区，并且将数据区中所有的数据初始化给$_SESSION变量；</p>
+<p>2）只有当程序执行结束时，$_SESSION中的数据才会一次性覆盖存储进SESSION会话数据区；</p>
+<p>3）在程序执行的过程中，操作$_SESSION变量不会直接立即影响到SESSION数据区中的任何数据；</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/790821465/" title="会话技术">http://blog.kuma8866.top/posts/790821465/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/327881324/" rel="next" title="PHP变量与常量">
+                <i class="fa fa-chevron-left"></i> PHP变量与常量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2849568870/" rel="prev" title="TP5框架案例">
+                TP5框架案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#会话技术"><span class="nav-text">会话技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-会话技术相关概念"><span class="nav-text">1. 会话技术相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用会话技术"><span class="nav-text">为什么使用会话技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是会话技术"><span class="nav-text">什么是会话技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-会话技术的分类"><span class="nav-text">2. 会话技术的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-COOKIE技术"><span class="nav-text">3. ==COOKIE技术==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置操作（增删改）"><span class="nav-text">设置操作（增删改）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看操作"><span class="nav-text">查看操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COOKIE技术的基本原理"><span class="nav-text">COOKIE技术的基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setcookie与-COOKIE变量之间的关系"><span class="nav-text">setcookie与$_COOKIE变量之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COOKIE数据的属性设置"><span class="nav-text">COOKIE数据的属性设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有效期"><span class="nav-text">有效期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有效路径"><span class="nav-text">有效路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有效域"><span class="nav-text">有效域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#是否安全传输"><span class="nav-text">是否安全传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#httponly"><span class="nav-text">httponly</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COOKIE技术的局限"><span class="nav-text">COOKIE技术的局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-SESSION技术"><span class="nav-text">4. ==SESSION技术==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作-1"><span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SESSION技术的基本原理"><span class="nav-text">SESSION技术的基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SESSION与SESSION会话数据区的关系"><span class="nav-text">$_SESSION与SESSION会话数据区的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#销毁SESSION数据（区）"><span class="nav-text">销毁SESSION数据（区）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SESSION的属性控制"><span class="nav-text">SESSION的属性控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有效期-1"><span class="nav-text">有效期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有效路径-1"><span class="nav-text">有效路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有效域-1"><span class="nav-text">有效域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#是否安全传输-1"><span class="nav-text">是否安全传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#httponly-1"><span class="nav-text">httponly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在php-ini中的对应配置项"><span class="nav-text">在php.ini中的对应配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SESSION的属性设置"><span class="nav-text">SESSION的属性设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SESSION的垃圾回收机制"><span class="nav-text">SESSION的垃圾回收机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-全天总结"><span class="nav-text">8. 全天总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

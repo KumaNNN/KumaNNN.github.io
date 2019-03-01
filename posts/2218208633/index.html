@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. MVC基本概念为什么使用MVCMVC是目前应用最广的一种编程方式，本质上，MVC是将代码进行分离，将显示数据的部分、处理业务的部分 和 操作数据的部分 都独立出来。 打个比方，没有使用MVC方式进行开发的项目就好像是一个管理混乱的餐馆，客户点菜（需求），餐厅的经理、服务员、清洁员一起上，然后你一嘴我一嘴的告诉厨师要做什么菜，最后菜出来了，又不管各自的职能都去端菜给客户，极其混乱：  而使用了">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/2218208633/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="1. MVC基本概念为什么使用MVCMVC是目前应用最广的一种编程方式，本质上，MVC是将代码进行分离，将显示数据的部分、处理业务的部分 和 操作数据的部分 都独立出来。 打个比方，没有使用MVC方式进行开发的项目就好像是一个管理混乱的餐馆，客户点菜（需求），餐厅的经理、服务员、清洁员一起上，然后你一嘴我一嘴的告诉厨师要做什么菜，最后菜出来了，又不管各自的职能都去端菜给客户，极其混乱：  而使用了">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/2.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/3.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/22.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/23.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/24.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/25.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/26.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/27.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/28.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/29.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/30.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/31.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/32.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/33.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/34.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/35.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/36.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/37.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/38.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/39.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/40.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/41.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/42.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/43.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/44.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/45.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/46.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/47.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/48.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/49.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/50.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/51.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/52.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/53.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/54.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/55.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/56.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/57.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/60.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/61.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/62.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/63.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/64.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/65.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/66.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/67.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/68.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/69.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/70.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/71.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/72.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/73.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/74.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/75.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/76.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/77.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/78.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/79.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/80.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/81.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/82.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/83.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/84.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/58.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/85.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/86.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/87.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/89.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/90.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/91.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/92.png.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/93.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/94.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/95.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/96.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/97.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/98.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/99.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/100.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/101.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/102.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/103.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/104.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/105.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/106.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/107.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/108.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/109.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/110.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/111.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/112.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/2218208633/113.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC">
+<meta name="twitter:description" content="1. MVC基本概念为什么使用MVCMVC是目前应用最广的一种编程方式，本质上，MVC是将代码进行分离，将显示数据的部分、处理业务的部分 和 操作数据的部分 都独立出来。 打个比方，没有使用MVC方式进行开发的项目就好像是一个管理混乱的餐馆，客户点菜（需求），餐厅的经理、服务员、清洁员一起上，然后你一嘴我一嘴的告诉厨师要做什么菜，最后菜出来了，又不管各自的职能都去端菜给客户，极其混乱：  而使用了">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/2218208633/2.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/2218208633/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MVC | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/2218208633/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">MVC
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/MVC/" itemprop="url" rel="index"><span itemprop="name">MVC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">6.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-MVC基本概念"><a href="#1-MVC基本概念" class="headerlink" title="1. MVC基本概念"></a>1. MVC基本概念</h1><h3 id="为什么使用MVC"><a href="#为什么使用MVC" class="headerlink" title="为什么使用MVC"></a>为什么使用MVC</h3><p>MVC是目前应用最广的一种编程方式，本质上，MVC是将代码进行分离，将显示数据的部分、处理业务的部分 和 操作数据的部分 都独立出来。</p>
+<p>打个比方，没有使用MVC方式进行开发的项目就好像是一个管理混乱的餐馆，客户点菜（需求），餐厅的经理、服务员、清洁员一起上，然后你一嘴我一嘴的告诉厨师要做什么菜，最后菜出来了，又不管各自的职能都去端菜给客户，极其混乱：</p>
+<p><img src="2.png" alt="1530972930761"></p>
+<p>而使用了MVC方式开发的项目就好比是一个管理有序的餐馆，每个人员都知道自己该做什么，调理清晰，执行业务顺畅：</p>
+<p><img src="3.png" alt="1530972965070"></p>
+<p>我们以第二天开发的新闻管理系统为例：</p>
+<p>以前的实现方式：</p>
+<p><img src="4.png" alt="1531014431630"></p>
+<p>使用MVC的实现方式：</p>
+<p><img src="5.png" alt="1531014444989"></p>
+<p>使用MVC的好处实在是太多，最主要的方面体现在：</p>
+<p>1，  可以实现单入口，增强一个项目中对页面地址的控制能力；</p>
+<p>2，  功能和数据分层明确，便于后台人员维护和管理；</p>
+<p>3，  极其有利于多人协同开发（前端与后台，后台与后台），各成员之间互不影响；</p>
+<p>4，  拥有比较完善的基本结构，多人协同开发也不至于产生混乱。</p>
+<h3 id="什么是MVC"><a href="#什么是MVC" class="headerlink" title="什么是MVC"></a>什么是MVC</h3><p>MVC不是某种语法，而是前辈们经过无数的实践总结而得出来的一种便捷，智慧的设计思想。</p>
+<p>MVC是三个英文单词的首字母，分别代表三个组件：</p>
+<p><strong>M</strong> –》Model</p>
+<p><strong>V</strong> –》View</p>
+<p><strong>C</strong> –》Controller</p>
+<p>MVC思想大体上将我们开发的程序分成三个部分（三大组件），并且规定这三个部分：</p>
+<p><strong>Model表示模型层</strong>，负责数据业务规则的处理，凡是跟数据操作有关的内容都属于数据逻辑，只要与SQL指令有关，那么都属于模型（数据逻辑）；</p>
+<p><strong>View表示视图层</strong>，负责展示数据，其实就是我们看到的页面，也就是模板template（模板），用来承载数据的容器，通常是HTML文件（显示[HTML]，美化[CSS]和效果[JavaScript]）；</p>
+<p><strong>Controller表示控制器</strong>，也叫作模块（Module），负责接受用户请求，并调用相应的模型和视图处理和展示业务，是用来与用户直接接触的脚本代码（浏览器直接提交给PHP的脚本对象），判断用户操作的逻辑性，在需要的时候，他可以调用模型操作数据，也可以调用视图展示页面。</p>
+<p><strong>名次释义</strong></p>
+<p><code>model</code>  ： 模型。</p>
+<p><code>module</code>   ：  模块，组件。</p>
+<h1 id="2-案例：使用MVC实现新闻管理系统"><a href="#2-案例：使用MVC实现新闻管理系统" class="headerlink" title="2. 案例：使用MVC实现新闻管理系统"></a>2. 案例：使用MVC实现新闻管理系统</h1><h3 id="1-MVC实现过程"><a href="#1-MVC实现过程" class="headerlink" title="1. MVC实现过程"></a>1. MVC实现过程</h3><h4 id="第一步，搭建MVC基本结构，配置专用虚拟主机域名"><a href="#第一步，搭建MVC基本结构，配置专用虚拟主机域名" class="headerlink" title="第一步，搭建MVC基本结构，配置专用虚拟主机域名"></a>第一步，搭建MVC基本结构，配置专用虚拟主机域名</h4><ol>
+<li><p>在code目录中创建了名为mvc的目录，</p>
+<p><img src="7.png" alt="1531016988428"></p>
+<p>mvc目录结构如下图：</p>
+</li>
+</ol>
+<p><img src="6.png" alt="1531016948626"></p>
+<ol start="2">
+<li><p>配置<a href="http://www.mvc.com域名指向code/mvc根目录" target="_blank" rel="noopener">www.mvc.com域名指向code/mvc根目录</a></p>
+<p>在apache的虚拟主机配置文件httpd-vhosts.conf中增加虚拟主机配置项，</p>
+<p><img src="8.png" alt="1531017169937"></p>
+<p>在hosts文件中增加配置项，</p>
+<p><img src="9.png" alt="1531017212138"></p>
+<p>重启apache,</p>
+<p><img src="10.png" alt="1531017246599"></p>
+<p>测试虚拟主机域名是否配置成功，</p>
+<p>在入口文件index.php中构建如下代码：</p>
+<p><img src="12.png" alt="1531017356840"></p>
+<p>访问index.php效果如下：</p>
+<p><img src="11.png" alt="1531017323491"></p>
+</li>
+</ol>
+<h4 id="第二步，将HTML模板页面转移进项目目录"><a href="#第二步，将HTML模板页面转移进项目目录" class="headerlink" title="第二步，将HTML模板页面转移进项目目录"></a>第二步，将HTML模板页面转移进项目目录</h4><ol>
+<li><p>复制后台所需的三个模板页面，拷贝到mvc/app/admin/view目录中，</p>
+<p>在view目录中创建名为news的目录，</p>
+<p><img src="13.png" alt="1531017685001"></p>
+<p>拷贝三个文件到news目录中，</p>
+<p><img src="14.png" alt="1531017770854"></p>
+</li>
+<li><p>复制前台所需的模板页面，拷贝到mvc/app/home/view目录中，</p>
+<p>复制如下图所示文件，</p>
+<p><img src="15.png" alt="1531017890669"></p>
+<p>拷贝到view目录中，</p>
+<p><img src="16.png" alt="1531017931576"></p>
+</li>
+</ol>
+<h4 id="第三步，构建控制器展示视图模板文件"><a href="#第三步，构建控制器展示视图模板文件" class="headerlink" title="第三步，构建控制器展示视图模板文件"></a>第三步，构建控制器展示视图模板文件</h4><p><strong>建议：每张有实际意义的表，建立一个对应的控制器类</strong></p>
+<ol>
+<li><p>在mvc/app/admin/controller目录中创建名为NewsController.class.php，</p>
+<p><img src="17.png" alt="1531018163097"></p>
+<p>在NewsController.class.php中创建相应的类，并且构建方法展示出不同的后台模板页面，</p>
+<p><img src="18.png" alt="1531018518445"></p>
+</li>
+<li><p>测试访问不同的页面，</p>
+<p>访问后台新闻列表页：在NewsController.class.php类中构建测试代码，如下</p>
+<p><img src="19.png" alt="1531018618650"></p>
+<p>访问NewsController.class.php文件，</p>
+<p><img src="20.png" alt="1531018665311"></p>
+<p>如果要切换访问添加页，只要将调用的方法切换为访问showAd方法即可，</p>
+<p><img src="21.png" alt="1531018712369"></p>
+<p>再次访问NewsController.class.php，页面就成功的切换到了后台新闻添加页，</p>
+<p><img src="22.png" alt="1531018751317"></p>
+</li>
+</ol>
+<p>   <strong>==问题==</strong>：当前我们访问后台页面都是通过访问NewsController.class.php文件实现的，但是MVC的流程要求访问任何页面都应该通过访问入口文件（index.php）实现，所以，我们需要做进一步的改进。</p>
+<h4 id="第四步，实现通过入口文件访问不同的页面"><a href="#第四步，实现通过入口文件访问不同的页面" class="headerlink" title="第四步，实现通过入口文件访问不同的页面"></a>第四步，实现通过入口文件访问不同的页面</h4><ol>
+<li><p>剪切NewsController.class.php中访问不同页面的测试代码，如下图所示，</p>
+<p><img src="23.png" alt="1531019891138"><br>拷贝到入口文件mvc/index.php中，如下图所示，</p>
+<p><img src="24.png" alt="1531019963689"></p>
+<p>同时还需在index.php中实例化NewsController类之前引入该类的类文件，</p>
+<p><img src="25.png" alt="1531020115555"></p>
+</li>
+<li><p>调整入口文件Index.php中的代码，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="26.png" alt="1531021013436"></p>
+<p>调整mvc/app/admin/controller/NewsController.class.php中的代码，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="27.png" alt="1531021107795"></p>
+</li>
+<li><p>测试访问入口文件index.php的效果，</p>
+<p><img src="28.png" alt="1531021161444"></p>
+</li>
+<li><p>现在我们虽然能够实现从index.php单入口访问不同的页面了，但是每次我们切换访问页面，就需要跑到index.php中手动微调代码，非常的不方便也不智能。所以我们进一步作出改进，在index.php中定义三个变量参数，分别$action动作参数，$module模块参数，$plat平台参数。</p>
+<p><strong>名词释义</strong></p>
+<p><code>action</code> ： 动作  </p>
+<p><code>module</code> ： 模块  </p>
+<p><code>platform</code> ： 平台</p>
+</li>
+</ol>
+<p>   <strong>动态拼接</strong>我们所需的东西，比用<strong>if</strong>判断的更实际。实际代码如下图所示蓝框中的代码改为红框中的代码：</p>
+<p>   <img src="29.png" alt="1531033549826"></p>
+<p>   测试进一步调整之后的效果：</p>
+<p>   我们访问后台新闻管理系统列表页，</p>
+<p>   <img src="30.png" alt="1531033755367"></p>
+<p>   不需要再手动在index.php中修改代码了，实现的功能OK了。</p>
+<p><strong>==问题==</strong>：当前我们已经能够通过入口文件index.php实现智能的切换访问不同的页面，但是，我们发现每个页面中展示的数据都是写死的，并不是从数据表中查得的数据，所以，我们需要再一次进行调整。</p>
+<p><strong>视图 <code>view</code>  OK 了，接下来要实现模型<code>Model</code> ，即，要实现活的数据</strong></p>
+<h4 id="第五步，构建模型类，实现在控制器中调用模型操作数据表中的数据"><a href="#第五步，构建模型类，实现在控制器中调用模型操作数据表中的数据" class="headerlink" title="第五步，构建模型类，实现在控制器中调用模型操作数据表中的数据"></a>第五步，构建模型类，实现在控制器中调用模型操作数据表中的数据</h4><p><strong>建议：每张有实际意义的表，建立一个对应的模型类</strong></p>
+<ol>
+<li><p>在mvc/app/model目录下创建一个名为NewsModel.class.php的文件，</p>
+<p><img src="31.png" alt="1531034615784"></p>
+<p>模型类代码如下图所示：</p>
+<p><img src="32.png" alt="1531035545533"></p>
+</li>
+<li><p>在入口文件中定义model目录的常量，然后引入模型类文件，</p>
+<p><img src="33.png" alt="1531035619381"></p>
+</li>
+<li><p>在mvc/app/admin/controller/NewsController.class.php中的showList方法里调用模型<strong>查询</strong>数据，</p>
+<p><img src="34.png" alt="1531035711459"></p>
+</li>
+<li><p><strong>回显</strong>查询得到的数据到视图模板文件中去，mvc/app/admin/view/news/newslist.html</p>
+<p><img src="35.png" alt="1531035824378"></p>
+<p>测试访问效果后台新闻管理系统列表页效果：</p>
+</li>
+</ol>
+<p><img src="36.png" alt="1531035852016"></p>
+<p><strong>数据展示正常！</strong></p>
+<h4 id="第六步，实现父模型-类"><a href="#第六步，实现父模型-类" class="headerlink" title="第六步，实现父模型(类)"></a>第六步，实现父模型(类)</h4><p><strong>更正</strong>： 父类模型  -&gt; 父模型类</p>
+<p><strong>因为很多地方都需要用到数据连接查询等基本操作，所以，需要把这些放置到一个类中。</strong></p>
+<p><strong>子类继承，就不用到处都需要new了</strong></p>
+<ol>
+<li><p>在mvc/core目录下创建名为Model.class.php的文件：</p>
+<p><img src="37.png" alt="1531037697777"></p>
+<p>Model.class.php中的代码如下：</p>
+<p><img src="38.png" alt="1531037763156"></p>
+</li>
+<li><p>调整父模型类文件mvc/core/Model.class.php中PDO类和PDOException类所使用的命名空间，改动部分如一下所有图中的行号内容，</p>
+<p><img src="39.png" alt="1531037844488"></p>
+<p><img src="40.png" alt="1531037876410"></p>
+<p><img src="41.png" alt="1531037905831"></p>
+<p><img src="42.png" alt="1531037926684"></p>
+</li>
+</ol>
+<ol start="3">
+<li><p>在入口文件index.php中引入父模型类文件，</p>
+<p><img src="43.png" alt="1531037985285"></p>
+</li>
+<li><p>在模型类文件mvc/app/model/NewsModel.class.php继承父类模型，如下图所示将蓝框中的代码改为红框中的代码，</p>
+<p><img src="44.png" alt="1531038115357"></p>
+</li>
+<li><p>测试使用，访问后台新闻管理系统列表页，</p>
+<p><img src="45.png" alt="1531038164908"></p>
+<p><strong>效果正常，说明父类模型构建成功。</strong></p>
+</li>
+</ol>
+<h4 id="第七步，引入SMARTY模板引擎"><a href="#第七步，引入SMARTY模板引擎" class="headerlink" title="第七步，引入SMARTY模板引擎"></a>第七步，引入SMARTY模板引擎</h4><ol>
+<li><p>复制SMARTY的核心类库目录libs，</p>
+<p><img src="46.png" alt="1531038491032"></p>
+<p>拷贝到mvc/plugins目录中，</p>
+<p><img src="47.png" alt="1531038546566"></p>
+<p>将libs改名为smarty</p>
+<p><img src="48.png" alt="1531038577438"></p>
+</li>
+<li><p>在入口文件index.php中引入SMARTY核心类文件，</p>
+<p><img src="49.png" alt="1531039420006"></p>
+</li>
+<li><p>在mvc/app/admin/controller/NewsController.class.php中showList方法中使用SMARTY，如下图将蓝框所示的代码改为红框所示的代码，</p>
+<p><img src="50.png" alt="1531039766358"></p>
+</li>
+<li><p>调整模板文件(mvc/app/admin/view/news/newslist.html)回显内容：</p>
+<p><img src="51.png" alt="1531039849016"></p>
+</li>
+<li><p>测试访问效果：</p>
+<p><img src="52.png" alt="1531039866731"></p>
+<p>效果正常。</p>
+</li>
+</ol>
+<h4 id="第八步，实现父控制器类"><a href="#第八步，实现父控制器类" class="headerlink" title="第八步，实现父控制器类"></a>第八步，实现父控制器类</h4><p><strong>更正</strong> ：  父类控制器  -&gt; 父控制器类</p>
+<p><strong>为了简化Smarty的代码，需要构建一个 父控制器类 （继承 Smarty）。</strong></p>
+<p><strong>子控制器类 集成 父控制器类，这样就可直接使用 Smarty，而无需实例化它。</strong></p>
+<ol>
+<li><p>在mvc/core目录下创建Controller.class.php的文件，</p>
+<p><img src="53.png" alt="1531042301195"></p>
+<p>在Controller.class.php中实现继承Smarty类，</p>
+<p><img src="54.png" alt="1531042388086"></p>
+</li>
+<li><p>在入口文件中引入父类控制器类文件，</p>
+<p><img src="55.png" alt="1531042434373"></p>
+</li>
+<li><p>调整mvc/app/admin/controller/NewsController.class.php中showList方法内使用SMARTY代码，如下图将蓝框所示的代码改变成红框所示的代码：</p>
+<p><img src="56.png" alt="1531042734977"></p>
+</li>
+<li><p>测试使用效果：</p>
+<p><img src="57.png" alt="1531042781158"></p>
+<p>效果正常。</p>
+</li>
+</ol>
+<h4 id="第九步，实现配置文件"><a href="#第九步，实现配置文件" class="headerlink" title="第九步，实现配置文件"></a>第九步，实现配置文件</h4><ol>
+<li><p>在mvc根目录中创建名为conf的目录，</p>
+<p><img src="60.png" alt="1531189176903"></p>
+</li>
+<li><p>在mvc/conf目录下创建名为conf.php的文件，</p>
+<p><img src="61.png" alt="1531189444605"></p>
+</li>
+<li><p>在入口文件index.php中引入mvc/conf/conf.php配置文件，</p>
+<p><img src="62.png" alt="1531190344187"></p>
+</li>
+<li><p>在父类模型mvc/core/Model.class.php中使用配置值，如下图所示将蓝框中的代码改为红框中的代码：</p>
+<p><img src="63.png" alt="1531190425050"></p>
+</li>
+<li><p>测试使用效果：访问后台新闻管理系统列表页</p>
+<p><img src="64.png" alt="1531190509292"></p>
+</li>
+<li><p>在mvc/core目录下创建了一个Func.php的文件，封装一个名为C的读取配置项值的函数，</p>
+<p><img src="65.png" alt="1531195125586"></p>
+<p><img src="66.png" alt="1531195172492"></p>
+</li>
+<li><p>在index.php中引入公共函数，</p>
+<p><img src="67.png" alt="1531195232253"></p>
+</li>
+<li><p>调整父类模型中读取配置的方式，</p>
+<p><img src="68.png" alt="1531195279966"></p>
+</li>
+</ol>
+<p>测试访问后台新闻管理系统列表页，</p>
+<p><img src="69.png" alt="1531195319459"></p>
+<p>继续完善配置文件的配置项，</p>
+<p>在mvc/conf/conf.php增加如下配置项，</p>
+<p><img src="70.png" alt="1531204942908"></p>
+<p>在入口文件中修改三个参数$plat、$module、$action的默认值使用方式，如下图将蓝框的代码改为红框的代码：</p>
+<p><img src="71.png" alt="1531205009160"></p>
+<p>再次测试访问后台新闻管理系统列表页，</p>
+<p><img src="72.png" alt="1531205094498"></p>
+<h4 id="第十步，实现初始化文件"><a href="#第十步，实现初始化文件" class="headerlink" title="第十步，实现初始化文件"></a>第十步，实现初始化文件</h4><ol>
+<li><p>在mvc/conf目录下创建一个名为init.php的文件，</p>
+<p><img src="73.png" alt="1531205430421"></p>
+</li>
+<li><p>将入口文件中的定义常量的操作和引入文件的操作全部剪切转移到mvc/conf/init.php中，</p>
+<p>剪切index.php中如下图所示代码：</p>
+<p><img src="74.png" alt="1531205507075"></p>
+<p><img src="75.png" alt="1531205536680"></p>
+<p>将上面剪切的代码转移粘贴到mvc/conf/init.php中，</p>
+<p><img src="76.png" alt="1531205614696"></p>
+<p><img src="77.png" alt="1531205649768"></p>
+</li>
+<li><p>将mvc/conf/init.php中定义根目录的常量进行调整，</p>
+<p><img src="78.png" alt="1531206215541"></p>
+</li>
+<li><p>再次测试访问后台新闻管理系统列表页，</p>
+<p><img src="79.png" alt="1531206257537"></p>
+</li>
+</ol>
+<p>再对mvc/conf/init.php中的初始化操作做进一步调整，</p>
+<p>在mvc/conf目录下创建define.php文件，</p>
+<p><img src="80.png" alt="1531206361222"></p>
+<p>将mvc/conf/init.php中所有define操作的代码进行剪切，</p>
+<p><img src="81.png" alt="1531206409723"></p>
+<p>将上面剪切的代码转移粘贴到mvc/conf/define.php中，</p>
+<p><img src="82.png" alt="1531206448284"></p>
+<p>在mvc/conf/init.php中引入mvc/conf/define.php文件，</p>
+<p><img src="83.png" alt="1531206806237"><br>再次测试访问新闻列表页：</p>
+<p><img src="84.png" alt="1531206840140"></p>
+<h3 id="2-全天总结"><a href="#2-全天总结" class="headerlink" title="2. 全天总结"></a>2. 全天总结</h3><p>MVC全天总结流程图在doc/MVC1.vsd</p>
+<p><img src="58.png" alt="1531044680403"></p>
+<p># </p>
+<h1 id="1-实现后台新闻新增页和功能"><a href="#1-实现后台新闻新增页和功能" class="headerlink" title="1. 实现后台新闻新增页和功能"></a>1. 实现后台新闻新增页和功能</h1><ol>
+<li><p>调整mvc/app/admin/controller/NewsController.class.php中的showAd方法的程序，如下图将蓝框的代码改为红框的代码：</p>
+<p><img src="85.png" alt="1531208255075"></p>
+</li>
+<li><p>调整mvc/app/admin/view/news/newsad.html中form表单的action，</p>
+<p><img src="86.png" alt="1531208390925"></p>
+</li>
+<li><p>在mvc/app/admin/controller/NewsController.class.php中创建adh方法，</p>
+<p><img src="87.png" alt="1531208496983"></p>
+</li>
+<li><p>测试使用效果：</p>
+<p>访问添加页：</p>
+<p><img src="89.png" alt="1531208605725"></p>
+<p>点击提交：</p>
+<p><img src="90.png" alt="1531208626016"></p>
+</li>
+</ol>
+<h1 id="2-实现前台展示新闻首页"><a href="#2-实现前台展示新闻首页" class="headerlink" title="2. 实现前台展示新闻首页"></a>2. 实现前台展示新闻首页</h1><ol>
+<li><p>在mvc/conf/define.php中定义几个路径常量，</p>
+<p><img src="91.png" alt="1531210329600"></p>
+</li>
+<li><p>再在mvc/conf/init.php中引入mvc/app/home/controller/IndexController.class.php，</p>
+<p><img src="92.png.png" alt="1531210385141"></p>
+</li>
+<li><p>调整mvc/app/home/controller/IndexController.class.php中的代码，如下图将蓝框的代码改为红框的代码：</p>
+<p><img src="93.png" alt="1531210444985"></p>
+</li>
+<li><p>调整mvc/core/Controller.class.php中设置存放模板文件目录的代码，如下图将蓝框的代码改为红框的代码：</p>
+<p><img src="94.png" alt="1531210531679"></p>
+</li>
+<li><p>再次测试访问后台新闻列表页和前台新闻首页</p>
+<p>后台新闻列表页：</p>
+<p><img src="95.png" alt="1531210603165"></p>
+<p>前台新闻首页：</p>
+<p><img src="96.png" alt="1531210629327"></p>
+</li>
+</ol>
+<p>   <strong>虽然现在能够访问到前台新闻首页，但是前台新闻首页没有展示出从数据表中读取的数据</strong></p>
+<ol start="6">
+<li><p>在mvc/app/home/controller/IndexController.class.php中showIndex方法里渲染模板之前先将数据查询出来，</p>
+<p><img src="97.png" alt="1531211263979"></p>
+<p>调整模板mvc/app/home/view/newsIndex.html中回显数据的部分，</p>
+<p><img src="98.png" alt="1531211323875"></p>
+</li>
+<li><p>再次测试访问前台新闻首页：</p>
+<p><img src="99.png" alt="1531211360389"></p>
+<p>说明功能制作OK。</p>
+</li>
+</ol>
+<h1 id="3-创建核心框架类实现自动加载"><a href="#3-创建核心框架类实现自动加载" class="headerlink" title="3. 创建核心框架类实现自动加载"></a>3. 创建核心框架类实现自动加载</h1><p>文件引入定义中，有些文件，其文件名等，可能是长期不变的，相反，有些可能会变动频繁或不止当前的数量，</p>
+<p>未来可能有更多的文件需要引入，每次都手动引入很繁琐。</p>
+<p><strong>所以，可以根据命名的规律，来定义一个自动加载的方法。</strong></p>
+<ol>
+<li><p>在mvc/core目录下创建App.class.php文件，</p>
+<p><img src="100.png" alt="1531212246554"></p>
+</li>
+<li><p>在mvc/core/App.class.php中构建autoload方法，内容如下：</p>
+<p><img src="101.png" alt="1531214521156"></p>
+</li>
+<li><p>在mvc/conf/init.php中注册自动加载方法，</p>
+<p><img src="102.png" alt="1531214608626"></p>
+</li>
+<li><p>再次测试：</p>
+<p>测试访问后台新闻管理系统列表页：</p>
+<p><img src="103.png" alt="1531214698370"></p>
+<p>测试访问前台新闻首页：</p>
+<p><img src="104.png" alt="1531214731773"></p>
+</li>
+</ol>
+<h1 id="4-实现程序启动方法"><a href="#4-实现程序启动方法" class="headerlink" title="4. 实现程序启动方法"></a>4. 实现程序启动方法</h1><p><strong>继续优化入口文件（<code>index.php</code>） ，将接收参数，输出等 归纳到一个（静态）方法中，然后入口文件调用即可。</strong></p>
+<ol>
+<li><p>在mvc/core/App.class.php中构建一个名为run的静态方法，</p>
+<p><img src="105.png" alt="1531214904885"></p>
+</li>
+<li><p>将入口文件mvc/index.php中如下图所示的代码剪切转移到mvc/core/App.class.php中的run方法里，</p>
+<p>剪切下图所示代码：</p>
+<p><img src="106.png" alt="1531214994723"></p>
+<p>转移到mvc/core/App.class.php中的run方法里：</p>
+<p><img src="107.png" alt="1531215053641"></p>
+</li>
+<li><p>将mvc/core/App.class.php中的run方法$action、$module、$plat三个局部变量提升为全局变量，如下图将蓝框的代码改为红框的代码：</p>
+<p><img src="108.png" alt="1531215368334"></p>
+</li>
+<li><p>在入口文件index.php中调用启动方法，</p>
+<p><img src="109.png" alt="1531215450815"></p>
+</li>
+<li><p>测试访问效果：</p>
+<p>访问后台新闻列表页：</p>
+<p><img src="110.png" alt="1531215508203"></p>
+</li>
+</ol>
+<h1 id="5-实现单例工厂模式"><a href="#5-实现单例工厂模式" class="headerlink" title="5. 实现单例工厂模式"></a>5. 实现单例工厂模式</h1><ol>
+<li><p>在mvc/core/App.class.php中构建single方法和$_obj静态属性，如下图所示，</p>
+<p><img src="111.png" alt="1531217621021"></p>
+</li>
+<li><p>调整mvc/core/App.class.php中run方法中实例化控制器类的对象，如下图将蓝框的代码改为红框的代码：</p>
+<p><img src="112.png" alt="1531217723272"></p>
+</li>
+<li><p>再次测试访问后台新闻管理系统列表页，</p>
+<p><img src="113.png" alt="1531217809504"></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/2218208633/" title="MVC">http://blog.kuma8866.top/posts/2218208633/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/4277359260/" rel="next" title="面向对象3">
+                <i class="fa fa-chevron-left"></i> 面向对象3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2709295124/" rel="prev" title="PHP其它">
+                PHP其它 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-MVC基本概念"><span class="nav-text">1. MVC基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用MVC"><span class="nav-text">为什么使用MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是MVC"><span class="nav-text">什么是MVC</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2-案例：使用MVC实现新闻管理系统"><span class="nav-text">2. 案例：使用MVC实现新闻管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-MVC实现过程"><span class="nav-text">1. MVC实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步，搭建MVC基本结构，配置专用虚拟主机域名"><span class="nav-text">第一步，搭建MVC基本结构，配置专用虚拟主机域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步，将HTML模板页面转移进项目目录"><span class="nav-text">第二步，将HTML模板页面转移进项目目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步，构建控制器展示视图模板文件"><span class="nav-text">第三步，构建控制器展示视图模板文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步，实现通过入口文件访问不同的页面"><span class="nav-text">第四步，实现通过入口文件访问不同的页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五步，构建模型类，实现在控制器中调用模型操作数据表中的数据"><span class="nav-text">第五步，构建模型类，实现在控制器中调用模型操作数据表中的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六步，实现父模型-类"><span class="nav-text">第六步，实现父模型(类)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第七步，引入SMARTY模板引擎"><span class="nav-text">第七步，引入SMARTY模板引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第八步，实现父控制器类"><span class="nav-text">第八步，实现父控制器类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第九步，实现配置文件"><span class="nav-text">第九步，实现配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第十步，实现初始化文件"><span class="nav-text">第十步，实现初始化文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-全天总结"><span class="nav-text">2. 全天总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-实现后台新闻新增页和功能"><span class="nav-text">1. 实现后台新闻新增页和功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-实现前台展示新闻首页"><span class="nav-text">2. 实现前台展示新闻首页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-创建核心框架类实现自动加载"><span class="nav-text">3. 创建核心框架类实现自动加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-实现程序启动方法"><span class="nav-text">4. 实现程序启动方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-实现单例工厂模式"><span class="nav-text">5. 实现单例工厂模式</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

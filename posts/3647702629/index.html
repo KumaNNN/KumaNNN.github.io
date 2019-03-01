@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="==一、HTTP协议==1. HTTP协议的相关概念为什么学习HTTP协议浏览器访问网站页面时，走的都是==HTTP协议==，如以下截图红框所示部分，标明的就是HTTP协议。  作为一个将要从事web项目开发工作的开发者，对HTTP协议需要有一个基本的了解。 什么是HTTP协议HTTP：Hyper Text Transfer Protocol  中文翻译为 “超文本传输协议”。 Mr ZHANG是">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http协议与文件编程">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/3647702629/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="==一、HTTP协议==1. HTTP协议的相关概念为什么学习HTTP协议浏览器访问网站页面时，走的都是==HTTP协议==，如以下截图红框所示部分，标明的就是HTTP协议。  作为一个将要从事web项目开发工作的开发者，对HTTP协议需要有一个基本的了解。 什么是HTTP协议HTTP：Hyper Text Transfer Protocol  中文翻译为 “超文本传输协议”。 Mr ZHANG是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/1.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/3.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/5.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/6.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/7.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/8.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/9.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/10.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/11.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/12.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/13.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/14.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/15.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/16.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/17.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/18.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/19.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/20.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/21.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/3647702629/22.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http协议与文件编程">
+<meta name="twitter:description" content="==一、HTTP协议==1. HTTP协议的相关概念为什么学习HTTP协议浏览器访问网站页面时，走的都是==HTTP协议==，如以下截图红框所示部分，标明的就是HTTP协议。  作为一个将要从事web项目开发工作的开发者，对HTTP协议需要有一个基本的了解。 什么是HTTP协议HTTP：Hyper Text Transfer Protocol  中文翻译为 “超文本传输协议”。 Mr ZHANG是">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/3647702629/1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/3647702629/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>http协议与文件编程 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/3647702629/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">http协议与文件编程
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/http协议与文件编程/" itemprop="url" rel="index"><span itemprop="name">http协议与文件编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">15k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、HTTP协议"><a href="#一、HTTP协议" class="headerlink" title="==一、HTTP协议=="></a>==一、HTTP协议==</h1><h2 id="1-HTTP协议的相关概念"><a href="#1-HTTP协议的相关概念" class="headerlink" title="1. HTTP协议的相关概念"></a>1. HTTP协议的相关概念</h2><h3 id="为什么学习HTTP协议"><a href="#为什么学习HTTP协议" class="headerlink" title="为什么学习HTTP协议"></a>为什么学习HTTP协议</h3><p>浏览器访问网站页面时，走的都是==HTTP协议==，如以下截图红框所示部分，标明的就是HTTP协议。</p>
+<p><img src="1.png" alt="1529766534526"></p>
+<p>作为一个将要从事web项目开发工作的开发者，对HTTP协议需要有一个基本的了解。</p>
+<h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><p><strong>HTTP</strong>：Hyper Text Transfer Protocol  中文翻译为 “超文本传输协议”。</p>
+<p>Mr ZHANG是英国人，只会说英语；宫本是日本人，只会说日语；两人想要相互沟通交流，如果都各自使用本国语言，那么对方都将听不懂。</p>
+<p>为了能够让两个人无障碍相互沟通交流，让Mr ZHANG和宫本都学会中文，那么，两人就都能够使用中文进行交流了。而中文在这里就变成了两人之间沟通的一个协议。这个协议规定了两方向对方说话，按照某种语法来表达一个具体的意思。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Mr ZHANG(英国人)--&gt;宫本（日本人）: 使用中文说：&quot;早上好！&quot; 问候宫本</span><br><span class="line">note right of 宫本（日本人）:宫本按照中文的语法\n来理解&quot;早上好！&quot;的意思</span><br><span class="line">宫本（日本人）--&gt;Mr ZHANG(英国人): 使用中文说：&quot;早上好！&quot; 回复Mr ZHANG</span><br><span class="line">note left of Mr ZHANG(英国人):Mr ZHANG按照中文的语法\n来理解&quot;早上好！&quot;的意思</span><br></pre></td></tr></table></figure>
+<p>而在web项目中，是浏览器和服务器之间进行交互的一个过程。也就意味着浏览器与服务器两方要通话。</p>
+<p>而浏览器和服务器本身并不是同类，双方之间要想互相说话让对方听的明白，可以让双方都支持一个第三方的规定，通过这个规定来进行沟通交流。那么，HTTP协议，就是浏览器和服务器之间沟通的这个规定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">浏览器--&gt;服务器: 使用HTTP协议规定的格式\n发出请求</span><br><span class="line">note right of 服务器:服务器按照HTTP协议规定的格式\n解析并处理请求内容</span><br><span class="line">服务器--&gt;浏览器: 使用HTTP协议规定的格式\n返回响应</span><br><span class="line">note left of 浏览器:浏览器按照HTTP协议规定的格式\n解析并处理响应内容</span><br></pre></td></tr></table></figure>
+<p><strong>概念</strong>：HTTP协议，就是一种规定，它规定了浏览器请求服务器时，需要用什么样的格式发送请求数据；也规定了服务器响应浏览器时，需要用什么样的格式回应响应数据；这些对<strong>数据格式的规定</strong>就是HTTP协议。</p>
+<h2 id="2-HTTP协议的分类"><a href="#2-HTTP协议的分类" class="headerlink" title="2. HTTP协议的分类"></a>2. HTTP协议的分类</h2><p>HTTP协议的分类包含两种：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> HTTP请求</li>
+<li style="list-style: none"><input type="checkbox"> HTTP响应</li>
+</ul>
+<h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><p>包含四个组成部分：1）请求行；2）请求头；3）空白行；4）请求数据 </p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="3.png" alt="1529893232189"></p>
+<h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><p>包含基本的请求信息部分。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="4.png" alt="1529893388660"></p>
+<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><p>由一个一个的==请求协议项==组成。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="5.png" alt="1529894139972"></p>
+<p><strong>常见的请求头协议项</strong>：</p>
+<blockquote>
+<p><strong>host</strong>：当前url中所要请求的服务器的主机名（域名）<br><strong>accept-encoding</strong>：是浏览器发给服务器,声明浏览器支持的压缩编码类型  比如gzip<br><strong>accept_charset</strong>：表示，浏览器支持的字符集<br><strong>==referer==</strong>：表示，此次请求来自哪个网址<br><strong>accept-language</strong>：可以接收的语言类型，cn，en等<br><strong>cookie</strong>：如果之前当前请求的服务器在浏览器端设置了数据（cookie），那么当前浏览器再次请求该服务器的时候，就会把对应的数据带过去<br><strong>user-agent</strong>：用户代理，当前发起请求的浏览器的内核信息<br><strong>accept</strong>：表示浏览器可以接收的数据类型<br><strong>content-length</strong>（==post==）：只有post提交的时候才会有的请求头，显示的是当前要提交的数据的长度（字节）<br><strong>if-modified-since</strong>（==get==）：表示，在客户端向服务器请求某个资源文件时，询问此资源文件是否被修改过<br>==<strong>content-type</strong>==（==post==）：用于定义网络文件的类型和网页的编码，决定浏览器将以什么形式、什么编码读取这个文件</p>
+</blockquote>
+<h4 id="空白行"><a href="#空白行" class="headerlink" title="空白行"></a>空白行</h4><p>专门用于分隔请求头和请求数据的结构。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="6.png" alt="1529894320058"></p>
+<h4 id="请求数据"><a href="#请求数据" class="headerlink" title="请求数据"></a>请求数据</h4><p>只有当post方式提交数据时才会存在。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="7.png" alt="1529894379399"></p>
+<p>请求数据指的是跟着请求一并携带到指定服务器的数据内容。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
+<li><p>HTTP请求包含四个组成部分：1)请求行；2）请求头；3）空白行；4）请求数据；</p>
+</li>
+<li><p>四个结构的内容：</p>
+<p>请求行包括 请求方式，请求资源文件的路径 和 协议名与协议版本号；</p>
+<p>请求头包括 请求的协议项</p>
+<p>空白行就是分隔请求头和请求数据的</p>
+<p>请求数据只有当post方式才会存在</p>
+</li>
+</ol>
+<h3 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h3><p>包含四个组成部分：1）状态行；2）响应头；3）空白行；4）响应数据 </p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="8.png" alt="1529894737546"></p>
+<h4 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h4><p>包含基本的响应信息部分。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="9.png" alt="1529894855228"></p>
+<h5 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h5><p>1xx：表示请求尚未完成；</p>
+<p>2xx：表示请求和响应都没有问题；</p>
+<p>3xx：表示重定向；</p>
+<p>4xx：表示请求出现问题，响应失败；</p>
+<p>5xx：表示服务器出现问题，响应失败；</p>
+<p>==<strong>常见的响应状态码</strong>==：</p>
+<p>200  表示完全没有问题</p>
+<p>301和302：    301表示永久重定向；302表示临时重定向；</p>
+<p>404：找不到请求的文件</p>
+<p>500：服务器出现故障</p>
+<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><p>由一个一个的响应协议项组成。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="10.png" alt="1529896532372"></p>
+<p><strong>常见的响应头协议项</strong>：</p>
+<blockquote>
+<p><strong>server</strong>：服务器主机信息</p>
+<p><strong>date</strong>：响应时间</p>
+<p><strong>last-modified</strong>：文件最后修改时间（对应请求中：if-modified-since）</p>
+<p><strong>content-length</strong>：响应主体的长度（字节）</p>
+<p><strong>content-type</strong>：响应内容的数据类型：text/html，image/png等</p>
+<p>==<strong>location</strong>==：重定向，浏览器遇到这个选项，就立马跳转（不会解析后面的内容）</p>
+<p>==<strong>refresh</strong>==：重定向（刷新），浏览器遇到这个选项就会准备跳转，刷新一般有时间限制，时间到了才跳转，浏览器会继续向下解析</p>
+<p><strong>content-encodeing</strong>：文件编码格式</p>
+<p><strong>cache-control</strong>：缓存控制，no-cached不要缓存</p>
+</blockquote>
+<h4 id="空白行-1"><a href="#空白行-1" class="headerlink" title="空白行"></a>空白行</h4><p>专门用于分隔响应头和响应数据的结构。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="11.png" alt="1529896688121"></p>
+<h4 id="响应数据"><a href="#响应数据" class="headerlink" title="响应数据"></a>响应数据</h4><p>包含完整的返回给浏览器的内容。</p>
+<p><strong>==图例==</strong>：</p>
+<p><img src="12.png" alt="1529896737945"></p>
+<p>响应数据指的就是程序处理完成之后返回给浏览器的所有数据内容。</p>
+<h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><ol>
+<li><p>HTTP响应包含4个组成部分：1）状态行；2）响应头；3）空白行；4）响应数据；</p>
+</li>
+<li><p>四个组成部分分别包括</p>
+<p>状态行包括 协议名与协议版本号、响应状态码值和响应状态码值对应的响应信息</p>
+<p>响应头是由一个一个的响应协议项所组成；<br>空白行是用于分隔响应头和相应数据的；</p>
+<p>响应数据就是程序返回给浏览器的所有数据内容；</p>
+</li>
+</ol>
+<h2 id="3-HTTP协议的特点"><a href="#3-HTTP协议的特点" class="headerlink" title="3. HTTP协议的特点"></a>3. HTTP协议的特点</h2><p>1) 不仅支持B/S模式，还支持C/S模式。</p>
+<p>2) 灵活，支持任意类型的数据。</p>
+<p>3) ==无连接特性==，指的是每次完整的请求之后，本次连接要断开。</p>
+<p>4) ==无状态特性==，HTTP协议对会话过程中产生的数据不具有记忆能力。</p>
+<h2 id="4-HTTP协议的应用"><a href="#4-HTTP协议的应用" class="headerlink" title="4. HTTP协议的应用"></a>4. HTTP协议的应用</h2><h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><p><strong>==需求==</strong>：实现访问A页面就直接跳转到B页面的效果。</p>
+<p><strong>==解答==</strong>：构建一个名为code2.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'这是code2.php文件'</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//跳转(重定向)</span></span><br><span class="line">header(<span class="string">'Location:http://www.home.com/class/day3/code/code3.php'</span>);</span><br></pre></td></tr></table></figure>
+<p>构建一个名为code3.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'这是code3.php文件'</span>;</span><br></pre></td></tr></table></figure>
+<p>访问code2.php，浏览器展示的效果为：</p>
+<p><img src="13.png" alt="1529898326089"></p>
+<p><strong>==小结==</strong>：在本案例中使用到了http响应协议项的知识点。</p>
+<h3 id="刷新跳转"><a href="#刷新跳转" class="headerlink" title="刷新跳转"></a>刷新跳转</h3><p><strong>==需求==</strong>：实现访问A页面，在A页面停留3秒钟展示提示信息”别眨眼，3秒后我就要跳转了！”，3秒后再跳转到B页面。</p>
+<p><strong>==解答==</strong>：构建一个名为code4.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'别眨眼，3秒后我就要跳转了！'</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//刷新跳转(刷新重定向)</span></span><br><span class="line"><span class="comment">//               浏览器在当前页面停留3秒，然后再重新请求新的页面</span></span><br><span class="line">header(<span class="string">'Refresh:3; url=http://www.home.com/class/day3/code/code5.php'</span>);</span><br></pre></td></tr></table></figure>
+<p>构建名为code5.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'这是code5.php文件'</span>;</span><br></pre></td></tr></table></figure>
+<p>访问code4.php的效果：</p>
+<p><img src="14.png" alt="1529898633121"></p>
+<p>在code4.php停留了3秒后效果为跳转到了code5.php：</p>
+<p><img src="15.png" alt="1529898655166"></p>
+<h3 id="SSL安全访问协议"><a href="#SSL安全访问协议" class="headerlink" title="SSL安全访问协议"></a>SSL安全访问协议</h3><h4 id="https简介"><a href="#https简介" class="headerlink" title="https简介"></a>https简介</h4><p>HTTPS  即  Secure Hypertext Transfer Protocol  翻译为中文：==安全的超文本传输协议==</p>
+<blockquote>
+<p>它是由Netscape开发并<strong>内置于其浏览器中</strong>，用于<strong>对数据进行压缩和解压操作</strong>，<strong>并用于网络传输</strong>的一种技术。</p>
+<p>HTTPS实际上应用了Netscape的完全套接字层（SSL）作为HTTP应用层的子层。（==HTTPS使用端口443==，而不是象HTTP那样使用端口80来和TCP/IP进行通信。）SSL使用40 位关键字作为RC4流加密算法，这对于商业信息的加密是合适的。HTTPS和SSL支持使用==X.509==数字认证，如果需要的话用户可以确认发送者是谁。</p>
+<p>https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，https的安全基础是SSL。</p>
+<p>它是一个URI scheme(抽象标识符体系)，句法类同http:体系。用于安全的HTTP数据传输。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。这个系统的最初研发由网景公司进行，提供了身份验证与加密通讯方法，现在它被广泛用于万维网上安全敏感的通讯，例如交易支付方面。</p>
+</blockquote>
+<h4 id="配置SSL协议"><a href="#配置SSL协议" class="headerlink" title="配置SSL协议"></a>配置SSL协议</h4><p><strong>==目标==</strong>：使用  <a href="https://www.t1.com/t.php" target="_blank" rel="noopener">https://www.t1.com/t.php</a>  访问 day3/code目录中  的t.php文件。</p>
+<p><strong>==步骤==</strong>：</p>
+<p>第一步，将day3/source目录下的key文件夹拷贝到apache安装目录下的==conf目录==中</p>
+<p><img src="16.png" alt="1529908501211"></p>
+<p>第二步，打开apache的配置文件httpd.conf，开启mod_socache_shmcb 和mod_ssl模块，同时开启引入ssl配置文件，</p>
+<p>去掉下图中引入模块的注释，开启模块引入配置，</p>
+<p><img src="17.png" alt="1529908874056"></p>
+<p>引入ssl配置文件，</p>
+<p><img src="18.png" alt="1529908984899"></p>
+<p>第三步，调整apache安装目录下的extra/httpd-ssl.conf配置文件SSLSessionCache配置项的路径，同时注释VirtualHost示例，</p>
+<p><img src="19.png" alt="1529909171565"></p>
+<p>将VirtualHost所有代码全部注释掉，从121行到290行，</p>
+<p><img src="20.png" alt="1529909250903"></p>
+<p>第四步，打开虚拟主机配置文件，增加如下虚拟主机配置项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#ssl默认监听的端口是443，所以如果要使用默认的端口，就不能再使用80，而应该使用443端口</span><br><span class="line">&lt;VirtualHost *:443&gt;</span><br><span class="line">#开启SSL引擎的支持</span><br><span class="line">	SSLEngine on</span><br><span class="line">#指定支持的SSL协议版本</span><br><span class="line">	SSLProtocol all -SSLv2 -SSLv3</span><br><span class="line">#SSL加密计算的方式</span><br><span class="line">	SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5</span><br><span class="line">#认证证书文件</span><br><span class="line">	SSLCertificateFile &quot;F:/usr/apache24/conf/key/server.crt&quot;</span><br><span class="line">#证书私钥</span><br><span class="line">	SSLCertificateKeyFile &quot;F:/usr/apache24/conf/key/server.key&quot;</span><br><span class="line">#根证书</span><br><span class="line">	SSLCertificateChainFile &quot;F:/usr/apache24/conf/key/ca.crt&quot;</span><br><span class="line">	DocumentRoot &quot;F:/home/class/day3/code&quot;</span><br><span class="line">	ServerName www.t1.com</span><br><span class="line">	&lt;Directory /&gt;</span><br><span class="line">	Options +Indexes +FollowSymLinks +ExecCGI</span><br><span class="line">	AllowOverride All</span><br><span class="line">	Order allow,deny</span><br><span class="line">	Allow from all</span><br><span class="line">	Require all granted</span><br><span class="line">	&lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<p>第五步，重启apache，向hosts文件中新增如下配置，</p>
+<p><img src="21.png" alt="1529910013192"></p>
+<p>在hosts文件中增加如下配置，(C:/Windows/system32/drivers/etc/hosts)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1  www.t1.com</span><br></pre></td></tr></table></figure>
+<p>第六步，在day3/code目录中创建名为t.php的程序文件，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'哈哈，https配置成功啦！'</span>;</span><br></pre></td></tr></table></figure>
+<p>第七步，在浏览器中使用  <a href="https://www.t1.com/t.php" target="_blank" rel="noopener">https://www.t1.com/t.php</a>  访问t.php，测试使用效果</p>
+<p><img src="22.png" alt="1529910287320"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>SSL技术实际就是将http协议传输数据进行加密、解密和传输的一个技术手段。</li>
+<li>实现了SSL技术的http协议，访问时效果会变成使用https进行访问。</li>
+</ol>
+<h1 id="二、文件编程"><a href="#二、文件编程" class="headerlink" title="==二、文件编程=="></a>==二、文件编程==</h1><h2 id="1-文件编程相关概念"><a href="#1-文件编程相关概念" class="headerlink" title="1. 文件编程相关概念"></a>1. 文件编程相关概念</h2><h3 id="为什么使用文件编程"><a href="#为什么使用文件编程" class="headerlink" title="为什么使用文件编程"></a>为什么使用文件编程</h3><p>在web项目中，文件编程的应用相当广泛，比如：文件下载（软件，电影，照片….），生成报表文件并支持下载功能等都需要使用到文件编程技术。</p>
+<h3 id="什么是文件编程"><a href="#什么是文件编程" class="headerlink" title="什么是文件编程"></a>什么是文件编程</h3><p>所谓的文件编程技术，指的就是对文件或目录的增删改查操作！</p>
+<h2 id="2-文件编程的分类"><a href="#2-文件编程的分类" class="headerlink" title="2. 文件编程的分类"></a>2. 文件编程的分类</h2><ul>
+<li style="list-style: none"><input type="checkbox" checked> 对目录的操作</li>
+<li style="list-style: none"><input type="checkbox" checked> 对文件的操作</li>
+</ul>
+<h3 id="对目录的操作"><a href="#对目录的操作" class="headerlink" title="对目录的操作"></a>对目录的操作</h3><p><strong>设置操作</strong>（增删改）</p>
+<blockquote>
+<p>涉及的函数：</p>
+<p><strong>mkdir</strong>(新目录名[,  目录权限[,  是否递归创建]])      创建一个目录（make directory）</p>
+<p><strong>rmdir</strong>(目录全路径)      删除一个目录（remove directory）</p>
+<p><strong>rename</strong>(旧名字,  新名字)     给目录改名或转移目录</p>
+</blockquote>
+<p><strong>==操作需求1==</strong>：在code目录中执行创建目录操作，要求：</p>
+<ol>
+<li>创建名为dir1和dir2两个目录；</li>
+<li>递归创建dir3/dir3_1/dir3_1_1目录；</li>
+</ol>
+<p><strong>==解答==</strong>：构建一个名为code6.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#新增目录操作</span></span><br><span class="line">$re = mkdir(<span class="string">'dir1'</span>);<span class="comment">//在当前目录创建一个名为dir1的目录</span></span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">$re = mkdir(<span class="string">'dir2'</span>);<span class="comment">//在当前目录创建一个名为dir2的目录</span></span><br><span class="line">var_dump( $re );  <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果不指定第三个参数，则默认为false，false表示不进行递归创建，如需递归创建，则需要将第三个参数指定为true</span></span><br><span class="line">$re = mkdir(<span class="string">'./dir3/dir3_1/dir3_1_1'</span>, <span class="number">0777</span>, <span class="keyword">true</span>);</span><br><span class="line">var_dump( $re );</span><br></pre></td></tr></table></figure>
+<p><strong>==操作需求1小结==</strong></p>
+<ol>
+<li>mkdir函数可以实现创建目录操作；</li>
+<li>mkdir函数如果不指定第三个参数，则第三个参数默认为false，false表示不进行递归创建，如需递归创建，则需要将第三个参数指定为true；</li>
+</ol>
+<p><strong>==操作需求2==</strong>：在code目录中执行修改目录操作，要求：</p>
+<ol>
+<li>将dir1的目录名改为dir100；</li>
+<li>将dir2目录转移到dir3目录中，并且重命名为dir200；</li>
+</ol>
+<p><strong>==解答==</strong>：构建一个名为code7.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">#修改目录操作</span></span><br><span class="line">$re = rename(<span class="string">'./dir1'</span>, <span class="string">'./dir100'</span>);<span class="comment">//直接将旧名字dir1改为新名字dir100</span></span><br><span class="line">var_dump( $re );  <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$re = rename(<span class="string">'./dir2'</span>, <span class="string">'./dir3/dir200'</span>);<span class="comment">//将dir2转移到dir3中，转移后将dir2改名为dir200</span></span><br><span class="line">var_dump( $re );</span><br></pre></td></tr></table></figure>
+<p><strong>==操作需求2小结==</strong></p>
+<ol>
+<li>rename函数可以实现修改目录名称的操作；</li>
+<li>rename函数还能够实现转移某个目录到指定的新目录中，同时还可以转移后重命名；</li>
+</ol>
+<p><strong>==操作需求3==</strong>：在code目录中执行删除目录操作，要求：</p>
+<ol>
+<li>将dir100删除；</li>
+<li>尝试将dir3目录删除；</li>
+</ol>
+<p><strong>==解答==</strong>：构建一个名为code8.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#删除目录操作</span></span><br><span class="line">$re = rmdir(<span class="string">'./dir100'</span>);<span class="comment">//dir100中是空的，所以能够直接被删除</span></span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$re = rmdir(<span class="string">'./dir3'</span>);<span class="comment">//dir3目录中不是空的，里面有内容，所以不支持直接删除</span></span><br><span class="line">var_dump( $re );</span><br></pre></td></tr></table></figure>
+<p>访问code8.php后的效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool(true)//dir100删除成功</span><br><span class="line"></span><br><span class="line">Warning: rmdir(./dir3): Directory not empty in F:\home\class\day3\code\code8.php on line 7</span><br><span class="line">bool(false)//dir3不为空，所以不支持直接删除</span><br></pre></td></tr></table></figure>
+<p><strong>==操作需求3小结==</strong></p>
+<ol>
+<li>rmdir可以实现删除空目录的操作；</li>
+<li>如果目录有内容则不支持直接删除，必须先清空目录下的所有内容，才能够删除；</li>
+</ol>
+<p><strong>查询操作</strong></p>
+<blockquote>
+<p>涉及的函数：</p>
+<p><strong>opendir</strong>(目录全路径)      打开一个目录</p>
+<p><strong>readdir</strong>(打开的目录资源)      读取目录中的内容</p>
+<p><strong>closedir</strong>(打开的目录资源)     关闭一个打开的目录</p>
+</blockquote>
+<p><strong>==操作需求==</strong>：查询code下的demo目录，要求：</p>
+<ol>
+<li>读取并输出该目录下的所有文件的文件名；</li>
+</ol>
+<p><strong>==解答==</strong>：构建一个名为code9.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1.打开目录</span></span><br><span class="line">$op = opendir(<span class="string">'./demo'</span>);<span class="comment">//将会返回资源类型的数据</span></span><br><span class="line">var_dump( $op ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 读取打开目录资源中的内容</span></span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第一次读取，读取打开的目录资源中的文件名</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第二次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第三次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第四次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第五次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第六次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第七次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">$fileName = readdir($op);	<span class="comment">//第八次读取</span></span><br><span class="line">var_dump( $fileName ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$re = closedir($op);</span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">var_dump( $op );</span><br></pre></td></tr></table></figure>
+<p>访问code9.php输出的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">resource(3) of type (stream)#使用opendir打开的文件资源</span><br><span class="line"></span><br><span class="line">string(1) &quot;.&quot; #第一次使用readdir得到的数据</span><br><span class="line">string(2) &quot;..&quot; #第二次使用readdir得到的数据</span><br><span class="line">string(11) &quot;article.txt&quot; #第三次使用readdir得到的数据</span><br><span class="line">string(4) &quot;dir1&quot; #第四次使用readdir得到的数据</span><br><span class="line">string(4) &quot;dir2&quot; #第五次使用readdir得到的数据</span><br><span class="line">string(4) &quot;dir3&quot; #第六次使用readdir得到的数据</span><br><span class="line">bool(false) #第七次使用readdir得到的数据</span><br><span class="line">bool(false)#第八次使用readdir得到的数据</span><br><span class="line"></span><br><span class="line">NULL #closedir函数的返回值，说明没有返回值</span><br><span class="line">resource(3) of type (Unknown)#使用closedir关闭$op之后，再次打印出来的$op的值</span><br></pre></td></tr></table></figure>
+<p><strong>==操作需求小结==</strong></p>
+<ol>
+<li>如果要读取一个目录中的内容，首先得使用opendir函数打开一个目录，然后再使用readdir逐个解析出资源中的文件名；</li>
+<li>closedir函数的作用是关闭打开的文件资源；</li>
+</ol>
+<p><strong>查询辅助操作</strong></p>
+<blockquote>
+<p>涉及的函数：</p>
+<p>==<strong>realpath</strong>==(路径)      将给定的路径转换为绝对路径地址</p>
+<p><strong>==basename==</strong>(路径)      返回当前给定路径的基础文件（或文件夹）名部分</p>
+<p>==<strong>dirname</strong>==(路径)      返回当前给定路径的目录部分</p>
+<p><strong>is_dir</strong>(全路径)      判断一个给定文件是否是一个目录</p>
+</blockquote>
+<p><strong>==操作需求==</strong>：在code目录下对相对路径”./“进行操作，要求：</p>
+<ol>
+<li>将相对路径”./“转换为绝对路径，并将转换后的结果输出；</li>
+<li>获得”1”中转换的绝对路径中的基础文件名并将其输出；</li>
+<li>获得”1”中转换的绝对路径中的目录部分并将其输出；</li>
+<li>判定”./code1.php”是否是一个目录；</li>
+<li>判定”./dir3”是否是一个目录；</li>
+</ol>
+<p><strong>==解答==</strong>：构建一个名为code10.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$path = <span class="string">'./'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 将相对路径转换成绝对路径</span></span><br><span class="line">$realPath = realpath($path);<span class="comment">//可以将相对路径转换为绝对路径</span></span><br><span class="line">var_dump( $realPath ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$re = realpath(<span class="string">'F:\home\class\day3\code'</span>);<span class="comment">//虽然也可以将绝对路径传递进去，但是没有意义</span></span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 获得"1"中转换的绝对路径中的基础文件名并将其输出</span></span><br><span class="line">$re = basename($realPath);</span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#3. 获得"1"中转换的绝对路径中的目录部分并将其输出</span></span><br><span class="line">$re = dirname($realPath);</span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#4. 判定"./code1.php"是否是一个目录</span></span><br><span class="line">$re = is_dir(<span class="string">'./code1.php'</span>);</span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#5. 判定"./dir3"是否是一个目录</span></span><br><span class="line">$re = is_dir(<span class="string">'./dir3'</span>);</span><br><span class="line">var_dump( $re );</span><br></pre></td></tr></table></figure>
+<p>访问code10.php输出的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string(23) &quot;F:\home\class\day3\code&quot; //第1点的输出</span><br><span class="line">string(23) &quot;F:\home\class\day3\code&quot; //第1点的输出</span><br><span class="line">string(4) &quot;code&quot;  //第2点的输出</span><br><span class="line">string(18) &quot;F:\home\class\day3&quot;  //第3点的输出</span><br><span class="line">bool(false)  //第4点的输出，返回false说明不是一个目录</span><br><span class="line">bool(true)  //第5点的输出，返回true说明是一个目录</span><br></pre></td></tr></table></figure>
+<p><strong>==操作需求小结==</strong></p>
+<ol>
+<li>realpath函数可以将路径转换为结对路径；</li>
+<li>basename函数可以获得路径中的基础文件名部分；</li>
+<li>dirname函数可以获得路径中的除去基础文件名后的目录路径部分；</li>
+<li>is_dir函数可以判断一个给定的文件是否是一个目录；</li>
+</ol>
+<h3 id="对文件的操作"><a href="#对文件的操作" class="headerlink" title="对文件的操作"></a>对文件的操作</h3><p>因php版本更替原因，在php中对文件的操作分为两类：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> php4相关文件操作</li>
+<li style="list-style: none"><input type="checkbox"> php5相关文件操作</li>
+</ul>
+<h4 id="PHP4相关文件操作"><a href="#PHP4相关文件操作" class="headerlink" title="PHP4相关文件操作"></a>PHP4相关文件操作</h4><p>涉及的函数：</p>
+<blockquote>
+<p><strong>fopen</strong>(文件全路径,  打开模式)    打开一个文件</p>
+<p><strong>fread</strong>(打开的文件资源,  读取内容的长度)    读取文件中的内容</p>
+<p><strong>fwrite</strong>(打开的文件资源,  写入的内容)    向文件中写入内容</p>
+<p><strong>fclose</strong>(打开的文件资源)    关闭打开的文件</p>
+<p><strong>filesize</strong>(文件全路径)  获取文件的大小</p>
+</blockquote>
+<p><strong>==操作需求==</strong>：操作code目录下的article.txt文件，要求：</p>
+<ol>
+<li>将文件中的所有内容读取并输出；</li>
+<li>向文件中最末尾写入”这是一篇好文章”；</li>
+<li>关闭打开的文件；</li>
+</ol>
+<p><strong>==解答==</strong>：构建一个名为code11.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打开指定的文件</span></span><br><span class="line"><span class="comment">//$fp = fopen('./article.txt', 'r');//使用r模式只能读不能写</span></span><br><span class="line">$fp = fopen(<span class="string">'./article.txt'</span>, <span class="string">'a+'</span>);<span class="comment">//是a+模式即能读，又能写，而是从最末尾写入</span></span><br><span class="line">var_dump( $fp ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 读取文件打开资源中的内容</span></span><br><span class="line">$fileSize = filesize(<span class="string">'./article.txt'</span>);<span class="comment">//获取文件的大小</span></span><br><span class="line">var_dump( $fileSize ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$content = fread($fp, $fileSize);<span class="comment">//读取文件打开资源中的所有内容</span></span><br><span class="line">var_dump( $content ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 向文件中最末尾写入"这是一篇好文章"</span></span><br><span class="line">$writeContent = <span class="string">'这是一篇好文章'</span>;</span><br><span class="line">$re = fwrite($fp, $writeContent);</span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#3. 关闭打开的文件资源</span></span><br><span class="line">$re = fclose($fp);</span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">var_dump( $fp );</span><br></pre></td></tr></table></figure>
+<p>访问code11.php输出的结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">resource(3) of type (stream)//输出的$fp</span><br><span class="line">int(5985) //输出文件的大小，单位字节</span><br><span class="line"></span><br><span class="line">//下面为输出文件读取的所有内容</span><br><span class="line">string(5985) &quot;﻿君子曰：学不可以已。 青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳，輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。 故不登高山，不知天之高也；不临深溪，不知地之厚也；不闻先王之遗言，不知学问之大也。干、越、夷、貉之子，生而同声，长而异俗，教使之然也。诗曰：“嗟尔君子，无恒安息。靖共尔位，好是正直。神之听之，介尔景福。”神莫大于化道，福莫长于无祸。（此段教材无） 吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。 南方有鸟焉，名曰蒙鸠，以羽为巢，而编之以发，系之苇苕，风至苕折，卵破子死。巢非不完也，所系者然也。西方有木焉，名曰射干，茎长四寸，生于高山之上，而临百仞之渊，木茎非能长也，所立者然也。蓬生麻中，不扶而直；白沙在涅，与之俱黑。兰槐之根是为芷，其渐之滫，君子不近，庶人不服。其质非不美也，所渐者然也。故君子居必择乡，游必就士，所以防邪辟而近中正也。 物类之起，必有所始。荣辱之来，必象其德。肉腐出虫，鱼枯生蠹。怠慢忘身，祸灾乃作。强自取柱，柔自取束。邪秽在身，怨之所构。施薪若一，火就燥也，平地若一，水就湿也。草木畴生，禽兽群焉，物各从其类也。是故质的张，而弓矢至焉；林木茂，而斧斤至焉；树成荫，而众鸟息焉。醯酸，而蚋聚焉。故言有招祸也，行有招辱也，君子慎其所立乎！（此段教材无） 积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。 是故无冥冥之志者，无昭昭之明；无惛惛之事者，无赫赫之功。行衢道者不至，事两君者不容。目不能两视而明，耳不能两听而聪。螣蛇无足而飞，鼫鼠五技而穷。《诗》曰：“尸鸠在桑，其子七兮。淑人君子，其仪一兮。其仪一兮，心如结兮！”故君子结于一也。 昔者瓠巴鼓瑟，而流鱼出听；伯牙鼓琴，而六马仰秣。故声无小而不闻，行无隐而不形。玉在山而草润，渊生珠而崖不枯。为善不积邪？安有不闻者乎？ 学恶乎始？恶乎终？曰：其数则始乎诵经，终乎读礼；其义则始乎为士，终乎为圣人，真积力久则入，学至乎没而后止也。故学数有终，若其义则不可须臾舍也。为之，人也；舍 之，禽兽也。故书者，政事之纪也；诗者，中声之所止也；礼者，法之大分，类之纲纪也。故学至乎礼而止矣。夫是之谓道德之极。礼之敬文也，乐之中和也，诗书之博也，春秋之微 也，在天地之间者毕矣。君子之学也，入乎耳，着乎心，布乎四体，形乎动静。端而言，蝡而动，一可以为法则。小人之学也，入乎耳，出乎口；口耳之间，则四寸耳，曷足以美七尺之躯哉！古之学者为己，今之学者为人。君子之学也，以美其身；小人之学也，以为禽犊。故不问而告谓之傲，问一而告二谓之囋。傲、非也，囋、非也；君子如向矣。 学莫便乎近其人。礼乐法而不说，诗书故而不切，春秋约而不速。方其人之习君子之说，则尊以遍矣，周于世矣。故曰：学莫便乎近其人。 学之经莫速乎好其人，隆礼次之。上不能好其人，下不能隆礼，安特将学杂识志，顺诗书而已耳。则末世穷年，不免为陋儒而已。将原先王，本仁义，则礼正其经纬蹊径也。若挈裘领，诎五指而顿之，顺者不可胜数也。不道礼宪，以诗书为之，譬之犹以指测河也，以戈舂黍也，以锥餐壶也，不可以得之矣。故隆礼，虽未明，法士也；不隆礼，虽察辩，散儒也。 问楛者，勿告也；告楛者，勿问也；说楛者，勿听也。有争气者，勿与辩也。故必由其道至，然后接之；非其道则避之。故礼恭，而后可与言道之方；辞顺，而后可与言道之理；色从而后可与言道之致。故未可与言而言，谓之傲；可与言而不言，谓之隐；不观气色而言，谓瞽。故君子不傲、不隐、不瞽，谨顺其身。诗曰：“匪交匪舒，天子所予。”此之谓也。 百发失一，不足谓善射；千里蹞步不至，不足谓善御；伦类不通，仁义不一，不足谓善学。学也者，固学一之也。一出焉，一入焉，涂巷之人也；其善者少，不善者多，桀纣盗跖也；全之尽之，然后学者也。 君子知夫不全不粹之不足以为美也，故诵数以贯之，思索以通之，为其人以处之，除其害者以持养之。使目非是无欲见也，使耳非是无欲闻也，使口非是无欲言也，使心非是无欲虑也。及至其致好之也，目好之五色，耳好之五声，口好之五味，心利之有天下。是故权利不能倾也，群众不能移也，天下不能荡也。生乎由是，死乎由是，夫是之谓德操。德操然后能定，能定然后能应。能定能应，夫是之谓成人。天见其明，地见其光，君子贵其全也。这是一篇好文章&quot;</span><br><span class="line">int(21)//向文件中写入的内容</span><br><span class="line">bool(true) //关闭文件后$re返回值结果，值为true,说明关闭成功</span><br><span class="line">resource(3) of type (Unknown)//关闭文件资源后，再次输出的$fp的结果</span><br></pre></td></tr></table></figure>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>在php4相关的文件操作中，能够对文件执行什么样的操作，取决于fopen是指定的第二个参数打开模式。</li>
+</ol>
+<h4 id="PHP5相关文件操作"><a href="#PHP5相关文件操作" class="headerlink" title="PHP5相关文件操作"></a>PHP5相关文件操作</h4><p>涉及的函数：</p>
+<blockquote>
+<p><strong>file_put_contents</strong>(文件全路径,  写入的内容[,  写入方式])      向文件中写入内容    </p>
+<p>​                                                    写入方式可指定为FILE_APPEND</p>
+<p><strong>file_get_contents</strong>(文件全路径)      获得文件中的内容</p>
+</blockquote>
+<p>演示案例：读取article.txt文件中的内容，并且向article1.txt文件中写入”好酒哇！”内容</p>
+<p>实现：构建名为code12.php的程序文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取article.txt文件中的内容</span></span><br><span class="line">$content = file_get_contents(<span class="string">'./article.txt'</span>);</span><br><span class="line">var_dump( $content ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#向文件中写入内容</span></span><br><span class="line">$writeContent = <span class="string">'好酒哇！'</span>;</span><br><span class="line"><span class="comment">//$re = file_put_contents('./article.txt', $writeContent);//如果不指定第三个参数，则默认是覆盖写入</span></span><br><span class="line">$re = file_put_contents(<span class="string">'./article1.txt'</span>, $writeContent, FILE_APPEND);</span><br><span class="line">var_dump( $re );</span><br></pre></td></tr></table></figure>
+<p>访问code12.php，输出的结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string(12) &quot;好酒哇！&quot;//读取的article.txt文件中的所有内容</span><br><span class="line">int(12)//向文件中写入内容后的返回值，返回了写入内容的字节长度</span><br></pre></td></tr></table></figure>
+<h2 id="4-全天总结"><a href="#4-全天总结" class="headerlink" title="4. 全天总结"></a>4. 全天总结</h2><ol>
+<li><p>http协议分为：1）http请求；2）http响应</p>
+</li>
+<li><p>http请求包含四个部分，分别是：1)请求行；2）请求头；3）空白行；4）请求数据；</p>
+</li>
+<li><p>http响应包含四个部分，分别是：1）状态行；2）响应头；3）空白行；4）响应数据；</p>
+</li>
+<li><p>http协议的特点：</p>
+<p>不仅支持B/S模式，还支持C/S模式；</p>
+<p>协议支持传输任意类型的数据；</p>
+<p>无连接的特性，每次完整的请求之后，本次连接将会断开；</p>
+<p>无状态的特性，协议本身不具有记忆能力；</p>
+</li>
+<li><p>文件编程分为：1）对目录的操作；2）对文件的操作；</p>
+</li>
+<li><p>对目录的操作：</p>
+<p>mkdir函数负责创建目录</p>
+<p>rmdir函数负责删除目录</p>
+<p>rename函数负责对目录重命名或转移目录到指定的地方去</p>
+<p>opendir函数负责打开一个文件</p>
+<p>readdir函数负责读取打开的文件资源内容</p>
+<p>closedir函数负责关闭打开的目录</p>
+</li>
+<li><p>对文件的操作：</p>
+<p>php4:</p>
+<p>​    fopen函数打开文件资源，需要指定打开模式</p>
+<p>​    fwrite函数负责向打开的文件中写入内容</p>
+<p>​    fread函数负责读取打开文件中的内容，需要指定读取的内容长度</p>
+<p>​    filesize函数负责获取文件的大小</p>
+<p>php5:</p>
+<p>​    file_get_contents函数负责读取文件的所有内容</p>
+<p>​    file_put_contents函数负责向文件中写入指定的内容，如果不指定第三个参数，则默认为覆盖写入，如果要追加写入，则需要指定第三个参数为FILE_APPEND</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/3647702629/" title="http协议与文件编程">http://blog.kuma8866.top/posts/3647702629/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2009405217/" rel="next" title="博客项目2">
+                <i class="fa fa-chevron-left"></i> 博客项目2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/1620559679/" rel="prev" title="面向对象4">
+                面向对象4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、HTTP协议"><span class="nav-text">==一、HTTP协议==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HTTP协议的相关概念"><span class="nav-text">1. HTTP协议的相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么学习HTTP协议"><span class="nav-text">为什么学习HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是HTTP协议"><span class="nav-text">什么是HTTP协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTTP协议的分类"><span class="nav-text">2. HTTP协议的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求"><span class="nav-text">HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求行"><span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求头"><span class="nav-text">请求头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空白行"><span class="nav-text">空白行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求数据"><span class="nav-text">请求数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP响应"><span class="nav-text">HTTP响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态行"><span class="nav-text">状态行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#响应状态码"><span class="nav-text">响应状态码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应头"><span class="nav-text">响应头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空白行-1"><span class="nav-text">空白行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应数据"><span class="nav-text">响应数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结-1"><span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HTTP协议的特点"><span class="nav-text">3. HTTP协议的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-HTTP协议的应用"><span class="nav-text">4. HTTP协议的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转"><span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新跳转"><span class="nav-text">刷新跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSL安全访问协议"><span class="nav-text">SSL安全访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#https简介"><span class="nav-text">https简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSL协议"><span class="nav-text">配置SSL协议</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、文件编程"><span class="nav-text">==二、文件编程==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-文件编程相关概念"><span class="nav-text">1. 文件编程相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用文件编程"><span class="nav-text">为什么使用文件编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是文件编程"><span class="nav-text">什么是文件编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-文件编程的分类"><span class="nav-text">2. 文件编程的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对目录的操作"><span class="nav-text">对目录的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对文件的操作"><span class="nav-text">对文件的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP4相关文件操作"><span class="nav-text">PHP4相关文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP5相关文件操作"><span class="nav-text">PHP5相关文件操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-全天总结"><span class="nav-text">4. 全天总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

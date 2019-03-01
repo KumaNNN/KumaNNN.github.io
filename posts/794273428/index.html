@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="三、正则表达式概述w3c手册位置：上面的JavaScript — 左侧的JavaScript — 右侧的参考书 — 左侧的 JS RegExp 1、概述正则表达式(Regular Expression)描述了一种字符串 匹配 的模式，可以用来检查一个字符串中是否含有某种子串、将匹配的子串做替换或者从某个字符串中取出符合某个条件的子串等。 ==匹配==就是在某个字符串中查找你想要查找的内容（由正则表">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/794273428/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="三、正则表达式概述w3c手册位置：上面的JavaScript — 左侧的JavaScript — 右侧的参考书 — 左侧的 JS RegExp 1、概述正则表达式(Regular Expression)描述了一种字符串 匹配 的模式，可以用来检查一个字符串中是否含有某种子串、将匹配的子串做替换或者从某个字符串中取出符合某个条件的子串等。 ==匹配==就是在某个字符串中查找你想要查找的内容（由正则表">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533006843639.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533021963971.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533026547458.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533027213176.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533027453701.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533027517601.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533028777940.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533028964994.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533030110299.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533035016089.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533035541325.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533035644559.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533035708694.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533035944230.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533036134099.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533037239196.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/794273428/1533037656030.png">
+<meta property="og:updated_time" content="2018-12-18T04:35:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="三、正则表达式概述w3c手册位置：上面的JavaScript — 左侧的JavaScript — 右侧的参考书 — 左侧的 JS RegExp 1、概述正则表达式(Regular Expression)描述了一种字符串 匹配 的模式，可以用来检查一个字符串中是否含有某种子串、将匹配的子串做替换或者从某个字符串中取出符合某个条件的子串等。 ==匹配==就是在某个字符串中查找你想要查找的内容（由正则表">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/794273428/1533006843639.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/794273428/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则表达式 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/794273428/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">正则表达式
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 12:35:16" itemprop="dateCreated datePublished" datetime="2018-12-18T12:35:16+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/RegExp/" itemprop="url" rel="index"><span itemprop="name">RegExp</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">8 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="三、正则表达式概述"><a href="#三、正则表达式概述" class="headerlink" title="三、正则表达式概述"></a>三、正则表达式概述</h1><p>w3c手册位置：上面的JavaScript — 左侧的JavaScript — 右侧的参考书 — 左侧的 <strong>JS RegExp</strong></p>
+<h2 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h2><p><strong>正则表达式(Regular Expression)</strong>描述了一种字符串 匹配 的模式，可以用来检查一个字符串中是否含有某种子串、将匹配的子串做替换或者从某个字符串中取出符合某个条件的子串等。</p>
+<p>==匹配==就是在某个字符串中查找你想要查找的内容（由正则表达式决定），如果查找到了，就表示匹配。没有查找到就表示不匹配。</p>
+<p>正则表达式本身是一门独立的技术，可以被大多数编程语言所使用，如Javascript、PHP、Java</p>
+<p>正则表达式也是用于查找字符串的，只是比正常的查找更加高级。</p>
+<p>怎么高级了，比如在字符串“abacad”中查找a：</p>
+<p>普通的查找：JavaScript语法：’abacad’.search(‘a’); //只查询一次，返回a首次出现的位置0.</p>
+<p>普通的查询：php语法：strpos(‘abacad’, ‘a’);</p>
+<p>高级的查找：要求查找a，什么样的a呢？后面必须是c的a。这正是正则表达式的用武之地。</p>
+<h2 id="2、应用场景"><a href="#2、应用场景" class="headerlink" title="2、应用场景"></a>2、应用场景</h2><p>（1）表单验证里面，验证字符的合法性，如邮箱是否合法，手机号是否合法等等。</p>
+<p>（2）信息过滤，如论坛帖子或者评论中的非法字符，例如 sql注入、js脚本注入、煽动性的言论。</p>
+<p>（3）信息采集，采集别人网站上面的内容，例如整页采集时 筛选出需求的部分</p>
+<p>（4）信息替换。</p>
+<p>（5）页面伪静态的规则。</p>
+<hr>
+<h1 id="四、入门案例"><a href="#四、入门案例" class="headerlink" title="四、入门案例"></a>四、入门案例</h1><h2 id="1、正则用法说明"><a href="#1、正则用法说明" class="headerlink" title="1、正则用法说明"></a>1、正则用法说明</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//查找str字符串中h是否存在</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> str = <span class="string">'php'</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//var result = str.match(/参数就是正则表达式/); //返回存放匹配结果的数组</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'php'</span>;</span><br><span class="line">   <span class="keyword">var</span> result = str.match(<span class="regexp">/h/</span>); <span class="comment">//返回值是 存放匹配结果的数组</span></span><br><span class="line">   <span class="built_in">console</span>.log(result); <span class="comment">// Array [ "h" ]</span></span><br></pre></td></tr></table></figure>
+<p>==匹配不到，返回null==。</p>
+<h2 id="2、全局修饰符g"><a href="#2、全局修饰符g" class="headerlink" title="2、全局修饰符g"></a>2、全局修饰符g</h2><p>g是global，表示全局的意思，它是正则表达式语法中的修饰符，修饰符应该放到定界符(/)的后面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'phphp'</span>;</span><br><span class="line">   <span class="comment">//    var result = str.match(/h/); //返回值是 存放匹配结果的数组</span></span><br><span class="line">   <span class="comment">//    console.log(result); // Array [ "h" ]</span></span><br><span class="line">   <span class="keyword">var</span> result = str.match(<span class="regexp">/h/g</span>); <span class="comment">//返回值是 存放匹配结果的数组</span></span><br><span class="line">   <span class="built_in">console</span>.log(result); <span class="comment">// Array [ "h", "h" ]</span></span><br></pre></td></tr></table></figure>
+<p>不加g，表示只匹配一次，就终止继续向后查找；</p>
+<p>加入g，表示执行全局匹配，会一直查找到字符串的结尾。</p>
+<p>正则表达式要写到两条斜线之间，两条斜线是正则表达式是<strong>定界符</strong>，注意的是修饰符g要放到斜线的外面。</p>
+<hr>
+<h1 id="五、-正则语法"><a href="#五、-正则语法" class="headerlink" title="五、==正则语法=="></a>五、==正则语法==</h1><h2 id="1、量词"><a href="#1、量词" class="headerlink" title="1、量词"></a>1、量词</h2><p>n+   匹配任何包含==至少一个== n 的字符串。匹配一个或多个前导字符（<strong>前导字符就是紧挨着+号的前一个字符</strong>） </p>
+<p>n*    匹配任何包含==零个或多个== n 的字符串。前导字符有没有都行 </p>
+<p>n?    匹配任何包含==零个或一个== n 的字符串。 </p>
+<p>n{X} 匹配包含 X 个 n 的序列的字符串。 </p>
+<p>n{X,Y} 匹配包含 X 到 Y 个 n 的序列的字符串，包括X和Y个 。<br>        如，实际需求是4~16位，但n前面被占用了1位，所以都需要减去1， n{3,15}</p>
+<p>n{X,} 匹配包含至少 X 个 n 的序列的字符串。 </p>
+<p>n$    匹配任何结尾为 n 的字符串。(从末尾开始匹配)</p>
+<p>^n    匹配任何开头为 n 的字符串。（注意位置在前面）</p>
+<p>^n$   表示只匹配字符串n。也就是匹配整个字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    var str = 'phhhhhhp php  phhhhp  phhhhhhp  pp';</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph+p/g);</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph?p/g);</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph*p/g);</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph&#123;4&#125;p/g);</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph&#123;4,&#125;p/g);</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph&#123;4,6&#125;p/g);</span></span><br><span class="line"><span class="comment">//    var result = str.match(/^ph?p/g); //表示只检查字符串的开头</span></span><br><span class="line"><span class="comment">//    var result = str.match(/ph?p$/g); //表示只检查字符串的结尾</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">"php"</span>;</span><br><span class="line">    <span class="keyword">var</span> result = str.match(<span class="regexp">/^php$/g</span>); <span class="comment">//只匹配php</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h2 id="2、元字符"><a href="#2、元字符" class="headerlink" title="2、元字符"></a>2、元字符</h2><p>==<strong>.</strong>==  表示==任意单个==字符。除了换行和行结束符。 </p>
+<p>==<strong>.*</strong>== 表示任意字符串（0个或多个任意字符，除了换行和行结束符）<strong>.</strong>是任意一个字符，*表示任意个前导字符。二者组合表示任意字符串</p>
+<p><img src="1533006843639.png" alt="1533006843639"></p>
+<p>==<strong>\w</strong>==  匹配任何数字、字母、下划线。<strong>一个\w表示一个字符，想表示多个字符，可以配合量词，如\w{5}</strong>。 </p>
+<p><strong>\W</strong>  匹配任何非数字、非字母、非下划线。 </p>
+<p>==<strong>\d</strong>== 查找数字。 </p>
+<p><strong>\D</strong> 查找非数字字符。 </p>
+<p>==<strong>\s</strong>== 查找空白字符。 一个\s表示一个空格</p>
+<p><strong>\S</strong> 查找非空白字符。 </p>
+<p>==<strong>\b</strong>== 匹配单词边界。（边界字母个数没有限制；\b放前面表示匹配单词前面的边界，\b表示匹配单词后面的边界） </p>
+<p><strong>\B</strong> 匹配非单词边界。 </p>
+<p><strong>\n</strong> 查找换行符。 </p>
+<p><strong>\r</strong> 查找回车符。 </p>
+<p><strong>\t</strong> 查找制表符。</p>
+<h2 id="3、方括号"><a href="#3、方括号" class="headerlink" title="3、方括号"></a>3、方括号</h2><p>方括号表示一个范围，也称为<strong>字符簇</strong>。</p>
+<p>[abc]  查找方括号之内的任何字符。 </p>
+<p>[^abc] 查找任何不在方括号之间的字符。（方括号中的^表示取反） </p>
+<p>[0-9] 查找任何从 0 至 9 的数字。表示匹配一个字符 </p>
+<p>[a-z] 查找任何从小写 a 到小写 z 的字符。 表示匹配一个字符</p>
+<p>[A-Z] 查找任何从大写 A 到大写 Z 的字符。 表示匹配一个字符</p>
+<p>[A-z] 查找任何从大写 A 到小写 z 的字符。<strong>包括下划线</strong>。  表示匹配一个字符</p>
+<p>[5-8] 查找5 &lt;= 目标 &lt;= 8的字符</p>
+<p><strong>(</strong>red|blue|green<strong>)</strong> 查找任何指定的选项。（竖线|表示<strong>或</strong>者）</p>
+<h2 id="4、修饰符"><a href="#4、修饰符" class="headerlink" title="4、修饰符"></a>4、修饰符</h2><p>修饰符的用法，是修饰符一定要写到<code>/正则表达式/</code>之后，即 <code>/正则表达式/修饰符</code> <strong>可以一次性使用多个修饰符</strong>。</p>
+<p><strong>i</strong>  执行对大小写不敏感的匹配。实际上就是不区分大小写的匹配 </p>
+<p><strong>g</strong>  执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。 </p>
+<p><strong>m</strong> 执行多行匹配。</p>
+<h2 id="5、转义字符"><a href="#5、转义字符" class="headerlink" title="5、转义字符"></a>5、转义字符</h2><p>转义字符是 “<em>==\==” 如果匹配的字符串在正则中有特殊含义的都必须加转义字符。</em></p>
+<p>如 [ ] $ . * ? + | ^ { } ( )</p>
+<p>==但是不要乱加转义。==</p>
+<hr>
+<h1 id="六、-分组-捕获和反向引用"><a href="#六、-分组-捕获和反向引用" class="headerlink" title="六、==分组/捕获和反向引用=="></a>六、==分组/捕获和反向引用==</h1><p><strong>捕获和反向引用的语法的解释</strong>：</p>
+<p>正则中出现的小括号，就叫<strong>捕获</strong>或者<strong>分组</strong></p>
+<p>在正则语法中（在<code>/…/</code>内），在捕获的后面，用<code>\1</code>来引用前面的捕获。用<code>\2</code>表示第二个捕获的内容….</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'1234 5566 7788 9090'</span>;</span><br><span class="line"><span class="comment">//查找连续的四个数字</span></span><br><span class="line"><span class="comment">//var result = str.match(/[0-9]&#123;4&#125;/g);</span></span><br><span class="line"><span class="comment">//var result = str.match(/[0-9][0-9][0-9][0-9]/g);</span></span><br><span class="line"><span class="comment">//var result = str.match(/[0-9]+/g);</span></span><br><span class="line"><span class="comment">//var result = str.match(/\d\d\d\d/g);</span></span><br><span class="line"><span class="comment">//var result = str.match(/\d&#123;4&#125;/g);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//查询连续的四个数字，要求第1个数字和第2个数字相等，要求第3个数字和第4个数字相等</span></span><br><span class="line"><span class="comment">//如下详解：</span></span><br><span class="line"><span class="comment">// \1所处位置为2，\1指向的引用为第一个（）中的，所以，第1个数字和第2个数字相等</span></span><br><span class="line"><span class="comment">//var result = str.match(/(\d)\1(\d)\2/g);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//查询连续的四个数字，要求第1个数字和第3个数字相等，要求第2个数字和第4个数字相等</span></span><br><span class="line"><span class="keyword">var</span> result = str.match(<span class="regexp">/(\d)(\d)\1\2/g</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>在正则语法外（如replace时），用<code>$1</code>来引用前面的捕获。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//替换</span></span><br><span class="line"><span class="comment">//var str = 'hello123';</span></span><br><span class="line"><span class="comment">//要求查询str中的数字，然后将数字变为连续的两个数字，如1变成11,2变成22,3变成33，....</span></span><br><span class="line"><span class="comment">//var result = str.replace(/(\d)/g, "$1$1");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//要求把下面的world hello替换成“hello world”</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"world hello"</span>;</span><br><span class="line"><span class="keyword">var</span> result = str.replace(<span class="regexp">/(\w+)(\s+)(\w+)/g</span>, <span class="string">"$3$2$1"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h3 id="禁止引用"><a href="#禁止引用" class="headerlink" title="禁止引用"></a><strong>禁止引用</strong></h3><p><strong>(?:正则)</strong> 这个小括号中的内容不能够被引用</p>
+<p><img src="1533021963971.png" alt="1533021963971"></p>
+<hr>
+<h1 id="七、匹配中文（utf-8编码）"><a href="#七、匹配中文（utf-8编码）" class="headerlink" title="七、匹配中文（utf-8编码）"></a>七、匹配中文（utf-8编码）</h1><p>每个字符（中文、英文字母、数字、各种符号、拉丁文、韩文、日文等）都对应着一个Unicode编码。</p>
+<p>查看Unicode编码，找到中文的部分，然后获取中文的Unicode编码的区间，就可以用正则匹配了。</p>
+<p>前面我们用[a-z]表示小写字母，[0-9]表示数字，这就是一个范围表示，如果有一个数x能够表示第一个中文，有一个数y能够表示最后一个中文，那么[x-y]就可以表示所有的中文了。</p>
+<p><strong>中文的Unicode编码从4E00开始，到9FA5结束</strong>。</p>
+<p><strong>完整的Unicode编码表</strong>：<a href="http://blog.csdn.net/hherima/article/details/9045861" target="_blank" rel="noopener">http://blog.csdn.net/hherima/article/details/9045861</a></p>
+<p><strong>[4E00-9FA5]</strong>这个区间就能够表示中文。</p>
+<p><strong>注意写法的细节</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//javascript</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = str.match(<span class="regexp">/[\u4e00-\u9fa5]/g</span>);  <span class="comment">//需要前缀 \u</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//需要前缀 \x ，并且要用｛｝包裹</span></span><br><span class="line"><span class="comment">// (小写)u  ： 模式和目标字符串都被认为是 utf-8 的。</span></span><br><span class="line">preg_match_all(<span class="string">'/[\x&#123;4e00&#125;-\x&#123;9fa5&#125;]/u'</span>, $str, $out);</span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"hello中国，你好"</span>;</span><br><span class="line"><span class="keyword">var</span> result = str.match(<span class="regexp">/[\u4e00-\u9fa5]/g</span>); <span class="comment">//[ "中", "国", "你", "好" ] </span></span><br><span class="line"><span class="comment">//var result = str.match(/[\u4e00-\u9fa5]+/g); //[ "中国", "你好" ]</span></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h1 id="八、环视"><a href="#八、环视" class="headerlink" title="八、环视"></a>八、环视</h1><p><strong>亦称为（断言/零宽断言/正向预测）</strong></p>
+<p><strong>N(?=n)</strong> <strong>匹配任何其后紧接指定字符串 n</strong> <strong>的字符串</strong>。</p>
+<p>有一个字符串是“abacad”，从里面查找a，什么样的a呢？后面必须紧接b的a。</p>
+<p>正则语法是：/a(?=b)/g</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'ab ac ad'</span>;</span><br><span class="line">   <span class="keyword">var</span> result = str.match(<span class="regexp">/a(?=b)/g</span>); <span class="comment">// ["a"]</span></span><br><span class="line">   <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p><strong>N(?!n)</strong> <strong>匹配任何其后没有紧接指定字符串 n</strong> <strong>的字符串</strong>。</p>
+<p>有一个字符串是“abacad”，从里面查找a，什么样的a呢？后面不能紧接b的a。</p>
+<p>正则语法是：/a(?!b)/g</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'ab ac ad'</span>;</span><br><span class="line">   <span class="keyword">var</span> result = str.match(<span class="regexp">/a(?!b)/g</span>); <span class="comment">// ["a", "a"]</span></span><br><span class="line">   <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询大写字母，要求大写字母后面必须是一个数字	</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'H5 is Very Good'</span>;</span><br><span class="line">   <span class="keyword">var</span> result = str.match(<span class="regexp">/[A-Z](?=\d)/g</span>); <span class="comment">// ["a", "a"]</span></span><br><span class="line">   <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>另外，还会看到<code>(?!B)[A-Z]</code>这种写法，其实它是[A-Z]范围里，<strong>==排除==</strong>B的意思，前置的(?!B)只是对后面数据的一个限定，从而达到过滤匹配的效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(?!xxx)放到前面，表示排除的意思。比如查询所有的字母，但是不要[a-w]</span></span><br><span class="line">   <span class="keyword">var</span> str = <span class="string">'H5 is Very Good'</span>;</span><br><span class="line">   <span class="keyword">var</span> result = str.match(<span class="regexp">/(?![a-w])[A-z]/g</span>); <span class="comment">// [ "H", "V", "y", "G" ]</span></span><br><span class="line">   <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<h1 id="九、正则对象的属性和方法"><a href="#九、正则对象的属性和方法" class="headerlink" title="九、正则对象的属性和方法"></a>九、正则对象的属性和方法</h1><p><img src="1533026547458.png" alt="1533026547458"></p>
+<h2 id="1、调用方式"><a href="#1、调用方式" class="headerlink" title="1、调用方式"></a>1、调用方式</h2><p>正则对象中的成员方法和属性的正确调用方式：</p>
+<p>和String对象类似，一种是<strong>直接量语法</strong>（<code>/[a-z]/.exec()</code>），另一种方法是实例化正则对象，然后<strong>通过对象去调用成员方法</strong>（<code>var reg = new RegExp(/[a-z]/);  reg.exec()</code>）</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">'abcdd'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方式一：</span></span><br><span class="line">/[a-z]/.exec(str)；<span class="comment">//直接使用正则表达式调用方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方式二：</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/[a-z]/</span>);  <span class="comment">//先实例化对象</span></span><br><span class="line">reg.exec(str)； <span class="comment">//然后通过对象去调用方法</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、exec方法和lastIndex属性"><a href="#2、exec方法和lastIndex属性" class="headerlink" title="2、exec方法和lastIndex属性"></a>2、exec方法和lastIndex属性</h2><p>exec方法执行一个正则匹配，==只匹配一次==，匹配到结果就返回一个数组类型的结果，匹配不到就返回null。并将表示匹配的位置 置为下一个匹配的位置。</p>
+<p><strong>lastIndex</strong>一个整数，标示开始下一次匹配的字符位置。没有更多匹配重置lastIndex为0.</p>
+<p>依次调用exec匹配下一个的例子：</p>
+<p><img src="1533027213176.png" alt="1533027213176"></p>
+<p>匹配带子表达式(分组)的例子，带子表达式并且依次调用的例子：</p>
+<p><img src="1533027453701.png" alt="1533027453701"></p>
+<p> 循环输出：</p>
+<p><img src="1533027517601.png" alt="1533027517601"></p>
+<h2 id="3、test方法"><a href="#3、test方法" class="headerlink" title="3、test方法"></a>3、test方法</h2><p>test方法检测目标字符串和正则表达式是否匹配，如果匹配返回<strong>true</strong>，不匹配返回<strong>false</strong>。</p>
+<p>案例 –匹配手机号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">手机号特点：</span></span><br><span class="line"><span class="comment">    11位</span></span><br><span class="line"><span class="comment">    纯数字</span></span><br><span class="line"><span class="comment">    1开头</span></span><br><span class="line"><span class="comment">    23位判断[可选，去各大运营商查询]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> tel = <span class="string">'13066668888'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^1\d&#123;10&#125;$/g</span>;</span><br><span class="line"><span class="keyword">var</span> result = reg.test(tel);</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="十、JS中支持正则表达式的-String-对象的方法"><a href="#十、JS中支持正则表达式的-String-对象的方法" class="headerlink" title="十、JS中支持正则表达式的 String 对象的方法"></a>十、JS中支持正则表达式的 String 对象的方法</h1><h2 id="1、search"><a href="#1、search" class="headerlink" title="1、search()"></a>1、search()</h2><p>在字符串中搜索符合正则表达式的结果。如果找到结果返回结果的==位置==（从0开始的下标），<strong>并停止向后检索</strong>，也就是说忽略全局标识符g；如果没有匹配结果，返回-1.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'1234512345'</span>;</span><br><span class="line">   <span class="keyword">var</span> regexp = <span class="regexp">/2/g</span>;</span><br><span class="line">   <span class="keyword">var</span> reslut = str.search(regexp);</span><br><span class="line">   <span class="built_in">console</span>.log(reslut); <span class="comment">// 返回2所在的位置，结果是1</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、match"><a href="#2、match" class="headerlink" title="2、match()"></a>2、match()</h2><p>在字符串中检索匹配正则表达式的子串；如果匹配，返回包含匹配结果的一个<strong>数组</strong>；不匹配返回<strong>null</strong>。</p>
+<p><strong>不加全局g的情况</strong>：</p>
+<p>获取的结果只是第一个匹配的内容，匹配的内容中的第一个单元是匹配的结果，后面的单元是子表达式。</p>
+<p><img src="1533028777940.png" alt="1533028777940"></p>
+<p><strong>加全局的g的情况</strong>：</p>
+<p>获取的结果是所有匹配的内容，但是<strong>不</strong>包含子表达式。</p>
+<p><img src="1533028964994.png" alt="1533028964994"></p>
+<p><strong>多次调用和调用一次效果一样</strong>。</p>
+<p>如果要把所有的匹配结果、所有的子表达式都获取到，用什么方法？</p>
+<p>答：循环使用正则方法exec()。</p>
+<h2 id="3、split"><a href="#3、split" class="headerlink" title="3、split()"></a>3、split()</h2><p>将字符串分割成数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用@或者. 将邮箱分割成数组	</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'23423452@qq.com'</span>;</span><br><span class="line">   <span class="keyword">var</span> arr = str.split(<span class="regexp">/@|\./</span>);</span><br><span class="line">   <span class="built_in">console</span>.log(arr); <span class="comment">//[ "23423452", "qq", "com" ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、replace-替换"><a href="#4、replace-替换" class="headerlink" title="4、replace()替换"></a>4、replace()替换</h2><p><strong>默认只替换一次，加g全部替换</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'17:27:50'</span>;</span><br><span class="line">   <span class="keyword">var</span> result = str.replace(<span class="regexp">/7/</span>, <span class="number">5</span>); <span class="comment">//只替换一次  15:27:50</span></span><br><span class="line">   <span class="keyword">var</span> result = str.replace(<span class="regexp">/7/g</span>, <span class="number">5</span>); <span class="comment">//全部替换  15:25:50</span></span><br><span class="line">   <span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p><strong>替换的时候，使用”$1”表示第一个子表达式的内容，用“$2”表示第二个子表达式的内容，以此类推</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//替换abc为aabbcc：</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(str.replace(<span class="regexp">/([a-z])/g</span>, <span class="string">"$1$1"</span>)); <span class="comment">//查找到a就替换，然后再查找b，再替换....</span></span><br></pre></td></tr></table></figure>
+<p><strong>用  $` 表示捕获的内容左侧的内容，用  $’  表示捕获的内容右侧的内容</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//替换成 x[x-y-z]z</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'xyz'</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(str.replace(<span class="regexp">/(y)/g</span>, <span class="string">"[$`-$1-$']"</span>));</span><br></pre></td></tr></table></figure>
+<p><strong>复杂的替换，可以用函数处理如何替换</strong></p>
+<p>替换aaa bbb ccc为Aaa Bbb Ccc</p>
+<p><img src="1533030110299.png" alt="1533030110299"></p>
+<hr>
+<h1 id="十一、-PHP中的正则表达式"><a href="#十一、-PHP中的正则表达式" class="headerlink" title="十一、==PHP中的正则表达式=="></a>十一、==PHP中的正则表达式==</h1><p>==语法和JavaScript中的正则语法基本一致==。</p>
+<p>PHP中的正则函数：</p>
+<p><img src="1533035016089.png" alt="1533035016089"></p>
+<h2 id="1、preg-match"><a href="#1、preg-match" class="headerlink" title="1、preg_match()"></a>1、preg_match()</h2><p><strong>preg_match()  返回匹配的次数，它的返回值是0或者是1.</strong></p>
+<p>0表示不匹配，1表示匹配一次，因为preg_match在匹配一次之后就停止向后检索了。</p>
+<p><img src="1533035541325.png" alt="1533035541325"></p>
+<p>查看匹配的结果，使用第三个(引用类型)参数：</p>
+<p><img src="1533035644559.png" alt="1533035644559"></p>
+<p>带有子表达式的例子：</p>
+<p><img src="1533035708694.png" alt="1533035708694"></p>
+<h2 id="2、preg-match-all"><a href="#2、preg-match-all" class="headerlink" title="2、preg_match_all()"></a>2、preg_match_all()</h2><p><strong>preg_match_all()</strong> 返回完整匹配次数（可能是0），或者如果发生错误返回<strong>FALSE</strong>。 </p>
+<p>执行正则表达式的全局匹配，类似于js中的带g的匹配。</p>
+<p><img src="1533035944230.png" alt="1533035944230"></p>
+<p>带有子表达式的例子：</p>
+<p><img src="1533036134099.png" alt="1533036134099"></p>
+<h2 id="3、preg-replace"><a href="#3、preg-replace" class="headerlink" title="3、preg_replace();"></a>3、preg_replace();</h2><p>替换字符串：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//preg_replace('/正则表达式/', 替换成什么, 在哪里替换);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> preg_replace(<span class="string">'/h/'</span>, <span class="string">'H'</span>, <span class="string">'hello'</span>); <span class="comment">//Hello</span></span><br><span class="line"><span class="keyword">echo</span> preg_replace(<span class="string">'/l/'</span>, <span class="string">'L'</span>, <span class="string">'hello'</span>); <span class="comment">//heLLo</span></span><br></pre></td></tr></table></figure>
+<p>补充：preg_replace_callback() ，即<code>替换成什么</code> 用函数来处理;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> preg_replace_callback(<span class="string">'/[a-z]+/'</span>, <span class="function"><span class="keyword">function</span><span class="params">($x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ucfirst($x[<span class="number">0</span>]); <span class="comment">//$x,表示每次匹配到的结果。在本例中，分别表示数组类型的hello和world</span></span><br><span class="line">&#125;, <span class="string">'hello world'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>案例：解决贪婪问题？</strong></p>
+<p>下面的是贪婪模式：</p>
+<p><img src="1533037239196.png" alt="1533037239196"></p>
+<p>非贪婪模式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$str = <span class="string">"this is a [b]php[/b], that is a [b]javascript[/b]"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//$str = preg_replace('/[b](.*)[/b]/', '&lt;b&gt;$1&lt;/b&gt;', $str);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//解决贪婪模式方式一，和js一样，加 ？</span></span><br><span class="line"><span class="comment">//$str = preg_replace('/\[b\](.*?)\[\/b\]/', '&lt;b&gt;$1&lt;/b&gt;', $str);  </span></span><br><span class="line"><span class="comment">//解决贪婪模式二，PHP独有的，加修饰符 U</span></span><br><span class="line">$str = preg_replace(<span class="string">'/\[b\](.*)\[\/b\]/U'</span>, <span class="string">'&lt;b&gt;$1&lt;/b&gt;'</span>, $str); </span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $str;</span><br></pre></td></tr></table></figure>
+<h2 id="4、php中匹配中文"><a href="#4、php中匹配中文" class="headerlink" title="4、php中匹配中文"></a>4、php中匹配中文</h2><p><code>[\x{4e00}-\x{9fa5}]/u</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//需要前缀 \x ，并且要用｛｝包裹</span></span><br><span class="line"><span class="comment">// (小写)u  ： 模式和目标字符串都被认为是 utf-8 的。</span></span><br><span class="line">preg_match_all(<span class="string">'/[\x&#123;4e00&#125;-\x&#123;9fa5&#125;]/u'</span>, $str, $out);</span><br></pre></td></tr></table></figure>
+<p><img src="1533037656030.png" alt="1533037656030"></p>
+<h2 id="5、PHP中使用正则注意点"><a href="#5、PHP中使用正则注意点" class="headerlink" title="5、PHP中使用正则注意点"></a>5、PHP中使用正则注意点</h2><p>PHP中正则的使用除了//以外，外面还要加引号，这个引号要用==单引号==。</p>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/794273428/" title="正则表达式">http://blog.kuma8866.top/posts/794273428/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/1392188595/" rel="next" title="HTML和HTML5">
+                <i class="fa fa-chevron-left"></i> HTML和HTML5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2800343177/" rel="prev" title="正则表达式案例">
+                正则表达式案例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#三、正则表达式概述"><span class="nav-text">三、正则表达式概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、概述"><span class="nav-text">1、概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、应用场景"><span class="nav-text">2、应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、入门案例"><span class="nav-text">四、入门案例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、正则用法说明"><span class="nav-text">1、正则用法说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、全局修饰符g"><span class="nav-text">2、全局修饰符g</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、-正则语法"><span class="nav-text">五、==正则语法==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、量词"><span class="nav-text">1、量词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、元字符"><span class="nav-text">2、元字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、方括号"><span class="nav-text">3、方括号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、修饰符"><span class="nav-text">4、修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、转义字符"><span class="nav-text">5、转义字符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、-分组-捕获和反向引用"><span class="nav-text">六、==分组/捕获和反向引用==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#禁止引用"><span class="nav-text">禁止引用</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#七、匹配中文（utf-8编码）"><span class="nav-text">七、匹配中文（utf-8编码）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八、环视"><span class="nav-text">八、环视</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九、正则对象的属性和方法"><span class="nav-text">九、正则对象的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、调用方式"><span class="nav-text">1、调用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、exec方法和lastIndex属性"><span class="nav-text">2、exec方法和lastIndex属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、test方法"><span class="nav-text">3、test方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十、JS中支持正则表达式的-String-对象的方法"><span class="nav-text">十、JS中支持正则表达式的 String 对象的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、search"><span class="nav-text">1、search()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、match"><span class="nav-text">2、match()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、split"><span class="nav-text">3、split()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、replace-替换"><span class="nav-text">4、replace()替换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一、-PHP中的正则表达式"><span class="nav-text">十一、==PHP中的正则表达式==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、preg-match"><span class="nav-text">1、preg_match()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、preg-match-all"><span class="nav-text">2、preg_match_all()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、preg-replace"><span class="nav-text">3、preg_replace();</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、php中匹配中文"><span class="nav-text">4、php中匹配中文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、PHP中使用正则注意点"><span class="nav-text">5、PHP中使用正则注意点</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

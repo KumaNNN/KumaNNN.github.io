@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="面向对象41. ==对象的遍历==对象和数组本质上同属于复合数据类型，我们可以在程序中可以对数组进行遍历。 回顾对数组的遍历： ==需求==：对以下指定的数组进行foreach遍历 1$arr = [&apos;name&apos;=&amp;gt;&apos;zhangsan&apos;, &apos;age&apos;=&amp;gt;12, &apos;height&apos;=&amp;gt;1.78]; ==解答==：构建名为code1.php的文件，代码如下： 12345678$arr">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象4">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/1620559679/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="面向对象41. ==对象的遍历==对象和数组本质上同属于复合数据类型，我们可以在程序中可以对数组进行遍历。 回顾对数组的遍历： ==需求==：对以下指定的数组进行foreach遍历 1$arr = [&apos;name&apos;=&amp;gt;&apos;zhangsan&apos;, &apos;age&apos;=&amp;gt;12, &apos;height&apos;=&amp;gt;1.78]; ==解答==：构建名为code1.php的文件，代码如下： 12345678$arr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/4_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/5_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/1_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/6_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/7_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/8_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/9_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/10_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/11_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/12_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/13_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/14_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/2_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/15_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/16_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/17_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/18_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/19_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/20_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/21_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/22_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/23_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/24_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/25_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/26_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/27_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/28_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/29_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/30_4.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/1620559679/31_4.png">
+<meta property="og:updated_time" content="2019-02-28T04:36:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象4">
+<meta name="twitter:description" content="面向对象41. ==对象的遍历==对象和数组本质上同属于复合数据类型，我们可以在程序中可以对数组进行遍历。 回顾对数组的遍历： ==需求==：对以下指定的数组进行foreach遍历 1$arr = [&apos;name&apos;=&amp;gt;&apos;zhangsan&apos;, &apos;age&apos;=&amp;gt;12, &apos;height&apos;=&amp;gt;1.78]; ==解答==：构建名为code1.php的文件，代码如下： 12345678$arr">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/1620559679/4_4.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/1620559679/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>面向对象4 | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/1620559679/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">面向对象4
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-28 12:36:17" itemprop="dateCreated datePublished" datetime="2019-02-28T12:36:17+08:00">2019-02-28</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/PHP/PHP面向对象编程/" itemprop="url" rel="index"><span itemprop="name">PHP面向对象编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">16k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">15 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="面向对象4"><a href="#面向对象4" class="headerlink" title="面向对象4"></a>面向对象4</h1><h2 id="1-对象的遍历"><a href="#1-对象的遍历" class="headerlink" title="1. ==对象的遍历=="></a>1. ==对象的遍历==</h2><p>对象和数组本质上同属于<strong>复合数据</strong>类型，我们可以在程序中可以对数组进行遍历。</p>
+<p>回顾对数组的遍历：</p>
+<p><strong>==需求==</strong>：对以下指定的数组进行foreach遍历</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$arr = [<span class="string">'name'</span>=&gt;<span class="string">'zhangsan'</span>, <span class="string">'age'</span>=&gt;<span class="number">12</span>, <span class="string">'height'</span>=&gt;<span class="number">1.78</span>];</span><br></pre></td></tr></table></figure>
+<p><strong>==解答==</strong>：构建名为code1.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$arr = [<span class="string">'name'</span>=&gt;<span class="string">'zhangsan'</span>, <span class="string">'age'</span>=&gt;<span class="number">12</span>, <span class="string">'height'</span>=&gt;<span class="number">1.78</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>( $arr <span class="keyword">as</span> $k=&gt;$v )&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Key：'</span>; </span><br><span class="line">    var_dump( $k ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Value：'</span>; </span><br><span class="line">    var_dump( $v ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问code1.php的效果：</p>
+<p><img src="4_4.png" alt="1530668234222"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>遍历数组其实就是每次都去得到数组的一个元素，将数组元素的下标赋值给$k，将数组元素的值赋值给$v；</li>
+</ol>
+<p><strong>提问</strong>：我们可以对数组进行遍历，那么，是否也能够对对象进行遍历呢？</p>
+<h3 id="默认的对象遍历"><a href="#默认的对象遍历" class="headerlink" title="默认的对象遍历"></a>默认的对象遍历</h3><p>我们尝试对对象进行一次遍历测试，</p>
+<p><strong>==需求==</strong>：对$a1对象进行foreach遍历</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> $name=<span class="string">'zhangsan'</span>;</span><br><span class="line">    <span class="keyword">public</span> $age=<span class="number">12</span>;</span><br><span class="line">    <span class="keyword">public</span> $height=<span class="number">1.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a1 = <span class="keyword">new</span> A;</span><br></pre></td></tr></table></figure>
+<p><strong>==解答==</strong>：构建名为code2.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> $name=<span class="string">'zhangsan'</span>;</span><br><span class="line">    <span class="keyword">public</span> $age=<span class="number">12</span>;</span><br><span class="line">    <span class="keyword">public</span> $height=<span class="number">1.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a1 = <span class="keyword">new</span> A;</span><br><span class="line">var_dump( $a1 ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>( $a1 <span class="keyword">as</span> $k=&gt;$v )&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Key：'</span>; </span><br><span class="line">    var_dump( $k ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Value：'</span>; </span><br><span class="line">    var_dump( $v ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问code2.php的效果：</p>
+<p><img src="5_4.png" alt="1530668552715"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>默认的对象遍历，其实就是逐个 的去获得属性的名和属性的值；</li>
+</ol>
+<h3 id="自定义对象遍历"><a href="#自定义对象遍历" class="headerlink" title="自定义对象遍历"></a>自定义对象遍历</h3><p>PHP中，还提供了一种自定义遍历对象的方式。</p>
+<p>实现自定义对象遍历的<strong>前提</strong>：需要实现PHP==预定义==接口”Iterator”</p>
+<p>自定义对象遍历的<strong>概念</strong>：当==遍历==一个==对象时==，PHP自动==按顺序执行==预定义接口Iterator中实现的==五个方法==。 </p>
+<p>PHP预定义接口Iterator：</p>
+<p><img src="1_4.png" alt="1530607474017"></p>
+<p><strong>==需求1==</strong>：测试Iterator接口中五个抽象方法的执行顺序；</p>
+<p><strong>==解答1==</strong>：构建名为code4.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用一个普通类实现预定义接口Iterator</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Iterator</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $num=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">current</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'current&lt;br/&gt;'</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">key</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'key&lt;br/&gt;'</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'next&lt;br/&gt;'</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rewind</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'rewind&lt;br/&gt;'</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">valid</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">if</span>( <span class="keyword">$this</span>-&gt;num&lt;<span class="number">1</span> )&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;num++;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'valid&lt;br/&gt;'</span>; </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a1 = <span class="keyword">new</span> A;</span><br><span class="line"><span class="keyword">foreach</span>( $a1 <span class="keyword">as</span> $k=&gt;$v )&#123; <span class="comment">//遍历$a1对象，触发PHP自动去按顺序执行5个被实现了的抽象方法</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问code4.php的效果：</p>
+<p><img src="6_4.png" alt="1530669826108"></p>
+<p><strong>==小结1==</strong>：</p>
+<ol>
+<li>我们从最终的效果中发现，5个抽象方法执行的顺序是：1)rewind方法，2）valid方法，3）current方法，4）key方法，5）next方法；</li>
+</ol>
+<p>5个抽象方法的作用前置说明：</p>
+<p><img src="7_4.png" alt="1530670918450"></p>
+<p><strong>==需求2==</strong>：使用Iterator预定义接口完成对$arr属性中保存的数组数据的遍历；</p>
+<ol>
+<li><p>需要使用如下所示的类：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> $arr=[<span class="string">'name'</span>=&gt;<span class="string">'zhangsan'</span>, <span class="string">'age'</span>=&gt;<span class="number">12</span>, <span class="string">'height'</span>=&gt;<span class="number">1.78</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>==解答2==</strong>：构建名为code5.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#实现Iterator预定义接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Iterator</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> $var1=<span class="string">'var1'</span>;</span><br><span class="line">    <span class="keyword">public</span> $var2=<span class="string">'var2'</span>;</span><br><span class="line">    <span class="keyword">public</span> $arr=[<span class="string">'name'</span>=&gt;<span class="string">'zhangsan'</span>, <span class="string">'age'</span>=&gt;<span class="number">12</span>, <span class="string">'height'</span>=&gt;<span class="number">1.78</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">#rewind方法将会被首次执行</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rewind</span><span class="params">()</span></span>&#123; </span><br><span class="line">        reset(<span class="keyword">$this</span>-&gt;arr);<span class="comment">//重置$arr属性所保存数组指针到第一个元素的位置</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#当第一轮遍历的时候，valid将会被作为第二个被执行的方法来执行；以后每一轮都将最为第一个被执行的方法来执行</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">valid</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">if</span>( key(<span class="keyword">$this</span>-&gt;arr)===<span class="keyword">NULL</span> )&#123;<span class="comment">//如果当前元素的指针所在位置上的元素下标的值为NULL，则说明指针已经挪出了数组了</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;<span class="comment">//返回false，停止继续往下循环执行</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//否则则说明指针还在数组里面</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">//返回true,继续往下执行</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#当第一轮遍历的时候，current方法将会作为第三个被执行的方法来执行；以后每一轮都将作为第二个被执行的方法来执行</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">current</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">return</span> current(<span class="keyword">$this</span>-&gt;arr);<span class="comment">//将当前指针位置上的元素值返回给foreach结构的$v</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#当第一轮遍历的时候，key方法将会作为第四个被执行的方法来执行；以后每一轮都将作为第三个被执行的方法来执行</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">key</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">return</span> key(<span class="keyword">$this</span>-&gt;arr);<span class="comment">//将当前指针位置上的元素键返回给foreach结构的$k</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#next方法是每一轮的最后一次将被执行的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">()</span></span>&#123; </span><br><span class="line">        next(<span class="keyword">$this</span>-&gt;arr);<span class="comment">//将$arr属性保存的数组元素的指针向下移动一位</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a1 = <span class="keyword">new</span> A;</span><br><span class="line"><span class="keyword">foreach</span>( $a1 <span class="keyword">as</span> $k=&gt;$v )&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'key：'</span>; </span><br><span class="line">    var_dump( $k ); <span class="keyword">echo</span> <span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'value：'</span>; </span><br><span class="line">    var_dump( $v ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问code5.php的效果：</p>
+<p><img src="8_4.png" alt="1530673346357"></p>
+<p><strong>==小结2==</strong>：</p>
+<ol>
+<li>当实现了一个预定义接口Iterator及其5个抽象方法后，再使用遍历的方式去遍历对象的话，则会触发PHP自动按顺序去执行5个实现了的抽象方法；</li>
+</ol>
+<h2 id="2-对象的序列化与反序列化"><a href="#2-对象的序列化与反序列化" class="headerlink" title="2. ==对象的序列化与反序列化=="></a>2. ==对象的序列化与反序列化==</h2><p>在PHP中，如果我们直接将（PHP八种数据类型）数据写入文件中，那么，除了字符串数据外，其他的数据都将会失真。</p>
+<p><strong>==需求==</strong>：按要求完成以下操作；</p>
+<ol>
+<li><p>在code目录中创建code9.php的程序，代码如下，访问该程序页面将八种数据类型数据写入文件中：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#标量数据类型</span></span><br><span class="line">$string = <span class="string">'string'</span>;<span class="comment">//字符串</span></span><br><span class="line">$int = <span class="number">100</span>;<span class="comment">//整型</span></span><br><span class="line">$float = <span class="number">3.14</span>;<span class="comment">//浮点</span></span><br><span class="line">$bool = <span class="keyword">true</span>;<span class="comment">//布尔</span></span><br><span class="line"></span><br><span class="line">file_put_contents(<span class="string">'./txt/string.txt'</span>, $string);</span><br><span class="line">file_put_contents(<span class="string">'./txt/int.txt'</span>, $int);</span><br><span class="line">file_put_contents(<span class="string">'./txt/float.txt'</span>, $float);</span><br><span class="line">file_put_contents(<span class="string">'./txt/bool.txt'</span>, $bool);</span><br><span class="line"></span><br><span class="line"><span class="comment">#复合数据类型</span></span><br><span class="line">$array = [<span class="string">'zhangsan'</span>, <span class="number">16</span>];<span class="comment">//数组</span></span><br><span class="line">$object = <span class="keyword">new</span> stdClass;<span class="comment">//对象</span></span><br><span class="line"></span><br><span class="line">file_put_contents(<span class="string">'./txt/array.txt'</span>, $array);</span><br><span class="line">file_put_contents(<span class="string">'./txt/object.txt'</span>, $object);</span><br><span class="line"></span><br><span class="line"><span class="comment">#特殊数据类型</span></span><br><span class="line">$resource = opendir(<span class="string">'./dir'</span>);<span class="comment">//资源</span></span><br><span class="line">$null = <span class="keyword">null</span>;<span class="comment">//null</span></span><br><span class="line"></span><br><span class="line">file_put_contents(<span class="string">'./txt/resource.txt'</span>, $resource);</span><br><span class="line">file_put_contents(<span class="string">'./txt/null.txt'</span>, $null);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再在code目录下创建code10.php程序，代码如下，访问该程序页面，分别读取八个文件中保存的八种数据，查看最终打印效果，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#标量数据类型</span></span><br><span class="line">$string = file_get_contents(<span class="string">'./txt/string.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'string.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $string ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$int = file_get_contents(<span class="string">'./txt/int.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'int.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $int ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$float = file_get_contents(<span class="string">'./txt/float.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'float.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $float ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$bool = file_get_contents(<span class="string">'./txt/bool.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'bool.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $bool ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#复合数据类型</span></span><br><span class="line">$array = file_get_contents(<span class="string">'./txt/array.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'array.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $array ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$object = file_get_contents(<span class="string">'./txt/object.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'object.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $object ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#特殊数据类型</span></span><br><span class="line">$resource = file_get_contents(<span class="string">'./txt/resource.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'resource.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $resource ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$null = file_get_contents(<span class="string">'./txt/null.txt'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'null.txt文件的内容：&lt;br/&gt;'</span>; </span><br><span class="line">var_dump( $null ); </span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>==解答==</strong>：最终读取txt文件的内容效果为：</p>
+<p><img src="9_4.png" alt="1530674681298"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>除了字符串类型在保存前和读取后数据值和数据类型都维持了一致，其余7中数据类型全部都失真了。</li>
+</ol>
+<p>在PHP中，将对象进行序列化与反序列化操作就是为了让对象数据类型数据，存储进文件后，再从文件中读取出来也不失真。</p>
+<h3 id="对象的序列化"><a href="#对象的序列化" class="headerlink" title="对象的序列化"></a>对象的序列化</h3><p><strong>概念</strong>：对象的序列化就是通过==serialize函数==将某个==对象转换==成一个具有固定信息格式的==字符串==。</p>
+<p>涉及的函数：</p>
+<blockquote>
+<p><strong>serialize</strong>(对象)      将对象进行序列化</p>
+</blockquote>
+<p><strong>==需求==</strong>：将如下所示的对象$d进行序列化，并且将序列化后的结果输出；</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$d = <span class="keyword">new</span> DirTool;</span><br></pre></td></tr></table></figure>
+<p><strong>==解答==</strong>：构建名为code11.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$d = <span class="keyword">new</span> DirTool;</span><br><span class="line">var_dump( $d ); <span class="comment">//直接打印对象</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">$str = serialize($d);<span class="comment">//将$d对象进行序列化操作</span></span><br><span class="line">var_dump( $str );</span><br></pre></td></tr></table></figure>
+<p>访问code11.php的效果：</p>
+<p><img src="10_4.png" alt="1530675554615"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>使用serialize函数能够直接将对象进行序列化；</li>
+<li>将对象序列化之后，其实就变成了一个具有固定格式的字符串；</li>
+</ol>
+<h4 id="sleep魔术方法"><a href="#sleep魔术方法" class="headerlink" title="__sleep魔术方法"></a>__sleep魔术方法</h4><p>当对象被序列化时，如果类中定义了__sleep魔术方法，则该魔术方法将会被PHP自动调用执行。</p>
+<p><strong>==需求==</strong>：在如下所示的类中构建__sleep魔术方法；</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$d = <span class="keyword">new</span> DirTool;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>在魔术方法中输出”100”，观察访问页面效果；</p>
+</li>
+<li><p>在魔术方法中构建如下代码，观察访问页面效果；</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">'path'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code12.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个__sleep魔术方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__sleep</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="comment">//echo 100; </span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">'path'</span>);<span class="comment">//return语句中的数组元素，负责控制将会把哪些属性进行序列化</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$d = <span class="keyword">new</span> DirTool;</span><br><span class="line"></span><br><span class="line">$str = serialize($d);<span class="comment">//将$d对象进行序列化</span></span><br><span class="line">var_dump( $str );</span><br></pre></td></tr></table></figure>
+<p>访问code12.php的效果：</p>
+<p><img src="11_4.png" alt="1530676203069"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>PHP不负责定义__sleep魔术方法，只负责调用这个魔术方法；</li>
+<li>调用这个魔术方法的时机是，当使用serialize对一个对象进行序列化时，将会触发PHP自动调用执行这个魔术方法；</li>
+<li>如果在魔术方法中构建return语句返回数组，则数组可以控制哪些属性将会被序列化，不在数组当中的属性将不会被序列化；</li>
+</ol>
+<h3 id="对象的反序列化"><a href="#对象的反序列化" class="headerlink" title="对象的反序列化"></a>对象的反序列化</h3><p><strong>概念</strong>：对象的反序列化就是通过unserialize函数将==某个对象序列化后的字符串==<strong>还原回</strong>原来的==对象==。</p>
+<p>涉及的函数：</p>
+<blockquote>
+<p><strong>unserialize</strong>(序列化后的字符串)      将对象进行反序列化</p>
+</blockquote>
+<p><strong>==需求1==</strong>：按要求完成以下操作：</p>
+<ol>
+<li><p>构建程序文件code13.php，内容如下，将$str进行反序列化，打印反序列化后的结果，观察效果；</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$str = <span class="string">'O:7:"DirTool":2:&#123;s:4:"path";s:5:"./dir";s:8:"resource";i:0;&#125;'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>==解答1==</strong>：构建名为code13.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$str = <span class="string">'O:7:"DirTool":2:&#123;s:4:"path";s:5:"./dir";s:8:"resource";i:0;&#125;'</span>;<span class="comment">//这个是某个对象序列化后的字符串结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#执行反序列化操作</span></span><br><span class="line">$obj = unserialize($str);</span><br><span class="line"></span><br><span class="line">var_dump( $obj );</span><br></pre></td></tr></table></figure>
+<p>访问code13.php的效果：</p>
+<p><img src="12_4.png" alt="1530676639879"></p>
+<p><strong>==小结1==</strong>：</p>
+<ol>
+<li>在反序列化对象时，如果没有原始类的定义，则反序列化后，PHP将会自动把该对象划归为PHP中的一个预定义系统类__PHP_Incomplete_Class中；</li>
+</ol>
+<p><strong>==需求2==</strong>：按要求完成以下操作：</p>
+<ol>
+<li><p>构建程序文件codex1.php，内容如下，将$str进行反序列化，打印反序列化后的结果，观察效果；</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'O:7:"DirTool":2:&#123;s:4:"path";s:5:"./dir";s:8:"resource";i:0;&#125;'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>==解答2==</strong>：构建名为code16.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;      <span class="comment">//原始类的定义</span></span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'O:7:"DirTool":2:&#123;s:4:"path";s:5:"./dir";s:8:"resource";i:0;&#125;'</span>;<span class="comment">//对象序列化后的字符串结果</span></span><br><span class="line"></span><br><span class="line">$obj = unserialize($str);<span class="comment">//反序列化回一个对象</span></span><br><span class="line">var_dump( $obj );</span><br></pre></td></tr></table></figure>
+<p>访问code16.php的效果：</p>
+<p><img src="13_4.png" alt="1530687768539"></p>
+<p><strong>==小结2==</strong>：</p>
+<ol>
+<li>反序列化需要使用unserialize函数来实现；</li>
+<li>反序列化时必须要有原始类的定义才能够正确的还原对象；</li>
+</ol>
+<h4 id="wakeup魔术方法"><a href="#wakeup魔术方法" class="headerlink" title="__wakeup魔术方法"></a>__wakeup魔术方法</h4><p>当对象序列化的字符串结果被反序列化时，如果类中定义了__wakeup魔术方法，则该魔术方法将会被PHP自动调用执行。</p>
+<p><strong>==需求==</strong>：在如下所示的类中构建__wakeup魔术方法；</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'O:7:"DirTool":2:&#123;s:4:"path";s:5:"./dir";s:8:"resource";i:0;&#125;'</span>;</span><br><span class="line">var_dump(unserialize($str));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在魔术方法中输出”100”，观察访问页面效果；</li>
+<li>在魔术方法中再次把$resource属性的资源值重新还原回来，观察访问页面效果；</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code17.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirTool</span></span>&#123;      <span class="comment">//原始类的定义</span></span><br><span class="line">    <span class="keyword">public</span> $path;</span><br><span class="line">    <span class="keyword">public</span> $resource;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;path = <span class="string">'./dir'</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#构建一个__wakeup魔术方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;resource = opendir(<span class="keyword">$this</span>-&gt;path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'O:7:"DirTool":2:&#123;s:4:"path";s:5:"./dir";s:8:"resource";i:0;&#125;'</span>;<span class="comment">//对象序列化后的字符串结果</span></span><br><span class="line"></span><br><span class="line">$obj = unserialize($str);<span class="comment">//反序列化回一个对象</span></span><br><span class="line">var_dump( $obj );</span><br></pre></td></tr></table></figure>
+<p>访问code17.php的效果：</p>
+<p><img src="14_4.png" alt="1530688892385"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>PHP不负责定义__wakeup魔术方法，只负责调用该方法；</li>
+<li>调用该魔术方法的时机：当反序列化一个对象序列化字符串结果时，将会被PHP自动调用执行一次；</li>
+</ol>
+<h2 id="3-反射机制"><a href="#3-反射机制" class="headerlink" title="3. ==反射机制=="></a>3. ==反射机制==</h2><p>函数拓展：</p>
+<blockquote>
+<p><strong>get_declared_classes</strong>()   获得当前程序脚本中所定义出的所有类的类名</p>
+<p><strong>get_class_methods</strong>(类名)    获得类中定义的方法信息</p>
+</blockquote>
+<p>我们可以在程序中通过以上两个函数和其他的一些函数获得类中相关的一些简单信息。但是有时候我们需要获得更加详细的类中的信息，通过这些简单函数就没有办法获得了。那怎么呢？</p>
+<p>在PHP中，我们可以通过反射机制来获得更详细的类中的信息！反射机制可以形象的比喻为： X光机 或 照妖镜</p>
+<p>在PHP中，我们是通过PHP==预定义==好的类来实现反射机制的，</p>
+<p><img src="2_4.png" alt="1530612867044"></p>
+<p>反射机制可以分为：1）类的反射；2）类常量的反射；3）类属性的反射；4）类方法的反射；5）类方法参数的反射；</p>
+<h3 id="类的反射"><a href="#类的反射" class="headerlink" title="类的反射"></a>类的反射</h3><p>涉及的方法：</p>
+<blockquote>
+<p>ReflectionClass::export    反射指定的类的信息</p>
+<p>getFileName    反射类所在的文件名</p>
+<p>implementsInterface    判断某个类是否实现了某个接口</p>
+</blockquote>
+<p><strong>==需求1==</strong>：引入code/prepare/CatpchaTool.class.php文件，使用ReflectionClass::export反射CaptchaTool类的信息；</p>
+<p><strong>==解答1==</strong>：构建名为code20.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">'./prepare/CaptchaTool.class.php'</span>;<span class="comment">//引入类文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line"><span class="comment">//ReflectionClass::export('CaptchaTool');//第一个参数可以是  类名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//$obj = new CaptchaTool;</span></span><br><span class="line"><span class="comment">//ReflectionClass::export($obj);//第一个参数也可以是基于某个类创建的对象</span></span><br><span class="line"></span><br><span class="line">$info = ReflectionClass::export(<span class="string">'CaptchaTool'</span>, <span class="keyword">true</span>);<span class="comment">//第二个参数如果不指定，则信息将会直接输出到浏览器，如果指定为true，则信息将会以返回值的信息返回</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $info );</span><br></pre></td></tr></table></figure>
+<p>访问code20.php的效果：</p>
+<p><img src="15_4.png" alt="1530692397154"></p>
+<p><strong>==小结1==</strong>：</p>
+<ol>
+<li>ReflectionClass::export可以实现获得类中的详细类信息；</li>
+</ol>
+<p><strong>==需求2==</strong>：引入code/prepare/CatpchaTool.class.php文件，使用getFileName方法反射CaptchaTool类所在的文件名；</p>
+<p><strong>==解答2==</strong>：构建名为code21.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">'./prepare/CaptchaTool.class.php'</span>;<span class="comment">//引入类文件</span></span><br><span class="line"></span><br><span class="line">$obj = <span class="keyword">new</span> ReflectionClass(<span class="string">'CaptchaTool'</span>);<span class="comment">//创建ReflectionClass类的对象，反射CaptchaTool类中的信息</span></span><br><span class="line">var_dump( $obj ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span><br><span class="line">$fileName = $obj-&gt;getFileName();<span class="comment">//获得CaptchaTool类所在的文件</span></span><br><span class="line">var_dump( $fileName );</span><br></pre></td></tr></table></figure>
+<p>访问code21.php的效果：</p>
+<p><img src="16_4.png" alt="1530692843172"></p>
+<p><strong>==小结2==</strong>：</p>
+<ol>
+<li>getFileName能够获取某个类所在的文件全路径。</li>
+</ol>
+<p><strong>==需求3==</strong>：使用如下代码，按要求完成操作：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">inter1</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">inter2</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">inter2</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用implementsInterface方法反射A类是否实现了inter1和inter2接口；</li>
+</ol>
+<p><strong>==解答3==</strong>：构建名为code22.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">inter1</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">inter2</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">inter2</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">$obj = <span class="keyword">new</span> ReflectionClass(<span class="string">'A'</span>);<span class="comment">//实例化ReflectionClass反射类的对象，反射A类的信息</span></span><br><span class="line">$re = $obj-&gt;implementsInterface(<span class="string">'inter1'</span>);<span class="comment">//判断需要反射的A类是否有实现指定的inter1接口</span></span><br><span class="line">var_dump( $re ); <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;<span class="comment">//返回false意味着没有实现inter1接口</span></span><br><span class="line">$re = $obj-&gt;implementsInterface(<span class="string">'inter2'</span>);<span class="comment">//判断需要反射的A类是否有实现指定的inter2接口</span></span><br><span class="line">var_dump( $re ); <span class="comment">//返回true意味着实现了inter2接口</span></span><br></pre></td></tr></table></figure>
+<p>访问code22.php的效果：</p>
+<p><img src="17_4.png" alt="1530693358443"></p>
+<p><strong>==小结3==</strong>：</p>
+<ol>
+<li>implementsInterface方法可以判断某个类是否实现了某个接口。</li>
+</ol>
+<h3 id="类常量的反射"><a href="#类常量的反射" class="headerlink" title="类常量的反射"></a>类常量的反射</h3><p>涉及的方法：</p>
+<blockquote>
+<p>getConstants方法    获得所有相关常量的信息</p>
+</blockquote>
+<p><strong>==需求==</strong>：使用如下代码，按要求完成操作：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> URL=<span class="string">'www.home.com'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用getConstants方法反射A类中的常量信息；</li>
+</ol>
+<p><strong>==解答==</strong>：构建名为code23.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> URL=<span class="string">'www.home.com'</span>;</span><br><span class="line">    <span class="keyword">const</span> PATH=<span class="string">'./source'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$obj = <span class="keyword">new</span> ReflectionClass(<span class="string">'A'</span>);<span class="comment">//实例化ReflectionClass反射类的对象，反射A类的信息</span></span><br><span class="line">$info = $obj-&gt;getConstants();<span class="comment">//获得类常量的所有信息</span></span><br><span class="line">var_dump( $info );</span><br></pre></td></tr></table></figure>
+<p>访问code23.php的效果：</p>
+<p><img src="18_4.png" alt="1530694151735"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>getConstants方法可以获取所有常量的信息；</li>
+</ol>
+<h3 id="类属性的反射"><a href="#类属性的反射" class="headerlink" title="类属性的反射"></a>类属性的反射</h3><p>涉及的方法：</p>
+<blockquote>
+<p>getProperties方法  获得类中所有属性的信息 </p>
+</blockquote>
+<p><strong>==需求==</strong>：引入code/prepare/CatpchaTool.class.php文件，使用getProperties方法反射CaptchaTool类中所有属性的信息；</p>
+<p><strong>==解答==</strong>：构建名为code24.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">'./prepare/CaptchaTool.class.php'</span>;<span class="comment">//引入类文件</span></span><br><span class="line"></span><br><span class="line">$obj = <span class="keyword">new</span> ReflectionClass(<span class="string">'CaptchaTool'</span>);<span class="comment">//创建ReflectionClass类的对象，反射CaptchaTool类中的信息</span></span><br><span class="line">$info = $obj-&gt;getProperties();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $info );</span><br></pre></td></tr></table></figure>
+<p>访问code24.php的效果：</p>
+<p><img src="19_4.png" alt="1530694279997"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>getProperties可以获取类中所有的属性信息；</li>
+</ol>
+<h3 id="类方法的反射"><a href="#类方法的反射" class="headerlink" title="类方法的反射"></a>类方法的反射</h3><p>涉及的方法：</p>
+<blockquote>
+<p>getMethods方法  获得类中所有方法的信息</p>
+</blockquote>
+<p><strong>==需求==</strong>：引入code/prepare/CatpchaTool.class.php文件，使用getMethods方法反射CaptchaTool类中所有方法的信息；</p>
+<p><strong>==解答==</strong>：构建名为code25.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">'./prepare/CaptchaTool.class.php'</span>;<span class="comment">//引入类文件</span></span><br><span class="line"></span><br><span class="line">$obj = <span class="keyword">new</span> ReflectionClass(<span class="string">'CaptchaTool'</span>);<span class="comment">//创建ReflectionClass类的对象，反射CaptchaTool类中的信息</span></span><br><span class="line">$info = $obj-&gt;getMethods();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump( $info );</span><br></pre></td></tr></table></figure>
+<p>访问code25.php的效果：</p>
+<p><img src="20_4.png" alt="1530694387522"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>getMethods可以获取类中所有方法名；</li>
+</ol>
+<h3 id="类方法参数的反射"><a href="#类方法参数的反射" class="headerlink" title="类方法参数的反射"></a>类方法参数的反射</h3><p>涉及的方法：</p>
+<blockquote>
+<p>ReflectionMethod::export     反射指定方法的参数信息</p>
+</blockquote>
+<p><strong>==需求==</strong>：引入code/prepare/CatpchaTool.class.php文件，使用ReflectionMethod::export方法反射CaptchaTool类中getColor方法所有参数的信息；</p>
+<p><strong>==解答==</strong>：构建名为code26.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> <span class="string">'./prepare/CaptchaTool.class.php'</span>;<span class="comment">//引入类文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line"><span class="comment">//ReflectionMethod::export('CaptchaTool', 'getColor');//反射CaptchaTool类中的getColor方法中的所有参数信息，不指定第三个参数，默认是false，表示直接将信息输出到浏览器</span></span><br><span class="line">$info = ReflectionMethod::export(<span class="string">'CaptchaTool'</span>, <span class="string">'getColor'</span>, <span class="keyword">true</span>);<span class="comment">//</span></span><br><span class="line">var_dump( $info );</span><br></pre></td></tr></table></figure>
+<p>访问code26.php的效果：</p>
+<p><img src="21_4.png" alt="1530694732275"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>ReflectionMethod::export可以反射指定类中某个指定方法的所有参数信息；</li>
+</ol>
+<h2 id="4-命名空间"><a href="#4-命名空间" class="headerlink" title="4. ==命名空间=="></a>4. ==命名空间==</h2><p><strong>提问</strong>：我们在电脑中，如何创建两个同名的文件？</p>
+<p>回答： 在不同的文件夹下创建同名文件即可。</p>
+<p><strong>提问</strong>：在PHP中，同一个脚本代码程序里，是否能够创建两个相同名的函数？</p>
+<p>回答：正常情况下，是不行的。但是，如果使用了命名空间，则允许创建同名函数。</p>
+<p>命名空间的定义语法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关键字为namespace</span></span><br><span class="line"><span class="keyword">namespace</span>  空间名;</span><br></pre></td></tr></table></figure>
+<p><strong>==需求==</strong>：在程序中实现定义两个同名函数f1；</p>
+<p><strong>==解答==</strong>：构建名为code27.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">first</span>;<span class="comment">//定义一个命名空间名字叫first空间</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'f1'</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">second</span>;<span class="comment">//定义一个命名空间，名字叫second空间</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'new-f1'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问code27.php的效果：</p>
+<p><img src="22_4.png" alt="1530695119116"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>可以使用关键字namespace定义命名空间；</li>
+</ol>
+<p><strong>==注意事项==</strong>：命名空间==首次定义==之前不能有任何PHP非注释代码；</p>
+<p>==演示案例==：</p>
+<p><img src="23_4.png" alt="1530695234154"></p>
+<h3 id="空间成员"><a href="#空间成员" class="headerlink" title="空间成员"></a>空间成员</h3><p>命名空间所支持控制的成员包括三种：1）函数；2）类；3）老版本的常量；</p>
+<h3 id="全局空间和子空间"><a href="#全局空间和子空间" class="headerlink" title="全局空间和子空间"></a>全局空间和子空间</h3><p>全局空间示例：程序页面中未指定命名空间的部分就属于全局空间。</p>
+<p><img src="24_4.png" alt="1530695566139"></p>
+<p>==子空间示例==：</p>
+<p><img src="25_4.png" alt="1530695776831"></p>
+<h3 id="命名空间的三种访问方式"><a href="#命名空间的三种访问方式" class="headerlink" title="命名空间的三种访问方式"></a>命名空间的三种访问方式</h3><p>命名空间的三种访问方式包括：1)非限定名称访问；2）完全限定名称访问；3）限定名称访问；</p>
+<h4 id="非限定名称访问"><a href="#非限定名称访问" class="headerlink" title="非限定名称访问"></a>非限定名称访问</h4><p><strong>概念</strong>：所谓的非限定名称访问，指的就是在访问的成员前面不加上命名空间。 </p>
+<p>==演示案例==：</p>
+<p><img src="26_4.png" alt="1530695967585"></p>
+<h4 id="完全限定名称访问-推荐"><a href="#完全限定名称访问-推荐" class="headerlink" title="完全限定名称访问(推荐)"></a>完全限定名称访问(推荐)</h4><p><strong>概念</strong>：完全限定名称访问指的就是从全局空间开始指定一直访问到该成员的访问方式。 </p>
+<p>==演示案例==：</p>
+<p><img src="27_4.png" alt="1530696149324"></p>
+<h4 id="限定名称访问"><a href="#限定名称访问" class="headerlink" title="限定名称访问"></a>限定名称访问</h4><p><strong>概念</strong>：表示从当前空间开始，直接指定子空间的成员。 </p>
+<p>==演示案例==：</p>
+<p><img src="28_4.png" alt="1530696438035"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
+<li>完全限定名称访问的方式是从全局空间开始一直指定到需要访问的成员为止；</li>
+</ol>
+<h3 id="空间引入"><a href="#空间引入" class="headerlink" title="空间引入"></a>空间引入</h3><p>==演示案例==：</p>
+<p>构建一个名为code34.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">second</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'second-f1'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再构建一个名为code33.php的文件，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">first</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'first-f1'</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./code34.php'</span>;</span><br><span class="line"></span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<p>访问code33.php效果为：</p>
+<p><img src="29_4.png" alt="1530696744827"></p>
+<p><strong>==小结==</strong>：</p>
+<p>从上面的案例效果来看，我们发现没有输出second-f1，而是输出了first-f1，说明非限定名称访问方式访问到的最近的空间是first，为什么不是引入进来的second空间？</p>
+<h4 id="空间引入的原理"><a href="#空间引入的原理" class="headerlink" title="空间引入的原理"></a>空间引入的原理</h4><p><img src="30_4.png" alt="1530697224171"></p>
+<h3 id="空间类的引入"><a href="#空间类的引入" class="headerlink" title="空间类的引入"></a>空间类的引入</h3><p>==演示案例==：</p>
+<p><img src="31_4.png" alt="1530697667733"></p>
+<p><strong>==小结==</strong>：</p>
+<ol>
+<li>空间类的引入必须引入到具体的类名上；</li>
+</ol>
+<h2 id="5-全天总结"><a href="#5-全天总结" class="headerlink" title="5. 全天总结"></a>5. 全天总结</h2><ol>
+<li><p>对象的遍历：1）默认的对象遍历；2）自定义的对象遍历；</p>
+<p>默认的对象遍历：foreach遍历一个对象，就是逐个去获得对象中的属性名和属性值；</p>
+<p>自定义对象的遍历：（如果实现了一个名为Iterator的预定义接口）foreach遍历一个对象时，则会触发PHP自动按顺序调用执行5个被实现了的接口抽象方法；</p>
+</li>
+<li><p>对象的序列化：使用serialize函数将一个对象进行序列化，如果存在__sleep魔术方法，则序列化一个对象时将会触发PHP自动调用执行一次该魔术方法；</p>
+<p>对象的反序列化（必须要有原始类的定义）：使用unserialize函数将一个对象序列化后的字符串结果还原回原来的对象；如果存在__wakeup魔术方法，则反序列化时将会触发PHP自动调用执行一次该魔术方法；</p>
+</li>
+<li><p>反射机制的概念：通过PHP内置的预定义系统类，获得某个指定的类中所有的相关成员的信息；</p>
+</li>
+<li><p>定义命名空间：使用namespace关键字定义命名空间；</p>
+<p>==完全限定名称==访问调用命名空间成员：从全局空间开始，一直指定到这个成员为止。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/1620559679/" title="面向对象4">http://blog.kuma8866.top/posts/1620559679/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3647702629/" rel="next" title="http协议与文件编程">
+                <i class="fa fa-chevron-left"></i> http协议与文件编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2314494474/" rel="prev" title="面向对象2">
+                面向对象2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象4"><span class="nav-text">面向对象4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-对象的遍历"><span class="nav-text">1. ==对象的遍历==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认的对象遍历"><span class="nav-text">默认的对象遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义对象遍历"><span class="nav-text">自定义对象遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象的序列化与反序列化"><span class="nav-text">2. ==对象的序列化与反序列化==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的序列化"><span class="nav-text">对象的序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sleep魔术方法"><span class="nav-text">__sleep魔术方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的反序列化"><span class="nav-text">对象的反序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#wakeup魔术方法"><span class="nav-text">__wakeup魔术方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-反射机制"><span class="nav-text">3. ==反射机制==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的反射"><span class="nav-text">类的反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类常量的反射"><span class="nav-text">类常量的反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类属性的反射"><span class="nav-text">类属性的反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类方法的反射"><span class="nav-text">类方法的反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类方法参数的反射"><span class="nav-text">类方法参数的反射</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-命名空间"><span class="nav-text">4. ==命名空间==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#空间成员"><span class="nav-text">空间成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局空间和子空间"><span class="nav-text">全局空间和子空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间的三种访问方式"><span class="nav-text">命名空间的三种访问方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#非限定名称访问"><span class="nav-text">非限定名称访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完全限定名称访问-推荐"><span class="nav-text">完全限定名称访问(推荐)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限定名称访问"><span class="nav-text">限定名称访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间引入"><span class="nav-text">空间引入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#空间引入的原理"><span class="nav-text">空间引入的原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间类的引入"><span class="nav-text">空间类的引入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-全天总结"><span class="nav-text">5. 全天总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="NoSqlPHP+MySql的存储缺点在大部分的PHP的网站开发当中，我们往往采用的数据存储方式是php+mysql，因此就会产生如下图所示的请求方式：   以上的架构对一般对于访问量不大的网站没有任何问题，例如：个人博客网站，小公司的企业网站。然而当网站的数据量和访问量增大之后，即使您的MySql数据库做了非常完美的优化手段，这个架构的请求方式是不会有任何改变的。也就是说，该架构所有的读写操作都">
+<meta name="keywords" content="Html,Javascript,CSS,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NoSQL之Memcache">
+<meta property="og:url" content="http://blog.kuma8866.top/posts/402189821/index.html">
+<meta property="og:site_name" content="Kuma&#39;s Blog">
+<meta property="og:description" content="NoSqlPHP+MySql的存储缺点在大部分的PHP的网站开发当中，我们往往采用的数据存储方式是php+mysql，因此就会产生如下图所示的请求方式：   以上的架构对一般对于访问量不大的网站没有任何问题，例如：个人博客网站，小公司的企业网站。然而当网站的数据量和访问量增大之后，即使您的MySql数据库做了非常完美的优化手段，这个架构的请求方式是不会有任何改变的。也就是说，该架构所有的读写操作都">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2B64.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2B89.tmp.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2B8A.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2B9A.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2B9B.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BAC.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BAD.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BBD.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BBE.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BBF.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BD0.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BD1.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BE2.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BE3.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BF3.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2BF4.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C05.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C06.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C17.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C18.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C28.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C29.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C3A.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C3B.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C4B.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C4C.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C5D.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C5E.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C6F.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C70.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C71.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C81.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C82.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2C94.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CA5.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CA6.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CB6.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CC7.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CC8.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CD8.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CD9.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CEA.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CEB.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CFC.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2CFD.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D0D.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D0E.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D0F.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D20.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D21.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D32.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D33.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D43.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D44.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D55.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D56.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D66.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D67.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D68.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D79.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D7A.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D8B.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D8C.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D9C.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2D9D.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/1536655654383.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/1536655672202.png">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DAF.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DB0.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DC1.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DC2.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DD2.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DE4.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DF4.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2DF5.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/wps2E06.tmp.jpg">
+<meta property="og:image" content="http://blog.kuma8866.top/posts/402189821/1536658468283.png">
+<meta property="og:updated_time" content="2018-12-18T04:35:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NoSQL之Memcache">
+<meta name="twitter:description" content="NoSqlPHP+MySql的存储缺点在大部分的PHP的网站开发当中，我们往往采用的数据存储方式是php+mysql，因此就会产生如下图所示的请求方式：   以上的架构对一般对于访问量不大的网站没有任何问题，例如：个人博客网站，小公司的企业网站。然而当网站的数据量和访问量增大之后，即使您的MySql数据库做了非常完美的优化手段，这个架构的请求方式是不会有任何改变的。也就是说，该架构所有的读写操作都">
+<meta name="twitter:image" content="http://blog.kuma8866.top/posts/402189821/wps2B64.tmp.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kuma's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.kuma8866.top/posts/402189821/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>NoSQL之Memcache | Kuma's Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bb5184da6d86a99b44651b67ec05e581";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kuma's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Kuma桑の博客，Hexo强力驱动</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kuma8866.top/posts/402189821/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kuma">
+      <meta itemprop="description" content="爱分享，爱技术，爱生活。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kuma's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">NoSQL之Memcache
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+		  
+			<i class="fa fa-thumb-tack"></i>
+			<font color="7D26CD">置顶</font>
+			<span class="post-meta-divider">|</span>
+		  
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 12:35:30" itemprop="dateCreated datePublished" datetime="2018-12-18T12:35:30+08:00">2018-12-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/" itemprop="url" rel="index"><span itemprop="name">Dev</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Dev/NoSQL-Memcache/" itemprop="url" rel="index"><span itemprop="name">NoSQL.Memcache</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">15k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NoSql"><a href="#NoSql" class="headerlink" title="NoSql"></a>NoSql</h1><h2 id="PHP-MySql的存储缺点"><a href="#PHP-MySql的存储缺点" class="headerlink" title="PHP+MySql的存储缺点"></a>PHP+MySql的存储缺点</h2><p>在大部分的PHP的网站开发当中，我们往往采用的数据存储方式是<strong>php+mysql</strong>，因此就会产生如下图所示的请求方式：</p>
+<p><img src="wps2B64.tmp.jpg" alt="img"> </p>
+<p>以上的架构对一般对于访问量不大的网站没有任何问题，例如：个人博客网站，小公司的企业网站。然而当网站的数据量和访问量增大之后，即使您的MySql数据库做了非常完美的优化手段，这个架构的请求方式是不会有任何改变的。也就是说，该架构所有的读写操作都是实时发生的，就算你设定了读写分离其实也是把这一切的工作依然是实时的，全部由MySql数据库来承受。所以这种请求方式的架构是有瓶颈的，虽然说理论上你还可以部署更多的数据库读写分离来减轻压力，就算是实时的请求也能扛得过去，但依然存在一个问题，更多的数据库部署意味要添加更多的服务器，这个成本其实是很高的，所以网站优化的另外一个思维就是在当前服务器中减轻数据库的压力，减轻访问(连接)的次数,而并不是不断通过添加服务器来解决。</p>
+<p><strong>原理：</strong>在我们PHP去和数据库进行交互的时候，减少对数据库的操作、因为数据库需要进行磁盘IO的操作，磁盘IO往往是很慢的（磁盘、硬盘访问的速度本身就很慢）。为了提升速度，一般来说我们会在PHP前往数据库获取数据之前，先去一个缓存系统（一般是一个内存缓存系统，内存的访问速度非常的块，最快的应该是CPU里面的一级缓存、比一级缓存更快的就是CPU寄存器 0 或 1 按位来说）里面获取数据，如果缓存系统里面的数据存在并且没有失效的情况，则可以直接返回。如果不存在或者是存在已经失效，则会去mysql数据库里面进行获取，成功获取后，不但要返回给客户端，还需要在缓存里面缓存一份，下一次请求到达的时候，直接可以从缓存里面获取。对于这种缓存系统叫做<strong>旁路式缓存系统</strong>。</p>
+<h2 id="大型网站的优化方向"><a href="#大型网站的优化方向" class="headerlink" title="大型网站的优化方向"></a><strong>大型网站的优化方向</strong></h2><p>1、增加服务器，设置读写分离（架构：更多做数据的备份）</p>
+<p>2、增加cpu、高速的IO读写硬盘等硬件和网络带宽</p>
+<p>3、在MySql层面做各项优化，如:索引优化，分表等</p>
+<p>4、使用反向代理和负载均衡技术</p>
+<p>5、聘请可靠的开发技术团队和优秀的运维团队</p>
+<p>6、使用NoSql作为缓存中间层</p>
+<p>7、CDN进行部署</p>
+<p>8、web服务器参数调优</p>
+<p>9、……</p>
+<h2 id="NoSql的含义"><a href="#NoSql的含义" class="headerlink" title="NoSql的含义"></a>NoSql的含义</h2><p><strong>NoSQL ,（Not Only SQL）</strong>，泛指<code>非关系型数据库</code>, 它是由一次叫“反Sql运动”的社区讨论而诞生的体系。这个运动的发起最早源自于社区网站 LiveJournal的开发团队，它们的初衷是为了用于减少数据库连接数，减轻数据库的工作压力，但发展至今有着其他不同的应用领域，因此NoSQL处于一种所谓百家争鸣的，各执一词的时期。但我们作为NoSql的学习者和应用者，我们不需要关心和纠结这些NoSql的争论，也不需要参与到这些争论当中。</p>
+<p>为了更好的理解nosql，则我们需要理解SQL。</p>
+<ol>
+<li>数据库的概念</li>
+<li>数据表（行和列构成一个二维结构：表，并且表一般就是现实生活中的一个实体，并且表和表之间是存在关系，也就是实体和实体关系）</li>
+<li>表中数据一般使用SQL（结构化的查询语句）操作（curd、grant、desc）</li>
+</ol>
+<p><strong>只要不是关系型数据库里面的东西，都可以叫做nosql数据库。</strong></p>
+<p><strong>关系型数据库：</strong></p>
+<p>表的关系：（在描述表关系的时候，我们需要知道我们到底是站在哪一张表的角度去看待关系）</p>
+<p>==1：1==  用户表  身份证表，一般会在我们看待表关系的表的上增加一个额外的字段来保存对其唯一的表的主键id。</p>
+<p>==1：N==  用户表  相册表，最通用的解决方法，就是增加一个附加表，在附加表里面N里面增加一个字段，表示对1表的主键的id引用。（常见的处理方式有三种：1. 在用户表里面水平方向扩充五个字段，每个表示一张图片 2. 只是在1表里面扩充一个字段，设置的类型为 text，在这个字段里面一般保存所有的图片的信息 [ [url=&gt; ‘1.jpg’,’uid’  =&gt; 12 ], [‘url’ =&gt; ‘23.jpg’, ‘uid’ =&gt; 12….], []  ]  3. 附加表）</p>
+<p>==M：N== 网站里面的标签云 ，一般设计一个中间表，中间表里面存在两个字段，第一个字段就是关联M表里面的主键id，第二字段关联N表里面的主键id。（注意：中间不需要设计主键id）</p>
+<p><strong>设计主键ID的目的</strong>：主要是为了数据的唯一性，带来的其他的作用可以实现快速的查找。主键id也是一种索引结构，既然是索引结构，就适合做数据的查找。</p>
+<p><strong>关联:</strong> 三范式(记住：在设计表的时候，并不是只有三范，还是5范式….只能借助一些软件)</p>
+<p>==范式1==：原子性，字段不可拆分，就是字段是最小字段，不要纠结，因为mysql天生支持1范。</p>
+<p>==范式2==：为了保证数据唯一性，引入主键id（主键索引），unique key（唯一索引）【1. 主键只能存在一个，可以让多个字段形成一个复合主键，唯一索引可以存在多个  2. 主键，不允许出现重复，不允许出现null  3. 唯一，不能出现重复，但是可以允许出现null，但是null不能重复】</p>
+<p>==范式3==：不能存在冗余，而引入关联。（拆成最小表：只保存用户的最最基本信息 id uname）</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>uname</th>
+<th>address_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>andy</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>mark</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>liyang</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>address_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>广州市天河区珠吉新路58号</td>
+</tr>
+<tr>
+<td>2</td>
+<td>深圳市罗湖区翠竹路78号</td>
+</tr>
+<tr>
+<td>3</td>
+<td>xxx路</td>
+</tr>
+</tbody>
+</table>
+<p>下去：反3范（反的是第三个）表里面要存在冗余信息。</p>
+<p>需求：网页要显示出当前这个已经有多少张照片了？</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>uname</th>
+<th>imgs_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>andy</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>mark0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>liyang</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><code>select count(*) from xiangce where uid = 1;</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>img_url</th>
+<th>uid</th>
+<th>add_time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>imgs/12312.jpg</td>
+<td>1</td>
+<td>123213123</td>
+</tr>
+<tr>
+<td>2</td>
+<td>imgs/12321321.jpg</td>
+<td>1</td>
+<td>12312312</td>
+</tr>
+<tr>
+<td>3</td>
+<td>imgs/12312122312.jpg</td>
+<td>3</td>
+<td>12312312</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.cnblogs.com/xwdreamer/archive/2012/05/17/2506039.html" target="_blank" rel="noopener">https://www.cnblogs.com/xwdreamer/archive/2012/05/17/2506039.html</a></p>
+<h3 id="NoSql的共同特点和优势"><a href="#NoSql的共同特点和优势" class="headerlink" title="NoSql的共同特点和优势"></a>NoSql的共同特点和优势</h3><ul>
+<li><p>NoSQL 通常是以<strong>key-value</strong>形式存储的（如:Memcache、Redis、Mongodb） </p>
+</li>
+<li><p>不支持SQL语句</p>
+</li>
+<li><p>没有表结构</p>
+</li>
+<li><p>配置简单 </p>
+</li>
+<li><p>灵活、高效的操作与数据模型（key-value存储，一般叫做hash表）</p>
+</li>
+<li><p>低廉的学习成本</p>
+</li>
+<li><p>能很好地作为MySql的中间层</p>
+</li>
+<li><p>能很好地支持PHP</p>
+</li>
+</ul>
+<h3 id="NoSql的共同的缺点"><a href="#NoSql的共同的缺点" class="headerlink" title="NoSql的共同的缺点"></a><strong>NoSql的共同的缺点</strong></h3><ul>
+<li><p>没有统一的标准 </p>
+</li>
+<li><p>安全性极差（memcache没有权限系统 内网）</p>
+</li>
+<li><p>没有正式的官方支持 </p>
+</li>
+<li><p>各种产品还不算成熟</p>
+</li>
+<li><p>权威支持的产品价格很高</p>
+</li>
+</ul>
+<h3 id="NoSql的产品分类"><a href="#NoSql的产品分类" class="headerlink" title="NoSql的产品分类"></a><strong>NoSql的产品分类</strong></h3><p>网站：<a href="http://www.nosql-database.org/" target="_blank" rel="noopener">http://www.nosql-database.org/</a></p>
+<ul>
+<li><p>redis </p>
+</li>
+<li><p>mongodb</p>
+</li>
+<li><p>memcache</p>
+</li>
+<li><p>Aliyun MQ</p>
+</li>
+<li><p>HBASE</p>
+</li>
+<li><p>…..</p>
+</li>
+</ul>
+<p><strong>问题：为什么搜索不到memcache？</strong></p>
+<p>答：一般的人认为memcache是一个缓存系统，算不上一个数据库。 </p>
+<p><strong>问题：memcacheDB是什么？</strong></p>
+<p>答：memcache出现的历史是非常的早，在出现之后，只是作为一个缓存系统出现，<strong>不支持持久化的操作</strong>（断电丢失数据）。国内的新浪最先使用的memcache，新浪业务需要做一些持久化的操作，则他们对memcache高可用（数据持久化），这个新的产品 memcacheDB，对于现在来说，实际意义不大，如果真的需要缓存系统做持久化建议使用Redis。</p>
+<h1 id="Memcache技术"><a href="#Memcache技术" class="headerlink" title="Memcache技术"></a>Memcache技术</h1><h2 id="memcache简介"><a href="#memcache简介" class="headerlink" title="memcache简介"></a>memcache简介</h2><p>官网：<a href="http://memcache.org/" target="_blank" rel="noopener">http://memcache.org/</a></p>
+<p>memcache是一个内存缓存系统。意思是memcache里面的数据全部是保存在内存里面的，速度上比硬盘快了很多很多。</p>
+<p><strong>常见存储介质速度：</strong></p>
+<p>硬盘最慢、内存其次、一级缓存快、二级缓存更快、cpu（寄存器，电脑里面最快最小的存储单元，只能存储简单的0和1状态）。</p>
+<p><strong>为什么要使用memcache做数据的缓存？</strong></p>
+<p>答：主要的原因是这样的，由于目前是出于web2.0的时代，这个数据量现在已经非常大，原先的系统架构已经不再能够支持现在的访问。所以才引入这些缓存系统来响应更大的并发。</p>
+<h2 id="Memcache的优点"><a href="#Memcache的优点" class="headerlink" title="Memcache的优点"></a>Memcache的优点</h2><p>1、纯内存的缓存机制，因此它是所有NoSql产品当中最简单也是速度最快,但是同时也是功能最弱的 </p>
+<p>2、内置分布式(集群)算法，使得开发者不需要自己去实现</p>
+<p>3、它能把单项数据缓存的过期时间设置为30天，也能使得单项数据常驻内存当中</p>
+<p>4、完美支持PHP的调用</p>
+<h2 id="Memcache的缺点"><a href="#Memcache的缺点" class="headerlink" title="Memcache的缺点"></a>Memcache的缺点</h2><p>1、由于memcache使用<strong>telnet</strong>协议进行传输，没有数据加密的功能，安全性很差，通常只适用于内网。</p>
+<p>2、Memcache最大的内存存储空间（吞吐量）只有<strong>64M</strong>，如果64M的内存一旦爆满，Memcache会指定重启，并释放当前所有的内存，在内存数据就是无情的丢失也不会保留。（<code>-m</code>选项指定内存的大小）</p>
+<p>3、memcache单个的value值最大为<strong>1M</strong>(string)</p>
+<p>4、由于Memcache把数据置于内存中，所以服务器进行维护或者重启，那么数据就会丢（本身就是缓存，是允许数据进行丢失，丢失了之后重新缓存一份即可。和存储不一样，真正保证数据不能丢失）</p>
+<p>5、数据零散，无法遍历，管理数据完整性非常一般</p>
+<h2 id="memcache和mysql对比"><a href="#memcache和mysql对比" class="headerlink" title="memcache和mysql对比"></a><strong>memcache和mysql对比</strong></h2><p><strong>什么是nosql数据库？</strong></p>
+<p>答：1. nosql数据库不使用sql语句作为查询 ；2. 没有严格的表结构的概念，一般来说都是使用key-value的hash表把数据保存在内存里面</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>caoyang</td>
+</tr>
+<tr>
+<td>age</td>
+<td>12</td>
+</tr>
+<tr>
+<td>address</td>
+<td>shanghaishi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>hash表（hash函数）有一个好处：时间复杂度为O(1)：理论上来当使用hash表保存数据的时候，不会随着数据量的增加使得查询的速度变慢，响应的时间基本不变。</p>
+<p>即：理论上10w条记录里面检索1条满足记录的时间和 从 1000w里面检测1条时间基本差不多。</p>
+</li>
+<li><p>hash的弊端：数据是随机分在某一个内存的区域里面。</p>
+</li>
+<li><p>最大的弊端就是hash碰撞：理论上来说多个key对应同一个值，是绝对存在的，但是发生的概念很低，可以使用更多的优秀的hash函数（md5 sha1 sha256 crc32…）来尽可能的避免。</p>
+</li>
+</ol>
+<p>hash使用的场景：下载软件的时候需要使用 hash做检验。（hash严格意义上不是加密）</p>
+<p>例如我们常见的md5(是一个hash函数)：可以把任何大小的文件转换为一个固定长度的字符串（ 32位的16进制字符 ，128为二进制的字符）</p>
+<p>1Byte = 8bits</p>
+<p>1 0x = 4bits</p>
+<p>2 0x = 8bits</p>
+<p>2 0x = 1Byte</p>
+<p>32 0x  = 16Byte</p>
+<p><strong>PHP业务很少做位的操作？</strong></p>
+<p>答：签到业务</p>
+<h2 id="memcache是一个c-s架构软件"><a href="#memcache是一个c-s架构软件" class="headerlink" title="memcache是一个c/s架构软件"></a>memcache是一个c/s架构软件</h2><p>memcache是一个c/s架构的软件，需要安装server端来提供相应的服务；然后使用相应的客户端，命令行<strong>telnet</strong>、<strong>php语言</strong>去操作服务器端。</p>
+<p><strong>PHP + Memcache + MySql的架构图</strong></p>
+<p><img src="wps2B89.tmp.png" alt="img"> </p>
+<p>当前方式是客户端（用户浏览器）发起请求，这时这种架构的请求方式，我们称为非实时请求，那么每一次的请求必须通过中间的缓存层面进行，如果缓存中有数据，那么数据库就不会做出任何的响应，如果没有缓存的数据，数据库只会响应一次，并把响应的结果放到内存中等待用户下一次的请求。</p>
+<h1 id="window下memcache安装"><a href="#window下memcache安装" class="headerlink" title="window下memcache安装"></a>window下memcache安装</h1><p>注意：这个一般在本地开发的时候使用，但是线上环境一般都是在linux下运行的。</p>
+<h2 id="一次性使用"><a href="#一次性使用" class="headerlink" title="一次性使用"></a><strong>一次性使用</strong></h2><ol>
+<li>复制memcahe软件包里面的exe文件到一个非中文的目录下</li>
+</ol>
+<p><img src="wps2B8A.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li><p>需要使用管理员的身份启动cmd窗口</p>
+<p>如果是window7则使用如下方式打开cmd窗口</p>
+</li>
+</ol>
+<p><img src="wps2B9A.tmp.jpg" alt="img"> </p>
+<p>如果windows10则推荐使用<code>power shell</code>（使用快捷方式 windows键 + x键）</p>
+<p><img src="wps2B9B.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>进入对应软件的目录，查看帮助</li>
+</ol>
+<p><img src="wps2BAC.tmp.jpg" alt="img"> </p>
+<p><strong>参数解释：</strong></p>
+<p><code>-p</code>参数  表示监听的端口， 默认是 11211端口</p>
+<p><code>-m</code>参数  表示分配给memcache的内存大小</p>
+<p><code>-d</code> 参数  表示可以把memcache加入到window系统服务，然后可以使用命令启动或者是重启</p>
+<p><img src="wps2BAD.tmp.jpg" alt="img"> </p>
+<p><code>-vvv</code>参数 打印启动的信息</p>
+<p><code>-f</code>增长因子</p>
+<p><img src="wps2BBD.tmp.jpg" alt="img"> </p>
+<ol start="4">
+<li>一次性启动：默认是占据这个终端窗口的</li>
+</ol>
+<p><img src="wps2BBE.tmp.jpg" alt="img"> </p>
+<p>如果需要终止服务，只需要按一下<code>ctrl+c</code></p>
+<h2 id="安装成window系统服务"><a href="#安装成window系统服务" class="headerlink" title="安装成window系统服务"></a><strong>安装成window系统服务</strong></h2><ol>
+<li>在启动memcache.exe的时候加上<code>-d install</code>即可安装为服务</li>
+</ol>
+<p><img src="wps2BBF.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>当成为一个系统服务后可以在服务列表里面进行服务的管理</li>
+</ol>
+<p><img src="wps2BD0.tmp.jpg" alt="img"> </p>
+<p>查看具体的服务信息</p>
+<p><img src="wps2BD1.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>点击【属性】后</li>
+</ol>
+<p><img src="wps2BE2.tmp.jpg" alt="img"> </p>
+<p>4 . 如果要卸载window下的memcache服务，则可以使用 <code>-d uninstall</code>命令</p>
+<p><img src="wps2BE3.tmp.jpg" alt="img"> </p>
+<h2 id="Memcache客户端管理（使用Telnet、PHP）"><a href="#Memcache客户端管理（使用Telnet、PHP）" class="headerlink" title="Memcache客户端管理（使用Telnet、PHP）"></a>Memcache客户端管理（使用Telnet、PHP）</h2><ol>
+<li>memcache可以使用Telnet这个命令来管理服务器端。（注意：前提是memcache已经启动）</li>
+</ol>
+<p><code>&gt; telnet localhost 11211</code>  {表示的含义是去请求本机的11211的服务}</p>
+<p><img src="wps2BF3.tmp.jpg" alt="img"> </p>
+<p><strong>解决：</strong>在程序里面安装Telnet命令即可，操作如下：先打开控制面板</p>
+<p><img src="wps2BF4.tmp.jpg" alt="img"> </p>
+<p>点击【程序】</p>
+<p><img src="wps2C05.tmp.jpg" alt="img"> </p>
+<p>【打开或关闭windows功能】</p>
+<p><img src="wps2C06.tmp.jpg" alt="img"> </p>
+<p>【Telnet客户端】</p>
+<p><img src="wps2C17.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>连接远程memcache服务器</li>
+</ol>
+<p><img src="wps2C18.tmp.jpg" alt="img"> </p>
+<p>输入上面的命令后回车，然后按一下<code>ctrl+]</code>之后，在回车</p>
+<p><img src="wps2C28.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>输入如下命令测试：</li>
+</ol>
+<p><img src="wps2C29.tmp.jpg" alt="img"> </p>
+<ol start="4">
+<li>退出终端：输入<code>quit</code>即可</li>
+</ol>
+<p><img src="wps2C3A.tmp.jpg" alt="img"> </p>
+<h2 id="xshell提供的强大的功能"><a href="#xshell提供的强大的功能" class="headerlink" title="xshell提供的强大的功能"></a>xshell提供的强大的功能</h2><p>由于windows自带的telnet提供的功能不能进行字符的删除，则我们可以使用xshell提供的telnet功能。</p>
+<p><img src="wps2C3B.tmp.jpg" alt="img"> </p>
+<h1 id="Memcache下的常见命令-（重要）"><a href="#Memcache下的常见命令-（重要）" class="headerlink" title="==Memcache下的常见命令==（重要）"></a>==Memcache下的常见命令==（重要）</h1><p>注意：memcache需要使用客户端进行链接的，前提是memcache服务必须启动。</p>
+<p><img src="wps2C4B.tmp.jpg" alt="img"> </p>
+<p>确保服务是正常启动的。</p>
+<p><img src="wps2C4C.tmp.jpg" alt="img"> </p>
+<p>使用客户端telnet链接</p>
+<p><code>&gt; telnet    memcache的主机的IP地址       端口</code></p>
+<p>测试是否连接成功（<code>stats</code>查看memcache的状态）</p>
+<p><img src="wps2C5D.tmp.jpg" alt="img"> </p>
+<h2 id="add命令-添加key"><a href="#add命令-添加key" class="headerlink" title="add命令-添加key"></a>add命令-添加key</h2><p>该命令用来添加key，同时指定是否进行压缩以及缓存时间。</p>
+<p><strong>语法：</strong></p>
+<p><code>&gt; add KEY FLAGE EXPIRES Bytes</code></p>
+<p><strong>KEY</strong> : 表示需要存储的key</p>
+<p><strong>FLAGE</strong>：表示是否对存储的数据进行压缩，0表示不压缩， 1表示压缩；但是不建议压缩（压缩需要操作系统消耗一定的资源），拿空间换时间。</p>
+<p><strong>EXPIRES</strong>:  表示value值失效的时间，单位是s。如果设置为0，表示不过期，但是memcache里面存在一个最大的保留时间为30天。</p>
+<p>还得注意一件事，当memcache本身的存储不够用的情况下，会优先剔除这些长期没有使用的的数据信息，以腾出新的空间供其他的数据缓存。（LRU算法：最近最少使用原则，最近一段时间内，最少被使用的数据，在剔除的时候会被优先剔除）</p>
+<p><strong>Bytes</strong>：表示存储value值的字节数（在命令行是需要手工指定，并且在存储的时候，需要严格的对应，但是如果使用的PHP作为客户端操作，就不用担心这个）</p>
+<p>使用如下：</p>
+<p><img src="wps2C5E.tmp.jpg" alt="img"> </p>
+<h2 id="get命令-获取key的值"><a href="#get命令-获取key的值" class="headerlink" title="get命令-获取key的值"></a>get命令-获取key的值</h2><p>该命令主要用来获取指定key的value值</p>
+<p><code>&gt; get KEY</code></p>
+<p><img src="wps2C6F.tmp.jpg" alt="img"> </p>
+<h2 id="set命令-给key设置值"><a href="#set命令-给key设置值" class="headerlink" title="set命令-给key设置值"></a>set命令-给key设置值</h2><p><strong>使用set命令的时候，如果key不存在，则创建一个key，如果存在这个key，则做替换操作。</strong></p>
+<p><strong>为什么会出现set?</strong></p>
+<p>这是因为我们使用add做添加的时候，如果某个key在缓存系统里面存在，使用add的时候，会报错的。则就出现一个set，如果不存在，则添加，如果存在则替换</p>
+<p><img src="wps2C70.tmp.jpg" alt="img"> </p>
+<h2 id="delete命令-删除对应的key"><a href="#delete命令-删除对应的key" class="headerlink" title="delete命令-删除对应的key"></a>delete命令-删除对应的key</h2><p>该命令删除指定key的值</p>
+<p><img src="wps2C71.tmp.jpg" alt="img"> </p>
+<p>删除一个不存在的key</p>
+<p><img src="wps2C81.tmp.jpg" alt="img"> </p>
+<h2 id="stats命令-查看memcache服务的状态"><a href="#stats命令-查看memcache服务的状态" class="headerlink" title="stats命令-查看memcache服务的状态"></a>stats命令-查看memcache服务的状态</h2><p>（status）</p>
+<p><strong>该命令用来查看memcache服务器的状态</strong></p>
+<p>使用如下：</p>
+<p><img src="wps2C82.tmp.jpg" alt="img"> </p>
+<p>常见参数解释</p>
+<p><img src="wps2C94.tmp.jpg" alt="img"> </p>
+<p><code>flush_all</code>命令-清空memcache里面所有的数据，==实际生产环境慎用==(会产生，雪崩效应)</p>
+<p><img src="wps2CA5.tmp.jpg" alt="img"> </p>
+<h2 id="incr-自增命令"><a href="#incr-自增命令" class="headerlink" title="incr 自增命令"></a>incr 自增命令</h2><p><strong>一般在统计文章的浏览量</strong></p>
+<p>需要注意：<code>incr</code>默认只能做+1的自增，类似$i++</p>
+<p>使用如下：</p>
+<p><img src="wps2CA6.tmp.jpg" alt="img"> </p>
+<h2 id="decr-自减命令"><a href="#decr-自减命令" class="headerlink" title="decr 自减命令"></a>decr 自减命令</h2><p>需要注意：<code>decr</code>默认只能做-1的自减，类似$i–</p>
+<p>使用如下：</p>
+<p><img src="wps2CB6.tmp.jpg" alt="img"> </p>
+<h1 id="PHP操作memcache-（重要）"><a href="#PHP操作memcache-（重要）" class="headerlink" title="==PHP操作memcache==（重要）"></a>==PHP操作memcache==（重要）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一般来说，Telnet只是用来调试memcache的基本命令的使用，但是在实际开发过程中，一般我们是通过PHP的扩展去操作memcache的，则这个时候我们需要开启PHP操作memcache的扩展。</p>
+<p>扩展下载地址：<a href="http://pecl.php.net/" target="_blank" rel="noopener">http://pecl.php.net/</a></p>
+<blockquote>
+</blockquote>
+<h2 id="memcache类和memcached类的区别"><a href="#memcache类和memcached类的区别" class="headerlink" title="memcache类和memcached类的区别"></a>memcache类和memcached类的区别</h2><p>如果我们打开<a href="http://www.php.net/manual/zh/搜索`memcache`关键字会出现以下情况的信息，如图所示" target="_blank" rel="noopener">http://www.php.net/manual/zh/搜索`memcache`关键字会出现以下情况的信息，如图所示</a>:</p>
+<p><img src="wps2CC7.tmp.jpg" alt="img"> </p>
+<p><img src="wps2CC8.tmp.jpg" alt="img"> </p>
+<p>在PHP手册里面提供了<strong>memcache</strong>和<strong>memcached</strong>两个扩展类来操作memcache服务器。本质上来说memcache和memcached是的功能是一样的。</p>
+<p>memcache类支持<strong>php5.3 - php5.6</strong>的单服务器和多服务器的操作。但多服务器的操作在Linux操作系统中兼容性会出现bug。</p>
+<p>为了在Linux中很好地兼容多服务器的操作，php官方推出了一个叫memcached的类，该类只能运行在Linux操作系统当中，支持Linux的单服务器和多服务器操作。如果你使用Linux操作系统作为服务器必须使用Memcached类。同时Memcached类是基于一个叫libmemcached的库，这个库是用C语言开发的在Linux当中运行的效率最高。</p>
+<ol>
+<li>windows 下使用memcache这个类，memcached这个类是无法在windows下使用。</li>
+<li>linux下可以使用 memcache这个类，也可以使用memcached这个类，但是建议使用 memcached 这个类</li>
+</ol>
+<h2 id="Windows下安装memcache扩展"><a href="#Windows下安装memcache扩展" class="headerlink" title="Windows下安装memcache扩展"></a>Windows下安装memcache扩展</h2><p>由于我们现在使用的是windows下的memcache，则我们需要使用memcache扩展类。</p>
+<ol>
+<li><p>下载PHP操作memcache的扩展类</p>
+<p><a href="http://pecl.php.net/package/memcache" target="_blank" rel="noopener">http://pecl.php.net/package/memcache</a></p>
+</li>
+</ol>
+<ol start="2">
+<li>利用phpinfo查看PHP环境信息，选择合适的dll扩展文件，主要是查看PHP版本，平台架构，是否线程安全，以及vs版本</li>
+</ol>
+<p><img src="wps2CD8.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li>将上面的扩展文件复制到php的ext目录</li>
+</ol>
+<p><img src="wps2CD9.tmp.jpg" alt="img"> </p>
+<ol start="4">
+<li>修改php.ini文件，增加<code>extension=php_memcache.dll</code>信息</li>
+</ol>
+<p><img src="wps2CEA.tmp.jpg" alt="img"> </p>
+<ol start="5">
+<li>使用<code>phpinfo()</code>测试，如果出现如下信息，表示安装成功</li>
+</ol>
+<p><img src="wps2CEB.tmp.jpg" alt="img"> </p>
+<h2 id="Memcache存储PHP各种数据类型"><a href="#Memcache存储PHP各种数据类型" class="headerlink" title="Memcache存储PHP各种数据类型"></a>Memcache存储PHP各种数据类型</h2><p>在我们使用memcache的时候进行数据缓存的时候，一般会缓存的PHP数据类型如下：</p>
+<ol>
+<li><strong>基本数据类型</strong>：字符串、整数、布尔值….</li>
+<li><strong>复合数据类型</strong>：数组（序列化的json格式的字符串）、一般对象很少存储</li>
+</ol>
+<p>但是需要注意的是，在memcache的底层其value值都是string类型的，至于我们缓存的PHP里面的数组，在memcache内部会进行序列化后保存起来。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li><p>使用PHP扩展（memcache后），则可以使用memcache的类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$memcache = <span class="keyword">new</span> Memcache();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用这个memecache对象去链接memcache服务器</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$memcache-&gt;connect(<span class="string">'127.0.0.1'</span>, <span class="number">11211</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用相关的方法来操作数据</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$memcache-&gt;set( key, value, isZip, expires ) ; <span class="comment">// 建议set</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用相关的方法来关闭连接</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$memcache-&gt;close();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="php中的基本数据类型缓存"><a href="#php中的基本数据类型缓存" class="headerlink" title="php中的基本数据类型缓存"></a>php中的基本数据类型缓存</h2><p><img src="wps2CFC.tmp.jpg" alt="img"> </p>
+<h2 id="php中的复合数据类型缓存"><a href="#php中的复合数据类型缓存" class="headerlink" title="php中的复合数据类型缓存"></a>php中的复合数据类型缓存</h2><p><img src="wps2CFD.tmp.jpg" alt="img"> </p>
+<p><strong>注意：</strong>  在我们存储复合数据类型的时候，memcache的底层会给我们做序列化操作。这个行为对程序员来说是完全透明的。</p>
+<h1 id="Memcache实现session共享-（重要）"><a href="#Memcache实现session共享-（重要）" class="headerlink" title="==Memcache实现session共享==（重要）"></a>==Memcache实现session共享==（重要）</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>session是用来跨脚本共享数据的，保存在服务器端，并且需要依赖cookie，保存一个session_id，所以一般说session是基于cookie。</p>
+<p>session的存储介质可以是：文件、mysql(需要重写session相关的函数)、memcache。实际项目中使用文件还是偏多，但是如果项目达到一定的并发数之后基本都是使用memcache来保存。</p>
+<p>参考阅读</p>
+<p><a href="https://blog.csdn.net/xinxinji/article/details/50523629" target="_blank" rel="noopener">https://blog.csdn.net/xinxinji/article/details/50523629</a></p>
+<p>一般一个网站变大之后，为了提升网站的能力，一般都会做负载均衡。如果使用了负载均衡的则会出现session丢失的问题。</p>
+<p>可以使用memcache来保存session数据，使得所有的session全部保存在memcache服务器里面。其他的web服务器也是去同一个memcache服务器里面获取数据。被称为<strong>session共享</strong>。</p>
+<p>一般对于负载均衡集群还可以使用linux下的NFS文件共享服务来解决session文件丢失的问题。</p>
+<h2 id="配置session共享"><a href="#配置session共享" class="headerlink" title="配置session共享"></a><strong>配置session共享</strong></h2><ol>
+<li><p>配置web服务器实现session共享</p>
+<p>a. 修改php.ini文件的三处，表示现在使用memcache来保存session数据</p>
+</li>
+</ol>
+<p><img src="wps2D0D.tmp.jpg" alt="img"> </p>
+<p>​    b. 把session数据保存在哪台memcache上面</p>
+<p><img src="wps2D0E.tmp.jpg" alt="img"> </p>
+<p>​    c. 开启php操作memcache的扩展，先把对应的dll文件复制到php的ext目录</p>
+<p><img src="wps2D0F.tmp.jpg" alt="img"> </p>
+<p><img src="wps2D20.tmp.jpg" alt="img"> </p>
+<p>​        注意：通过<code>phpinfo()</code>里面的信息，选择对应的php_memcache.dll 版本。</p>
+<p><img src="wps2D21.tmp.jpg" alt="img"> </p>
+<p><img src="wps2D32.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li><p>重启Apache，使用phpinfo函数进行测试，见到如下信息则成功。</p>
+<p>现在可使用memcache保存session数据</p>
+</li>
+</ol>
+<p><img src="wps2D33.tmp.jpg" alt="img"> </p>
+<p>​    memcache扩展成功开启</p>
+<p><img src="wps2D43.tmp.jpg" alt="img"> </p>
+<ol start="3">
+<li><p>测试使用</p>
+<p>需要注意：使用memcache保存session后，memcache服务器必须启动</p>
+</li>
+</ol>
+<p><img src="wps2D44.tmp.jpg" alt="img"> </p>
+<p>​    设置session数据</p>
+<p><img src="wps2D55.tmp.jpg" alt="img"> </p>
+<p>​    获取session里面的数据</p>
+<p><img src="wps2D56.tmp.jpg" alt="img"> </p>
+<p><strong>注意：</strong> 当用户的session数据保存在memcache里面之后，是拿什么作为session数据存储的<strong>key</strong>呢？</p>
+<p>​    答：使用服务器给客户端分配的<strong>session_id</strong>做的key。</p>
+<h1 id="memcache分布式缓存系统"><a href="#memcache分布式缓存系统" class="headerlink" title="memcache分布式缓存系统"></a>memcache分布式缓存系统</h1><p>上面讲解的memcache都是==单台==memcache的使用。</p>
+<p>概图：</p>
+<p><img src="wps2D66.tmp.jpg" alt="img"> </p>
+<p><strong>什么是memcache分布式缓存系统？</strong></p>
+<p>答：由于单台memcache的能力有限，例如内存空间大小有限，有的时候为了存储更多的数据，就是多台memcache来存储数据。而多台memcache组成的架构就被称为<strong>分布式缓存系统</strong>（<strong>集群缓存系统</strong>）。</p>
+<p>测试：只需要在程序里面，配置一下多台memcache的ip地址和端口，memcache内部会存在一个算法，把key存储在对应的memcache服务器上。</p>
+<p>代码：</p>
+<ol>
+<li>使用分布式存储数据（内部使用分布的策略的就是使用的取模，内置策略）</li>
+</ol>
+<p><img src="wps2D67.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>获取分布式数据</li>
+</ol>
+<p><img src="wps2D68.tmp.jpg" alt="img"> </p>
+<p><strong>总结</strong>：在使用上只需要配置一下memcache分布式的ip和端口，然后把数据丢给memcache即可，我们不用关心数据是存在哪台memcache服务器上。当我们获取数据的时候，也需要配置一下memcache分布式的IP和端口，告诉它一个key，memcache会自己去找对应存储数据的memcache服务器把值获取出来。</p>
+<h1 id="memcache内存分配机制"><a href="#memcache内存分配机制" class="headerlink" title="memcache内存分配机制"></a>memcache内存分配机制</h1><p>由于memcache是一个内存缓存系统，本身需要内存来保存数据，这就牵涉到内存的申请释放的问题。在memcache设计之初是不断申请和释放。但是这样设计导致一个问题：叫做<strong>内存碎片化</strong>。（备注：电脑的磁盘也存在碎片化的概念），同时还会使得管理上非常的麻烦，需要不断的找操作系统申请内存，释放内存，这无疑是一个很大的开销。</p>
+<p><img src="wps2D79.tmp.jpg" alt="img"> </p>
+<p>了解：<strong>什么是内存碎片化？</strong></p>
+<p><img src="wps2D7A.tmp.jpg" alt="img"> </p>
+<p>内存碎片化永远存在，但是可以使用优秀的算法尽可能的减少内存碎片化。内存的频繁的申请和释放也是需要消耗资源。</p>
+<p>所以memcache为了解决上面的问题，使用了一种较为优秀的处理方法。叫做<strong>内存的预先分配机制</strong>。</p>
+<ol>
+<li><p>启动memcache的时候使用<code>-m</code> 指定分配的内存大小</p>
+<p><img src="wps2D8B.tmp.jpg" alt="img"> </p>
+</li>
+</ol>
+<ol start="2">
+<li>预先分配机制</li>
+</ol>
+<p><img src="wps2D8C.tmp.jpg" alt="img"> </p>
+<p><strong>注意一下几点：</strong></p>
+<p>a. <strong>chunk</strong> 小块memcache存储数据最小的单元</p>
+<p>b. 1M里面所有的小的chunk组成一个<strong>slab class</strong></p>
+<p>c. 相邻的chunk之间的比值是固定的，被称为增长因子<code>-f</code>，根据实际的业务数据大小做处理</p>
+<p>d. memcache里面最大的value可以是1M</p>
+<p>备注：最小的chunk是需要源码编译才可以修改</p>
+<p>问题：如果真的有value值大小是超过1M，则这个时候不是memcache，使用Redis即可，Redis最大单个value值可以存储1G。</p>
+<ol start="3">
+<li><p>总结：</p>
+<p>a. 内存预先分配机制（内存碎片化和内存管理）</p>
+<pre><code>b. LRU算法（为了更好的使用空间，需要注意chunk在不够用的情况下，才会这样）
+
+c. 惰性删除机制（memcache本身不监控数据是否过期，当下一次重新获取数据的时候，才会去查看数据是否有效，如果有效则返回，否则清除。）
+</code></pre></li>
+</ol>
+<p><strong>LRU算法</strong>：被称为最近最少使用原则的算法，当memcache的一个slab里面的chunk不够使用的情况下（存储满了，数据在有效期）当有新的满足chunk的数据过来的情况下，memcache会优先把slab里面最近一段时间内，最不活跃的数据先剔除掉，腾出空间，给新的数据使用。 </p>
+<p><img src="wps2D9C.tmp.jpg" alt="img"> </p>
+<h1 id="linux下源码编译安装memcache"><a href="#linux下源码编译安装memcache" class="headerlink" title="==linux下源码编译安装memcache=="></a>==linux下源码编译安装memcache==</h1><p><strong>如何给PHP装扩展？</strong>不仅限于讲的memcache，后面还有其他的Redis、mongodb…..</p>
+<h2 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h2><p>一般来说，实际生成环境memcache服务都是安装在linux服务下的，同时在linux下的PHP如果要操作memcache服务器，一般来说，我们都是使用的<strong>memcached</strong>这个扩展类。</p>
+<h2 id="源码准备"><a href="#源码准备" class="headerlink" title="源码准备"></a>源码准备</h2><p>libevent-2.0.20-stable.tar.gz</p>
+<p>memcached-1.4.15.tar.gz</p>
+<p> 或</p>
+<p>libmemcached-1.0.14.tar.gz </p>
+<p>memcached-2.1.0.tgz</p>
+<p><img src="wps2D9D.tmp.jpg" alt="img"> </p>
+<p>由于memcache的底层需要一个libevent库，所以必须先安装该库后，再源码编译安装memcache（存在严格的顺序的问题），并且需要在安装的时候指定该库的位置。</p>
+<p>libevent下载地址：<a href="http://libevent.org/" target="_blank" rel="noopener">http://libevent.org/</a></p>
+<p>同时，在linux下一般来说，我们都是为PHP安装<strong>memcached</strong>这个扩展类来操作memcache的，但是由于该扩展库底层需要依赖libmemcached库，所以我们需要先安装这库，再安装memcached这个扩展类。</p>
+<h2 id="memcache安装"><a href="#memcache安装" class="headerlink" title="memcache安装"></a>memcache安装</h2><ol>
+<li>上传源码到<code>/usr/local/src</code> 目录下，对libevent，解压，并安装</li>
+</ol>
+<p><img src="1536655654383.png" alt="1536655654383"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> tar -zxvf libevent-2.0.20-stable.tar.gz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> libevent-2.0.20-stable</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure --prefix=/usr/<span class="built_in">local</span>/libevent &amp;&amp; make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<p>3， 编译安装memcached</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> tar -zxvf memcached-1.4.20.tar.gz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> memcached-1.4.20 </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure --prefix=/usr/<span class="built_in">local</span>/memcache  --with-libevent=/usr/<span class="built_in">local</span>/libevent &amp;&amp; make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<h2 id="linux下安装php的扩展memcache"><a href="#linux下安装php的扩展memcache" class="headerlink" title="linux下安装php的扩展memcache"></a>linux下安装php的扩展memcache</h2><ol>
+<li>上传源码到 <code>/usr/local/src</code> 目录，编译安装libmemcached库</li>
+</ol>
+<p><img src="1536655672202.png" alt="1536655672202"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> tar zxf libmemcached-1.0.14.tar.gz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> libmemcached-1.0.14</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure --prefix=/usr/<span class="built_in">local</span>/libmemcached --with-memcached &amp;&amp; make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<p>注意，如果安装过程中，出现如下的错误，则按照如下的方式进行解决</p>
+<p><img src="wps2DAF.tmp.jpg" alt="img"> </p>
+<p>解决：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> yum install -y gcc44 gcc44-c++ libstdc++44-devel</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> CC=/usr/bin/gcc44</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> CXX=/usr/bin/g++44</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> make cache</span></span><br><span class="line"></span><br><span class="line">然后重新执行</span><br><span class="line"><span class="meta"> #</span><span class="bash"> ./configure --prefix=/usr/<span class="built_in">local</span>/libmemcached --with-memcached &amp;&amp; make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编译安装PHP操作memcache的扩展</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> tar -zxvf memcached-2.1.0.tgz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> memcached-2.1.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> /usr/<span class="built_in">local</span>/php/bin/phpize</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure --with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config --with-libmemcached-dir=/usr/<span class="built_in">local</span>/libmemcached  &amp;&amp; make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>成功安装后，则会提示出一个文件夹，该文件夹下会存在一个<strong>memcached.so</strong>文件，这个时候修改php.ini的配置文件，增加一行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /usr/<span class="built_in">local</span>/php/lib/php.ini</span></span><br><span class="line"></span><br><span class="line">extension="/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/memcached.so"</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>使用<code>phpinfo()</code>函数进行测试，如果在出现如下界面，表示扩展安装成功</li>
+</ol>
+<p><img src="wps2DB0.tmp.jpg" alt="img"> </p>
+<h2 id="Memcache设置缓存时间的问题"><a href="#Memcache设置缓存时间的问题" class="headerlink" title="Memcache设置缓存时间的问题"></a><strong>Memcache设置缓存时间的问题</strong></h2><p>文档：<a href="http://php.net/manual/zh/memcached.expiration.php" target="_blank" rel="noopener">http://php.net/manual/zh/memcached.expiration.php</a></p>
+<p><img src="wps2DC1.tmp.jpg" alt="img"> </p>
+<p><strong>如何在memcache里面为指定的key设置缓存有效期呢？</strong></p>
+<p><code>&gt; set(&#39;name&#39;, &#39;asion&#39;, isZIp，缓存时间)</code></p>
+<ol>
+<li>缓存时间：使用s秒数，但是不能超过 86400*30 s，也就是30天的秒数。</li>
+<li>设置时间戳，但是该方式只在linux下可以使用，在window下并不能生效。</li>
+</ol>
+<p><strong>如何在memcache里面设置一个超过30天缓存时间的数据，例如设置为31天？</strong></p>
+<p>答：使用时间戳，<code>time() + 86400 * 31</code>；需要注意如果我们不给memcache的value设置有效期，则memcache默认只能保持30天有效期；但是如果我们需要手工的设置一个数据的有效期超过30天，则只能使用时间戳的方式设置。同时需要注意，该方法在Windows下并不支持，需要在linux下才可以。</p>
+<h2 id="memcache高可用"><a href="#memcache高可用" class="headerlink" title="memcache高可用"></a>memcache高可用</h2><p>（==本身就是缓存系统==）</p>
+<p><strong>memcache是否支持高可用？</strong></p>
+<p>答：支持。</p>
+<p>但是不建议memcache做高可用。memcache本身的数据是保持在内存里面，如果断电或者宕机、服务器挂了则数据会丢失，由于memcache本身就是做缓存的，数据是允许丢失的，下一次重新生成一份缓存即可。</p>
+<p>这里高可用的意思就是memcache里面的数据是否可以在宕机或者突然终止的情况下，数据还要存在。</p>
+<p><strong>备注</strong></p>
+<ol>
+<li>机房一般来说断电是没有影响的，就是即使机房断电，是完全不影响服务器的使用。</li>
+<li>机房没那么容易断电。</li>
+<li>但是最好不要做数据丢失。丢失多，一瞬间mysql的压力会暴增。mysql扛不起的情况下出现宕机。<ol>
+<li>由于缓存系统出现问题，导致mysql的压力变大，出现宕机，这种情况被称为memcache的==<strong>雪崩现象</strong>==，</li>
+<li>出现宕机后，一般mysql都有重启的机制，重启后缓存系统会重建，重建部分之后，mysql还是有可能宕机，重启，缓存在重建一部分…..随着时间推移，缓存系统重新的建立，趋于稳定…..。</li>
+</ol>
+</li>
+</ol>
+<p><strong>有以下两种方案实现：</strong></p>
+<ol>
+<li>典故：主要是sina公司发现memcache本身不支持高可用，单独为其开发了一个高可用的插件（MemcacheDB）定期的把memcache内存里面的数据同步的写到磁盘上面。</li>
+</ol>
+<p><img src="wps2DC2.tmp.jpg" alt="img"> </p>
+<p>​    备注：该产品产生的原因是因为当时没有可以把内存里面的数据同步写入到磁盘的产品。则新浪自主开发了该产品。但是后面出现redis可以把内存里面的数据写入到磁盘，所以该产品基本不使用了。后面使用redis做数据缓存和持久化存储。</p>
+<ol start="2">
+<li><strong>repcached</strong>产品也可以实现。</li>
+</ol>
+<p><a href="http://www.07net01.com/program/524088.html" target="_blank" rel="noopener">http://www.07net01.com/program/524088.html</a></p>
+<p><img src="wps2DD2.tmp.jpg" alt="img"> </p>
+<h2 id="memcache阅读资料"><a href="#memcache阅读资料" class="headerlink" title="memcache阅读资料"></a>memcache阅读资料</h2><p><a href="http://kimi.it/category/memcache/" target="_blank" rel="noopener">http://kimi.it/category/memcache/</a></p>
+<h2 id="memcache实际使用"><a href="#memcache实际使用" class="headerlink" title="memcache实际使用"></a>memcache实际使用</h2><ol>
+<li>缓存网站里面的局部数据</li>
+</ol>
+<p><img src="wps2DE4.tmp.jpg" alt="img"> </p>
+<ol start="2">
+<li>访问频率限制功能  如，[点赞 1天之内点赞1次] </li>
+</ol>
+<p><img src="wps2DF4.tmp.jpg" alt="img"> </p>
+<p>例如：同一个手机号码一分钟之内只能发送1次短信验证（有效期60s）；一天只能只能拥有3次发送短信的机会(有效期)[时间点： 1. 到今天23:59:59末点时间戳  、   2. 设置 今日末点23:59:59 - 当前时间 =  s数 ]。</p>
+<ol start="3">
+<li>文章浏览数统计</li>
+</ol>
+<p><img src="wps2DF5.tmp.jpg" alt="img"> </p>
+<p>对于文章浏览数没必要实时的写入数据库，我们可以将文章的浏览器数先写入到memcache缓存中，然后在夜晚通过定时任务将对应的浏览器写入到数据库中，做持久化操作。</p>
+<ol start="4">
+<li>热门软件下载排行榜</li>
+</ol>
+<p><img src="wps2E06.tmp.jpg" alt="img"> </p>
+<p>一般这些数据也不是实时的，一般来说都是统计前一天的下载量，所以我们可以将对应软件下载排行数据缓存一天，到下一天后进行重新缓存。</p>
+<h2 id="memadmin图形化界面"><a href="#memadmin图形化界面" class="headerlink" title="memadmin图形化界面"></a>memadmin图形化界面</h2><p>网站：<a href="http://www.junopen.com/memadmin/" target="_blank" rel="noopener">http://www.junopen.com/memadmin/</a></p>
+<p><strong>MemAdmin</strong>是一款可视化的Memcached管理与监控工具，使用PHP开发，体积小，操作简单。</p>
+<p><strong>主要功能：</strong></p>
+<p>· 服务器参数监控：STATS、SETTINGS、ITEMS、SLABS、SIZES实时刷新</p>
+<p>· 服务器性能监控：GET、DELETE、INCR、DECR、CAS等常用操作命中率实时监控</p>
+<p>· 支持数据遍历，方便对存储内容进行监视</p>
+<p>· 支持条件查询，筛选出满足条件的KEY或VALUE</p>
+<p>· 数组、JSON等序列化字符反序列显示</p>
+<p>· 兼容memcache协议的其他服务，如Tokyo Tyrant (遍历功能除外)</p>
+<p>· 支持服务器连接池，多服务器管理切换方便简洁</p>
+<h1 id="http状态码-502"><a href="#http状态码-502" class="headerlink" title="http状态码-502"></a>http状态码-502</h1><p><img src="1536658468283.png" alt="1536658468283"></p>
+<p> PHP的应用服务器挂了，也就是<strong>php-fpm</strong>不可以使用了。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Kuma</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://blog.kuma8866.top/posts/402189821/" title="NoSQL之Memcache">http://blog.kuma8866.top/posts/402189821/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2501908538/" rel="next" title="mysql">
+                <i class="fa fa-chevron-left"></i> mysql
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3963543486/" rel="prev" title="SVN">
+                SVN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Kuma">
+            
+              <p class="site-author-name" itemprop="name">Kuma</p>
+              <p class="site-description motion-element" itemprop="description">爱分享，爱技术，爱生活。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">128</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/KumaNNN" title="GitHub &rarr; https://github.com/KumaNNN" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:kuma8866@163.com" title="E-Mail &rarr; mailto:kuma8866@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                <a href="/link/" target="_blank">友情链接</a>
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">Title</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="http://www.baidu.com" rel="noopener" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NoSql"><span class="nav-text">NoSql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-MySql的存储缺点"><span class="nav-text">PHP+MySql的存储缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大型网站的优化方向"><span class="nav-text">大型网站的优化方向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSql的含义"><span class="nav-text">NoSql的含义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSql的共同特点和优势"><span class="nav-text">NoSql的共同特点和优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSql的共同的缺点"><span class="nav-text">NoSql的共同的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSql的产品分类"><span class="nav-text">NoSql的产品分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memcache技术"><span class="nav-text">Memcache技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache简介"><span class="nav-text">memcache简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcache的优点"><span class="nav-text">Memcache的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcache的缺点"><span class="nav-text">Memcache的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache和mysql对比"><span class="nav-text">memcache和mysql对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache是一个c-s架构软件"><span class="nav-text">memcache是一个c/s架构软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#window下memcache安装"><span class="nav-text">window下memcache安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一次性使用"><span class="nav-text">一次性使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装成window系统服务"><span class="nav-text">安装成window系统服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcache客户端管理（使用Telnet、PHP）"><span class="nav-text">Memcache客户端管理（使用Telnet、PHP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xshell提供的强大的功能"><span class="nav-text">xshell提供的强大的功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memcache下的常见命令-（重要）"><span class="nav-text">==Memcache下的常见命令==（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#add命令-添加key"><span class="nav-text">add命令-添加key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get命令-获取key的值"><span class="nav-text">get命令-获取key的值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set命令-给key设置值"><span class="nav-text">set命令-给key设置值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete命令-删除对应的key"><span class="nav-text">delete命令-删除对应的key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stats命令-查看memcache服务的状态"><span class="nav-text">stats命令-查看memcache服务的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#incr-自增命令"><span class="nav-text">incr 自增命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#decr-自减命令"><span class="nav-text">decr 自减命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP操作memcache-（重要）"><span class="nav-text">==PHP操作memcache==（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache类和memcached类的区别"><span class="nav-text">memcache类和memcached类的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows下安装memcache扩展"><span class="nav-text">Windows下安装memcache扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcache存储PHP各种数据类型"><span class="nav-text">Memcache存储PHP各种数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php中的基本数据类型缓存"><span class="nav-text">php中的基本数据类型缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php中的复合数据类型缓存"><span class="nav-text">php中的复合数据类型缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memcache实现session共享-（重要）"><span class="nav-text">==Memcache实现session共享==（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置session共享"><span class="nav-text">配置session共享</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#memcache分布式缓存系统"><span class="nav-text">memcache分布式缓存系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#memcache内存分配机制"><span class="nav-text">memcache内存分配机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下源码编译安装memcache"><span class="nav-text">==linux下源码编译安装memcache==</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-2"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码准备"><span class="nav-text">源码准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache安装"><span class="nav-text">memcache安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux下安装php的扩展memcache"><span class="nav-text">linux下安装php的扩展memcache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcache设置缓存时间的问题"><span class="nav-text">Memcache设置缓存时间的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache高可用"><span class="nav-text">memcache高可用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache阅读资料"><span class="nav-text">memcache阅读资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache实际使用"><span class="nav-text">memcache实际使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memadmin图形化界面"><span class="nav-text">memadmin图形化界面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http状态码-502"><span class="nav-text">http状态码-502</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> 
+
+  
+  <span> Copyright </span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">
+	 
+		<a href="/admin" target="_blank">Kuma</a>
+	 
+  </span>
+  
+&copy; 2015 –  
+<span itemprop="copyrightYear">2019</span>
+  
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">923k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">13:59</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.5.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">粤备案：666666666 </a>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+      <div>
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      </div>
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>
