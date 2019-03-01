@@ -1,24 +1,25 @@
 ---
-title: index
-mathjax: false
-categories:
-  - Dev
-  - PHP
-  - TP3æ¡†æž¶
+title: Index 
+date: 2019-03-01 16:49:24 
+updated: 2019-03-01 16:49:24 
+mathjax: false 
+categories:  
+tags: 
 typora-root-url: index
 typora-copy-images-to: index
-top: 1
-abbrlink: 2155046664
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
+top: 0
 ---
 
 
-* [ThinkPHP 3](TP3æ¡†æž¶.md)
-  * ç®€ä»‹
-  * ä¸‹è½½å’Œéƒ¨ç½²
-  * ç›®å½•ç»“æž„
-  * æŽ§åˆ¶å™¨å­¦ä¹ 
-  * è§†å›¾å­¦ä¹ 
-  * æ¨¡åž‹å­¦ä¹ 
+# Ë÷Òý 
+ 	
+## TP3¿ò¼Ü 
+[±¾µØÔ¤ÀÀ](TP3¿ò¼Ü.md)    [Blog](http://blog.kuma8866.top/posts/551416508/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/TP3¿ò¼Ü/TP3¿ò¼Ü.md)
+ 
+  * ¼ò½é
+  * ÏÂÔØºÍ²¿Êð
+  * Ä¿Â¼½á¹¹
+  * ¿ØÖÆÆ÷Ñ§Ï°
+  * ÊÓÍ¼Ñ§Ï°
+  * Ä£ÐÍÑ§Ï°
+ 

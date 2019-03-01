@@ -1,17 +1,13 @@
 ---
 title: TP5框架
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17 
 mathjax: false
-categories:
-  - Dev
-  - PHP
-  - ThinkPHP5框架
+categories: 
+tags:
 typora-root-url: .
 typora-copy-images-to: .
 top: 1
-abbrlink: 1124976518
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
 ---
 
 

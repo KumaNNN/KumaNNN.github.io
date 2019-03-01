@@ -1,17 +1,13 @@
 ---
 title: MYSQLI扩展案例
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17 
 mathjax: false
-categories:
-  - Dev
-  - PHP
-  - MYSQLI
+categories: 
+tags:
 typora-root-url: MYSQLI扩展案例
 typora-copy-images-to: MYSQLI扩展案例
 top: 1
-abbrlink: 2685337793
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
 ---
 
 

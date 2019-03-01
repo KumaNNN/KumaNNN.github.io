@@ -1,28 +1,28 @@
 ---
-title: index
-mathjax: false
-categories:
-  - Dev
-  - PHP
-  - MYSQLI
+title: Index 
+date: 2019-03-01 16:49:24 
+updated: 2019-03-01 16:49:24 
+mathjax: false 
+categories:  
+tags: 
 typora-root-url: index
 typora-copy-images-to: index
-top: 1
-abbrlink: 2155046660
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
+top: 0
 ---
 
 
-### [MYSQLI鎵╁睍](MYSQLI鎵╁睍.md)
+# 索引 
+ 	
+## MYSQLI扩展 
+[本地预览](MYSQLI扩展.md)    [Blog](http://blog.kuma8866.top/posts/3495660076/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLI扩展.md)
+ 
+* MYSQLI的概念
+* MYSQLI扩展的使用
 
-* [MYSQLI鐨勬蹇礭(MYSQLI鎵╁睍.md)
-* [MYSQLI鎵╁睍鐨勪娇鐢╙(MYSQLI鎵╁睍.md)
 
-
-
-### [妗堜緥](MYSQLI鎵╁睍妗堜緥.md)
-
-* [MYSQLI瀹炵幇鍚庡彴鏂伴椈绠＄悊绯荤粺](MYSQLI鎵╁睍妗堜緥.md)
-
+ 
+## MYSQLI扩展案例 
+[本地预览](MYSQLI扩展案例.md)    [Blog](http://blog.kuma8866.top/posts/2685337793/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MYSQLI/MYSQLI扩展案例.md)
+ 
+* MYSQLI实现后台新闻管理系统
+ 

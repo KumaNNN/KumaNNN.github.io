@@ -1,29 +1,29 @@
 ---
-title: index
-mathjax: false
-categories:
-  - Dev
-  - PHP
-  - PHPæ¨¡æ¿å¼•æ“Smarty
+title: Index 
+date: 2019-03-01 16:49:24 
+updated: 2019-03-01 16:49:24 
+mathjax: false 
+categories:  
+tags: 
 typora-root-url: index
 typora-copy-images-to: index
-top: 1
-abbrlink: 2155046662
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
+top: 0
 ---
 
 
-## [SMARTYæ¨¡æ¿æŠ€æœ¯](smartyæ¨¡æ¿æŠ€æœ¯.md)
-
-* [SMARTYåŸºæœ¬æ¦‚å¿µ](smartyæ¨¡æ¿æŠ€æœ¯.md)
-* [SMARTYéƒ¨ç½²](smartyæ¨¡æ¿æŠ€æœ¯.md)
-* [SMARTYç¨‹åºè®¾è®¡](smartyæ¨¡æ¿æŠ€æœ¯.md)
-  * å±æ€§è®¾ç½®(å®šç•Œç¬¦ ç›®å½• å¸¸é‡)
-* [SMARTYæ¨¡æ¿è®¾è®¡](smartyæ¨¡æ¿æŠ€æœ¯.md)
-  * SMARTYæ¨¡æ¿æ³¨é‡Š
-  * SMARTYæ¨¡æ¿å˜é‡
-  * SMARTYç³»ç»Ÿå˜é‡
-  * SMARTYå†…ç½®å‡½æ•°
-  * SMARTYå˜é‡è°ƒèŠ‚å™¨
+# Ë÷Òı 
+ 	
+## smartyÄ£°å¼¼Êõ 
+[±¾µØÔ¤ÀÀ](smartyÄ£°å¼¼Êõ.md)    [Blog](http://blog.kuma8866.top/posts/3997252698/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/PHPÄ£°åÒıÇæSmarty/smartyÄ£°å¼¼Êõ.md)
+ 
+* SMARTY»ù±¾¸ÅÄî
+* SMARTY²¿Êğ
+* SMARTY³ÌĞòÉè¼Æ
+  * ÊôĞÔÉèÖÃ(¶¨½ç·û Ä¿Â¼ ³£Á¿)
+* SMARTYÄ£°åÉè¼Æ
+  * SMARTYÄ£°å×¢ÊÍ
+  * SMARTYÄ£°å±äÁ¿
+  * SMARTYÏµÍ³±äÁ¿
+  * SMARTYÄÚÖÃº¯Êı
+  * SMARTY±äÁ¿µ÷½ÚÆ÷
+ 

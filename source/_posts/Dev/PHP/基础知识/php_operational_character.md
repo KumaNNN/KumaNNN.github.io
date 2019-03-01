@@ -1,17 +1,13 @@
 ---
 title: PHP运算符
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17 
 mathjax: false
-categories:
-  - Dev
-  - PHP
-  - 基础知识
+categories: 
+tags:
 typora-root-url: imgs
 typora-copy-images-to: imgs
 top: 1
-abbrlink: 2259325832
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
 ---
 
 

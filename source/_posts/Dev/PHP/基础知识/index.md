@@ -1,62 +1,94 @@
 ---
-title: index
-mathjax: false
-categories:
-  - Dev
-  - PHP
-  - åŸºç¡€çŸ¥è¯†
+title: Index 
+date: 2019-03-01 16:49:24 
+updated: 2019-03-01 16:49:24 
+mathjax: false 
+categories:  
+tags: 
 typora-root-url: index
 typora-copy-images-to: index
-top: 1
-abbrlink: 2155046667
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
+top: 0
 ---
 
 
-# PHP  åŸºç¡€çŸ¥è¯†
+# Ë÷Òı 
 
-## [PHP](php.md)
+## php 
+[±¾µØÔ¤ÀÀ](php.md)    [Blog](http://blog.kuma8866.top/posts/1452351953/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/php.md)
 
-* [phpç®€ä»‹](php.md)
-* [å®‰è£…å’Œé…ç½®](php.md)
-
-
-
-* [PHPåŸºæœ¬è¯­æ³•](php_basic_syntax.md)
-* [å˜é‡ä¸å¸¸é‡](php_variable_constant.md)
-  * å˜é‡
-  * å¸¸é‡
-  * å˜é‡æ•°æ®ç±»å‹åŠè½¬æ¢
-  * ç±»å‹ç›¸å…³çš„å‡½æ•°
-* [è¿ç®—ç¬¦](php_operational_character.md)
-* [æµç¨‹æ§åˆ¶](PHP_FlowControl.md)
-  * é€‰æ‹©ç»“æ„if
-  * å¾ªç¯ç»“æ„while
-  * å¾ªç¯ä¸­æ–­å…³é”®å­—
-* [å‡½æ•°](PHP_function.md)
-  * å‡½æ•°ç®€ä»‹
-  * å¯å˜å‡½æ•°
-  * åŒ¿åå‡½æ•°
-  * å­—ç¬¦ä¸²å‡½æ•°
-  * æ—¶é—´æ—¥æœŸå‡½æ•°
-  * æ•°å­¦å‡½æ•°
-* [å˜é‡ä½œç”¨åŸŸ](PHP_function.md)
-* [å˜é‡ç”Ÿå‘½å‘¨æœŸ](PHP_function.md)
-* [æ•°ç»„](PHP_Array.md)
-  * æ•°ç»„ç®€ä»‹
-  * æ•°ç»„éå†
-  * æ•°ç»„æŒ‡é’ˆ
-  * æ•°ç»„å‡½æ•°
-  * æ•°ç»„æ’åº
-* [é”™è¯¯å¤„ç†](php_error.md)
-* [æ–‡ä»¶åŒ…å«](php_other.md)
-* [è¿›åˆ¶è½¬æ¢](php_other.md)
-* [ç»ˆæ­¢è„šæœ¬æ‰§è¡Œ](php_other.md)
-* [é€’å½’](php_other.md)
-* [æ¨¡æ‹Ÿæ•°æ®ç»“æ„](php_other.md)
-* [ç®—æ³•](php_other.md)
+* php¼ò½é
+* °²×°ºÍÅäÖÃ
 
 
+## PHP Êı×é
+[±¾µØÔ¤ÀÀ](PHP_Array.md)    [Blog](http://blog.kuma8866.top/posts/2612395477/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/PHP_Array.md)
+
+  * Êı×é¼ò½é
+  * Êı×é±éÀú
+  * Êı×éÖ¸Õë
+  * Êı×éº¯Êı
+  * Êı×éÅÅĞò 
+
+ 
+
+## php »ù±¾Óï·¨
+[±¾µØÔ¤ÀÀ](php_basic_syntax.md)    [Blog](http://blog.kuma8866.top/posts/3316045294/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/php_basic_syntax.md)
+
+
+
+## php´íÎó´¦Àí
+[±¾µØÔ¤ÀÀ](php_error.md)    [Blog](http://blog.kuma8866.top/posts/2553195674/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/php_error.md)
+
+ 
+
+## PHP Á÷³Ì¿ØÖÆ
+[±¾µØÔ¤ÀÀ](PHP_FlowControl.md)    [Blog](http://blog.kuma8866.top/posts/1870348519/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/PHP_FlowControl.md)
+
+  * Ñ¡Ôñ½á¹¹if
+  * Ñ­»·½á¹¹while
+  * Ñ­»·ÖĞ¶Ï¹Ø¼ü×Ö
+
+
+## PHPº¯Êı
+[±¾µØÔ¤ÀÀ](PHP_function.md)    [Blog](http://blog.kuma8866.top/posts/2375644162/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/PHP_function.md)
+
+  * º¯Êı¼ò½é
+  * ¿É±äº¯Êı
+  * ÄäÃûº¯Êı
+  * ×Ö·û´®º¯Êı
+  * Ê±¼äÈÕÆÚº¯Êı
+  * ÊıÑ§º¯Êı
+
+
+
+±äÁ¿×÷ÓÃÓò
+
+±äÁ¿ÉúÃüÖÜÆÚ 
+
+
+
+
+## phpÔËËã·û 
+[±¾µØÔ¤ÀÀ](php_operational_character.md)    [Blog](http://blog.kuma8866.top/posts/2259325832/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/php_operational_character.md)
+
+ 
+
+## phpÆäËü
+[±¾µØÔ¤ÀÀ](php_other.md)    [Blog](http://blog.kuma8866.top/posts/2709295124/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/php_other.md)
+
+* ÎÄ¼ş°üº¬
+* ½øÖÆ×ª»»
+* ÖÕÖ¹½Å±¾Ö´ĞĞ
+* µİ¹é
+* Ä£ÄâÊı¾İ½á¹¹
+* Ëã·¨
+
+
+## php±äÁ¿³£Á¿ 
+[±¾µØÔ¤ÀÀ](php_variable_constant.md)    [Blog](http://blog.kuma8866.top/posts/327881324/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/»ù´¡ÖªÊ¶/php_variable_constant.md)
+
+  * ±äÁ¿
+  * ³£Á¿
+  * ±äÁ¿Êı¾İÀàĞÍ¼°×ª»»
+  * ÀàĞÍÏà¹ØµÄº¯Êı 
 

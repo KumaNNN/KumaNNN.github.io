@@ -1,17 +1,13 @@
 ---
 title: MVC
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17 
 mathjax: false
-categories:
-  - Dev
-  - PHP
-  - MVC
+categories: 
+tags:
 typora-root-url: MVC
 typora-copy-images-to: MVC
 top: 1
-abbrlink: 2218208633
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
 ---
 
 

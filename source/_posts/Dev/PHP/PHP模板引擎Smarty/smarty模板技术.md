@@ -1,17 +1,13 @@
 ---
 title: Smarty模板技术
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17 
 mathjax: false
-categories:
-  - Dev
-  - PHP
-  - PHP模板引擎Smarty
+categories: 
+tags:
 typora-root-url: Smarty模板技术
 typora-copy-images-to: Smarty模板技术
 top: 1
-abbrlink: 3997252698
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
 ---
 
 

@@ -1,23 +1,21 @@
 ---
-title: index
-mathjax: false
-categories:
-  - Dev
-  - PHP
-  - MVC
+title: Index 
+date: 2019-03-01 16:49:24 
+updated: 2019-03-01 16:49:24 
+mathjax: false 
+categories:  
+tags: 
 typora-root-url: index
 typora-copy-images-to: index
-top: 1
-abbrlink: 2155046659
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
+top: 0
 ---
 
-## [MVC缂栫▼鎬濇兂](MVC.md)
 
-
-
-* [MVC鍩烘湰姒傚康](MVC.md)
-* [妗堜緥锛氫娇鐢∕VC瀹炵幇鏂伴椈绠＄悊绯荤粺](MVC.md)
-
+# 索引 
+ 	
+## MVC 
+[本地预览](MVC.md)    [Blog](http://blog.kuma8866.top/posts/2218208633/)     [Github](https://github.com/KumaDocCenter/PHP/blob/master/doc/md/MVC/MVC.md)
+ 
+* MVC基本概念
+* 案例：使用MVC实现新闻管理系统
+ 

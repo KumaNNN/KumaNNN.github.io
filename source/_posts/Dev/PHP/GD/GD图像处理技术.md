@@ -1,17 +1,13 @@
 ---
 title: GD图像处理技术
+date: 2019-02-28 12:36:17
+updated: 2019-02-28 12:36:17 
 mathjax: false
-categories:
-  - Dev
-  - PHP
-  - GD
+categories: 
+tags:
 typora-root-url: GD图像处理技术
 typora-copy-images-to: GD图像处理技术
 top: 1
-abbrlink: 81311927
-date: 2019-02-28 12:36:17
-updated: 2019-02-28 12:36:17
-tags:
 ---
 
 
